@@ -39,8 +39,17 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,6 +72,69 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\Entities\BuddySystem.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Certificates.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\CertificationOrganization.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DiveConditions.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DiveLogs.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DiveSites.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DiveStatistic.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DiveTypes.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\EmergencyContacts.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Equipment.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\EquipmentCategories.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\EquipmentManufacturer.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\MaintenanceSchedule.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ModelDivingApp.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDivingApp.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ModelDivingApp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ModelDivingApp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sysdiagrams.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\TypeOfTraining.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\User.cs">
+      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -98,6 +170,14 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <EntityDeploy Include="Models\Entities\ModelDivingApp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDivingApp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Entities\ModelDivingApp.edmx.diagram">
+      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,8 +202,21 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Content Include="Models\Entities\ModelDivingApp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelDivingApp.Context.cs</LastGenOutput>
+      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Entities\ModelDivingApp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
+      <LastGenOutput>ModelDivingApp.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
