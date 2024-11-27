@@ -41,7 +41,23 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Towar",
-                    new BaseCommand(() => this.CreateTowar()))
+                    new BaseCommand(() => this.CreateTowar())),
+
+                new CommandViewModel(
+                    "Buddys",
+                    new BaseCommand(() => this.ShowAllBuddys())),
+
+                new CommandViewModel(
+                    "Certificates",
+                    new BaseCommand(() => this.ShowAllCertificates())),
+
+                new CommandViewModel(
+                    "Certification Organizations",
+                    new BaseCommand(() => this.ShowAllCertificationOrganizations())),
+
+                new CommandViewModel(
+                    "Dive Conditions",
+                    new BaseCommand(() => this.ShowAllDiveConditions())),
             };
         }
         #endregion
@@ -98,6 +114,63 @@ namespace MVVMFirma.ViewModels
 
             this.SetActiveWorkspace(workspace);
         }
+
+        private void ShowAllBuddys()
+        {
+            AllBuddysViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is AllBuddysViewModel)
+                as AllBuddysViewModel;
+            if (workspace == null)
+            {
+                workspace = new AllBuddysViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllCertificates()
+        {
+            AllCertificatesViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is AllCertificatesViewModel)
+                as AllCertificatesViewModel;
+            if (workspace == null)
+            {
+                workspace = new AllCertificatesViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllCertificationOrganizations()
+        {
+            AllCertificationOrganizationViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is AllCertificationOrganizationViewModel)
+                as AllCertificationOrganizationViewModel;
+            if (workspace == null)
+            {
+                workspace = new AllCertificationOrganizationViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void ShowAllDiveConditions()
+        {
+            AllDiveConditionsViewModel workspace =
+                this.Workspaces.FirstOrDefault(vm => vm is AllDiveConditionsViewModel)
+                as AllDiveConditionsViewModel;
+            if (workspace == null)
+            {
+                workspace = new AllDiveConditionsViewModel();
+                this.Workspaces.Add(workspace);
+            }
+
+            this.SetActiveWorkspace(workspace);
+        }
+
         private void SetActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(this.Workspaces.Contains(workspace));

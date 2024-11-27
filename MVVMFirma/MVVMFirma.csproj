@@ -135,12 +135,28 @@
     <Compile Include="Models\Entities\User.cs">
       <DependentUpon>ModelDivingApp.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AllBuddysViewModel.cs" />
+    <Compile Include="ViewModels\AllCertificatesViewModel.cs" />
+    <Compile Include="ViewModels\AllCertificationOrganizationViewModel.cs" />
+    <Compile Include="ViewModels\AllDiveConditionsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\WszystkieTowaryViewModel.cs" />
+    <Compile Include="Views\AllBuddysView.xaml.cs">
+      <DependentUpon>AllBuddysView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllCertificatesView.xaml.cs">
+      <DependentUpon>AllCertificatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllCertificationOrganizationView.xaml.cs">
+      <DependentUpon>AllCertificationOrganizationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllDiveConditionsView.xaml.cs">
+      <DependentUpon>AllDiveConditionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -185,6 +201,22 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AllBuddysView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllCertificatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllCertificationOrganizationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllDiveConditionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
