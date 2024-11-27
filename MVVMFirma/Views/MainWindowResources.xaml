@@ -21,6 +21,39 @@
     <DataTemplate DataType="{x:Type vm:AllDiveConditionsViewModel}">
         <vw:AllDiveConditionsView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllDiveLogsViewModel}">
+        <vw:AllDiveLogsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllDiveSitesViewModel}">
+        <vw:AllDiveSitesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllDiveStatisticViewModel}">
+        <vw:AllDiveStatisticView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllDiveTypesViewModel}">
+        <vw:AllDiveTypesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllEmergencyContactsViewModel}">
+        <vw:AllEmergencyContactsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllEquipmentCategoriesViewModel}">
+        <vw:AllEquipmentCategoriesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllEquipmentManufacturerViewModel}">
+        <vw:AllEquipmentManufacturerView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllEquipmentViewModel}">
+        <vw:AllEquipmentView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllMaintenanceScheduleViewModule}">
+        <vw:AllMaintenanceScheduleView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllTypeOfTrainingViewModel}">
+        <vw:AllTypeOfTrainingView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AllUsersViewModel}">
+        <vw:AllUsersView/>
+    </DataTemplate>
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
