@@ -36,77 +36,133 @@ namespace MVVMFirma.ViewModels
         {
             return new List<CommandViewModel>
             {
-                new CommandViewModel(
-                    "Towary",
-                    new BaseCommand(() => this.ShowAllTowar())),
+                //new CommandViewModel(
+                //    "Towary",
+                //    new BaseCommand(() => this.ShowAllTowar())),
+
+                //new CommandViewModel(
+                //    "Towar",
+                //    new BaseCommand(() => this.CreateTowar())),
 
                 new CommandViewModel(
-                    "Towar",
-                    new BaseCommand(() => this.CreateTowar())),
+                    "Users",
+                    new BaseCommand(() => this.ShowAllUsers())),
+
+                new CommandViewModel(
+                    "New User",
+                    new BaseCommand(() => this.CreateNewUser())),
 
                 new CommandViewModel(
                     "Buddys",
                     new BaseCommand(() => this.ShowAllBuddys())),
 
                 new CommandViewModel(
-                    "Buddy",
-                    new BaseCommand(() => this.CreateBuddy())),
+                    "New Buddy",
+                    new BaseCommand(() => this.CreateNewBuddy())),
 
                 new CommandViewModel(
                     "Certificates",
                     new BaseCommand(() => this.ShowAllCertificates())),
 
                 new CommandViewModel(
+                    "New Certificate",
+                    new BaseCommand(() => this.CreateNewCertificate())),
+
+                new CommandViewModel(
                     "Certification Organizations",
                     new BaseCommand(() => this.ShowAllCertificationOrganizations())),
+
+                new CommandViewModel(
+                    "New Organization",
+                    new BaseCommand(() => this.CreateNewOrganization())),
 
                 new CommandViewModel(
                     "Dive Conditions",
                     new BaseCommand(() => this.ShowAllDiveConditions())),
 
                 new CommandViewModel(
-                    "Dive Log",
+                    "New Dive Condition",
+                    new BaseCommand(() => this.CreateNewDiveCondition())),
+
+                new CommandViewModel(
+                    "Dive Logs",
                     new BaseCommand(() => this.ShowAllDiveLogs())),
+
+                new CommandViewModel(
+                    "New Dive Log",
+                    new BaseCommand(() => this.CreateNewDiveLog())),
 
                 new CommandViewModel(
                     "Dive Sites",
                     new BaseCommand(() => this.ShowAllDiveSites())),
 
                 new CommandViewModel(
+                    "New Dive Site",
+                    new BaseCommand(() => this.CreateNewDiveSite())),
+
+                new CommandViewModel(
                     "Statistics",
                     new BaseCommand(() => this.ShowAllStatistics())),
+
+                new CommandViewModel(
+                    "New Statistic",
+                    new BaseCommand(() => this.CreateNewStatistic())),
 
                 new CommandViewModel(
                     "Dive Types",
                     new BaseCommand(() => this.ShowAllDiveTypes())),
 
                 new CommandViewModel(
+                    "New Dive Type",
+                    new BaseCommand(() => this.CreateNewDiveType())),
+
+                new CommandViewModel(
                     "Emergency Contacts",
                     new BaseCommand(() => this.ShowAllEmergencyContacts())),
+
+                new CommandViewModel(
+                    "New Emergency Contact",
+                    new BaseCommand(() => this.CreateNewEmergencyContact())),
 
                 new CommandViewModel(
                     "Equipment Categories",
                     new BaseCommand(() => this.ShowAllEquipmentCategories())),
 
                 new CommandViewModel(
+                    "New Equipment Category",
+                    new BaseCommand(() => this.CreateNewEquipmentCategory())),
+
+                new CommandViewModel(
                     "Equipment Manufacturer",
                     new BaseCommand(() => this.ShowAllEquipmentManufacturer())),
+
+                new CommandViewModel(
+                    "New Equipment Manufacturer",
+                    new BaseCommand(() => this.CreateNewEquipmentManufacturer())),
 
                 new CommandViewModel(
                     "Equipment",
                     new BaseCommand(() => this.ShowAllEquipment())),
 
                 new CommandViewModel(
+                    "New Equipment",
+                    new BaseCommand(() => this.CreateNewEquipment())),
+
+                new CommandViewModel(
                     "Maintenance Schedules",
                     new BaseCommand(() => this.ShowAllMaintenanceSchedules())),
+
+                new CommandViewModel(
+                    "New Maintenance Schedule",
+                    new BaseCommand(() => this.CreateNewMaintenanceSchedule())),
 
                 new CommandViewModel(
                     "Trainig Types",
                     new BaseCommand(() => this.ShowAllTrainigTypes())),
 
                 new CommandViewModel(
-                    "Users",
-                    new BaseCommand(() => this.ShowAllUsers())),
+                    "New Trainig Type",
+                    new BaseCommand(() => this.CreateNewTrainingType())),
             };
         }
         #endregion
@@ -178,7 +234,7 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateBuddy()
+        private void CreateNewBuddy()
         {
             NewBuddysViewModel workspace = new NewBuddysViewModel();
             this.Workspaces.Add(workspace);
@@ -199,6 +255,13 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
+        private void CreateNewCertificate()
+        {
+            NewCertificatesViewModel workspace = new NewCertificatesViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
         private void ShowAllCertificationOrganizations()
         {
             AllCertificationOrganizationViewModel workspace =
@@ -210,6 +273,13 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewOrganization()
+        {
+            NewCertificationOrganizationViewModel workspace = new NewCertificationOrganizationViewModel();
+            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
@@ -227,6 +297,13 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
+        private void CreateNewDiveCondition()
+        {
+            NewDiveConditionsViewModel workspace = new NewDiveConditionsViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
         private void ShowAllDiveLogs()
         {
             AllDiveLogsViewModel workspace =
@@ -238,6 +315,13 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewDiveLog()
+        {
+            NewDiveLogsViewModel workspace = new NewDiveLogsViewModel();
+            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
@@ -255,6 +339,13 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
+        private void CreateNewDiveSite()
+        {
+            NewDiveSitesViewModel workspace = new NewDiveSitesViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
         private void ShowAllStatistics()
         {
             AllDiveStatisticViewModel workspace =
@@ -268,6 +359,13 @@ namespace MVVMFirma.ViewModels
 
             this.SetActiveWorkspace(workspace);
         }
+
+        private void CreateNewStatistic()
+        {
+            NewDiveStatisticViewModel workspace = new NewDiveStatisticViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
         private void ShowAllDiveTypes()
         {
             AllDiveTypesViewModel workspace =
@@ -279,6 +377,13 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewDiveType()
+        {
+            NewDiveTypesViewModel workspace = new NewDiveTypesViewModel();
+            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
         private void ShowAllEmergencyContacts()
@@ -295,6 +400,13 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
+        private void CreateNewEmergencyContact()
+        {
+            NewEmergencyContactsViewModel workspace = new NewEmergencyContactsViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
         private void ShowAllEquipmentCategories()
         {
             AllEquipmentCategoriesViewModel workspace =
@@ -306,6 +418,13 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewEquipmentCategory()
+        {
+            NewEquipmentCategoriesViewModel workspace = new NewEquipmentCategoriesViewModel();
+            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
         private void ShowAllEquipmentManufacturer()
@@ -321,6 +440,13 @@ namespace MVVMFirma.ViewModels
 
             this.SetActiveWorkspace(workspace);
         }
+
+        private void CreateNewEquipmentManufacturer()
+        {
+            NewEquipmentManufacturerViewModel workspace = new NewEquipmentManufacturerViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
         private void ShowAllEquipment()
         {
             AllEquipmentViewModel workspace =
@@ -332,6 +458,13 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewEquipment()
+        {
+            NewEquipmentViewModel workspace = new NewEquipmentViewModel();
+            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
         private void ShowAllMaintenanceSchedules()
@@ -347,6 +480,13 @@ namespace MVVMFirma.ViewModels
 
             this.SetActiveWorkspace(workspace);
         }
+
+        private void CreateNewMaintenanceSchedule()
+        {
+            NewMaintenanceScheduleViewModel workspace = new NewMaintenanceScheduleViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
         private void ShowAllTrainigTypes()
         {
             AllTypeOfTrainingViewModel workspace =
@@ -360,6 +500,13 @@ namespace MVVMFirma.ViewModels
 
             this.SetActiveWorkspace(workspace);
         }
+
+        private void CreateNewTrainingType()
+        {
+            NewTypeOfTrainingViewModel workspace = new NewTypeOfTrainingViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
         private void ShowAllUsers()
         {
             AllUsersViewModel workspace =
@@ -371,6 +518,13 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewUser()
+        {
+            NewUsersViewModel workspace = new NewUsersViewModel();
+            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 

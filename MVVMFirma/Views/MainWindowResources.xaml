@@ -9,53 +9,110 @@
     <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
         <vw:NowyTowarView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:AllUsersViewModel}">
+        <vw:AllUsersView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewUsersViewModel}">
+        <vw:NewUsersView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllBuddysViewModel}">
         <vw:AllBuddysView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:NewBuddysViewModel}">
         <vw:NewBuddysView/>
     </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:AllCertificatesViewModel}">
         <vw:AllCertificatesView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewCertificatesViewModel}">
+        <vw:NewCertificatesView/>
+    </DataTemplate>
+    
     <DataTemplate DataType="{x:Type vm:AllCertificationOrganizationViewModel}">
         <vw:AllCertificationOrganizationView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewCertificationOrganizationViewModel}">
+        <vw:NewCertificationOrganizationView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllDiveConditionsViewModel}">
         <vw:AllDiveConditionsView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewDiveConditionsViewModel}">
+        <vw:NewDiveConditionsView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllDiveLogsViewModel}">
         <vw:AllDiveLogsView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewDiveLogsViewModel}">
+        <vw:NewDiveLogsView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllDiveSitesViewModel}">
         <vw:AllDiveSitesView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewDiveSitesViewModel}">
+        <vw:NewDiveSitesView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllDiveStatisticViewModel}">
         <vw:AllDiveStatisticView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewDiveStatisticViewModel}">
+        <vw:NewDiveStatisticView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllDiveTypesViewModel}">
         <vw:AllDiveTypesView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewDiveTypesViewModel}">
+        <vw:NewDiveTypesView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllEmergencyContactsViewModel}">
         <vw:AllEmergencyContactsView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewEmergencyContactsViewModel}">
+        <vw:NewEmergencyContactsView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllEquipmentCategoriesViewModel}">
         <vw:AllEquipmentCategoriesView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewEquipmentCategoriesViewModel}">
+        <vw:NewEquipmentCategoriesView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllEquipmentManufacturerViewModel}">
         <vw:AllEquipmentManufacturerView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewEquipmentManufacturerViewModel}">
+        <vw:NewEquipmentManufacturerView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllEquipmentViewModel}">
         <vw:AllEquipmentView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewEquipmentViewModel}">
+        <vw:NewEquipmentView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllMaintenanceScheduleViewModule}">
         <vw:AllMaintenanceScheduleView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewMaintenanceScheduleViewModel}">
+        <vw:NewMaintenanceScheduleView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AllTypeOfTrainingViewModel}">
         <vw:AllTypeOfTrainingView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:AllUsersViewModel}">
-        <vw:AllUsersView/>
+    <DataTemplate DataType="{x:Type vm:NewTypeOfTrainingViewModel}">
+        <vw:NewTypeOfTrainingView/>
     </DataTemplate>
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">

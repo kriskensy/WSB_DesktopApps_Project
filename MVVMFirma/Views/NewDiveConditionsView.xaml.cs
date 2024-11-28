@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMFirma.Views
 {
     /// <summary>
-    /// Interaction logic for NewDiveConditionsViewModel.xaml
+    /// Interaction logic for NewDiveConditionsView.xaml
     /// </summary>
-    public partial class NewDiveConditionsViewModel : UserControl
+    public partial class NewDiveConditionsView : UserControl
     {
-        public NewDiveConditionsViewModel()
+        public NewDiveConditionsView()
         {
             InitializeComponent();
         }

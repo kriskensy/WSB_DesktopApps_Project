@@ -228,8 +228,8 @@
     <Compile Include="Views\NewCertificationOrganizationView.xaml.cs">
       <DependentUpon>NewCertificationOrganizationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewDiveConditionsViewModel.xaml.cs">
-      <DependentUpon>NewDiveConditionsViewModel.xaml</DependentUpon>
+    <Compile Include="Views\NewDiveConditionsView.xaml.cs">
+      <DependentUpon>NewDiveConditionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewDiveLogsView.xaml.cs">
       <DependentUpon>NewDiveLogsView.xaml</DependentUpon>
@@ -385,7 +385,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NewDiveConditionsViewModel.xaml">
+    <Page Include="Views\NewDiveConditionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
