@@ -12,6 +12,9 @@
     <DataTemplate DataType="{x:Type vm:AllBuddysViewModel}">
         <vw:AllBuddysView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NewBuddysViewModel}">
+        <vw:NewBuddysView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type vm:AllCertificatesViewModel}">
         <vw:AllCertificatesView/>
     </DataTemplate>

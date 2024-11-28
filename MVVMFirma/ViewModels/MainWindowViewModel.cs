@@ -49,6 +49,10 @@ namespace MVVMFirma.ViewModels
                     new BaseCommand(() => this.ShowAllBuddys())),
 
                 new CommandViewModel(
+                    "Buddy",
+                    new BaseCommand(() => this.CreateBuddy())),
+
+                new CommandViewModel(
                     "Certificates",
                     new BaseCommand(() => this.ShowAllCertificates())),
 
@@ -171,6 +175,13 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateBuddy()
+        {
+            NewBuddysViewModel workspace = new NewBuddysViewModel();
+            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
