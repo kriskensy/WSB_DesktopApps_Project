@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for AllMaintenanceScheduleView.xaml
     /// </summary>
-    public partial class AllMaintenanceScheduleView : UserControl
+    public partial class AllMaintenanceScheduleView : AllViewBase
     {
         public AllMaintenanceScheduleView()
         {

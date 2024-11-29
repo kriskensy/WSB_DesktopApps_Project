@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for AllBuddysView.xaml
     /// </summary>
-    public partial class AllBuddysView : UserControl
+    public partial class AllBuddysView : AllViewBase
     {
         public AllBuddysView()
         {

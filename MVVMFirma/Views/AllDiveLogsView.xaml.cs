@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for AllDiveLogsView.xaml
     /// </summary>
-    public partial class AllDiveLogsView : UserControl
+    public partial class AllDiveLogsView : AllViewBase
     {
         public AllDiveLogsView()
         {

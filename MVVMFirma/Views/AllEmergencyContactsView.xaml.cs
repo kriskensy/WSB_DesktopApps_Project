@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for AllEmergencyContactsView.xaml
     /// </summary>
-    public partial class AllEmergencyContactsView : UserControl
+    public partial class AllEmergencyContactsView : AllViewBase
     {
         public AllEmergencyContactsView()
         {

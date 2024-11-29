@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for AllEquipmentCategoriesView.xaml
     /// </summary>
-    public partial class AllEquipmentCategoriesView : UserControl
+    public partial class AllEquipmentCategoriesView : AllViewBase
     {
         public AllEquipmentCategoriesView()
         {

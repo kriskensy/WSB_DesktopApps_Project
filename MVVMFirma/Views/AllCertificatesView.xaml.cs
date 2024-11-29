@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for AllCertificatesView.xaml
     /// </summary>
-    public partial class AllCertificatesView : UserControl
+    public partial class AllCertificatesView : AllViewBase
     {
         public AllCertificatesView()
         {
