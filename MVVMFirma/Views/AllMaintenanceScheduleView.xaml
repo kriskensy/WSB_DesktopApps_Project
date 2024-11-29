@@ -7,7 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white">
-        <Label>maintenance schedules</Label>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Id" Binding="{Binding IdTowaru}"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding Kod}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding Nazwa}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding StawkaVatZakupu}"/>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding StawkaVatSprzedazy}"/>
+                <DataGridTextColumn Header="Password Hash" Binding="{Binding Cena}"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
             
     </Grid>
 </local:AllViewBase>

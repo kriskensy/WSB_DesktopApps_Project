@@ -7,7 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white">
-        <Label>all dive sites</Label>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Id" Binding="{Binding IdTowaru}"/>
+                <DataGridTextColumn Header="Site Name" Binding="{Binding Kod}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Nazwa}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Cena}"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
             
     </Grid>
 </local:AllViewBase>

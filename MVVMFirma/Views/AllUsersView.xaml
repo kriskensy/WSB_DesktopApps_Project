@@ -7,7 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white">
-        <Label>all users</Label>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding IdUser}"/>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Header="Password Hash" Binding="{Binding PasswordHash}"/>
+            </DataGrid.Columns>
+        </DataGrid>
             
     </Grid>
 </local:AllViewBase>

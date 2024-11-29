@@ -150,6 +150,7 @@
     <Compile Include="ViewModels\AllMaintenanceScheduleViewModule.cs" />
     <Compile Include="ViewModels\AllTypeOfTrainingViewModel.cs" />
     <Compile Include="ViewModels\AllUsersViewModel.cs" />
+    <Compile Include="ViewModels\AllViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

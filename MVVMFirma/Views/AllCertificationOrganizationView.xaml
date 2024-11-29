@@ -7,7 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white">
-        <Label>all organizations</Label>
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Id" Binding="{Binding IdTowaru}"/>
+                <DataGridTextColumn Header="Organization" Binding="{Binding Kod}"/>
+                <DataGridTextColumn Header="Country" Binding="{Binding Cena}"/>-->
+            </DataGrid.Columns>
+        </DataGrid>
             
     </Grid>
 </local:AllViewBase>
