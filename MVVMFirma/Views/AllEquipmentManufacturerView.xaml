@@ -9,9 +9,9 @@
     <Grid Background="white">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <!--<DataGridTextColumn Header="Id" Binding="{Binding IdTowaru}"/>
-                <DataGridTextColumn Header="Manufacturer" Binding="{Binding StawkaVatSprzedazy}"/>
-                <DataGridTextColumn Header="Country" Binding="{Binding Cena}"/>-->
+                <DataGridTextColumn Header="Id" Binding="{Binding IdManufacturer}"/>
+                <DataGridTextColumn Header="Manufacturer" Binding="{Binding ManufacturerName}"/>
+                <DataGridTextColumn Header="Country" Binding="{Binding Country}"/>
             </DataGrid.Columns>
         </DataGrid>
             

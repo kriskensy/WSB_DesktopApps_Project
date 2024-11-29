@@ -9,10 +9,10 @@
     <Grid Background="white">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <!--<DataGridTextColumn Header="Id" Binding="{Binding IdTowaru}"/>
-                <DataGridTextColumn Header="Site Name" Binding="{Binding Kod}"/>
-                <DataGridTextColumn Header="Location" Binding="{Binding Nazwa}"/>
-                <DataGridTextColumn Header="Description" Binding="{Binding Cena}"/>-->
+                <DataGridTextColumn Header="Id" Binding="{Binding IdDiveSite}"/>
+                <DataGridTextColumn Header="Site Name" Binding="{Binding SiteName}"/>
+                <DataGridTextColumn Header="Location" Binding="{Binding Location}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
             </DataGrid.Columns>
         </DataGrid>
             
