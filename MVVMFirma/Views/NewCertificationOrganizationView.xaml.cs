@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for NewCertificationOrganizationView.xaml
     /// </summary>
-    public partial class NewCertificationOrganizationView : UserControl
+    public partial class NewCertificationOrganizationView : NewViewBase
     {
         public NewCertificationOrganizationView()
         {

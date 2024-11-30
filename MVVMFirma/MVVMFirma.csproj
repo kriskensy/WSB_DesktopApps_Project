@@ -169,6 +169,7 @@
     <Compile Include="ViewModels\NewMaintenanceScheduleViewModel.cs" />
     <Compile Include="ViewModels\NewTypeOfTrainingViewModel.cs" />
     <Compile Include="ViewModels\NewUsersViewModel.cs" />
+    <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\WszystkieTowaryViewModel.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Views\NewUsersView.xaml.cs">
       <DependentUpon>NewUsersView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewViewBase.cs" />
     <Compile Include="Views\NowyTowarView.xaml.cs">
       <DependentUpon>NowyTowarView.xaml</DependentUpon>
     </Compile>

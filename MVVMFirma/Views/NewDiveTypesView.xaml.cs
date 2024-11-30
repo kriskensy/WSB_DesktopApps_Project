@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for NewDiveTypesView.xaml
     /// </summary>
-    public partial class NewDiveTypesView : UserControl
+    public partial class NewDiveTypesView : NewViewBase
     {
         public NewDiveTypesView()
         {

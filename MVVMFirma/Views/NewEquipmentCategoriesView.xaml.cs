@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for NewEquipmentCategoriesView.xaml
     /// </summary>
-    public partial class NewEquipmentCategoriesView : UserControl
+    public partial class NewEquipmentCategoriesView : NewViewBase
     {
         public NewEquipmentCategoriesView()
         {

@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for NewEquipmentManufacturerView.xaml
     /// </summary>
-    public partial class NewEquipmentManufacturerView : UserControl
+    public partial class NewEquipmentManufacturerView : NewViewBase
     {
         public NewEquipmentManufacturerView()
         {
