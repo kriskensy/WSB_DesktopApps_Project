@@ -9,7 +9,7 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -51,7 +51,11 @@
         </Border>
         <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
             <StatusBarItem>
-                <TextBlock>Artur Kornatka</TextBlock>
+                <TextBlock>Project: Krzysztof Kensy</TextBlock>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock>Template: Artur Kornatka</TextBlock>
             </StatusBarItem>
             <Separator/>
             <StatusBarItem>

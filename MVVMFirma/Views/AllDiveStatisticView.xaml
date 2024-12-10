@@ -9,12 +9,11 @@
     <Grid Background="white">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <!--<DataGridTextColumn Header="Id" Binding="{Binding IdTowaru}"/>
-                <DataGridTextColumn Header="First Name" Binding="{Binding Kod}"/>
-                <DataGridTextColumn Header="Last Name" Binding="{Binding Nazwa}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding StawkaVatZakupu}"/>
-                <DataGridTextColumn Header="Phone Number" Binding="{Binding StawkaVatSprzedazy}"/>
-                <DataGridTextColumn Header="Password Hash" Binding="{Binding Cena}"/>-->
+                <DataGridTextColumn Header="Id" Binding="{Binding IdStatistic}"/>
+                <DataGridTextColumn Header="Dive Date" Binding="{Binding DiveDate}"/>
+                <DataGridTextColumn Header="Air Consumed" Binding="{Binding AirConsumed}"/>
+                <DataGridTextColumn Header="Ascent Rate" Binding="{Binding AscentRate}"/>
+                <DataGridTextColumn Header="Bottom Time" Binding="{Binding BottomTime}"/>
             </DataGrid.Columns>
         </DataGrid>
             
