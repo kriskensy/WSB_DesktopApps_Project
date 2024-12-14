@@ -9,16 +9,8 @@ namespace MVVMFirma.ViewModels
 {
     public class NewDiveSitesViewModel : NewViewModel<DiveSites>
     {
-        #region Constructor
-        public NewDiveSitesViewModel()
-            : base("Dive Sites")
-        {
-            item = new DiveSites();
-        }
-        #endregion
-
         #region Properties
-        public String SiteName
+        public string SiteName
         {
             get
             {
@@ -31,7 +23,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String Location
+        public string Location
         {
             get
             {
@@ -44,7 +36,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String Description
+        public string Description
         {
             get
             {
@@ -57,6 +49,14 @@ namespace MVVMFirma.ViewModels
             }
         }
 
+        #endregion
+
+        #region Constructor
+        public NewDiveSitesViewModel()
+            : base("Dive Sites")
+        {
+            item = new DiveSites();
+        }
         #endregion
 
         #region Helpers

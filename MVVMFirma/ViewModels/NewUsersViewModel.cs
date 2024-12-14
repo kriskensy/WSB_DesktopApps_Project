@@ -9,16 +9,8 @@ namespace MVVMFirma.ViewModels
 {
     public class NewUsersViewModel : NewViewModel<User>
     {
-        #region Constructor
-        public NewUsersViewModel()
-            :base("User")
-        {
-            item = new User();
-        }
-        #endregion
-
         #region Properties
-        public String FirstName
+        public string FirstName
         {
             get
             {
@@ -31,7 +23,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String LastName
+        public string LastName
         {
             get
             {
@@ -44,7 +36,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String Email
+        public string Email
         {
             get
             {
@@ -57,7 +49,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String PhoneNumber
+        public string PhoneNumber
         {
             get
             {
@@ -70,7 +62,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String PasswordHash
+        public string PasswordHash
         {
             get
             {
@@ -81,6 +73,14 @@ namespace MVVMFirma.ViewModels
                 item.PasswordHash = value;
                 OnPropertyChanged(() => PasswordHash);
             }
+        }
+        #endregion
+
+        #region Constructor
+        public NewUsersViewModel()
+            : base("User")
+        {
+            item = new User();
         }
         #endregion
 

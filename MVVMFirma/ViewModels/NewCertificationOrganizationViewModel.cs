@@ -9,16 +9,8 @@ namespace MVVMFirma.ViewModels
 {
     public class NewCertificationOrganizationViewModel : NewViewModel<CertificationOrganization>
     {
-        #region Constructor
-        public NewCertificationOrganizationViewModel()
-            : base("Organization")
-        {
-            item = new CertificationOrganization();
-        }
-        #endregion
-
         #region Properties
-        public String OrganizationName
+        public string OrganizationName
         {
             get
             {
@@ -31,7 +23,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String Country
+        public string Country
         {
             get
             {
@@ -42,6 +34,14 @@ namespace MVVMFirma.ViewModels
                 item.Country = value;
                 OnPropertyChanged(() => Country);
             }
+        }
+        #endregion
+
+        #region Constructor
+        public NewCertificationOrganizationViewModel()
+            : base("New Organization")
+        {
+            item = new CertificationOrganization();
         }
         #endregion
 

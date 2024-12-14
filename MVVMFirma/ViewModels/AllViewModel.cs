@@ -50,7 +50,7 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Constructor
-        public AllViewModel(String displayName)
+        public AllViewModel(string displayName)
         {
             diving4LifeEntities = new Diving4LifeEntities();
             base.DisplayName = displayName;

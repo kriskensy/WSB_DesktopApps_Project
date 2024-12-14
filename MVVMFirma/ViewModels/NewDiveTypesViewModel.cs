@@ -9,16 +9,8 @@ namespace MVVMFirma.ViewModels
 {
     public class NewDiveTypesViewModel : NewViewModel<DiveTypes>
     {
-        #region Constructor
-        public NewDiveTypesViewModel()
-            : base("Dive Type")
-        {
-            item = new DiveTypes();
-        }
-        #endregion
-
         #region Properties
-        public String TypeName
+        public string TypeName
         {
             get
             {
@@ -31,7 +23,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String Description
+        public string Description
         {
             get
             {
@@ -44,6 +36,14 @@ namespace MVVMFirma.ViewModels
             }
         }
 
+        #endregion
+
+        #region Constructor
+        public NewDiveTypesViewModel()
+            : base("Dive Type")
+        {
+            item = new DiveTypes();
+        }
         #endregion
 
         #region Helpers

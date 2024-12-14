@@ -9,16 +9,8 @@ namespace MVVMFirma.ViewModels
 {
     public class NewEquipmentManufacturerViewModel : NewViewModel<EquipmentManufacturer>
     {
-        #region Constructor
-        public NewEquipmentManufacturerViewModel()
-            : base("EQ Manufacturer")
-        {
-            item = new EquipmentManufacturer();
-        }
-        #endregion
-
         #region Properties
-        public String ManufacturerName
+        public string ManufacturerName
         {
             get
             {
@@ -31,7 +23,7 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        public String Country
+        public string Country
         {
             get
             {
@@ -42,6 +34,14 @@ namespace MVVMFirma.ViewModels
                 item.Country = value;
                 OnPropertyChanged(() => Country);
             }
+        }
+        #endregion
+
+        #region Constructor
+        public NewEquipmentManufacturerViewModel()
+            : base("EQ Manufacturer")
+        {
+            item = new EquipmentManufacturer();
         }
         #endregion
 

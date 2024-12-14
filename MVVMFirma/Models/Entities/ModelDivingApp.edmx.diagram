@@ -16,8 +16,8 @@
         <EntityTypeShape EntityType="Diving4LifeModel.EmergencyContacts" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Diving4LifeModel.Equipment" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="Diving4LifeModel.EquipmentCategories" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Diving4LifeModel.EquipmentManufacturer" Width="1.5" PointX="3.25" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Diving4LifeModel.MaintenanceSchedule" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Diving4LifeModel.EquipmentManufacturer" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Diving4LifeModel.MaintenanceSchedule" Width="1.5" PointX="5.375" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Diving4LifeModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Diving4LifeModel.TypeOfTraining" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Diving4LifeModel.User" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />

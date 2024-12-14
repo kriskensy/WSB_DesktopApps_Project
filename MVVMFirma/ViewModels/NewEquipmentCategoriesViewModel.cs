@@ -9,16 +9,8 @@ namespace MVVMFirma.ViewModels
 {
     public class NewEquipmentCategoriesViewModel : NewViewModel<EquipmentCategories>
     {
-        #region Constructor
-        public NewEquipmentCategoriesViewModel()
-            : base("EQ Category")
-        {
-            item = new EquipmentCategories();
-        }
-        #endregion
-
         #region Properties
-        public String CategoryName
+        public string CategoryName
         {
             get
             {
@@ -31,6 +23,14 @@ namespace MVVMFirma.ViewModels
             }
         }
 
+        #endregion
+
+        #region Constructor
+        public NewEquipmentCategoriesViewModel()
+            : base("EQ Category")
+        {
+            item = new EquipmentCategories();
+        }
         #endregion
 
         #region Helpers
