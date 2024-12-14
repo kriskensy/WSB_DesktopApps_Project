@@ -1,0 +1,21 @@
+﻿<local:AllViewBase x:Class="MVVMFirma.Views.Equipment.AllMaintenanceScheduleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMFirma.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="white">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding IdMaintenanceSchedule}"/>
+                <DataGridTextColumn Header="Equipment Name" Binding="{Binding EquipmentName}"/>
+                <DataGridTextColumn Header="Scheduled Date" Binding="{Binding ScheduledDate}"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+            
+    </Grid>
+</local:AllViewBase>

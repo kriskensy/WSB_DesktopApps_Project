@@ -8,6 +8,10 @@ using System.Diagnostics;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Data;
+using MVVMFirma.ViewModels.Certifications;
+using MVVMFirma.ViewModels.Dives;
+using MVVMFirma.ViewModels.Equipment;
+using MVVMFirma.ViewModels.General;
 using MVVMFirma.Views;
 
 namespace MVVMFirma.ViewModels

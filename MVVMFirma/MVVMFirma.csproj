@@ -143,137 +143,137 @@
     <Compile Include="Models\Entities\User.cs">
       <DependentUpon>ModelDivingApp.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AllBuddysViewModel.cs" />
-    <Compile Include="ViewModels\AllCertificatesViewModel.cs" />
-    <Compile Include="ViewModels\AllCertificationOrganizationViewModel.cs" />
-    <Compile Include="ViewModels\AllDiveConditionsViewModel.cs" />
-    <Compile Include="ViewModels\AllDiveLogsViewModel.cs" />
-    <Compile Include="ViewModels\AllDiveSitesViewModel.cs" />
-    <Compile Include="ViewModels\AllDiveStatisticViewModel.cs" />
-    <Compile Include="ViewModels\AllDiveTypesViewModel.cs" />
-    <Compile Include="ViewModels\AllEmergencyContactsViewModel.cs" />
-    <Compile Include="ViewModels\AllEquipmentCategoriesViewModel.cs" />
-    <Compile Include="ViewModels\AllEquipmentManufacturerViewModel.cs" />
-    <Compile Include="ViewModels\AllEquipmentViewModel.cs" />
-    <Compile Include="ViewModels\AllMaintenanceScheduleViewModule.cs" />
-    <Compile Include="ViewModels\AllTypeOfTrainingViewModel.cs" />
-    <Compile Include="ViewModels\AllUsersViewModel.cs" />
     <Compile Include="ViewModels\AllViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Certifications\AllCertificatesViewModel.cs" />
+    <Compile Include="ViewModels\Certifications\AllCertificationOrganizationViewModel.cs" />
+    <Compile Include="ViewModels\Certifications\NewCertificatesViewModel.cs" />
+    <Compile Include="ViewModels\Certifications\NewCertificationOrganizationViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\Dives\AllDiveConditionsViewModel.cs" />
+    <Compile Include="ViewModels\Dives\AllDiveLogsViewModel.cs" />
+    <Compile Include="ViewModels\Dives\AllDiveSitesViewModel.cs" />
+    <Compile Include="ViewModels\Dives\AllDiveStatisticViewModel.cs" />
+    <Compile Include="ViewModels\Dives\AllDiveTypesViewModel.cs" />
+    <Compile Include="ViewModels\Dives\AllTypeOfTrainingViewModel.cs" />
+    <Compile Include="ViewModels\Dives\NewDiveConditionsViewModel.cs" />
+    <Compile Include="ViewModels\Dives\NewDiveLogsViewModel.cs" />
+    <Compile Include="ViewModels\Dives\NewDiveSitesViewModel.cs" />
+    <Compile Include="ViewModels\Dives\NewDiveStatisticViewModel.cs" />
+    <Compile Include="ViewModels\Dives\NewDiveTypesViewModel.cs" />
+    <Compile Include="ViewModels\Dives\NewTypeOfTrainingViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\AllEquipmentCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\AllEquipmentManufacturerViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\AllEquipmentViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\AllMaintenanceScheduleViewModule.cs" />
+    <Compile Include="ViewModels\Equipment\NewEquipmentCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\NewEquipmentManufacturerViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\NewEquipmentViewModel.cs" />
+    <Compile Include="ViewModels\Equipment\NewMaintenanceScheduleViewModel.cs" />
+    <Compile Include="ViewModels\General\AllBuddysViewModel.cs" />
+    <Compile Include="ViewModels\General\AllEmergencyContactsViewModel.cs" />
+    <Compile Include="ViewModels\General\AllUsersViewModel.cs" />
+    <Compile Include="ViewModels\General\NewBuddysViewModel.cs" />
+    <Compile Include="ViewModels\General\NewEmergencyContactsViewModel.cs" />
+    <Compile Include="ViewModels\General\NewUsersViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\NewBuddysViewModel.cs" />
-    <Compile Include="ViewModels\NewCertificatesViewModel.cs" />
-    <Compile Include="ViewModels\NewCertificationOrganizationViewModel.cs" />
-    <Compile Include="ViewModels\NewDiveConditionsViewModel.cs" />
-    <Compile Include="ViewModels\NewDiveLogsViewModel.cs" />
-    <Compile Include="ViewModels\NewDiveSitesViewModel.cs" />
-    <Compile Include="ViewModels\NewDiveStatisticViewModel.cs" />
-    <Compile Include="ViewModels\NewDiveTypesViewModel.cs" />
-    <Compile Include="ViewModels\NewEmergencyContactsViewModel.cs" />
-    <Compile Include="ViewModels\NewEquipmentCategoriesViewModel.cs" />
-    <Compile Include="ViewModels\NewEquipmentManufacturerViewModel.cs" />
-    <Compile Include="ViewModels\NewEquipmentViewModel.cs" />
-    <Compile Include="ViewModels\NewMaintenanceScheduleViewModel.cs" />
-    <Compile Include="ViewModels\NewTypeOfTrainingViewModel.cs" />
-    <Compile Include="ViewModels\NewUsersViewModel.cs" />
     <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\WszystkieTowaryViewModel.cs" />
-    <Compile Include="Views\AllBuddysView.xaml.cs">
-      <DependentUpon>AllBuddysView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllCertificatesView.xaml.cs">
+    <Compile Include="Views\AllViewBase.cs" />
+    <Compile Include="Views\Certifications\AllCertificatesView.xaml.cs">
       <DependentUpon>AllCertificatesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AllCertificationOrganizationView.xaml.cs">
+    <Compile Include="Views\Certifications\AllCertificationOrganizationView.xaml.cs">
       <DependentUpon>AllCertificationOrganizationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AllDiveConditionsView.xaml.cs">
-      <DependentUpon>AllDiveConditionsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllDiveLogsView.xaml.cs">
-      <DependentUpon>AllDiveLogsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllDiveSitesView.xaml.cs">
-      <DependentUpon>AllDiveSitesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllDiveStatisticView.xaml.cs">
-      <DependentUpon>AllDiveStatisticView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllDiveTypesView.xaml.cs">
-      <DependentUpon>AllDiveTypesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllEmergencyContactsView.xaml.cs">
-      <DependentUpon>AllEmergencyContactsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllEquipmentCategoriesView.xaml.cs">
-      <DependentUpon>AllEquipmentCategoriesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllEquipmentManufacturerView.xaml.cs">
-      <DependentUpon>AllEquipmentManufacturerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllEquipmentView.xaml.cs">
-      <DependentUpon>AllEquipmentView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllMaintenanceScheduleView.xaml.cs">
-      <DependentUpon>AllMaintenanceScheduleView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllTypeOfTrainingView.xaml.cs">
-      <DependentUpon>AllTypeOfTrainingView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllUsersView.xaml.cs">
-      <DependentUpon>AllUsersView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AllViewBase.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewBuddysView.xaml.cs">
-      <DependentUpon>NewBuddysView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewCertificatesView.xaml.cs">
+    <Compile Include="Views\Certifications\NewCertificatesView.xaml.cs">
       <DependentUpon>NewCertificatesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewCertificationOrganizationView.xaml.cs">
+    <Compile Include="Views\Certifications\NewCertificationOrganizationView.xaml.cs">
       <DependentUpon>NewCertificationOrganizationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewDiveConditionsView.xaml.cs">
+    <Compile Include="Views\Dives\AllDiveConditionsView.xaml.cs">
+      <DependentUpon>AllDiveConditionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dives\AllDiveLogsView.xaml.cs">
+      <DependentUpon>AllDiveLogsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dives\AllDiveSitesView.xaml.cs">
+      <DependentUpon>AllDiveSitesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dives\AllDiveStatisticView.xaml.cs">
+      <DependentUpon>AllDiveStatisticView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dives\AllDiveTypesView.xaml.cs">
+      <DependentUpon>AllDiveTypesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dives\AllTypeOfTrainingView.xaml.cs">
+      <DependentUpon>AllTypeOfTrainingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dives\NewDiveConditionsView.xaml.cs">
       <DependentUpon>NewDiveConditionsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewDiveLogsView.xaml.cs">
+    <Compile Include="Views\Dives\NewDiveLogsView.xaml.cs">
       <DependentUpon>NewDiveLogsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewDiveSitesView.xaml.cs">
+    <Compile Include="Views\Dives\NewDiveSitesView.xaml.cs">
       <DependentUpon>NewDiveSitesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewDiveStatisticView.xaml.cs">
+    <Compile Include="Views\Dives\NewDiveStatisticView.xaml.cs">
       <DependentUpon>NewDiveStatisticView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewDiveTypesView.xaml.cs">
+    <Compile Include="Views\Dives\NewDiveTypesView.xaml.cs">
       <DependentUpon>NewDiveTypesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewEmergencyContactsView.xaml.cs">
-      <DependentUpon>NewEmergencyContactsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewEquipmentCategoriesView.xaml.cs">
-      <DependentUpon>NewEquipmentCategoriesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewEquipmentManufacturerView.xaml.cs">
-      <DependentUpon>NewEquipmentManufacturerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewEquipmentView.xaml.cs">
-      <DependentUpon>NewEquipmentView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewMaintenanceScheduleView.xaml.cs">
-      <DependentUpon>NewMaintenanceScheduleView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewTypeOfTrainingView.xaml.cs">
+    <Compile Include="Views\Dives\NewTypeOfTrainingView.xaml.cs">
       <DependentUpon>NewTypeOfTrainingView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewUsersView.xaml.cs">
+    <Compile Include="Views\Equipment\AllEquipmentCategoriesView.xaml.cs">
+      <DependentUpon>AllEquipmentCategoriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\AllEquipmentManufacturerView.xaml.cs">
+      <DependentUpon>AllEquipmentManufacturerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\AllEquipmentView.xaml.cs">
+      <DependentUpon>AllEquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\AllMaintenanceScheduleView.xaml.cs">
+      <DependentUpon>AllMaintenanceScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\NewEquipmentCategoriesView.xaml.cs">
+      <DependentUpon>NewEquipmentCategoriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\NewEquipmentManufacturerView.xaml.cs">
+      <DependentUpon>NewEquipmentManufacturerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\NewEquipmentView.xaml.cs">
+      <DependentUpon>NewEquipmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Equipment\NewMaintenanceScheduleView.xaml.cs">
+      <DependentUpon>NewMaintenanceScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\AllBuddysView.xaml.cs">
+      <DependentUpon>AllBuddysView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\AllEmergencyContactsView.xaml.cs">
+      <DependentUpon>AllEmergencyContactsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\AllUsersView.xaml.cs">
+      <DependentUpon>AllUsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\NewBuddysView.xaml.cs">
+      <DependentUpon>NewBuddysView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\NewEmergencyContactsView.xaml.cs">
+      <DependentUpon>NewEmergencyContactsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\NewUsersView.xaml.cs">
       <DependentUpon>NewUsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewViewBase.cs" />
     <Compile Include="Views\NowyTowarView.xaml.cs">
@@ -321,63 +321,123 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\AllBuddysView.xaml">
+    <Page Include="Views\Certifications\AllCertificatesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllCertificatesView.xaml">
+    <Page Include="Views\Certifications\AllCertificationOrganizationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllCertificationOrganizationView.xaml">
+    <Page Include="Views\Certifications\NewCertificatesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllDiveConditionsView.xaml">
+    <Page Include="Views\Certifications\NewCertificationOrganizationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllDiveLogsView.xaml">
+    <Page Include="Views\Dives\AllDiveConditionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllDiveSitesView.xaml">
+    <Page Include="Views\Dives\AllDiveLogsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllDiveStatisticView.xaml">
+    <Page Include="Views\Dives\AllDiveSitesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllDiveTypesView.xaml">
+    <Page Include="Views\Dives\AllDiveStatisticView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllEmergencyContactsView.xaml">
+    <Page Include="Views\Dives\AllDiveTypesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllEquipmentCategoriesView.xaml">
+    <Page Include="Views\Dives\AllTypeOfTrainingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllEquipmentManufacturerView.xaml">
+    <Page Include="Views\Dives\NewDiveConditionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllEquipmentView.xaml">
+    <Page Include="Views\Dives\NewDiveLogsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllMaintenanceScheduleView.xaml">
+    <Page Include="Views\Dives\NewDiveSitesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllTypeOfTrainingView.xaml">
+    <Page Include="Views\Dives\NewDiveStatisticView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AllUsersView.xaml">
+    <Page Include="Views\Dives\NewDiveTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dives\NewTypeOfTrainingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\AllEquipmentCategoriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\AllEquipmentManufacturerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\AllEquipmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\AllMaintenanceScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\NewEquipmentCategoriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\NewEquipmentManufacturerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\NewEquipmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Equipment\NewMaintenanceScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\General\AllBuddysView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\General\AllEmergencyContactsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\General\AllUsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\General\NewBuddysView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\General\NewEmergencyContactsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\General\NewUsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -386,66 +446,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindowResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewBuddysView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewCertificatesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewCertificationOrganizationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewDiveConditionsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewDiveLogsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewDiveSitesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewDiveStatisticView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewDiveTypesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewEmergencyContactsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewEquipmentCategoriesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewEquipmentManufacturerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewEquipmentView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewMaintenanceScheduleView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewTypeOfTrainingView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewUsersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -458,7 +458,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\Entities\ModelDivingApp.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

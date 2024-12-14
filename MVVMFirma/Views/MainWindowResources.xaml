@@ -2,7 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:MVVMFirma.ViewModels"
                     xmlns:vw="clr-namespace:MVVMFirma.Views"
-                    >
+                    xmlns:equipment="clr-namespace:MVVMFirma.Views.Equipment"
+                    xmlns:certifications="clr-namespace:MVVMFirma.Views.Certifications"
+                    xmlns:dives="clr-namespace:MVVMFirma.Views.Dives"
+                    xmlns:general="clr-namespace:MVVMFirma.Views.General"
+                    xmlns:vm1="clr-namespace:MVVMFirma.ViewModels.Certifications"
+                    xmlns:dives1="clr-namespace:MVVMFirma.ViewModels.Dives"
+                    xmlns:equipment1="clr-namespace:MVVMFirma.ViewModels.Equipment"
+                    xmlns:general1="clr-namespace:MVVMFirma.ViewModels.General">
     <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
         <vw:WszystkieTowaryView/>
     </DataTemplate>
@@ -10,109 +17,109 @@
         <vw:NowyTowarView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllUsersViewModel}">
-        <vw:AllUsersView/>
+    <DataTemplate DataType="{x:Type general1:AllUsersViewModel}">
+        <general:AllUsersView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewUsersViewModel}">
-        <vw:NewUsersView/>
+    <DataTemplate DataType="{x:Type general1:NewUsersViewModel}">
+        <general:NewUsersView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllBuddysViewModel}">
-        <vw:AllBuddysView/>
+    <DataTemplate DataType="{x:Type general1:AllBuddysViewModel}">
+        <general:AllBuddysView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewBuddysViewModel}">
-        <vw:NewBuddysView/>
+    <DataTemplate DataType="{x:Type general1:NewBuddysViewModel}">
+        <general:NewBuddysView/>
     </DataTemplate>
     
-    <DataTemplate DataType="{x:Type vm:AllCertificatesViewModel}">
-        <vw:AllCertificatesView/>
+    <DataTemplate DataType="{x:Type vm1:AllCertificatesViewModel}">
+        <certifications:AllCertificatesView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewCertificatesViewModel}">
-        <vw:NewCertificatesView/>
+    <DataTemplate DataType="{x:Type vm1:NewCertificatesViewModel}">
+        <certifications:NewCertificatesView/>
     </DataTemplate>
     
-    <DataTemplate DataType="{x:Type vm:AllCertificationOrganizationViewModel}">
-        <vw:AllCertificationOrganizationView/>
+    <DataTemplate DataType="{x:Type vm1:AllCertificationOrganizationViewModel}">
+        <certifications:AllCertificationOrganizationView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewCertificationOrganizationViewModel}">
-        <vw:NewCertificationOrganizationView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AllDiveConditionsViewModel}">
-        <vw:AllDiveConditionsView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewDiveConditionsViewModel}">
-        <vw:NewDiveConditionsView/>
+    <DataTemplate DataType="{x:Type vm1:NewCertificationOrganizationViewModel}">
+        <certifications:NewCertificationOrganizationView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllDiveLogsViewModel}">
-        <vw:AllDiveLogsView/>
+    <DataTemplate DataType="{x:Type dives1:AllDiveConditionsViewModel}">
+        <dives:AllDiveConditionsView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewDiveLogsViewModel}">
-        <vw:NewDiveLogsView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AllDiveSitesViewModel}">
-        <vw:AllDiveSitesView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewDiveSitesViewModel}">
-        <vw:NewDiveSitesView/>
+    <DataTemplate DataType="{x:Type dives1:NewDiveConditionsViewModel}">
+        <dives:NewDiveConditionsView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllDiveStatisticViewModel}">
-        <vw:AllDiveStatisticView/>
+    <DataTemplate DataType="{x:Type dives1:AllDiveLogsViewModel}">
+        <dives:AllDiveLogsView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewDiveStatisticViewModel}">
-        <vw:NewDiveStatisticView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AllDiveTypesViewModel}">
-        <vw:AllDiveTypesView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewDiveTypesViewModel}">
-        <vw:NewDiveTypesView/>
+    <DataTemplate DataType="{x:Type dives1:NewDiveLogsViewModel}">
+        <dives:NewDiveLogsView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllEmergencyContactsViewModel}">
-        <vw:AllEmergencyContactsView/>
+    <DataTemplate DataType="{x:Type dives1:AllDiveSitesViewModel}">
+        <dives:AllDiveSitesView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewEmergencyContactsViewModel}">
-        <vw:NewEmergencyContactsView/>
+    <DataTemplate DataType="{x:Type dives1:NewDiveSitesViewModel}">
+        <dives:NewDiveSitesView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllEquipmentCategoriesViewModel}">
+    <DataTemplate DataType="{x:Type dives1:AllDiveStatisticViewModel}">
+        <dives:AllDiveStatisticView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type dives1:NewDiveStatisticViewModel}">
+        <dives:NewDiveStatisticView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type dives1:AllDiveTypesViewModel}">
+        <dives:AllDiveTypesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type dives1:NewDiveTypesViewModel}">
+        <dives:NewDiveTypesView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type general1:AllEmergencyContactsViewModel}">
+        <general:AllEmergencyContactsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type general1:NewEmergencyContactsViewModel}">
+        <general:NewEmergencyContactsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type equipment1:AllEquipmentCategoriesViewModel}">
         <vw:AllEquipmentCategoriesView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewEquipmentCategoriesViewModel}">
-        <vw:NewEquipmentCategoriesView/>
+    <DataTemplate DataType="{x:Type equipment1:NewEquipmentCategoriesViewModel}">
+        <equipment:NewEquipmentCategoriesView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllEquipmentManufacturerViewModel}">
-        <vw:AllEquipmentManufacturerView/>
+    <DataTemplate DataType="{x:Type equipment1:AllEquipmentManufacturerViewModel}">
+        <equipment:AllEquipmentManufacturerView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewEquipmentManufacturerViewModel}">
-        <vw:NewEquipmentManufacturerView/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:AllEquipmentViewModel}">
-        <vw:AllEquipmentView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewEquipmentViewModel}">
-        <vw:NewEquipmentView/>
+    <DataTemplate DataType="{x:Type equipment1:NewEquipmentManufacturerViewModel}">
+        <equipment:NewEquipmentManufacturerView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllMaintenanceScheduleViewModule}">
-        <vw:AllMaintenanceScheduleView/>
+    <DataTemplate DataType="{x:Type equipment1:AllEquipmentViewModel}">
+        <equipment:AllEquipmentView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewMaintenanceScheduleViewModel}">
-        <vw:NewMaintenanceScheduleView/>
+    <DataTemplate DataType="{x:Type equipment1:NewEquipmentViewModel}">
+        <equipment:NewEquipmentView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:AllTypeOfTrainingViewModel}">
-        <vw:AllTypeOfTrainingView/>
+    <DataTemplate DataType="{x:Type equipment1:AllMaintenanceScheduleViewModule}">
+        <equipment:AllMaintenanceScheduleView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NewTypeOfTrainingViewModel}">
-        <vw:NewTypeOfTrainingView/>
+    <DataTemplate DataType="{x:Type equipment1:NewMaintenanceScheduleViewModel}">
+        <equipment:NewMaintenanceScheduleView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type dives1:AllTypeOfTrainingViewModel}">
+        <dives:AllTypeOfTrainingView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type dives1:NewTypeOfTrainingViewModel}">
+        <dives:NewTypeOfTrainingView/>
     </DataTemplate>
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
