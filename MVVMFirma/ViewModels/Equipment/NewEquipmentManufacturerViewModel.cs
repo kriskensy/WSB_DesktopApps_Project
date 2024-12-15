@@ -34,7 +34,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #region Constructor
         public NewEquipmentManufacturerViewModel()
-            : base("EQ Manufacturer")
+            : base("Manufacturer")
         {
             item = new EquipmentManufacturer();
         }

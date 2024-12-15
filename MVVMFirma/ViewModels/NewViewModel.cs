@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public abstract class NewViewModel<T>:WorkspaceViewModel
+    public abstract class NewViewModel<T> : WorkspaceViewModel
     {
         #region DB
         protected Diving4LifeEntities1 diving4LifeEntities;

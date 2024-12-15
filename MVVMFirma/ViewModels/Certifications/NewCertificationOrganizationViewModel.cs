@@ -34,7 +34,7 @@ namespace MVVMFirma.ViewModels.Certifications
 
         #region Constructor
         public NewCertificationOrganizationViewModel()
-            : base("New Organization")
+            : base("Organization")
         {
             item = new CertificationOrganization();
         }
