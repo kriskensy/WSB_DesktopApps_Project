@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.Entities
     {
         public int IdCondition { get; set; }
         public int IdDiveLog { get; set; }
-        public Nullable<decimal> Temperature { get; set; }
+        public decimal Temperature { get; set; }
         public string WaterCurrent { get; set; }
         public string Visibility { get; set; }
         public string Notes { get; set; }

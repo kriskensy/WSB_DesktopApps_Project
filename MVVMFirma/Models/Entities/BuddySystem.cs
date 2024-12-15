@@ -14,12 +14,19 @@ namespace MVVMFirma.Models.Entities
     
     public partial class BuddySystem
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BuddySystem()
+        {
+            this.DiveLogs = new HashSet<DiveLogs>();
+        }
+    
         public int IdBuddy { get; set; }
-        public int IdDiveLog { get; set; }
-        public string BuddyName { get; set; }
+        public string BuddyFirstName { get; set; }
+        public string BuddyLastName { get; set; }
         public string CertificationLevel { get; set; }
         public string ContactDetails { get; set; }
     
-        public virtual DiveLogs DiveLogs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DiveLogs> DiveLogs { get; set; }
     }
 }

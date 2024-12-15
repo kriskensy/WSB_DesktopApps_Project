@@ -27,6 +27,8 @@ namespace MVVMFirma.ViewModels.Dives
                         SiteName = diveLog.DiveSites.SiteName,
                         SiteLocation = diveLog.DiveSites.Location,
                         DiveDate = diveLog.DiveDate,
+                        BuddyFirstName = diveLog.BuddySystem.BuddyFirstName,
+                        BuddyLastName = diveLog.BuddySystem.BuddyLastName,
                         DiveDuration = diveLog.DiveDuration,
                         MaxDepth = diveLog.MaxDepth
                     }

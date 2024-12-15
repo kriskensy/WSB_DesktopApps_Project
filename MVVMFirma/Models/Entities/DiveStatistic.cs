@@ -16,9 +16,9 @@ namespace MVVMFirma.Models.Entities
     {
         public int IdStatistic { get; set; }
         public int IdDiveLog { get; set; }
-        public Nullable<decimal> AirConsumed { get; set; }
-        public Nullable<decimal> AscentRate { get; set; }
-        public Nullable<int> BottomTime { get; set; }
+        public decimal AirConsumed { get; set; }
+        public decimal AscentRate { get; set; }
+        public int BottomTime { get; set; }
     
         public virtual DiveLogs DiveLogs { get; set; }
     }

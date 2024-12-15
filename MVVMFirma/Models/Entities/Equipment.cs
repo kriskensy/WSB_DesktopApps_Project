@@ -21,15 +21,17 @@ namespace MVVMFirma.Models.Entities
         }
     
         public int IdEquipment { get; set; }
+        public int IdUser { get; set; }
         public int IdCategory { get; set; }
         public int IdManufacturer { get; set; }
         public string Name { get; set; }
         public string SerialNumber { get; set; }
-        public Nullable<System.DateTime> PurchaseDate { get; set; }
+        public System.DateTime PurchaseDate { get; set; }
     
         public virtual EquipmentCategories EquipmentCategories { get; set; }
         public virtual EquipmentManufacturer EquipmentManufacturer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MaintenanceSchedule> MaintenanceSchedule { get; set; }
+        public virtual User User { get; set; }
     }
 }

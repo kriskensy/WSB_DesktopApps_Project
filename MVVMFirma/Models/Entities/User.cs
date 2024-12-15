@@ -20,6 +20,7 @@ namespace MVVMFirma.Models.Entities
             this.Certificates = new HashSet<Certificates>();
             this.DiveLogs = new HashSet<DiveLogs>();
             this.EmergencyContacts = new HashSet<EmergencyContacts>();
+            this.Equipment = new HashSet<Equipment>();
         }
     
         public int IdUser { get; set; }
@@ -27,7 +28,6 @@ namespace MVVMFirma.Models.Entities
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public string PasswordHash { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Certificates> Certificates { get; set; }
@@ -35,5 +35,7 @@ namespace MVVMFirma.Models.Entities
         public virtual ICollection<DiveLogs> DiveLogs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmergencyContacts> EmergencyContacts { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Equipment> Equipment { get; set; }
     }
 }

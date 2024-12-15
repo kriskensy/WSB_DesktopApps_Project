@@ -17,7 +17,6 @@ namespace MVVMFirma.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DiveLogs()
         {
-            this.BuddySystem = new HashSet<BuddySystem>();
             this.DiveConditions = new HashSet<DiveConditions>();
             this.DiveStatistic = new HashSet<DiveStatistic>();
         }
@@ -27,11 +26,11 @@ namespace MVVMFirma.Models.Entities
         public int IdDiveType { get; set; }
         public int IdDiveSite { get; set; }
         public System.DateTime DiveDate { get; set; }
+        public int IdBuddy { get; set; }
         public int DiveDuration { get; set; }
         public decimal MaxDepth { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BuddySystem> BuddySystem { get; set; }
+        public virtual BuddySystem BuddySystem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DiveConditions> DiveConditions { get; set; }
         public virtual DiveTypes DiveTypes { get; set; }

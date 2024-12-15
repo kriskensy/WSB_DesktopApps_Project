@@ -16,7 +16,8 @@ namespace MVVMFirma.Models.Entities
     {
         public int IdEmergencyContact { get; set; }
         public int IdUser { get; set; }
-        public string ContactName { get; set; }
+        public string ContactFirstName { get; set; }
+        public string ContactLastName { get; set; }
         public string Relationship { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }

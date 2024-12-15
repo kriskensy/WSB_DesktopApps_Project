@@ -57,18 +57,6 @@ namespace MVVMFirma.ViewModels.General
             }
         }
 
-        public string PasswordHash
-        {
-            get
-            {
-                return item.PasswordHash;
-            }
-            set
-            {
-                item.PasswordHash = value;
-                OnPropertyChanged(() => PasswordHash);
-            }
-        }
         #endregion
 
         #region Constructor

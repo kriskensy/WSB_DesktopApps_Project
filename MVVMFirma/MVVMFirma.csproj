@@ -81,67 +81,67 @@
     <Compile Include="Models\EntitiesForView\EquipmentForAllView.cs" />
     <Compile Include="Models\EntitiesForView\MaintenanceScheduleForAllView.cs" />
     <Compile Include="Models\Entities\BuddySystem.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Certificates.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\CertificationOrganization.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\DiveConditions.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\DiveLogs.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\DiveSites.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\DiveStatistic.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\DiveTypes.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\EmergencyContacts.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Equipment.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\EquipmentCategories.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\EquipmentManufacturer.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\MaintenanceSchedule.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\ModelDivingApp.Context.cs">
+    <Compile Include="Models\Entities\ModelDiving4Life.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDivingApp.Context.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\ModelDivingApp.cs">
+    <Compile Include="Models\Entities\ModelDiving4Life.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\ModelDivingApp.Designer.cs">
+    <Compile Include="Models\Entities\ModelDiving4Life.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
+      <DependentUpon>ModelDiving4Life.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\sysdiagrams.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\TypeOfTraining.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\User.cs">
-      <DependentUpon>ModelDivingApp.tt</DependentUpon>
+      <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AllViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -178,9 +178,7 @@
     <Compile Include="ViewModels\General\NewUsersViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewViewModel.cs" />
-    <Compile Include="ViewModels\NowyTowarViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
-    <Compile Include="ViewModels\WszystkieTowaryViewModel.cs" />
     <Compile Include="Views\AllViewBase.cs" />
     <Compile Include="Views\Certifications\AllCertificatesView.xaml.cs">
       <DependentUpon>AllCertificatesView.xaml</DependentUpon>
@@ -276,12 +274,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewViewBase.cs" />
-    <Compile Include="Views\NowyTowarView.xaml.cs">
-      <DependentUpon>NowyTowarView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WszystkieTowaryView.xaml.cs">
-      <DependentUpon>WszystkieTowaryView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -302,12 +294,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <EntityDeploy Include="Models\Entities\ModelDivingApp.edmx">
+    <EntityDeploy Include="Models\Entities\ModelDiving4Life.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelDivingApp.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelDiving4Life.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Entities\ModelDivingApp.edmx.diagram">
-      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
+    <None Include="Models\Entities\ModelDiving4Life.edmx.diagram">
+      <DependentUpon>ModelDiving4Life.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -449,29 +441,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NowyTowarView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WszystkieTowaryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\Entities\ModelDivingApp.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelDivingApp.Context.cs</LastGenOutput>
-      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\Entities\ModelDivingApp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelDivingApp.edmx</DependentUpon>
-      <LastGenOutput>ModelDivingApp.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\Entities\ModelDiving4Life.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDiving4Life.edmx</DependentUpon>
+      <LastGenOutput>ModelDiving4Life.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Entities\ModelDiving4Life.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDiving4Life.edmx</DependentUpon>
+      <LastGenOutput>ModelDiving4Life.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

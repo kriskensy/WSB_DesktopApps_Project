@@ -10,20 +10,14 @@
                     xmlns:dives1="clr-namespace:MVVMFirma.ViewModels.Dives"
                     xmlns:equipment1="clr-namespace:MVVMFirma.ViewModels.Equipment"
                     xmlns:general1="clr-namespace:MVVMFirma.ViewModels.General">
-    <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
-        <vw:WszystkieTowaryView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
-        <vw:NowyTowarView/>
-    </DataTemplate>
-
+    
     <DataTemplate DataType="{x:Type general1:AllUsersViewModel}">
         <general:AllUsersView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type general1:NewUsersViewModel}">
         <general:NewUsersView/>
     </DataTemplate>
-
+    
     <DataTemplate DataType="{x:Type general1:AllBuddysViewModel}">
         <general:AllBuddysView/>
     </DataTemplate>

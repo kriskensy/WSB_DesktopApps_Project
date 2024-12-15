@@ -10,7 +10,7 @@ namespace MVVMFirma.Models.EntitiesForView
     {
         public int IdCondition { get; set; }
         public DateTime DiveDate { get; set; }
-        public decimal? Temperature { get; set; }
+        public decimal Temperature { get; set; }
         public string WaterCurrent { get; set; }
         public string Visibility { get; set; }
         public string Notes { get; set; }

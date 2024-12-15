@@ -23,7 +23,8 @@ namespace MVVMFirma.ViewModels.General
                         IdEmergencyContact = emergencyContact.IdEmergencyContact,
                         UserFirstName = emergencyContact.User.FirstName,
                         UserLastName = emergencyContact.User.LastName,
-                        ContactName = emergencyContact.ContactName,
+                        ContactFirstName = emergencyContact.ContactFirstName,
+                        ContactLastName = emergencyContact.ContactLastName,
                         Relationship = emergencyContact.Relationship,
                         PhoneNumber = emergencyContact.PhoneNumber,
                         Email = emergencyContact.Email

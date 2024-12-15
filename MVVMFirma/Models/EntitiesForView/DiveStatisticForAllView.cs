@@ -10,8 +10,8 @@ namespace MVVMFirma.Models.EntitiesForView
     {
         public int IdStatistic { get; set; }
         public DateTime DiveDate { get; set; }
-        public decimal? AirConsumed { get; set; }
-        public decimal? AscentRate { get; set; }
-        public int? BottomTime { get; set; }
+        public decimal AirConsumed { get; set; }
+        public decimal AscentRate { get; set; }
+        public int BottomTime { get; set; }
     }
 }

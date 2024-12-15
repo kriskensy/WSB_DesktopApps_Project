@@ -15,6 +15,8 @@ namespace MVVMFirma.Models.EntitiesForView
         public string SiteName { get; set; }
         public string SiteLocation { get; set; }
         public DateTime DiveDate { get; set; }
+        public string BuddyFirstName { get; set; }
+        public string BuddyLastName { get; set; }
         public int DiveDuration { get; set; }
         public decimal MaxDepth { get; set; }
     }

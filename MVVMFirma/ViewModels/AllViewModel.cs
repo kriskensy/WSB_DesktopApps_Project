@@ -13,7 +13,7 @@ namespace MVVMFirma.ViewModels
     public abstract class AllViewModel<T> : WorkspaceViewModel
     {
         #region DB
-        protected readonly Diving4LifeEntities diving4LifeEntities;
+        protected readonly Diving4LifeEntities1 diving4LifeEntities;
         #endregion
 
         #region LoadCommand
@@ -52,7 +52,7 @@ namespace MVVMFirma.ViewModels
         #region Constructor
         public AllViewModel(string displayName)
         {
-            diving4LifeEntities = new Diving4LifeEntities();
+            diving4LifeEntities = new Diving4LifeEntities1();
             base.DisplayName = displayName;
         }
         #endregion

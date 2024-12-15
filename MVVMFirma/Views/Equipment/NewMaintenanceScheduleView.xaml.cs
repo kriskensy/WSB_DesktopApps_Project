@@ -5,7 +5,7 @@ namespace MVVMFirma.Views.Equipment
     /// <summary>
     /// Interaction logic for NewMaintenanceScheduleView.xaml
     /// </summary>
-    public partial class NewMaintenanceScheduleView : UserControl
+    public partial class NewMaintenanceScheduleView : NewViewBase
     {
         public NewMaintenanceScheduleView()
         {

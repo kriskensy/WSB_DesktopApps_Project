@@ -12,7 +12,7 @@ namespace MVVMFirma.ViewModels
     public abstract class NewViewModel<T>:WorkspaceViewModel
     {
         #region DB
-        protected Diving4LifeEntities diving4LifeEntities;
+        protected Diving4LifeEntities1 diving4LifeEntities;
         #endregion
 
         #region Item
@@ -37,7 +37,7 @@ namespace MVVMFirma.ViewModels
         public NewViewModel(string displayName)
         {
             base.DisplayName = displayName;
-            diving4LifeEntities = new Diving4LifeEntities();
+            diving4LifeEntities = new Diving4LifeEntities1();
         }
         #endregion
 

@@ -40,14 +40,6 @@ namespace MVVMFirma.ViewModels
         {
             return new List<CommandViewModel>
             {
-                //new CommandViewModel(
-                //    "Towary",
-                //    new BaseCommand(() => this.ShowAllTowar())),
-
-                //new CommandViewModel(
-                //    "Towar",
-                //    new BaseCommand(() => this.CreateTowar())),
-
                 new CommandViewModel(
                     "Users",
                     new BaseCommand(() => this.ShowAllUsers())),
@@ -204,25 +196,6 @@ namespace MVVMFirma.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
-        private void CreateTowar()
-        {
-            NowyTowarViewModel workspace = new NowyTowarViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-        private void ShowAllTowar()
-        {
-            WszystkieTowaryViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is WszystkieTowaryViewModel)
-                as WszystkieTowaryViewModel;
-            if (workspace == null)
-            {
-                workspace = new WszystkieTowaryViewModel();
-                this.Workspaces.Add(workspace);
-            }
-
-            this.SetActiveWorkspace(workspace);
-        }
 
         private void ShowAllBuddys()
         {
