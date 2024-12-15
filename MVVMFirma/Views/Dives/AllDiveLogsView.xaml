@@ -16,8 +16,8 @@
                 <DataGridTextColumn Header="Site Name" Binding="{Binding SiteName}"/>
                 <DataGridTextColumn Header="Site Location" Binding="{Binding SiteLocation}"/>
                 <DataGridTextColumn Header="Dive Date" Binding="{Binding DiveDate}"/>
+                <DataGridTextColumn Header="Buddy First Name" Binding="{Binding BuddyFirstName}"/>
                 <DataGridTextColumn Header="Buddy Last Name" Binding="{Binding BuddyLastName}"/>
-                <DataGridTextColumn Header="Buddy Type Name" Binding="{Binding BuddyTypeName}"/>
                 <DataGridTextColumn Header="Dive Duration" Binding="{Binding DiveDuration}"/>
                 <DataGridTextColumn Header="Max Depth" Binding="{Binding MaxDepth}"/>
             </DataGrid.Columns>

@@ -10,8 +10,8 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding IdBuddy}"/>
-                <DataGridTextColumn Header="First Name" Binding="{Binding BuddyFirstName}"/>
-                <DataGridTextColumn Header="Last Name" Binding="{Binding BuddyLastName}"/>
+                <DataGridTextColumn Header="Buddy Firstname" Binding="{Binding BuddyFirstName}"/>
+                <DataGridTextColumn Header="Buddy Lastname" Binding="{Binding BuddyLastName}"/>
                 <DataGridTextColumn Header="Certification Level" Binding="{Binding CertificationLevel}"/>
                 <DataGridTextColumn Header="Contact Details" Binding="{Binding ContactDetails}"/>
             </DataGrid.Columns>

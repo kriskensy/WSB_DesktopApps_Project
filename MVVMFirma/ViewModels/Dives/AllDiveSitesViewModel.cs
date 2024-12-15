@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Dives
 {
-    public class AllDiveSitesViewModel : AllViewModel<DiveSites>
+    public class AllDiveSitesViewModel : AllViewModel<DiveSitesForAllView>
     {
 
         #region Constructor
@@ -15,9 +16,16 @@ namespace MVVMFirma.ViewModels.Dives
         #region Helpers
         public override void Load()
         {
-            List = new ObservableCollection<DiveSites>
+            List = new ObservableCollection<DiveSitesForAllView>
                 (
-                    diving4LifeEntities.DiveSites.ToList()
+                    from diveSites in diving4LifeEntities.DiveSites
+                    select new DiveSitesForAllView
+                    {
+                        IdDiveSite = diveSites.IdDiveSite,
+                        SiteName = diveSites.SiteName,
+                        Location = diveSites.Location,
+                        Description = diveSites.Description,
+                    }
                 );
         }
         #endregion

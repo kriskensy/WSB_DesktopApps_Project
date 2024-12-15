@@ -21,6 +21,8 @@ namespace MVVMFirma.ViewModels.Equipment
                     select new EquipmentForAllView
                     {
                         IdEquipment = equipment.IdEquipment,
+                        UserFirstName = equipment.User.FirstName,
+                        UserLastName = equipment.User.LastName,
                         CategoryName = equipment.EquipmentCategories.CategoryName,
                         ManufacturerName = equipment.EquipmentManufacturer.ManufacturerName,
                         EquipmentName = equipment.Name,

@@ -10,11 +10,10 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding IdUser}"/>
-                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="User Firstname" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="User Lastname" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
-                <DataGridTextColumn Header="Password Hash" Binding="{Binding PasswordHash}"/>
             </DataGrid.Columns>
         </DataGrid>
             

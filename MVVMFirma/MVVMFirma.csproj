@@ -74,12 +74,19 @@
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Models\EntitiesForView\BuddySystemForAllView.cs" />
     <Compile Include="Models\EntitiesForView\CertificatesForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\CertificationOrganizationForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DiveConditionsForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DiveLogsForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\DiveSitesForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DiveStatisticForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\DiveTypesForAllView.cs" />
     <Compile Include="Models\EntitiesForView\EmergencyContactsForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\EquipmentCategoriesForAllView.cs" />
     <Compile Include="Models\EntitiesForView\EquipmentForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\EquipmentManufacturerForAllView.cs" />
     <Compile Include="Models\EntitiesForView\MaintenanceScheduleForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\TypeOfTrainingForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\UserForAllView.cs" />
     <Compile Include="Models\Entities\BuddySystem.cs">
       <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>

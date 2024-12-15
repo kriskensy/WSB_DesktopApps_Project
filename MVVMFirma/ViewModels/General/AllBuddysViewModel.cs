@@ -22,8 +22,6 @@ namespace MVVMFirma.ViewModels.General
                     select new BuddySystemForAllView
                     {
                         IdBuddy = buddy.IdBuddy,
-                        // DiveDate = buddy.DiveLogs.DiveDate,
-                        // BuddyName = buddy.BuddyName,
                         BuddyFirstName = buddy.BuddyFirstName,
                         BuddyLastName = buddy.BuddyLastName,
                         CertificationLevel = buddy.CertificationLevel,

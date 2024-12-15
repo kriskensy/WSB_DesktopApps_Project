@@ -10,9 +10,10 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding IdEmergencyContact}"/>
-                <DataGridTextColumn Header="User First Name" Binding="{Binding UserFirstName}"/>
-                <DataGridTextColumn Header="User Last Name" Binding="{Binding UserLastName}"/>
-                <DataGridTextColumn Header="Contact Name" Binding="{Binding ContactName}"/>
+                <DataGridTextColumn Header="User Firstname" Binding="{Binding UserFirstName}"/>
+                <DataGridTextColumn Header="User Lastname" Binding="{Binding UserLastName}"/>
+                <DataGridTextColumn Header="Contact Firstname" Binding="{Binding ContactFirstName}"/>
+                <DataGridTextColumn Header="Contact Lastname" Binding="{Binding ContactLastName}"/>
                 <DataGridTextColumn Header="Relationship" Binding="{Binding Relationship}"/>
                 <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
