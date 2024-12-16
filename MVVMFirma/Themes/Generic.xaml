@@ -15,10 +15,10 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <ToolBar Grid.Row="0" Margin="0,2,0,2">
-                            <ToggleButton Content="Add" Margin=" 0,2,0,2"/>
+                            <ToggleButton Content="Add" Margin=" 0,2,0,2" Command="{Binding AddCommand}"/>
                             <ToggleButton Content="Edit" Margin=" 0,2,0,2"/>
                             <ToggleButton Content="Delete" Margin=" 0,2,0,2"/>
-                            <ToggleButton Content="Refresh" Margin=" 0,2,0,2"/>
+                            <ToggleButton Content="Refresh" Margin=" 0,2,0,2" Command="{Binding LoadCommand}"/>
                         </ToolBar>
                         <StackPanel Grid.Row="1" Background="Azure">
                             <Label>another options like sorting, ...</Label>

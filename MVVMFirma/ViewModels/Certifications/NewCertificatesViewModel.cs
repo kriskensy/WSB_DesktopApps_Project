@@ -77,6 +77,7 @@ namespace MVVMFirma.ViewModels.Certifications
             : base("Certificate")
         {
             item = new Certificates();
+            IssueDate = DateTime.Now;
         }
         #endregion
 

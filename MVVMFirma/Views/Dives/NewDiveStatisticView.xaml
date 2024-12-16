@@ -7,7 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white">
-        <Label>new statistic</Label>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Dive Date"/>
+        <DatePicker Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" SelectedDate="{Binding Path=DiveDate, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Air consumed"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=AirConsumed, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Ascent rate"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=AscentRate, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Bottom time"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=BottomTime, UpdateSourceTrigger=PropertyChanged}"/>
+
     </Grid>
 </local:NewViewBase>

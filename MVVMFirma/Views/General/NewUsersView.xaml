@@ -29,8 +29,5 @@
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Phone Number"/>
         <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Password Hash"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=PasswordHash, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </local:NewViewBase>

@@ -64,6 +64,7 @@ namespace MVVMFirma.ViewModels.Equipment
             : base("Maintenance Schedule")
         {
             item = new MaintenanceSchedule();
+            ScheduledDate = DateTime.Now;
         }
         #endregion
 

@@ -103,6 +103,7 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Dive Log")
         {
             item = new DiveLogs();
+            DiveDate = DateTime.Now;
         }
         #endregion
 

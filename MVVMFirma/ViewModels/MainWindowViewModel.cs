@@ -13,6 +13,7 @@ using MVVMFirma.ViewModels.Dives;
 using MVVMFirma.ViewModels.Equipment;
 using MVVMFirma.ViewModels.General;
 using MVVMFirma.Views;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace MVVMFirma.ViewModels
 {
@@ -38,6 +39,8 @@ namespace MVVMFirma.ViewModels
         }
         private List<CommandViewModel> CreateCommands()
         {
+            //mess czeka na stringa i woła metodę open z helpersów
+            Messenger.Default.Register<string>(this, open);
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
@@ -196,6 +199,11 @@ namespace MVVMFirma.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
+        private void CreateView(WorkspaceViewModel newItem) //ta funkcja dodaje do listy Workspace dodaje i aktywuje 'nowy'. Można ją wykorzystać powyżej z parametrem, np. towar, faktura
+        {
+            this.Workspaces.Add(newItem);//to jest dodanie zakladki do kolekcji zakladek
+            this.SetActiveWorkspace(newItem);//aktywowanie zakladki
+        }
 
         private void ShowAllBuddys()
         {
@@ -513,6 +521,42 @@ namespace MVVMFirma.ViewModels
             if (collectionView != null)
                 collectionView.MoveCurrentTo(workspace);
         }
+
+        private void open(string name)
+        {
+            if (name == "New CertificateAdd")
+                CreateView(new NewCertificatesViewModel());
+            if (name == "New OrganizationAdd")
+                CreateView(new NewCertificationOrganizationViewModel());
+            if (name == "New Dive ConditionAdd")
+                CreateView(new NewDiveConditionsViewModel());
+            if (name == "New Dive LogAdd")
+                CreateView(new NewDiveLogsViewModel());
+            if (name == "New Dive SiteAdd")
+                CreateView(new NewDiveSitesViewModel());
+            if (name == "New StatisticAdd")
+                CreateView(new NewDiveStatisticViewModel());
+            if (name == "New Dive TypeAdd")
+                CreateView(new NewDiveTypesViewModel());
+            if (name == "New Trainig TypeAdd")
+                CreateView(new NewTypeOfTrainingViewModel());
+            if (name == "New Equipment CategoryAdd")
+                CreateView(new NewEquipmentCategoriesViewModel());
+            if (name == "New Equipment ManufacturerAdd")
+                CreateView(new NewEquipmentManufacturerViewModel());
+            if (name == "New EquipmentAdd")
+                CreateView(new NewEquipmentViewModel());
+            if (name == "New Maintenance ScheduleAdd")
+                CreateView(new NewMaintenanceScheduleViewModel());
+            if (name == "New BuddyAddAdd")
+                CreateView(new NewBuddysViewModel());
+            if (name == "New Emergency ContactAdd")
+                CreateView(new NewEmergencyContactsViewModel());
+            if (name == "New UserAdd")
+                CreateView(new NewUsersViewModel());
+        }
         #endregion
+
+
     }
 }

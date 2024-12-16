@@ -7,7 +7,50 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white">
-        <Label>new dive log</Label>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User Firstname"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=UserFirstName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="User Lastname"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=UserLastName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Dive type"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=DiveTypeName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Site name"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=SiteName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Site location"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=SiteLocation, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Dive date"/>
+        <DatePicker Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" SelectedDate="{Binding Path=DiveDate, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="6" Margin="0,8,0,8" Content="Buddy Firstname"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Margin="0,8,0,8" Text="{Binding Path=BuddyFirstName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="7" Margin="0,8,0,8" Content="Buddy Lastname"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Margin="0,8,0,8" Text="{Binding Path=BuddyLastName, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="8" Margin="0,8,0,8" Content="Dive duration"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Margin="0,8,0,8" Text="{Binding Path=DiveDuration, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="9" Margin="0,8,0,8" Content="Max depth"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Margin="0,8,0,8" Text="{Binding Path=MaxDepth, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </local:NewViewBase>

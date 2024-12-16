@@ -1,4 +1,5 @@
-﻿using MVVMFirma.Helper;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper;
 using MVVMFirma.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace MVVMFirma.ViewModels
         protected readonly Diving4LifeEntities1 diving4LifeEntities;
         #endregion
 
-        #region LoadCommand
+        #region Commands
         private BaseCommand _LoadCommand;
 
         public ICommand LoadCommand
@@ -28,6 +29,19 @@ namespace MVVMFirma.ViewModels
                 return _LoadCommand;
             }
         }
+
+        //private BaseCommand _AddCommand;
+
+        //public ICommand AddCommand
+        //{
+        //    get
+        //    {
+        //        if (AddCommand == null)
+        //            _AddCommand = new BaseCommand(() => add());
+        //        return _AddCommand;
+        //    }
+
+        //}
         #endregion
 
         #region List
@@ -59,6 +73,14 @@ namespace MVVMFirma.ViewModels
 
         #region Helpers
         public abstract void Load();
+
+        private void add()
+        {
+            //mess jest z biblio MVVMLight
+            //pozwala na wysłanie komunikatu do innego obiektu. DisplayName to nazwa widoku
+            //komunikat odbiera MainWindowModel, który otwiera okna
+            Messenger.Default.Send(DisplayName + "Add");
+        }
         #endregion
     }
 }
