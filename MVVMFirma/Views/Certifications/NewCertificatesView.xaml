@@ -20,21 +20,30 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User Firstname"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=UserFirstName, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" 
+                  ItemsSource="{Binding UsersItems}"
+                  DisplayMemberPath="Value"
+                  SelectedValuePath="Key"
+                  SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
 
-        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="User Lastname"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=UserLastName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Organization"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8"
+                 ItemsSource="{Binding OrganizationsItems}"
+                DisplayMemberPath="Value"
+                SelectedValuePath="Key"
+                SelectedValue="{Binding Path=IdOrganization, Mode=TwoWay}"/>
 
-        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Organization"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=OrganizationName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Type of training"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8"
+                  ItemsSource="{Binding TypesOfTrainingItems}"
+                    DisplayMemberPath="Value"
+                   SelectedValuePath="Key"
+                    SelectedValue="{Binding Path=IdTypeOfTraining, Mode=TwoWay}"/>
 
-        <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Type of training"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=TypeOfTraining, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Issue Date"/>
+        <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=IssueDate, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Issue Date"/>
-        <DatePicker Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" SelectedDate="{Binding Path=IssueDate, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Certificate Number"/>
-        <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=CertificateNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Certificate Number"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=CertificateNumber, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </local:NewViewBase>

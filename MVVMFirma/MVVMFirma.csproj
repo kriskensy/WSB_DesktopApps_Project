@@ -88,6 +88,9 @@
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Models\BusinessLogic\DataBaseClass.cs" />
+    <Compile Include="Models\BusinessLogic\OrganizationsB.cs" />
+    <Compile Include="Models\BusinessLogic\TypesOfTrainingB.cs" />
+    <Compile Include="Models\BusinessLogic\UsersB.cs" />
     <Compile Include="Models\EntitiesForView\BuddySystemForAllView.cs" />
     <Compile Include="Models\EntitiesForView\CertificatesForAllView.cs" />
     <Compile Include="Models\EntitiesForView\CertificationOrganizationForAllView.cs" />

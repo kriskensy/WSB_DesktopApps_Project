@@ -1,5 +1,8 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.BusinessLogic;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
 using System;
+using System.Linq;
 
 namespace MVVMFirma.ViewModels.Certifications
 {
@@ -81,7 +84,29 @@ namespace MVVMFirma.ViewModels.Certifications
         }
         #endregion
 
-        #region XXXXXXXXX
+        #region XXXXXXXXX Combobox
+        public IQueryable<KeyAndValue> UsersItems
+        {
+            get
+            {
+                return new UsersB(diving4LifeEntities).GetUsersKeyAndValueItems();
+            }
+        }
+
+        public IQueryable<KeyAndValue> OrganizationsItems
+        {
+            get
+            {
+                return new OrganizationsB(diving4LifeEntities).GetOrganisationsKeyAndValueItems();
+            }
+        }
+        public IQueryable<KeyAndValue> TypesOfTrainingItems
+        {
+            get
+            {
+                return new TypesOfTrainingB(diving4LifeEntities).GetTypesOfTrainingKeyAndValueItems();
+            }
+        }
 
         #endregion
 
