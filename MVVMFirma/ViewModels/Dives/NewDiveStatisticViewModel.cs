@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.BusinessLogic;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
+using System.Linq;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -68,7 +71,13 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
-
+        public IQueryable<KeyAndValueForDate> DiveStatisticsItems
+        {
+            get
+            {
+                return new DiveLogsB(diving4LifeEntities).GetDiveLogsKeyAndValueItems();
+            }
+        }
         #endregion
 
         #region Helpers
