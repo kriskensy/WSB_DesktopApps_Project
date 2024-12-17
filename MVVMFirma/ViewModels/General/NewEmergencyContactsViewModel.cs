@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.BusinessLogic;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
+using System.Linq;
 
 namespace MVVMFirma.ViewModels.General
 {
@@ -92,8 +95,15 @@ namespace MVVMFirma.ViewModels.General
         }
         #endregion
 
-        #region XXXXXXXXX
-
+        #region XXXXXXXXX Combobox
+        //ewentualnie zamienić na okno modalne co lepiej pasuje
+        public IQueryable<KeyAndValue> UsersItems
+        {
+            get
+            {
+                return new UsersB(diving4LifeEntities).GetUsersKeyAndValueItems();
+            }
+        }
         #endregion
 
         #region Helpers
