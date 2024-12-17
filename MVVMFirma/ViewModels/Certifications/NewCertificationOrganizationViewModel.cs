@@ -40,6 +40,11 @@ namespace MVVMFirma.ViewModels.Certifications
         }
         #endregion
 
+        #region XXXXXXXXX Combobox
+        //ewentualnie zamienić na okno modalne co lepiej pasuje
+
+        #endregion
+
         #region Helpers
         public override void Save()
         {

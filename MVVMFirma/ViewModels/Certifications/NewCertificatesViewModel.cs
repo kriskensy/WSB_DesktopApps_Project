@@ -85,6 +85,7 @@ namespace MVVMFirma.ViewModels.Certifications
         #endregion
 
         #region XXXXXXXXX Combobox
+        //ewentualnie zamienić na okno modalne co lepiej pasuje
         public IQueryable<KeyAndValue> UsersItems
         {
             get

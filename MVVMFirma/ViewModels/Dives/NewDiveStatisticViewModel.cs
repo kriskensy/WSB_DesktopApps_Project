@@ -66,7 +66,8 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        #region XXXXXXXXX
+        #region XXXXXXXXX Combobox
+        //ewentualnie zamienić na okno modalne co lepiej pasuje
 
         #endregion
 
