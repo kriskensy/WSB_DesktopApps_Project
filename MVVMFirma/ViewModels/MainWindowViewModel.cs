@@ -48,116 +48,117 @@ namespace MVVMFirma.ViewModels
                     new BaseCommand(() => this.ShowAllUsers())),
 
                 new CommandViewModel(
-                    "New User",
-                    new BaseCommand(() => this.CreateNewUser())),
-
-                new CommandViewModel(
                     "Buddys",
                     new BaseCommand(() => this.ShowAllBuddys())),
-
-                new CommandViewModel(
-                    "New Buddy",
-                    new BaseCommand(() => this.CreateNewBuddy())),
 
                 new CommandViewModel(
                     "Certificates",
                     new BaseCommand(() => this.ShowAllCertificates())),
 
                 new CommandViewModel(
-                    "New Certificate",
-                    new BaseCommand(() => this.CreateNewCertificate())),
-
-                new CommandViewModel(
                     "Certification Organizations",
                     new BaseCommand(() => this.ShowAllCertificationOrganizations())),
-
-                new CommandViewModel(
-                    "New Organization",
-                    new BaseCommand(() => this.CreateNewOrganization())),
 
                 new CommandViewModel(
                     "Dive Conditions",
                     new BaseCommand(() => this.ShowAllDiveConditions())),
 
                 new CommandViewModel(
-                    "New Dive Condition",
-                    new BaseCommand(() => this.CreateNewDiveCondition())),
-
-                new CommandViewModel(
                     "Dive Logs",
                     new BaseCommand(() => this.ShowAllDiveLogs())),
-
-                new CommandViewModel(
-                    "New Dive Log",
-                    new BaseCommand(() => this.CreateNewDiveLog())),
 
                 new CommandViewModel(
                     "Dive Sites",
                     new BaseCommand(() => this.ShowAllDiveSites())),
 
                 new CommandViewModel(
-                    "New Dive Site",
-                    new BaseCommand(() => this.CreateNewDiveSite())),
-
-                new CommandViewModel(
                     "Statistics",
                     new BaseCommand(() => this.ShowAllStatistics())),
-
-                new CommandViewModel(
-                    "New Statistic",
-                    new BaseCommand(() => this.CreateNewStatistic())),
 
                 new CommandViewModel(
                     "Dive Types",
                     new BaseCommand(() => this.ShowAllDiveTypes())),
 
                 new CommandViewModel(
-                    "New Dive Type",
-                    new BaseCommand(() => this.CreateNewDiveType())),
-
-                new CommandViewModel(
                     "Emergency Contacts",
                     new BaseCommand(() => this.ShowAllEmergencyContacts())),
-
-                new CommandViewModel(
-                    "New Emergency Contact",
-                    new BaseCommand(() => this.CreateNewEmergencyContact())),
 
                 new CommandViewModel(
                     "Equipment Categories",
                     new BaseCommand(() => this.ShowAllEquipmentCategories())),
 
                 new CommandViewModel(
-                    "New Equipment Category",
-                    new BaseCommand(() => this.CreateNewEquipmentCategory())),
-
-                new CommandViewModel(
                     "Equipment Manufacturer",
                     new BaseCommand(() => this.ShowAllEquipmentManufacturer())),
-
-                new CommandViewModel(
-                    "New Equipment Manufacturer",
-                    new BaseCommand(() => this.CreateNewEquipmentManufacturer())),
 
                 new CommandViewModel(
                     "Equipment",
                     new BaseCommand(() => this.ShowAllEquipment())),
 
                 new CommandViewModel(
-                    "New Equipment",
-                    new BaseCommand(() => this.CreateNewEquipment())),
-
-                new CommandViewModel(
                     "Maintenance Schedules",
                     new BaseCommand(() => this.ShowAllMaintenanceSchedules())),
 
                 new CommandViewModel(
-                    "New Maintenance Schedule",
-                    new BaseCommand(() => this.CreateNewMaintenanceSchedule())),
-
-                new CommandViewModel(
                     "Trainig Types",
                     new BaseCommand(() => this.ShowAllTrainigTypes())),
+
+
+                new CommandViewModel(
+                    "New User",
+                    new BaseCommand(() => this.CreateNewUser())),
+
+                new CommandViewModel(
+                    "New Buddy",
+                    new BaseCommand(() => this.CreateNewBuddy())),
+
+                new CommandViewModel(
+                    "New Certificate",
+                    new BaseCommand(() => this.CreateNewCertificate())),
+
+                new CommandViewModel(
+                    "New Organization",
+                    new BaseCommand(() => this.CreateNewOrganization())),
+
+                new CommandViewModel(
+                    "New Dive Condition",
+                    new BaseCommand(() => this.CreateNewDiveCondition())),
+
+                new CommandViewModel(
+                    "New Dive Log",
+                    new BaseCommand(() => this.CreateNewDiveLog())),
+
+                new CommandViewModel(
+                    "New Dive Site",
+                    new BaseCommand(() => this.CreateNewDiveSite())),
+
+                new CommandViewModel(
+                    "New Statistic",
+                    new BaseCommand(() => this.CreateNewStatistic())),
+
+                new CommandViewModel(
+                    "New Dive Type",
+                    new BaseCommand(() => this.CreateNewDiveType())),
+
+                new CommandViewModel(
+                    "New Emergency Contact",
+                    new BaseCommand(() => this.CreateNewEmergencyContact())),
+
+                new CommandViewModel(
+                    "New Equipment Category",
+                    new BaseCommand(() => this.CreateNewEquipmentCategory())),
+
+                new CommandViewModel(
+                    "New Equipment Manufacturer",
+                    new BaseCommand(() => this.CreateNewEquipmentManufacturer())),
+
+                new CommandViewModel(
+                    "New Equipment",
+                    new BaseCommand(() => this.CreateNewEquipment())),
+
+                new CommandViewModel(
+                    "New Maintenance Schedule",
+                    new BaseCommand(() => this.CreateNewMaintenanceSchedule())),
 
                 new CommandViewModel(
                     "New Trainig Type",
@@ -199,7 +200,7 @@ namespace MVVMFirma.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
-        private void CreateView(WorkspaceViewModel newItem) //ta funkcja dodaje do listy Workspace dodaje i aktywuje 'nowy'. Można ją wykorzystać powyżej z parametrem, np. towar, faktura
+        private void CreateView(WorkspaceViewModel newItem) //ta funkcja dodaje do listy Workspace dodaje i aktywuje 'nowy'.
         {
             this.Workspaces.Add(newItem);//to jest dodanie zakladki do kolekcji zakladek
             this.SetActiveWorkspace(newItem);//aktywowanie zakladki

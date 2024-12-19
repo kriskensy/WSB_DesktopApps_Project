@@ -92,6 +92,9 @@
     <Compile Include="Models\BusinessLogic\DiveLogsB.cs" />
     <Compile Include="Models\BusinessLogic\DiveSitesB.cs" />
     <Compile Include="Models\BusinessLogic\DiveTypeB.cs" />
+    <Compile Include="Models\BusinessLogic\EquipmentB.cs" />
+    <Compile Include="Models\BusinessLogic\EquipmentCategoriesB.cs" />
+    <Compile Include="Models\BusinessLogic\EquipmentManufacturersB.cs" />
     <Compile Include="Models\BusinessLogic\OrganizationsB.cs" />
     <Compile Include="Models\BusinessLogic\TypesOfTrainingB.cs" />
     <Compile Include="Models\BusinessLogic\UsersB.cs" />

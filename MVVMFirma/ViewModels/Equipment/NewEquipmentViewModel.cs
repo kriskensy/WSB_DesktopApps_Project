@@ -1,5 +1,8 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.BusinessLogic;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
 using System;
+using System.Linq;
 
 namespace MVVMFirma.ViewModels.Equipment
 {
@@ -98,7 +101,29 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
+        public IQueryable<KeyAndValue> UsersItems
+        {
+            get
+            {
+                return new UsersB(diving4LifeEntities).GetUsersKeyAndValueItems();
+            }
+        }
 
+        public IQueryable<KeyAndValue> EquipmentCategoriesItems
+        {
+            get
+            {
+                return new EquipmentCategoriesB(diving4LifeEntities).GetEquipmentCategoriesKeyAndValueItems();
+            }
+        }
+
+        public IQueryable<KeyAndValue> EquipmentManufacturersItems
+        {
+            get
+            {
+                return new EquipmentManufacturersB(diving4LifeEntities).GetManufacturersKeyAndValueItems();
+            }
+        }
         #endregion
 
         #region Helpers

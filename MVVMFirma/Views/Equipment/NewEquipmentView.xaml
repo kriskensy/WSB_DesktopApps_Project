@@ -20,26 +20,35 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User Firstname"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=UserFirstName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Username"/>
+        <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8"
+                 ItemsSource="{Binding UsersItems}"
+                 DisplayMemberPath="Value"
+                 SelectedValuePath="Key"
+                 SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
 
-        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="User Lastname"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=UserLastName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Category"/>
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8"
+                 ItemsSource="{Binding EquipmentCategoriesItems}"
+                 DisplayMemberPath="Value"
+                 SelectedValuePath="Key"
+                 SelectedValue="{Binding Path=IdCategory, Mode=TwoWay}"/>
 
-        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Category"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=CategoryName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Manufacturer"/>
+        <ComboBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8"
+                 ItemsSource="{Binding EquipmentManufacturersItems}"
+                 DisplayMemberPath="Value"
+                 SelectedValuePath="Key"
+                 SelectedValue="{Binding Path=IdManufacturer, Mode=TwoWay}"/>
 
-        <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Manufacturer"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=ManufacturerName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Equipment name"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=EquipmentName, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Equipment name"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=EquipmentName, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Serial number"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=SerialNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Serial number"/>
-        <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=SerialNumber, UpdateSourceTrigger=PropertyChanged}"/>
-
-        <Label Grid.Column="0" Grid.Row="6" Margin="0,8,0,8" Content="Purchase date"/>
-        <DatePicker Grid.Column="1" Grid.Row="6" Margin="0,8,0,8" SelectedDate="{Binding Path=PurchaseDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Purchase date"/>
+        <DatePicker Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" SelectedDate="{Binding Path=PurchaseDate, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </local:NewViewBase>

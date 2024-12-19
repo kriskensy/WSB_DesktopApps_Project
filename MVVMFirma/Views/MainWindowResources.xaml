@@ -14,10 +14,11 @@
     <DataTemplate DataType="{x:Type general1:AllUsersViewModel}">
         <general:AllUsersView/>
     </DataTemplate>
+
     <DataTemplate DataType="{x:Type general1:NewUsersViewModel}">
         <general:NewUsersView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type general1:AllBuddysViewModel}">
         <general:AllBuddysView/>
     </DataTemplate>
