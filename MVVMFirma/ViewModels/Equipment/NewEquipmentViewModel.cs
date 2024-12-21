@@ -21,7 +21,7 @@ namespace MVVMFirma.ViewModels.Equipment
                 OnPropertyChanged(() => IdUser);
             }
         }
-        
+
         public int IdCategory
         {
             get
@@ -34,7 +34,7 @@ namespace MVVMFirma.ViewModels.Equipment
                 OnPropertyChanged(() => IdCategory);
             }
         }
-        
+
         public int IdManufacturer
         {
             get
@@ -47,7 +47,7 @@ namespace MVVMFirma.ViewModels.Equipment
                 OnPropertyChanged(() => IdManufacturer);
             }
         }
-        
+
         public string Name
         {
             get
@@ -60,7 +60,7 @@ namespace MVVMFirma.ViewModels.Equipment
                 OnPropertyChanged(() => Name);
             }
         }
-        
+
         public string SerialNumber
         {
             get
@@ -73,7 +73,7 @@ namespace MVVMFirma.ViewModels.Equipment
                 OnPropertyChanged(() => SerialNumber);
             }
         }
-        
+
         public DateTime PurchaseDate
         {
             get

@@ -200,7 +200,7 @@ namespace MVVMFirma.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
-        private void CreateView(WorkspaceViewModel newItem) //ta funkcja dodaje do listy Workspace dodaje i aktywuje 'nowy'.
+        private void CreateView(WorkspaceViewModel newItem) //ta funkcja dodaje do listy Workspace dodaje i aktywuje 'new'.
         {
             this.Workspaces.Add(newItem);//to jest dodanie zakladki do kolekcji zakladek
             this.SetActiveWorkspace(newItem);//aktywowanie zakladki
@@ -525,39 +525,57 @@ namespace MVVMFirma.ViewModels
 
         private void open(string name)
         {
-            if (name == "New CertificateAdd")
-                CreateView(new NewCertificatesViewModel());
-            if (name == "New OrganizationAdd")
-                CreateView(new NewCertificationOrganizationViewModel());
-            if (name == "New Dive ConditionAdd")
-                CreateView(new NewDiveConditionsViewModel());
-            if (name == "New Dive LogAdd")
-                CreateView(new NewDiveLogsViewModel());
-            if (name == "New Dive SiteAdd")
-                CreateView(new NewDiveSitesViewModel());
-            if (name == "New StatisticAdd")
-                CreateView(new NewDiveStatisticViewModel());
-            if (name == "New Dive TypeAdd")
-                CreateView(new NewDiveTypesViewModel());
-            if (name == "New Trainig TypeAdd")
-                CreateView(new NewTypeOfTrainingViewModel());
-            if (name == "New Equipment CategoryAdd")
-                CreateView(new NewEquipmentCategoriesViewModel());
-            if (name == "New Equipment ManufacturerAdd")
-                CreateView(new NewEquipmentManufacturerViewModel());
-            if (name == "New EquipmentAdd")
-                CreateView(new NewEquipmentViewModel());
-            if (name == "New Maintenance ScheduleAdd")
-                CreateView(new NewMaintenanceScheduleViewModel());
-            if (name == "New BuddyAddAdd")
-                CreateView(new NewBuddysViewModel());
-            if (name == "New Emergency ContactAdd")
-                CreateView(new NewEmergencyContactsViewModel());
-            if (name == "New UserAdd")
-                CreateView(new NewUsersViewModel());
+            switch (name)
+            {
+                case "CertificatesAdd":
+                    CreateView(new NewCertificatesViewModel());
+                    break;
+                case "Certification OrganizationAdd":
+                    CreateView(new NewCertificationOrganizationViewModel());
+                    break;
+                case "Dive ConditionsAdd":
+                    CreateView(new NewDiveConditionsViewModel());
+                    break;
+                case "Dive LogAdd":
+                    CreateView(new NewDiveLogsViewModel());
+                    break;
+                case "Dive SitesAdd":
+                    CreateView(new NewDiveSitesViewModel());
+                    break;
+                case "StatisticAdd":
+                    CreateView(new NewDiveStatisticViewModel());
+                    break;
+                case "Dive TypesAdd":
+                    CreateView(new NewDiveTypesViewModel());
+                    break;
+                case "Training TypesAdd":
+                    CreateView(new NewTypeOfTrainingViewModel());
+                    break;
+                case "EQ CategoriesAdd":
+                    CreateView(new NewEquipmentCategoriesViewModel());
+                    break;
+                case "EQ ManufacturerAdd":
+                    CreateView(new NewEquipmentManufacturerViewModel());
+                    break;
+                case "EquipmentAdd":
+                    CreateView(new NewEquipmentViewModel());
+                    break;
+                case "Maintenance ScheduleAdd":
+                    CreateView(new NewMaintenanceScheduleViewModel());
+                    break;
+                case "BuddysAdd":
+                    CreateView(new NewBuddysViewModel());
+                    break;
+                case "Emergency ContactAdd":
+                    CreateView(new NewEmergencyContactsViewModel());
+                    break;
+                case "UsersAdd":
+                    CreateView(new NewUsersViewModel());
+                    break;
+                default: //info na konsolę
+                    throw new ArgumentException($"Add button for: {name} doesn't work.");
+            }
         }
         #endregion
-
-
     }
 }

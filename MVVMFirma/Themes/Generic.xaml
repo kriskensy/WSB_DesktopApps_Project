@@ -21,7 +21,7 @@
                             <ToggleButton Content="Refresh" Margin=" 0,2,0,2" Command="{Binding LoadCommand}"/>
                         </ToolBar>
                         <StackPanel Grid.Row="1" Background="Azure">
-                            <Label>another options like sorting, ...</Label>
+                            <Label>another options like sorting, filtering ...</Label>
                         </StackPanel>
                         <ContentPresenter Grid.Row="2" Margin="0,5,0,5"/>
                     </Grid>

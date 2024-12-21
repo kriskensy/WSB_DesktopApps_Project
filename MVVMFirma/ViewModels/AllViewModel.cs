@@ -30,20 +30,18 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        //zakomentowana bo wywala mi aplikację póki co
+        private BaseCommand _AddCommand;
 
-        //private BaseCommand _AddCommand;
+        public ICommand AddCommand
+        {
+            get
+            {
+                if (_AddCommand == null)
+                    _AddCommand = new BaseCommand(() => add());
+                return _AddCommand;
+            }
 
-        //public ICommand AddCommand
-        //{
-        //    get
-        //    {
-        //        if (AddCommand == null)
-        //            _AddCommand = new BaseCommand(() => add());
-        //        return _AddCommand;
-        //    }
-
-        //}
+        }
         #endregion
 
         #region List
