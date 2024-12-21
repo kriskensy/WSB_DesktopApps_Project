@@ -30,6 +30,8 @@ namespace MVVMFirma.ViewModels
             }
         }
 
+        //zakomentowana bo wywala mi aplikację póki co
+
         //private BaseCommand _AddCommand;
 
         //public ICommand AddCommand

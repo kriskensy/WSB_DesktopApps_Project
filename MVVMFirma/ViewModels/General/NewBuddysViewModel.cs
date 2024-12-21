@@ -52,7 +52,7 @@ namespace MVVMFirma.ViewModels.General
             }
             set
             {
-                item.BuddyFirstName = value;
+                item.ContactDetails = value;
                 OnPropertyChanged(() => ContactDetails);
             }
         }
