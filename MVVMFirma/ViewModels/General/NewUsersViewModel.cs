@@ -74,5 +74,26 @@ namespace MVVMFirma.ViewModels.General
             diving4LifeEntities.SaveChanges();
         }
         #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case nameof(FirstName):
+                    return string.IsNullOrEmpty(FirstName) ? "First name cannot be empty" : string.Empty;
+                case nameof(LastName):
+                    return string.IsNullOrEmpty(LastName) ? "Last name cannot be empty" : string.Empty;
+                case nameof(Email):
+                    return string.IsNullOrEmpty(Email) ? "Email name cannot be empty" : string.Empty;
+                //case nameof(PhoneNumber):
+                //    return string.IsNullOrEmpty(PhoneNumber) ? "Phone number name cannot be empty" : string.Empty;
+                case nameof(PhoneNumber):
+                    return !Helper.Validators.StringValidator.ContainsOnlyNumbers(PhoneNumber ?? string.Empty) ? "Phonenumber can contains only numbers" : string.Empty;
+                default:
+                    return string.Empty;
+            }
+        }
+        #endregion
     }
 }
