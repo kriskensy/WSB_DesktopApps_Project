@@ -2,6 +2,7 @@
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace MVVMFirma.ViewModels.General
 {
@@ -111,6 +112,29 @@ namespace MVVMFirma.ViewModels.General
         {
             diving4LifeEntities.EmergencyContacts.Add(item);
             diving4LifeEntities.SaveChanges();
+        }
+        #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case nameof(ContactFirstName):
+                    return string.IsNullOrEmpty(ContactFirstName) ? "Contact Firstname cannot be empty" : string.Empty;
+                case nameof(ContactLastName):
+                    return string.IsNullOrEmpty(ContactLastName) ? "Contact Lastname cannot be empty" : string.Empty;
+                case nameof(Relationship):
+                    return string.IsNullOrEmpty(Relationship) ? "Relationship cannot be empty" : string.Empty;
+                //case nameof(PhoneNumber):
+                //    return string.IsNullOrEmpty(PhoneNumber) ? "Phone number cannot be empty" : string.Empty;
+                case nameof(PhoneNumber):
+                    return !Helper.Validators.StringValidator.ContainsOnlyNumbers(PhoneNumber ?? string.Empty) ? "Phonenumber can contains only numbers" : string.Empty;
+                case nameof(Email):
+                    return string.IsNullOrEmpty(Email) ? "Email cannot be empty" : string.Empty;
+                default:
+                    return string.Empty;
+            }
         }
         #endregion
     }

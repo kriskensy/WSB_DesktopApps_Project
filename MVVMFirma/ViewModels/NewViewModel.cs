@@ -76,6 +76,22 @@ namespace MVVMFirma.ViewModels
             return string.Empty;
         }
 
+        //tą metodę muszę nadpisywać indywidualnie w zależności do rodzaju wymaganej daty
+        protected virtual string ValidateDateTime(DateTime? value, string propertyName)
+        {
+            return string.Empty;
+        }
+
+        //TODO: podrasować bo pokazywanie userowi np, IdUser must reference... nie ma sensu
+        protected string ValidateForeignKey(int? value, string propertyName)
+        {
+            if(value == null || value<= 0)
+            {
+                MessageBox.Show($"{propertyName} must reference a valid record.", "Error");
+            }
+            return string.Empty;
+        }
+
         private void ValidateAndSave()
         {
             try

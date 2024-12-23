@@ -100,5 +100,22 @@ namespace MVVMFirma.ViewModels.Dives
             diving4LifeEntities.SaveChanges();
         }
         #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case nameof(WaterCurrent):
+                    return string.IsNullOrEmpty(WaterCurrent) ? "Water current cannot be empty" : string.Empty;
+                case nameof(Visibility):
+                    return string.IsNullOrEmpty(Visibility) ? "Visibility cannot be empty" : string.Empty;
+                case nameof(Notes):
+                    return string.IsNullOrEmpty(Notes) ? "Notes cannot be empty" : string.Empty;
+                default:
+                    return string.Empty;
+            }
+        }
+        #endregion
     }
 }

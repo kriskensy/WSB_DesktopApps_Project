@@ -19,7 +19,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User Firstname"/>
+        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User name"/>
         <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" 
                   ItemsSource="{Binding UsersItems}"
                   DisplayMemberPath="Value"
@@ -41,9 +41,9 @@
                     SelectedValue="{Binding Path=IdTypeOfTraining, Mode=TwoWay}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Issue Date"/>
-        <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=IssueDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=IssueDate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Certificate Number"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=CertificateNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=CertificateNumber, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </local:NewViewBase>

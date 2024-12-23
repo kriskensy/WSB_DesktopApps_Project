@@ -47,5 +47,20 @@ namespace MVVMFirma.ViewModels.Certifications
             diving4LifeEntities.SaveChanges();
         }
         #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case nameof(OrganizationName):
+                    return string.IsNullOrEmpty(OrganizationName) ? "Organization name cannot be empty" : string.Empty;
+                case nameof(Country):
+                    return string.IsNullOrEmpty(Country) ? "Country cannot be empty" : string.Empty;
+                default:
+                    return string.Empty;
+            }
+        }
+        #endregion
     }
 }

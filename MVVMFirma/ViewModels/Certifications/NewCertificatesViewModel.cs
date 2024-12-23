@@ -3,6 +3,7 @@ using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Linq;
+using System.Windows;
 
 namespace MVVMFirma.ViewModels.Certifications
 {
@@ -117,6 +118,36 @@ namespace MVVMFirma.ViewModels.Certifications
             diving4LifeEntities.Certificates.Add(item);
             diving4LifeEntities.SaveChanges();
         }
+        #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                //case nameof(IdUser):
+                //    return ValidateForeignKey(IdUser, nameof(IdUser));
+                //case nameof(IdOrganization):
+                //    return ValidateForeignKey(IdUser, nameof(IdOrganization));
+                //case nameof(IdTypeOfTraining):
+                //    return ValidateForeignKey(IdUser, nameof(IdTypeOfTraining));
+                //case nameof(IssueDate):
+                //    return ValidateDateTime(IssueDate, nameof(IssueDate));
+                case nameof(CertificateNumber):
+                    return string.IsNullOrEmpty(CertificateNumber) ? "Certificate number cannot be empty" : string.Empty;
+                default:
+                    return string.Empty;
+            }
+        }
+
+        //protected override string ValidateDateTime(DateTime? value, string propertyName)
+        //{
+        //    if (value > DateTime.Now)
+        //    {
+        //        MessageBox.Show("The date cannot be later than today.", "Error");
+        //    }
+        //    return string.Empty;
+        //}
         #endregion
     }
 }

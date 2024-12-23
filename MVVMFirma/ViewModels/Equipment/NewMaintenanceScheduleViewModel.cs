@@ -3,6 +3,7 @@ using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace MVVMFirma.ViewModels.Equipment
 {
@@ -87,6 +88,19 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             diving4LifeEntities.MaintenanceSchedule.Add(item);
             diving4LifeEntities.SaveChanges();
+        }
+        #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case nameof(Status):
+                    return string.IsNullOrEmpty(Status) ? "Status cannot be empty" : string.Empty;
+                default:
+                    return string.Empty;
+            }
         }
         #endregion
     }

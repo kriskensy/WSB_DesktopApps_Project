@@ -48,5 +48,18 @@ namespace MVVMFirma.ViewModels.Dives
             diving4LifeEntities.SaveChanges();
         }
         #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                case nameof(TypeName):
+                    return string.IsNullOrEmpty(TypeName) ? "Type name cannot be empty" : string.Empty;
+                default:
+                    return string.Empty;
+            }
+        }
+        #endregion
     }
 }
