@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetBuddysKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetBuddysKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = buddy.IdBuddy,
                         Value = buddy.BuddyFirstName + " " + buddy.BuddyLastName
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

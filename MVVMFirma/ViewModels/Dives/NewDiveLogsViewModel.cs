@@ -2,6 +2,7 @@
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -112,7 +113,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IQueryable<KeyAndValue> UsersItems
+        public IEnumerable<KeyAndValue> UsersItems
         {
             get
             {
@@ -120,7 +121,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public IQueryable<KeyAndValue> DiveTypesItems
+        public IEnumerable<KeyAndValue> DiveTypesItems
         {
             get
             {
@@ -128,7 +129,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public IQueryable<KeyAndValue> SiteItems
+        public IEnumerable<KeyAndValue> SiteItems
         {
             get
             {
@@ -136,7 +137,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public IQueryable<KeyAndValue> BuddysItems
+        public IEnumerable<KeyAndValue> BuddysItems
         {
             get
             {

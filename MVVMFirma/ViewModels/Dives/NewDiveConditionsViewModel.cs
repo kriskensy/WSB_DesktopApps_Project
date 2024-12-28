@@ -1,6 +1,7 @@
 ﻿using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -84,7 +85,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IQueryable<KeyAndValueForDate> DiveConditionsItems
+        public IEnumerable<KeyAndValueForDate> DiveConditionsItems
         {
             get
             {

@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetOrganisationsKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetOrganisationsKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = organization.IdOrganization,
                         Value = organization.OrganizationName
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

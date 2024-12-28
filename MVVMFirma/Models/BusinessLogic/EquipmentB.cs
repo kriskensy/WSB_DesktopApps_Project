@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetEquipmentKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetEquipmentKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = equipment.IdEquipment,
                         Value = equipment.Name
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

@@ -87,6 +87,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Helper\Validators\IntValidator.cs" />
     <Compile Include="Helper\Validators\StringValidator.cs" />
     <Compile Include="Models\BusinessLogic\BuddysB.cs" />
     <Compile Include="Models\BusinessLogic\DataBaseClass.cs" />

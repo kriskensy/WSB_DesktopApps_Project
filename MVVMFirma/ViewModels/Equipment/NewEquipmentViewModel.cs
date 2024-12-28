@@ -2,6 +2,7 @@
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -102,7 +103,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IQueryable<KeyAndValue> UsersItems
+        public IEnumerable<KeyAndValue> UsersItems
         {
             get
             {
@@ -110,7 +111,7 @@ namespace MVVMFirma.ViewModels.Equipment
             }
         }
 
-        public IQueryable<KeyAndValue> EquipmentCategoriesItems
+        public IEnumerable<KeyAndValue> EquipmentCategoriesItems
         {
             get
             {
@@ -118,7 +119,7 @@ namespace MVVMFirma.ViewModels.Equipment
             }
         }
 
-        public IQueryable<KeyAndValue> EquipmentManufacturersItems
+        public IEnumerable<KeyAndValue> EquipmentManufacturersItems
         {
             get
             {

@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetDiveTypesKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetDiveTypesKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = diveType.IdDiveType,
                         Value = diveType.TypeName
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

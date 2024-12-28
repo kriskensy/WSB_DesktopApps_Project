@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetTypesOfTrainingKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetTypesOfTrainingKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = typeOfTraining.IdTypeOfTraining,
                         Value = typeOfTraining.TrainingName
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

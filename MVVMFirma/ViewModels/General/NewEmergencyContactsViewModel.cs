@@ -1,6 +1,7 @@
 ﻿using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -98,7 +99,7 @@ namespace MVVMFirma.ViewModels.General
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IQueryable<KeyAndValue> UsersItems
+        public IEnumerable<KeyAndValue> UsersItems
         {
             get
             {

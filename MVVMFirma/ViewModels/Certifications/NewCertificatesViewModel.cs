@@ -2,6 +2,7 @@
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -87,7 +88,7 @@ namespace MVVMFirma.ViewModels.Certifications
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IQueryable<KeyAndValue> UsersItems
+        public IEnumerable<KeyAndValue> UsersItems
         {
             get
             {
@@ -95,14 +96,14 @@ namespace MVVMFirma.ViewModels.Certifications
             }
         }
 
-        public IQueryable<KeyAndValue> OrganizationsItems
+        public IEnumerable<KeyAndValue> OrganizationsItems
         {
             get
             {
                 return new OrganizationsB(diving4LifeEntities).GetOrganisationsKeyAndValueItems();
             }
         }
-        public IQueryable<KeyAndValue> TypesOfTrainingItems
+        public IEnumerable<KeyAndValue> TypesOfTrainingItems
         {
             get
             {

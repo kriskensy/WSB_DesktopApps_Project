@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetManufacturersKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetManufacturersKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = manufacturer.IdManufacturer,
                         Value = manufacturer.ManufacturerName
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

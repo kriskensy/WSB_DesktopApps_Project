@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetDiveSitesKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetDiveSitesKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = diveSite.IdDiveSite,
                         Value = diveSite.SiteName + " - " + diveSite.Location
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

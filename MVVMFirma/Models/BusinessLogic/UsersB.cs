@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public IQueryable<KeyAndValue> GetUsersKeyAndValueItems()
+        public IEnumerable<KeyAndValue> GetUsersKeyAndValueItems()
         {
             return
                 (
@@ -26,7 +26,7 @@ namespace MVVMFirma.Models.BusinessLogic
                         Key = user.IdUser,
                         Value = user.FirstName + " " + user.LastName,
                     }
-                ).ToList().AsQueryable();
+                ).ToList();
         }
         #endregion
     }

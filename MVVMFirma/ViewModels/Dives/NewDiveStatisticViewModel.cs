@@ -1,7 +1,9 @@
 ﻿using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -71,7 +73,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region XXXXXXXXX Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IQueryable<KeyAndValueForDate> DiveStatisticsItems
+        public IEnumerable<KeyAndValueForDate> DiveStatisticsItems
         {
             get
             {
@@ -86,6 +88,19 @@ namespace MVVMFirma.ViewModels.Dives
             diving4LifeEntities.DiveStatistic.Add(item);
             diving4LifeEntities.SaveChanges();
         }
+        #endregion
+
+        #region Validation
+        //protected override string ValidateProperty(string propertyName)
+        //{
+        //    switch (propertyName)
+        //    {
+        //        case nameof(BottomTime):
+        //            return !Helper.Validators.IntValidator.IsTextInteger(BottomTime) ? "Phonenumber can contains only numbers" : string.Empty;
+        //        default:
+        //            return string.Empty;
+        //    }
+        //}
         #endregion
     }
 }
