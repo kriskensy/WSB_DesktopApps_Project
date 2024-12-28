@@ -41,7 +41,7 @@
                         </Grid.RowDefinitions>
                         <ToolBar Grid.Row="0" Height="30" Margin="0,2,0,2">
                             <ToggleButton Content="Save and close" Width="100" Height="30" Command="{Binding SaveCommand}"/>
-                            <ToggleButton Content="Cancel" Width="100" Height="30"/>
+                            <ToggleButton Content="Cancel" Width="100" Height="30" Command="{Binding CancelCommand}"/>
                         </ToolBar>
                         <ContentPresenter Grid.Row="1" Margin="0,5,0,5"/>
                     </Grid>

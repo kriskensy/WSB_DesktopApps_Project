@@ -35,6 +35,18 @@ namespace MVVMFirma.ViewModels
             }
         }
 
+        private BaseCommand _CancelCommand;
+
+        public ICommand CancelCommand
+        {
+            get
+            {
+                if (_CancelCommand == null)
+                    _CancelCommand = new BaseCommand(() => CancelAndClose());
+                return _CancelCommand;
+            }
+        }
+
         #endregion
 
         #region Constructor
@@ -85,7 +97,7 @@ namespace MVVMFirma.ViewModels
         //TODO: podrasować bo pokazywanie userowi np, IdUser must reference... nie ma sensu
         protected string ValidateForeignKey(int? value, string propertyName)
         {
-            if(value == null || value<= 0)
+            if (value == null || value <= 0)
             {
                 MessageBox.Show($"{propertyName} must reference a valid record.", "Error");
             }
@@ -109,6 +121,11 @@ namespace MVVMFirma.ViewModels
             {
                 MessageBox.Show("Writting in databank impossible.", "Error");
             }
+        }
+
+        public void CancelAndClose()
+        {
+            base.OnRequestClose();
         }
 
         public abstract void Save();
