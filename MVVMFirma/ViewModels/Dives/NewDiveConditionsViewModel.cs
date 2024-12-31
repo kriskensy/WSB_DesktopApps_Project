@@ -1,8 +1,11 @@
-﻿using MVVMFirma.Models.BusinessLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -83,14 +86,33 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        #region XXXXXXXXX Combobox
-        //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IEnumerable<KeyAndValueForDate> DiveConditionsItems
+        //#region Combobox
+        ////ewentualnie zamienić na okno modalne co lepiej pasuje
+        //public IEnumerable<KeyAndValueForDate> DiveConditionsItems
+        //{
+        //    get
+        //    {
+        //        return new DiveLogsB(diving4LifeEntities).GetDiveLogsKeyAndValueItems();
+        //    }
+        //}
+        //#endregion
+
+        #region Command
+        private BaseCommand _ShowAllDiveLogs;
+
+        public ICommand ShowAllDiveLogs
         {
             get
             {
-                return new DiveLogsB(diving4LifeEntities).GetDiveLogsKeyAndValueItems();
+                if (_ShowAllDiveLogs == null)
+                    _ShowAllDiveLogs = new BaseCommand(() => showAllDiveLogs());
+                return _ShowAllDiveLogs;
             }
+        }
+
+        private void showAllDiveLogs()
+        {
+            Messenger.Default.Send<string>("DiveLogsAll");
         }
         #endregion
 

@@ -1,9 +1,12 @@
-﻿using MVVMFirma.Models.BusinessLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -111,7 +114,7 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        #region XXXXXXXXX Combobox
+        #region Combobox
         //ewentualnie zamienić na okno modalne co lepiej pasuje
         public IEnumerable<KeyAndValue> UsersItems
         {
@@ -129,13 +132,13 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public IEnumerable<KeyAndValue> SiteItems
-        {
-            get
-            {
-                return new DiveSitesB(diving4LifeEntities).GetDiveSitesKeyAndValueItems();
-            }
-        }
+        //public IEnumerable<KeyAndValue> SiteItems
+        //{
+        //    get
+        //    {
+        //        return new DiveSitesB(diving4LifeEntities).GetDiveSitesKeyAndValueItems();
+        //    }
+        //}
 
         public IEnumerable<KeyAndValue> BuddysItems
         {
@@ -144,7 +147,25 @@ namespace MVVMFirma.ViewModels.Dives
                 return new BuddysB(diving4LifeEntities).GetBuddysKeyAndValueItems();
             }
         }
+        #endregion
 
+        #region Command
+        private BaseCommand _ShowAllDiveSites;
+
+        public ICommand ShowAllDiveSites
+        {
+            get
+            {
+                if (_ShowAllDiveSites == null)
+                    _ShowAllDiveSites = new BaseCommand(() => showAllDiveSites());
+                return _ShowAllDiveSites;
+            }
+        }
+
+        private void showAllDiveSites()
+        {
+            Messenger.Default.Send<string>("DiveSitesAll");
+        }
         #endregion
 
         #region Helpers

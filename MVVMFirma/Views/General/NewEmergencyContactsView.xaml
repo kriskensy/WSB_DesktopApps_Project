@@ -20,7 +20,7 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User Firstname"/>
+        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User name"/>
         <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8"
                  ItemsSource="{Binding UsersItems}"
                  DisplayMemberPath="Value"

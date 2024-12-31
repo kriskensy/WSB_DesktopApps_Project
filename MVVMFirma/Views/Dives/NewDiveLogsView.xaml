@@ -10,6 +10,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="40"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -34,12 +35,16 @@
                   SelectedValuePath="Key"
                   SelectedValue="{Binding Path=IdDiveType, Mode=TwoWay}"/>
 
-        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Site name and location"/>
+        <!--<Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Site name and location"/>
         <ComboBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8"
                   ItemsSource="{Binding SiteItems}"
                   DisplayMemberPath="Value"
                   SelectedValuePath="Key"
-                  SelectedValue="{Binding Path=IdDiveSite, Mode=TwoWay}"/>
+                  SelectedValue="{Binding Path=IdDiveSite, Mode=TwoWay}"/>-->
+
+        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Site name and location"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" IsEnabled="False"/>
+        <Button Content="..." Grid.Column="2" Grid.Row="2" Margin="8,8,0,8" Command="{Binding ShowAllDiveSites}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Dive date"/>
         <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=DiveDate, UpdateSourceTrigger=PropertyChanged}"/>

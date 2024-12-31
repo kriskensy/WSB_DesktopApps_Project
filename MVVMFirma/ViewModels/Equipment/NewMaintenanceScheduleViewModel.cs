@@ -1,9 +1,12 @@
-﻿using MVVMFirma.Models.BusinessLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using System.Xml.Linq;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -73,14 +76,33 @@ namespace MVVMFirma.ViewModels.Equipment
         }
         #endregion
 
-        #region XXXXXXXXX Combobox
-        //ewentualnie zamienić na okno modalne co lepiej pasuje
-        public IEnumerable<KeyAndValue> MaintenanceSchedulesItems
+        //#region Combobox
+        ////ewentualnie zamienić na okno modalne co lepiej pasuje
+        //public IEnumerable<KeyAndValue> MaintenanceSchedulesItems
+        //{
+        //    get
+        //    {
+        //        return new EquipmentB(diving4LifeEntities).GetEquipmentKeyAndValueItems();
+        //    }
+        //}
+        //#endregion
+
+        #region Command
+        private BaseCommand _ShowAllEquipment;
+
+        public ICommand ShowAllEquipment
         {
             get
             {
-                return new EquipmentB(diving4LifeEntities).GetEquipmentKeyAndValueItems();
+                if (_ShowAllEquipment == null)
+                    _ShowAllEquipment = new BaseCommand(() => showAllEquipment());
+                return _ShowAllEquipment;
             }
+        }
+
+        private void showAllEquipment()
+        {
+            Messenger.Default.Send<string>("EquipmentAll");
         }
         #endregion
 

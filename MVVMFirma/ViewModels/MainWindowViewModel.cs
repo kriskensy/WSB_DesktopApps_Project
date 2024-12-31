@@ -572,6 +572,15 @@ namespace MVVMFirma.ViewModels
                 case "UsersAdd":
                     CreateView(new NewUsersViewModel());
                     break;
+                case "EquipmentAll":
+                    ShowAllEquipment();
+                    break;
+                case "DiveSitesAll":
+                    ShowAllDiveSites();
+                    break;
+                case "DiveLogsAll":
+                    ShowAllDiveLogs();
+                    break;
                 default: //info na konsolę
                     throw new ArgumentException($"Add button for: {name} doesn't work.");
             }
