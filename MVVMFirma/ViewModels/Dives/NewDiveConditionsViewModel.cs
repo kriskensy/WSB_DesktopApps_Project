@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -112,7 +113,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         private void showAllDiveLogs()
         {
-            Messenger.Default.Send<string>("DiveLogsAll");
+            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveLogsAll" });
         }
         #endregion
 

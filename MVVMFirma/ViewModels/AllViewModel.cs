@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -104,13 +105,14 @@ namespace MVVMFirma.ViewModels
             //mess jest z biblio MVVMLight
             //pozwala na wysłanie komunikatu do innego obiektu. DisplayName to nazwa widoku
             //komunikat odbiera MainWindowModel, który otwiera okna
-            Messenger.Default.Send(DisplayName + "Add");
+            Messenger.Default.Send(new AddMessage { MessageName = DisplayName + "Add" });
+            //Messenger.Default.Send(DisplayName + "Add");
         }
 
         private void editRecord() //TODO: napisać implementację
         {
-            //if (SelectedRecord != null)
-            //    Messenger.Default.Send(SelectedRecord, DisplayName + "Edit");
+            if (SelectedRecord != null)
+                Messenger.Default.Send(DisplayName + "Edit", SelectedRecord);
         }
 
         public abstract void Delete(T record);

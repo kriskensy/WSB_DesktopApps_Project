@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -112,6 +113,14 @@ namespace MVVMFirma.ViewModels.Dives
             item = new DiveLogs();
             DiveDate = DateTime.Now;
         }
+
+        //konstruktor do edycji rekordów
+        public NewDiveLogsViewModel(DiveLogsForAllView diveLog)
+            : base("Dive Log")
+        {
+            this.diveLog = diveLog;
+        }
+
         #endregion
 
         #region Combobox
@@ -151,6 +160,8 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Command
         private BaseCommand _ShowAllDiveSites;
+        private DiveLogsForAllView diveLog;
+        private DiveLogs diveLog1;
 
         public ICommand ShowAllDiveSites
         {
@@ -164,7 +175,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         private void showAllDiveSites()
         {
-            Messenger.Default.Send<string>("DiveSitesAll");
+            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveSitesAll" });
         }
         #endregion
 

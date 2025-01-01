@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -102,7 +103,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         private void showAllEquipment()
         {
-            Messenger.Default.Send<string>("EquipmentAll");
+            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "EquipmentAll" });
         }
         #endregion
 

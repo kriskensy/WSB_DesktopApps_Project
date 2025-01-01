@@ -14,11 +14,20 @@ using MVVMFirma.ViewModels.Equipment;
 using MVVMFirma.ViewModels.General;
 using MVVMFirma.Views;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Models.EntitiesForView;
+using System.Windows;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.Helper.Messages;
 
 namespace MVVMFirma.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
+
+        #region DB
+        private readonly Diving4LifeEntities1 diving4LifeEntities;
+        #endregion
+
         #region Fields
         private ReadOnlyCollection<CommandViewModel> _Commands;
         private ObservableCollection<WorkspaceViewModel> _Workspaces;
@@ -39,8 +48,13 @@ namespace MVVMFirma.ViewModels
         }
         private List<CommandViewModel> CreateCommands()
         {
-            //mess czeka na stringa i woła metodę open z helpersów
-            Messenger.Default.Register<string>(this, open);
+            //mess czeka na stringa i woła metodę openForAdd z helpersów
+            Messenger.Default.Register<AddMessage>(this, message => openForAdd(message.MessageName));
+
+            Messenger.Default.Register<ShowAllMessage>(this, message => openForShowAll(message.MessageName));
+
+            //ten mess odbiera akcję oraz opcjonalny obiekt
+            //Messenger.Default.Register<(EditMessage, object)>(this, message => openForEdit(message.Item1, message.Item2));
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
@@ -102,67 +116,6 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Trainig Types",
                     new BaseCommand(() => this.ShowAllTrainigTypes())),
-
-
-                //new CommandViewModel(
-                //    "New User",
-                //    new BaseCommand(() => this.CreateNewUser())),
-
-                //new CommandViewModel(
-                //    "New Buddy",
-                //    new BaseCommand(() => this.CreateNewBuddy())),
-
-                //new CommandViewModel(
-                //    "New Certificate",
-                //    new BaseCommand(() => this.CreateNewCertificate())),
-
-                //new CommandViewModel(
-                //    "New Organization",
-                //    new BaseCommand(() => this.CreateNewOrganization())),
-
-                //new CommandViewModel(
-                //    "New Dive Condition",
-                //    new BaseCommand(() => this.CreateNewDiveCondition())),
-
-                //new CommandViewModel(
-                //    "New Dive Log",
-                //    new BaseCommand(() => this.CreateNewDiveLog())),
-
-                //new CommandViewModel(
-                //    "New Dive Site",
-                //    new BaseCommand(() => this.CreateNewDiveSite())),
-
-                //new CommandViewModel(
-                //    "New Statistic",
-                //    new BaseCommand(() => this.CreateNewStatistic())),
-
-                //new CommandViewModel(
-                //    "New Dive Type",
-                //    new BaseCommand(() => this.CreateNewDiveType())),
-
-                //new CommandViewModel(
-                //    "New Emergency Contact",
-                //    new BaseCommand(() => this.CreateNewEmergencyContact())),
-
-                //new CommandViewModel(
-                //    "New Equipment Category",
-                //    new BaseCommand(() => this.CreateNewEquipmentCategory())),
-
-                //new CommandViewModel(
-                //    "New Equipment Manufacturer",
-                //    new BaseCommand(() => this.CreateNewEquipmentManufacturer())),
-
-                //new CommandViewModel(
-                //    "New Equipment",
-                //    new BaseCommand(() => this.CreateNewEquipment())),
-
-                //new CommandViewModel(
-                //    "New Maintenance Schedule",
-                //    new BaseCommand(() => this.CreateNewMaintenanceSchedule())),
-
-                //new CommandViewModel(
-                //    "New Trainig Type",
-                //    new BaseCommand(() => this.CreateNewTrainingType())),
             };
         }
         #endregion
@@ -197,15 +150,26 @@ namespace MVVMFirma.ViewModels
             this.Workspaces.Remove(workspace);
         }
 
-        #endregion // Workspaces
+        #endregion
 
-        #region Private Helpers
+        #region Helpers basic
         private void CreateView(WorkspaceViewModel newItem) //ta funkcja dodaje do listy Workspace dodaje i aktywuje 'new'.
         {
             this.Workspaces.Add(newItem);//to jest dodanie zakladki do kolekcji zakladek
             this.SetActiveWorkspace(newItem);//aktywowanie zakladki
         }
 
+        private void SetActiveWorkspace(WorkspaceViewModel workspace)
+        {
+            Debug.Assert(this.Workspaces.Contains(workspace));
+
+            ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);
+            if (collectionView != null)
+                collectionView.MoveCurrentTo(workspace);
+        }
+        #endregion
+
+        #region Helpers ShowAll methodes
         private void ShowAllBuddys()
         {
             AllBuddysViewModel workspace =
@@ -217,13 +181,6 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewBuddy()
-        {
-            NewBuddysViewModel workspace = new NewBuddysViewModel();
-            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
@@ -241,13 +198,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewCertificate()
-        {
-            NewCertificatesViewModel workspace = new NewCertificatesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
         private void ShowAllCertificationOrganizations()
         {
             AllCertificationOrganizationViewModel workspace =
@@ -259,13 +209,6 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewOrganization()
-        {
-            NewCertificationOrganizationViewModel workspace = new NewCertificationOrganizationViewModel();
-            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
@@ -283,13 +226,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewDiveCondition()
-        {
-            NewDiveConditionsViewModel workspace = new NewDiveConditionsViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
         private void ShowAllDiveLogs()
         {
             AllDiveLogsViewModel workspace =
@@ -301,13 +237,6 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewDiveLog()
-        {
-            NewDiveLogsViewModel workspace = new NewDiveLogsViewModel();
-            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
@@ -325,13 +254,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewDiveSite()
-        {
-            NewDiveSitesViewModel workspace = new NewDiveSitesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
         private void ShowAllStatistics()
         {
             AllDiveStatisticViewModel workspace =
@@ -346,12 +268,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewStatistic()
-        {
-            NewDiveStatisticViewModel workspace = new NewDiveStatisticViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         private void ShowAllDiveTypes()
         {
             AllDiveTypesViewModel workspace =
@@ -366,12 +282,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewDiveType()
-        {
-            NewDiveTypesViewModel workspace = new NewDiveTypesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         private void ShowAllEmergencyContacts()
         {
             AllEmergencyContactsViewModel workspace =
@@ -383,13 +293,6 @@ namespace MVVMFirma.ViewModels
                 this.Workspaces.Add(workspace);
             }
 
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewEmergencyContact()
-        {
-            NewEmergencyContactsViewModel workspace = new NewEmergencyContactsViewModel();
-            this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
 
@@ -407,12 +310,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewEquipmentCategory()
-        {
-            NewEquipmentCategoriesViewModel workspace = new NewEquipmentCategoriesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         private void ShowAllEquipmentManufacturer()
         {
             AllEquipmentManufacturerViewModel workspace =
@@ -427,12 +324,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewEquipmentManufacturer()
-        {
-            NewEquipmentManufacturerViewModel workspace = new NewEquipmentManufacturerViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         private void ShowAllEquipment()
         {
             AllEquipmentViewModel workspace =
@@ -447,12 +338,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewEquipment()
-        {
-            NewEquipmentViewModel workspace = new NewEquipmentViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         private void ShowAllMaintenanceSchedules()
         {
             AllMaintenanceScheduleViewModule workspace =
@@ -467,12 +352,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewMaintenanceSchedule()
-        {
-            NewMaintenanceScheduleViewModel workspace = new NewMaintenanceScheduleViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         private void ShowAllTrainigTypes()
         {
             AllTypeOfTrainingViewModel workspace =
@@ -487,12 +366,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        private void CreateNewTrainingType()
-        {
-            NewTypeOfTrainingViewModel workspace = new NewTypeOfTrainingViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         private void ShowAllUsers()
         {
             AllUsersViewModel workspace =
@@ -507,23 +380,135 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
+        #endregion
+
+        #region Helpers create methodes
+        private void CreateNewBuddy()
+        {
+            NewBuddysViewModel workspace = new NewBuddysViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewCertificate()
+        {
+            NewCertificatesViewModel workspace = new NewCertificatesViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewOrganization()
+        {
+            NewCertificationOrganizationViewModel workspace = new NewCertificationOrganizationViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewDiveCondition()
+        {
+            NewDiveConditionsViewModel workspace = new NewDiveConditionsViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewDiveLog()
+        {
+            NewDiveLogsViewModel workspace = new NewDiveLogsViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewDiveSite()
+        {
+            NewDiveSitesViewModel workspace = new NewDiveSitesViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewStatistic()
+        {
+            NewDiveStatisticViewModel workspace = new NewDiveStatisticViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewDiveType()
+        {
+            NewDiveTypesViewModel workspace = new NewDiveTypesViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewEmergencyContact()
+        {
+            NewEmergencyContactsViewModel workspace = new NewEmergencyContactsViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewEquipmentCategory()
+        {
+            NewEquipmentCategoriesViewModel workspace = new NewEquipmentCategoriesViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewEquipmentManufacturer()
+        {
+            NewEquipmentManufacturerViewModel workspace = new NewEquipmentManufacturerViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewEquipment()
+        {
+            NewEquipmentViewModel workspace = new NewEquipmentViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewMaintenanceSchedule()
+        {
+            NewMaintenanceScheduleViewModel workspace = new NewMaintenanceScheduleViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
+        private void CreateNewTrainingType()
+        {
+            NewTypeOfTrainingViewModel workspace = new NewTypeOfTrainingViewModel();
+            this.Workspaces.Add(workspace);
+            this.SetActiveWorkspace(workspace);
+        }
+
         private void CreateNewUser()
         {
             NewUsersViewModel workspace = new NewUsersViewModel();
             this.Workspaces.Add(workspace);
             this.SetActiveWorkspace(workspace);
         }
+        #endregion
 
-        private void SetActiveWorkspace(WorkspaceViewModel workspace)
+        #region Helpers open methodes
+        private void openForShowAll(string name)
         {
-            Debug.Assert(this.Workspaces.Contains(workspace));
-
-            ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);
-            if (collectionView != null)
-                collectionView.MoveCurrentTo(workspace);
+            switch (name)
+            {
+                case "EquipmentAll":
+                    ShowAllEquipment();
+                    break;
+                case "DiveSitesAll":
+                    ShowAllDiveSites();
+                    break;
+                case "DiveLogsAll":
+                    ShowAllDiveLogs();
+                    break;
+                default: //info na konsolę
+                    throw new ArgumentException($"Add button for: {name} doesn't work.");
+            }
         }
 
-        private void open(string name)
+        private void openForAdd(string name)
         {
             switch (name)
             {
@@ -572,19 +557,35 @@ namespace MVVMFirma.ViewModels
                 case "UsersAdd":
                     CreateView(new NewUsersViewModel());
                     break;
-                case "EquipmentAll":
-                    ShowAllEquipment();
-                    break;
-                case "DiveSitesAll":
-                    ShowAllDiveSites();
-                    break;
-                case "DiveLogsAll":
-                    ShowAllDiveLogs();
-                    break;
                 default: //info na konsolę
                     throw new ArgumentException($"Add button for: {name} doesn't work.");
             }
         }
+
+        //private void openForEdit(string name, object record = null)
+        //{
+        //    switch(name)
+        //    {
+        //        case "Dive LogEdit":
+        //            if (record is DiveLogsForAllView diveLogView)
+        //            {
+        //                // Zakładając, że masz dostęp do danych o rekordach w `diving4LifeEntities`
+        //                var diveLog = diving4LifeEntities.DiveLogs.SingleOrDefault(d => d.IdDiveLog == diveLogView.IdDiveLog);
+
+        //                if (diveLog != null)
+        //                {
+        //                    CreateView(new NewDiveLogsViewModel(diveLog)); // Tworzenie widoku edycji
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("Record not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //                }
+        //            }
+        //            break;
+        //        default:
+        //            throw new ArgumentException($"Edit action for: {name} not handled.");
+        //    }
+        //}
         #endregion
     }
 }
