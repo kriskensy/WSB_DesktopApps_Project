@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -30,6 +31,25 @@ namespace MVVMFirma.ViewModels.Equipment
                         PurchaseDate = equipment.PurchaseDate
                     }
                 );
+        }
+
+        public override void Delete(EquipmentForAllView record)
+        {
+            var equipmentToDelete = (from item in diving4LifeEntities.Equipment
+                                     where item.IdEquipment == record.IdEquipment
+                                     select item
+                                   ).SingleOrDefault();
+
+
+            if (equipmentToDelete != null)
+            {
+                diving4LifeEntities.Equipment.Remove(equipmentToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }

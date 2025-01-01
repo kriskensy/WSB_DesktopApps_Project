@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.General
@@ -8,7 +9,7 @@ namespace MVVMFirma.ViewModels.General
     {
         #region Constructor
         public AllBuddysViewModel()
-            :base("Buddys")
+            : base("Buddys")
         {
         }
         #endregion
@@ -28,6 +29,25 @@ namespace MVVMFirma.ViewModels.General
                         ContactDetails = buddy.ContactDetails
                     }
                 );
+        }
+
+        public override void Delete(BuddySystemForAllView record)
+        {
+            var buddyToDelete = (from item in diving4LifeEntities.BuddySystem
+                                 where item.IdBuddy == record.IdBuddy
+                                 select item
+                                   ).SingleOrDefault();
+
+
+            if (buddyToDelete != null)
+            {
+                diving4LifeEntities.BuddySystem.Remove(buddyToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }

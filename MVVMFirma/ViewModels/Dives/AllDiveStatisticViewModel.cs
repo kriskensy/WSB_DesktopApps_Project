@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -27,6 +28,25 @@ namespace MVVMFirma.ViewModels.Dives
                         BottomTime = diveStatistic.BottomTime
                     }
                 );
+        }
+
+        public override void Delete(DiveStatisticForAllView record)
+        {
+            var statisticToDelete = (from item in diving4LifeEntities.DiveStatistic
+                                     where item.IdStatistic == record.IdStatistic
+                                     select item
+                                   ).SingleOrDefault();
+
+
+            if (statisticToDelete != null)
+            {
+                diving4LifeEntities.DiveStatistic.Remove(statisticToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }

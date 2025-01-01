@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.General
@@ -30,6 +31,25 @@ namespace MVVMFirma.ViewModels.General
                         Email = emergencyContact.Email
                     }
                 );
+        }
+
+        public override void Delete(EmergencyContactsForAllView record)
+        {
+            var emergencyContactToDelete = (from item in diving4LifeEntities.EmergencyContacts
+                                   where item.IdEmergencyContact == record.IdEmergencyContact
+                                            select item
+                                   ).SingleOrDefault();
+
+
+            if (emergencyContactToDelete != null)
+            {
+                diving4LifeEntities.EmergencyContacts.Remove(emergencyContactToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }

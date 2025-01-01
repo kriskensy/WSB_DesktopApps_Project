@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Certifications
@@ -8,7 +9,7 @@ namespace MVVMFirma.ViewModels.Certifications
     {
         #region Constructor
         public AllCertificatesViewModel()
-            :base("Certificates")
+            : base("Certificates")
         {
         }
         #endregion
@@ -20,8 +21,8 @@ namespace MVVMFirma.ViewModels.Certifications
                     from certificate in diving4LifeEntities.Certificates
                     select new CertificatesForAllView
                     {
-                        IdCertificate= certificate.IdCertificate,
-                        UserFirstName= certificate.User.FirstName,
+                        IdCertificate = certificate.IdCertificate,
+                        UserFirstName = certificate.User.FirstName,
                         UserLastName = certificate.User.LastName,
                         OrganizationName = certificate.CertificationOrganization.OrganizationName,
                         TypeOfTraining = certificate.TypeOfTraining.TrainingName,
@@ -29,6 +30,25 @@ namespace MVVMFirma.ViewModels.Certifications
                         CertificateNumber = certificate.CertificateNumber
                     }
                 );
+        }
+
+        public override void Delete(CertificatesForAllView record)
+        {
+            var certificateToDelete = (from item in diving4LifeEntities.Certificates
+                                       where item.IdCertificate == record.IdCertificate
+                                       select item
+                                   ).SingleOrDefault();
+
+
+            if (certificateToDelete != null)
+            {
+                diving4LifeEntities.Certificates.Remove(certificateToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }

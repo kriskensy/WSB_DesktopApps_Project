@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -27,6 +28,25 @@ namespace MVVMFirma.ViewModels.Equipment
                         Status = maintenanceSchedule.Status
                     }
                 );
+        }
+
+        public override void Delete(MaintenanceScheduleForAllView record)
+        {
+            var scheduleToDelete = (from item in diving4LifeEntities.MaintenanceSchedule
+                                    where item.IdMaintenanceSchedule == record.IdMaintenanceSchedule
+                                    select item
+                                   ).SingleOrDefault();
+
+
+            if (scheduleToDelete != null)
+            {
+                diving4LifeEntities.MaintenanceSchedule.Remove(scheduleToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }

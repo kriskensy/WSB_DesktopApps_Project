@@ -13,17 +13,21 @@
                             <RowDefinition Height="34"/>
                             <RowDefinition Height="60"/>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="60"/>
                         </Grid.RowDefinitions>
                         <ToolBar Grid.Row="0" Margin="0,2,0,2">
                             <ToggleButton Content="Add" Margin=" 0,2,0,2" Command="{Binding AddCommand}"/>
-                            <ToggleButton Content="Edit" Margin=" 0,2,0,2"/>
-                            <ToggleButton Content="Delete" Margin=" 0,2,0,2"/>
+                            <ToggleButton Content="Edit" Margin=" 0,2,0,2" Command="{Binding EditCommand}" IsEnabled="{Binding IsRecordSelected}"/>
+                            <ToggleButton Content="Delete" Margin=" 0,2,0,2" Command="{Binding DeleteCommand}" IsEnabled="{Binding IsRecordSelected}"/>
                             <ToggleButton Content="Refresh" Margin=" 0,2,0,2" Command="{Binding LoadCommand}"/>
                         </ToolBar>
                         <StackPanel Grid.Row="1" Background="Azure">
                             <Label>another options like sorting, filtering ...</Label>
                         </StackPanel>
                         <ContentPresenter Grid.Row="2" Margin="0,5,0,5"/>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                            <Button Content="OK" Width="100" Height="30" Margin="5" Command="{Binding ConfirmCommand}"/>
+                        </StackPanel>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

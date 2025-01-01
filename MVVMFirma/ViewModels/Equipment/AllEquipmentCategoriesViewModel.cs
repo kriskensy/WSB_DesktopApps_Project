@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 
@@ -23,7 +25,26 @@ namespace MVVMFirma.ViewModels.Equipment
                         IdCategory = equipmentCategories.IdCategory,
                         CategoryName = equipmentCategories.CategoryName,
                     }
-                );
+            );
+        }
+
+        public override void Delete(EquipmentCategoriesForAllView record)
+        {
+            var categoryToDelete = (from item in diving4LifeEntities.EquipmentCategories
+                                    where item.IdCategory == record.IdCategory
+                                    select item
+                                   ).SingleOrDefault();
+
+
+            if (categoryToDelete != null)
+            {
+                diving4LifeEntities.EquipmentCategories.Remove(categoryToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }

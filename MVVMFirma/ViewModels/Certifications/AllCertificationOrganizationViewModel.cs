@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 
@@ -25,7 +27,26 @@ namespace MVVMFirma.ViewModels.Certifications
                         OrganizationName = organization.OrganizationName,
                         Country = organization.Country,
                     }
-                );
+            );
+        }
+
+        public override void Delete(CertificationOrganizationForAllView record)
+        {
+            var certificationOrganizationToDelete = (from item in diving4LifeEntities.CertificationOrganization
+                                                     where item.IdOrganization == record.IdOrganization
+                                                     select item
+                                   ).SingleOrDefault();
+
+
+            if (certificationOrganizationToDelete != null)
+            {
+                diving4LifeEntities.CertificationOrganization.Remove(certificationOrganizationToDelete);
+                diving4LifeEntities.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         #endregion
     }
