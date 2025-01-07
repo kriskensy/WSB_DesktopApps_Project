@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white">
-        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedRecord, Mode=TwoWay}">
+        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding Path=SelectedDiveSite, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding IdDiveSite}"/>
                 <DataGridTextColumn Header="Site Name" Binding="{Binding SiteName}"/>
@@ -15,6 +15,6 @@
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
             </DataGrid.Columns>
         </DataGrid>
-            
+
     </Grid>
 </local:AllViewBase>

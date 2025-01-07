@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using MVVMFirma.Models.BusinessLogic;
@@ -12,6 +13,29 @@ namespace MVVMFirma.ViewModels.Dives
         #region Constructor
         public AllDiveTypesViewModel()
             : base("Dive Types") { }
+        #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Dive type" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Dive type")
+                List = new ObservableCollection<DiveTypesForAllView>(List.OrderBy(item => item.TypeName));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Dive type", "Description" };
+        }
+
+        public override void Find()
+        {
+
+        }
         #endregion
 
         #region Helpers

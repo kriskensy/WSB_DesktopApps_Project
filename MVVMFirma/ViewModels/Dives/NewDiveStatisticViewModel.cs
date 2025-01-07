@@ -4,6 +4,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
@@ -26,6 +27,8 @@ namespace MVVMFirma.ViewModels.Dives
                 OnPropertyChanged(() => IdDiveLog);
             }
         }
+
+        public DateTime DiveDate { get; set; }
 
         public decimal AirConsumed
         {
@@ -69,9 +72,10 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Constructor
         public NewDiveStatisticViewModel()
-            : base("Dive Statistic")
+            : base("Dive Statistic", false)
         {
             item = new DiveStatistic();
+            Messenger.Default.Register<DiveStatisticForAllView>(this, getSelectedDiveStatistic);
         }
         #endregion
 
@@ -106,6 +110,12 @@ namespace MVVMFirma.ViewModels.Dives
         #endregion
 
         #region Helpers
+        private void getSelectedDiveStatistic(DiveStatisticForAllView diveStatistic)
+        {
+            IdDiveLog = diveStatistic.IdStatistic;
+            DiveDate = diveStatistic.DiveDate;
+        }
+
         public override void Save()
         {
             diving4LifeEntities.DiveStatistic.Add(item);

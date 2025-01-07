@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -12,6 +14,38 @@ namespace MVVMFirma.ViewModels.General
         #region Constructor
         public AllUsersViewModel()
             : base("Users") { }
+        #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "User Lastname", "Email" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "User Lastname")
+                List = new ObservableCollection<UserForAllView>(List.OrderBy(item => item.LastName));
+            if (SortField == "Email")
+                List = new ObservableCollection<UserForAllView>(List.OrderBy(item => item.Email));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "User Lastname", "Email", "Phone number" };
+        }
+
+        public override void Find()
+        {
+            Load();
+            if (SortField == "User Lastname")
+                List = new ObservableCollection<UserForAllView>(List.Where(item => item.LastName != null && item.LastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (SortField == "Email")
+                List = new ObservableCollection<UserForAllView>(List.Where(item => item.Email != null && item.Email.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (SortField == "Phone number")
+                List = new ObservableCollection<UserForAllView>(List.Where(item => item.PhoneNumber != null && item.PhoneNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+
+        }
         #endregion
 
         #region Helpers

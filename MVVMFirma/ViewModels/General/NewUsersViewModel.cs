@@ -61,7 +61,7 @@ namespace MVVMFirma.ViewModels.General
 
         #region Constructor
         public NewUsersViewModel()
-            : base("User")
+            : base("User", false)
         {
             item = new User();
         }

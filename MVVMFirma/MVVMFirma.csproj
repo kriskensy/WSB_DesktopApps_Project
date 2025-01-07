@@ -218,6 +218,9 @@
     <Compile Include="ViewModels\General\NewUsersViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewViewModel.cs" />
+    <Compile Include="ViewModels\Reports\DiveDepthReportViewModel.cs" />
+    <Compile Include="ViewModels\Reports\DiveDurationReportViewModel.cs" />
+    <Compile Include="ViewModels\Reports\EquipmentCategoryReportViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -316,6 +319,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewViewBase.cs" />
+    <Compile Include="Views\Reports\DiveDepthReportView.xaml.cs">
+      <DependentUpon>DiveDepthReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\DiveDurationReportView.xaml.cs">
+      <DependentUpon>DiveDurationReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\EquipmentCategoryReportView.xaml.cs">
+      <DependentUpon>EquipmentCategoryReportView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -480,6 +492,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\DiveDepthReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\DiveDurationReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\EquipmentCategoryReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

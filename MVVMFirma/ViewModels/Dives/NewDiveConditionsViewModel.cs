@@ -4,6 +4,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
@@ -25,6 +26,8 @@ namespace MVVMFirma.ViewModels.Dives
                 OnPropertyChanged(() => IdDiveLog);
             }
         }
+
+        public DateTime DiveDate { get; set; } //props do wyświetlania daty nurkowania
 
         public decimal Temperature
         {
@@ -81,9 +84,10 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Constructor
         public NewDiveConditionsViewModel()
-            : base("Dive Condition")
+            : base("Dive Condition", false)
         {
             item = new DiveConditions();
+            Messenger.Default.Register<DiveLogsForAllView>(this, getSelectedDiveLog);
         }
         #endregion
 
@@ -118,6 +122,12 @@ namespace MVVMFirma.ViewModels.Dives
         #endregion
 
         #region Helpers
+        private void getSelectedDiveLog(DiveLogsForAllView diveLog)
+        {
+            IdDiveLog = diveLog.IdDiveLog;
+            DiveDate = diveLog.DiveDate;
+        }
+
         public override void Save()
         {
             diving4LifeEntities.DiveConditions.Add(item);

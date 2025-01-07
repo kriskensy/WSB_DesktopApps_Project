@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -13,6 +15,58 @@ namespace MVVMFirma.ViewModels.Equipment
         {
         }
         #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "User Lastname", "Category", "Manufacturer", "Equipment Name", "Serial Number", "Purchase Date" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "User Lastname")
+                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.UserLastName));
+            if (SortField == "Category")
+                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.CategoryName));
+            if (SortField == "Manufacturer")
+                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.ManufacturerName));
+            if (SortField == "Equipment Name")
+                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.EquipmentName));
+            if (SortField == "Serial Number")
+                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.SerialNumber));
+            if (SortField == "Purchase Date")
+                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.PurchaseDate));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "User Lastname", "Category", "Manufacturer", "Equipment Name", "Serial Number" };
+        }
+
+        public override void Find()
+        {
+
+        }
+        #endregion
+
+        #region Properties
+        private EquipmentForAllView _SelectedEquipment;
+
+        public EquipmentForAllView SelectedEquipment
+        {
+            get
+            {
+                return _SelectedEquipment;
+            }
+            set
+            {
+                _SelectedEquipment = value;
+                Messenger.Default.Send(_SelectedEquipment);
+                OnRequestClose();
+            }
+        }
+        #endregion
+
         #region Helpers
         public override void Load()
         {

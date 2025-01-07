@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using MVVMFirma.Models.BusinessLogic;
@@ -12,6 +13,29 @@ namespace MVVMFirma.ViewModels.Dives
         #region Constructor
         public AllTypeOfTrainingViewModel()
             : base("Training Types") { }
+        #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Training name" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Training name")
+                List = new ObservableCollection<TypeOfTrainingForAllView>(List.OrderBy(item => item.TrainingName));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Description" };
+        }
+
+        public override void Find()
+        {
+
+        }
         #endregion
 
         #region Helpers

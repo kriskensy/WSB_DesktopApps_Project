@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
@@ -13,6 +14,36 @@ namespace MVVMFirma.ViewModels.Dives
         {
         }
         #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Dive Date", "Temperature", "Water Current", "Visibility" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Dive Date")
+                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.DiveDate));
+            if (SortField == "Temperature")
+                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.Temperature));
+            if (SortField == "Water Current")
+                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.WaterCurrent));
+            if (SortField == "Visibility")
+                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.Visibility));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Water Current", "Visibility", "Notes" };
+        }
+
+        public override void Find()
+        {
+
+        }
+        #endregion
+
         #region Helpers
         public override void Load()
         {

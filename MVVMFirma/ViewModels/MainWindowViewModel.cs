@@ -24,9 +24,9 @@ namespace MVVMFirma.ViewModels
     public class MainWindowViewModel : BaseViewModel
     {
 
-        #region DB
-        private readonly Diving4LifeEntities1 diving4LifeEntities;
-        #endregion
+        //#region DB
+        //private readonly Diving4LifeEntities1 diving4LifeEntities;
+        //#endregion
 
         #region Fields
         private ReadOnlyCollection<CommandViewModel> _Commands;
@@ -564,7 +564,7 @@ namespace MVVMFirma.ViewModels
 
         //private void openForEdit(string name, object record = null)
         //{
-        //    switch(name)
+        //    switch (name)
         //    {
         //        case "Dive LogEdit":
         //            if (record is DiveLogsForAllView diveLogView)

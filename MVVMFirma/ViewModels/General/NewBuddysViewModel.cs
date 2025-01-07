@@ -62,7 +62,7 @@ namespace MVVMFirma.ViewModels.General
 
         #region Constructor
         public NewBuddysViewModel()
-            : base("Buddy")
+            : base("Buddy", false)
         {
             item = new BuddySystem();
         }

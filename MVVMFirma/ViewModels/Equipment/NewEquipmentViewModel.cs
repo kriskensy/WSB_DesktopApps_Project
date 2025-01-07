@@ -92,7 +92,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #region Constructor
         public NewEquipmentViewModel()
-            : base("Equipment")
+            : base("Equipment", false)
         {
             item = new Models.Entities.Equipment();
             PurchaseDate = DateTime.Now;

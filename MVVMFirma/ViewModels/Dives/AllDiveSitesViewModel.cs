@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -13,6 +15,50 @@ namespace MVVMFirma.ViewModels.Dives
         #region Constructor
         public AllDiveSitesViewModel()
             : base("Dive Sites") { }
+        #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Site name", "Site location" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Site name")
+                List = new ObservableCollection<DiveSitesForAllView>(List.OrderBy(item => item.SiteName));
+            if (SortField == "Site location")
+                List = new ObservableCollection<DiveSitesForAllView>(List.OrderBy(item => item.Location));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Site name", "Site location", "Description" };
+        }
+
+        public override void Find()
+        {
+
+        }
+        #endregion
+
+        #region Properties
+        private DiveSitesForAllView _SelectedDiveSite;
+
+        public DiveSitesForAllView SelectedDiveSite
+        {
+            get
+            {
+                return _SelectedDiveSite;
+            }
+            set
+            {
+                _SelectedDiveSite = value;
+                Messenger.Default.Send(_SelectedDiveSite);
+                OnRequestClose();
+            }
+        }
+
         #endregion
 
         #region Helpers

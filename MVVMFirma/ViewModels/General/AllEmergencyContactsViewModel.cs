@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
@@ -13,6 +14,36 @@ namespace MVVMFirma.ViewModels.General
         {
         }
         #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "User Lastname", "Contact Lastname", "Relationship", "Email" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "User Lastname")
+                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.UserLastName));
+            if (SortField == "Contact Lastname")
+                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.ContactLastName));
+            if (SortField == "Relationship")
+                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.Relationship));
+            if (SortField == "Email")
+                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.Email));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "User Lastname", "Contact Lastname" };
+        }
+
+        public override void Find()
+        {
+
+        }
+        #endregion
+
         #region Helpers
         public override void Load()
         {
@@ -36,7 +67,7 @@ namespace MVVMFirma.ViewModels.General
         public override void Delete(EmergencyContactsForAllView record)
         {
             var emergencyContactToDelete = (from item in diving4LifeEntities.EmergencyContacts
-                                   where item.IdEmergencyContact == record.IdEmergencyContact
+                                            where item.IdEmergencyContact == record.IdEmergencyContact
                                             select item
                                    ).SingleOrDefault();
 

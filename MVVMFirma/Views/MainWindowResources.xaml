@@ -117,6 +117,19 @@
         <dives:NewTypeOfTrainingView/>
     </DataTemplate>
 
+    <!--TODO: odkomentuj poniższy kod i popraw błędy-->
+    <!--<DataTemplate DataType="{x:Type reports1:DiveDepthReportViewModel}">
+        <reports:DiveDepthReportView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type reports1:DiveDurationReportViewModel}">
+        <reports:DiveDurationReportView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type reports1:EquipmentCategoryReportViewModel}">
+        <reports:EquipmentCategoryReportView/>
+    </DataTemplate>-->
+
     <Style TargetType="TextBox">
         <Style.Triggers>
             <Trigger Property="Validation.HasError" Value="true">

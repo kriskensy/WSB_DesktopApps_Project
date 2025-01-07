@@ -22,7 +22,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #region Constructor
         public NewEquipmentCategoriesViewModel()
-            : base("EQ Category")
+            : base("EQ Category", false)
         {
             item = new EquipmentCategories();
         }

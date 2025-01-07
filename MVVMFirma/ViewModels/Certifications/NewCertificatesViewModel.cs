@@ -79,7 +79,7 @@ namespace MVVMFirma.ViewModels.Certifications
 
         #region Constructor
         public NewCertificatesViewModel()
-            : base("Certificate")
+            : base("Certificate", false)
         {
             item = new Certificates();
             IssueDate = DateTime.Now;

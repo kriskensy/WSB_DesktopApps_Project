@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
+using System.Collections.Generic;
 
 namespace MVVMFirma.ViewModels.Certifications
 {
@@ -13,6 +14,38 @@ namespace MVVMFirma.ViewModels.Certifications
         {
         }
         #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "User Lastname", "Organization Name", "Type of training", "Issue Date", "Certification Number" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "User Lastname")
+                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.UserLastName));
+            if (SortField == "Organization Name")
+                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.OrganizationName));
+            if (SortField == "Type of training")
+                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.TypeOfTraining));
+            if (SortField == "Issue Date")
+                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.IssueDate));
+            if (SortField == "Certification Number")
+                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.CertificateNumber));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "User Lastname", "Organization Name", "Type of training", "Certification Number" };
+        }
+
+        public override void Find()
+        {
+
+        }
+        #endregion
+
         #region Helpers
         public override void Load()
         {

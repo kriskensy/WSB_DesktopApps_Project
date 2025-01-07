@@ -34,7 +34,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Constructor
         public NewTypeOfTrainingViewModel()
-            : base("Training Type")
+            : base("Training Type", false)
         {
             item = new TypeOfTraining();
         }

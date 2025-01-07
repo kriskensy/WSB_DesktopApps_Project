@@ -35,7 +35,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Constructor
         public NewDiveTypesViewModel()
-            : base("Dive Type")
+            : base("Dive Type", false)
         {
             item = new DiveTypes();
         }

@@ -13,6 +13,10 @@ namespace MVVMFirma.ViewModels
 {
     public abstract class NewViewModel<T> : WorkspaceViewModel, IDataErrorInfo
     {
+        #region Fields
+        private bool EditRecord;
+        #endregion
+
         #region DB
         protected Diving4LifeEntities1 diving4LifeEntities;
         #endregion
@@ -50,9 +54,10 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Constructor
-        public NewViewModel(string displayName)
+        public NewViewModel(string displayName, bool editRecord)
         {
             base.DisplayName = displayName;
+            EditRecord = editRecord;
             diving4LifeEntities = new Diving4LifeEntities1();
         }
         #endregion

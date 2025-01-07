@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using MVVMFirma.Models.BusinessLogic;
@@ -12,6 +13,29 @@ namespace MVVMFirma.ViewModels.Equipment
         #region Constructor
         public AllEquipmentCategoriesViewModel()
             : base("EQ Categories") { }
+        #endregion
+
+        #region Sorting and Filtering
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "Category Name" };
+        }
+
+        public override void Sort()
+        {
+            if (SortField == "Category Name")
+                List = new ObservableCollection<EquipmentCategoriesForAllView>(List.OrderBy(item => item.CategoryName));
+        }
+
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "Category Name" };
+        }
+
+        public override void Find()
+        {
+
+        }
         #endregion
 
         #region Helpers

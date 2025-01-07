@@ -28,6 +28,8 @@ namespace MVVMFirma.ViewModels.Equipment
             }
         }
 
+        public string EquipmentName { get; set; } //props do wyświetlania nazwy ekwipunku
+
         public DateTime ScheduledDate
         {
             get
@@ -70,10 +72,11 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #region Constructor
         public NewMaintenanceScheduleViewModel()
-            : base("Maintenance Schedule")
+            : base("Maintenance Schedule", false)
         {
             item = new MaintenanceSchedule();
             ScheduledDate = DateTime.Now;
+            Messenger.Default.Register<EquipmentForAllView>(this, getSelectedEquipment);
         }
         #endregion
 
@@ -108,6 +111,12 @@ namespace MVVMFirma.ViewModels.Equipment
         #endregion
 
         #region Helpers
+        private void getSelectedEquipment(EquipmentForAllView equipment)
+        {
+            IdEquipment = equipment.IdEquipment;
+            EquipmentName = equipment.EquipmentName;
+        }
+
         public override void Save()
         {
             diving4LifeEntities.MaintenanceSchedule.Add(item);

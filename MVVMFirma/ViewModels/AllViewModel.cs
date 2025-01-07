@@ -89,6 +89,65 @@ namespace MVVMFirma.ViewModels
         }
         #endregion
 
+        #region Sorting and Filtering
+        //sorting
+        public string SortField { get; set; }
+
+        public List<string> SortComboboxItems
+        {
+            get
+            {
+                return GetComboboxSortList();
+            }
+        }
+
+        public abstract List<string> GetComboboxSortList();
+
+        private BaseCommand _SortCommand;
+
+        public ICommand SortCommand
+        {
+            get
+            {
+                if (_SortCommand == null)
+                    _SortCommand = new BaseCommand(() => Sort());
+                return _SortCommand;
+            }
+        }
+
+        public abstract void Sort();
+
+        //filtering
+        public string FindField { get; set; }
+
+        public List<string> FindComboboxItems
+        {
+            get
+            {
+                return GetComboboxFindList();
+            }
+        }
+
+        public abstract List<string> GetComboboxFindList();
+
+        public string FindTextBox { get; set; }
+
+        private BaseCommand _FindCommand;
+
+        public ICommand FindCommand
+        {
+            get
+            {
+                if (_FindCommand == null)
+                    _FindCommand = new BaseCommand(() => Find());
+                return _FindCommand;
+            }
+        }
+
+        public abstract void Find();
+
+        #endregion
+
         #region Constructor
         public AllViewModel(string displayName)
         {
@@ -106,7 +165,6 @@ namespace MVVMFirma.ViewModels
             //pozwala na wysłanie komunikatu do innego obiektu. DisplayName to nazwa widoku
             //komunikat odbiera MainWindowModel, który otwiera okna
             Messenger.Default.Send(new AddMessage { MessageName = DisplayName + "Add" });
-            //Messenger.Default.Send(DisplayName + "Add");
         }
 
         private void editRecord() //TODO: napisać implementację

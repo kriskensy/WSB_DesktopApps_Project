@@ -91,7 +91,7 @@ namespace MVVMFirma.ViewModels.General
 
         #region Constructor
         public NewEmergencyContactsViewModel()
-            : base("Emergency Contact")
+            : base("Emergency Contact", false)
         {
             item = new EmergencyContacts();
         }

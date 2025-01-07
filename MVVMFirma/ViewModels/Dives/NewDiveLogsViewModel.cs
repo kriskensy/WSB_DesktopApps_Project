@@ -7,6 +7,7 @@ using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -39,6 +40,8 @@ namespace MVVMFirma.ViewModels.Dives
                 OnPropertyChanged(() => IdDiveType);
             }
         }
+
+        public string DiveSite { get; set; } //props do wyświetlania nazwy miejsca nurkowego
 
         public int IdDiveSite
         {
@@ -108,17 +111,27 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Constructor
         public NewDiveLogsViewModel()
-            : base("Dive Log")
+            : base("Dive Log", false)
         {
             item = new DiveLogs();
             DiveDate = DateTime.Now;
+            Messenger.Default.Register<DiveSitesForAllView>(this, getSelectedDiveSite);
         }
 
         //konstruktor do edycji rekordów
         public NewDiveLogsViewModel(DiveLogsForAllView diveLog)
-            : base("Dive Log")
+            : base("Dive Log", true)
         {
-            this.diveLog = diveLog;
+            item = new DiveLogs();
+
+            //IdDiveLog = diveLog.IdDiveLog;
+            //IdUser = User.FirstOrDefault(item => item.UserId == diveLog.UserId);
+            //IdDiveType = diveLog.DiveTypes.TypeName;
+            //IdDiveSite = diveLog.DiveSites.SiteName;
+            //DiveDate = diveLog.DiveDate;
+            //IdBuddy = diveLog.BuddySystem.BuddyFirstName;
+            //DiveDuration = diveLog.DiveDuration;
+            //MaxDepth = diveLog.MaxDepth;
         }
 
         #endregion
@@ -180,6 +193,12 @@ namespace MVVMFirma.ViewModels.Dives
         #endregion
 
         #region Helpers
+        private void getSelectedDiveSite(DiveSitesForAllView diveSite)
+        {
+            IdDiveSite = diveSite.IdDiveSite;
+            DiveSite = diveSite.SiteName;
+        }
+
         public override void Save()
         {
             diving4LifeEntities.DiveLogs.Add(item);
