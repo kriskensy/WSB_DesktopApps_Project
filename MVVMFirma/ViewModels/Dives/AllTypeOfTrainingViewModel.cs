@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -34,7 +35,9 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "Description")
+                List = new ObservableCollection<TypeOfTrainingForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -40,7 +41,11 @@ namespace MVVMFirma.ViewModels.General
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "User Lastname")
+                List = new ObservableCollection<EmergencyContactsForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Contact Lastname")
+                List = new ObservableCollection<EmergencyContactsForAllView>(List.Where(item => item.ContactLastName != null && item.ContactLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

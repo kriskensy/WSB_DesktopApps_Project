@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -36,7 +37,11 @@ namespace MVVMFirma.ViewModels.Equipment
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "Manufacturer")
+                List = new ObservableCollection<EquipmentManufacturerForAllView>(List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Country")
+                List = new ObservableCollection<EquipmentManufacturerForAllView>(List.Where(item => item.Country != null && item.Country.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

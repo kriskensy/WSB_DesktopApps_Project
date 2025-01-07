@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -36,7 +37,13 @@ namespace MVVMFirma.ViewModels.General
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "Buddy Lastname")
+                List = new ObservableCollection<BuddySystemForAllView>(List.Where(item => item.BuddyLastName != null && item.BuddyLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Certification Level")
+                List = new ObservableCollection<BuddySystemForAllView>(List.Where(item => item.CertificationLevel != null && item.CertificationLevel.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Contact Details")
+                List = new ObservableCollection<BuddySystemForAllView>(List.Where(item => item.ContactDetails != null && item.ContactDetails.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

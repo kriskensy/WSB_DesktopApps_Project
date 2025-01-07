@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 using System.Collections.Generic;
+using System;
 
 namespace MVVMFirma.ViewModels.Certifications
 {
@@ -42,7 +43,15 @@ namespace MVVMFirma.ViewModels.Certifications
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "User Lastname")
+                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Organization Name")
+                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.OrganizationName != null && item.OrganizationName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Type of training")
+                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.TypeOfTraining != null && item.TypeOfTraining.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Certification Number")
+                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.CertificateNumber != null && item.CertificateNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

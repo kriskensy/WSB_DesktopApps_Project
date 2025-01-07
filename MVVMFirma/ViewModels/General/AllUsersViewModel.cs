@@ -38,13 +38,12 @@ namespace MVVMFirma.ViewModels.General
         public override void Find()
         {
             Load();
-            if (SortField == "User Lastname")
+            if (FindField == "User Lastname")
                 List = new ObservableCollection<UserForAllView>(List.Where(item => item.LastName != null && item.LastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (SortField == "Email")
+            if (FindField == "Email")
                 List = new ObservableCollection<UserForAllView>(List.Where(item => item.Email != null && item.Email.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (SortField == "Phone number")
+            if (FindField == "Phone number")
                 List = new ObservableCollection<UserForAllView>(List.Where(item => item.PhoneNumber != null && item.PhoneNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-
         }
         #endregion
 

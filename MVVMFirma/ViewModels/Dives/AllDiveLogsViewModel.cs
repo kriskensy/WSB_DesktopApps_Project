@@ -8,6 +8,7 @@ using MVVMFirma.Models.EntitiesForView;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.BusinessLogic;
 using System.Collections.Generic;
+using System;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -53,7 +54,17 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "User Lastname")
+                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Dive Type")
+                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.DiveTypeName != null && item.DiveTypeName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Site name")
+                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.SiteName != null && item.SiteName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Site location")
+                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.SiteLocation != null && item.SiteLocation.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Buddy Lastname")
+                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.BuddyLastName != null && item.BuddyLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

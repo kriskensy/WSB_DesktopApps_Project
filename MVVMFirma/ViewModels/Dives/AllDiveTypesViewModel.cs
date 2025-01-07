@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -34,7 +35,11 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "Dive type")
+                List = new ObservableCollection<DiveTypesForAllView>(List.Where(item => item.TypeName != null && item.TypeName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Description")
+                List = new ObservableCollection<DiveTypesForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -45,7 +46,17 @@ namespace MVVMFirma.ViewModels.Equipment
 
         public override void Find()
         {
-
+            Load();
+            if (FindField == "User Lastname")
+                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Category")
+                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Manufacturer")
+                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Equipment Name")
+                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.EquipmentName != null && item.EquipmentName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            if (FindField == "Serial Number")
+                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.SerialNumber != null && item.SerialNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 
