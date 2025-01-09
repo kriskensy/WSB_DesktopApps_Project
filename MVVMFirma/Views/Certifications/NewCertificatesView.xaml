@@ -21,21 +21,21 @@
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="User name"/>
         <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" 
-                  ItemsSource="{Binding UsersItems}"
+                  ItemsSource="{Binding UsersItems, ValidatesOnDataErrors=True}"
                   DisplayMemberPath="Value"
                   SelectedValuePath="Key"
                   SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Organization"/>
         <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8"
-                 ItemsSource="{Binding OrganizationsItems}"
+                 ItemsSource="{Binding OrganizationsItems, ValidatesOnDataErrors=True}"
                 DisplayMemberPath="Value"
                 SelectedValuePath="Key"
                 SelectedValue="{Binding Path=IdOrganization, Mode=TwoWay}"/>
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Type of training"/>
         <ComboBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8"
-                  ItemsSource="{Binding TypesOfTrainingItems}"
+                  ItemsSource="{Binding TypesOfTrainingItems, ValidatesOnDataErrors=True}"
                     DisplayMemberPath="Value"
                    SelectedValuePath="Key"
                     SelectedValue="{Binding Path=IdTypeOfTraining, Mode=TwoWay}"/>

@@ -75,6 +75,7 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Dive Statistic", false)
         {
             item = new DiveStatistic();
+            DiveDate = DateTime.Now;
             Messenger.Default.Register<DiveStatisticForAllView>(this, getSelectedDiveStatistic);
         }
         #endregion
@@ -124,16 +125,27 @@ namespace MVVMFirma.ViewModels.Dives
         #endregion
 
         #region Validation
-        //protected override string ValidateProperty(string propertyName)
-        //{
-        //    switch (propertyName)
-        //    {
-        //        case nameof(BottomTime):
-        //            return !Helper.Validators.IntValidator.IsTextInteger(BottomTime) ? "Phonenumber can contains only numbers" : string.Empty;
-        //        default:
-        //            return string.Empty;
-        //    }
-        //}
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                //uwaga! ta data ma zostać pobrana z DiveLog
+                //case nameof(DiveDate):
+                //    return Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
+                //    "Dive date cannot be empty or in the future" : string.Empty;
+                case nameof(AirConsumed):
+                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(AirConsumed.ToString()) ?
+                        "Air consumption must be a number greater then 0" : string.Empty;
+                case nameof(AscentRate):
+                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(AscentRate.ToString()) ?
+                        "Ascent rate must be a number greater then 0" : string.Empty;
+                case nameof(BottomTime):
+                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(BottomTime.ToString()) ?
+                        "Bottom time must be a number greater then 0" : string.Empty;
+                default:
+                    return string.Empty;
+            }
+        }
         #endregion
     }
 }

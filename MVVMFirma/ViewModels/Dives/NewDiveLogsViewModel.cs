@@ -205,5 +205,38 @@ namespace MVVMFirma.ViewModels.Dives
             diving4LifeEntities.SaveChanges();
         }
         #endregion
+
+        #region Validation
+        protected override string ValidateProperty(string propertyName)
+        {
+            switch (propertyName)
+            {
+                //uwaga! walidacja pól wybieranych przez FK powinna zaznaczać pola, w których nie zostało jeszcze coś wybrane
+                //case nameof(IdUser):
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
+                //    "User cannot be empty" : string.Empty;
+                //case nameof(IdDiveType):
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdDiveType) ?
+                //    "Dive type cannot be empty" : string.Empty;
+                //case nameof(DiveSite):
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(DiveSite) ?
+                //    "Dive site cannot be empty" : string.Empty;
+                case nameof(DiveDate):
+                    return Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
+                    "Dive date cannot be empty or in the future" : string.Empty;
+                //case nameof(IdBuddy):
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdBuddy) ?
+                //    "Buddy cannot be empty" : string.Empty;
+                case nameof(DiveDuration):
+                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(DiveDuration.ToString()) ?
+                        "Dive Duration must be a number greater then 0" : string.Empty;
+                case nameof(MaxDepth):
+                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(MaxDepth.ToString()) ?
+                        "Max depth must be a number greater then 0" : string.Empty;
+                default:
+                    return string.Empty;
+            }
+        }
+        #endregion
     }
 }

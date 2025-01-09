@@ -87,6 +87,7 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Dive Condition", false)
         {
             item = new DiveConditions();
+            DiveDate = DateTime.Now;
             Messenger.Default.Register<DiveLogsForAllView>(this, getSelectedDiveLog);
         }
         #endregion
@@ -140,6 +141,13 @@ namespace MVVMFirma.ViewModels.Dives
         {
             switch (propertyName)
             {
+                //uwaga! ta data ma zostać pobrana przez okno modalne z DiveLog
+                //case nameof(DiveDate):
+                //    return Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
+                //    "Dive date cannot be empty or in the future" : string.Empty;
+                case nameof(Temperature):
+                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(Temperature.ToString()) ?
+                        "Temperature must be a number greater then 0" : string.Empty;
                 case nameof(WaterCurrent):
                     return string.IsNullOrEmpty(WaterCurrent) ? "Water current cannot be empty" : string.Empty;
                 case nameof(Visibility):

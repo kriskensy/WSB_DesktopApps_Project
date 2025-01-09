@@ -81,15 +81,15 @@ namespace MVVMFirma.ViewModels.General
             switch (propertyName)
             {
                 case nameof(FirstName):
-                    return string.IsNullOrEmpty(FirstName) ? "First name cannot be empty" : string.Empty;
+                    return string.IsNullOrEmpty(FirstName) ? "Firstname cannot be empty" : string.Empty;
                 case nameof(LastName):
-                    return string.IsNullOrEmpty(LastName) ? "Last name cannot be empty" : string.Empty;
+                    return string.IsNullOrEmpty(LastName) ? "Lastname cannot be empty" : string.Empty;
                 case nameof(Email):
-                    return string.IsNullOrEmpty(Email) ? "Email name cannot be empty" : string.Empty;
-                //case nameof(PhoneNumber):
-                //    return string.IsNullOrEmpty(PhoneNumber) ? "Phone number name cannot be empty" : string.Empty;
+                    return Helper.Validators.StringValidator.ContainsEmailAddress(Email ?? string.Empty) ?
+                        "Email must cointain @ and domain" : string.Empty;
                 case nameof(PhoneNumber):
-                    return !Helper.Validators.StringValidator.ContainsOnlyNumbers(PhoneNumber ?? string.Empty) ? "Phonenumber can contains only numbers" : string.Empty;
+                    return Helper.Validators.StringValidator.ContainsPhoneNumber(PhoneNumber ?? string.Empty) ?
+                        "Phonenumber can contains only numbers and  and be exactly 9 characters long" : string.Empty;
                 default:
                     return string.Empty;
             }

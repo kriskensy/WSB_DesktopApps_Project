@@ -10,7 +10,7 @@
                     xmlns:dives1="clr-namespace:MVVMFirma.ViewModels.Dives"
                     xmlns:equipment1="clr-namespace:MVVMFirma.ViewModels.Equipment"
                     xmlns:general1="clr-namespace:MVVMFirma.ViewModels.General">
-    
+
     <DataTemplate DataType="{x:Type general1:AllUsersViewModel}">
         <general:AllUsersView/>
     </DataTemplate>
@@ -25,14 +25,14 @@
     <DataTemplate DataType="{x:Type general1:NewBuddysViewModel}">
         <general:NewBuddysView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type vm1:AllCertificatesViewModel}">
         <certifications:AllCertificatesView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm1:NewCertificatesViewModel}">
         <certifications:NewCertificatesView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type vm1:AllCertificationOrganizationViewModel}">
         <certifications:AllCertificationOrganizationView/>
     </DataTemplate>
@@ -117,7 +117,7 @@
         <dives:NewTypeOfTrainingView/>
     </DataTemplate>
 
-    <!--TODO: odkomentuj poniższy kod i popraw błędy-->
+    <!--TODO: Raporty biznesowe -> odkomentuj poniższy kod i popraw błędy-->
     <!--<DataTemplate DataType="{x:Type reports1:DiveDepthReportViewModel}">
         <reports:DiveDepthReportView/>
     </DataTemplate>
@@ -130,6 +130,7 @@
         <reports:EquipmentCategoryReportView/>
     </DataTemplate>-->
 
+    <!--to są style do walidacji pól, ToolTipy-->
     <Style TargetType="TextBox">
         <Style.Triggers>
             <Trigger Property="Validation.HasError" Value="true">
@@ -137,7 +138,21 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+    <Style TargetType="ComboBox">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="DatePicker">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
             <Setter.Value>

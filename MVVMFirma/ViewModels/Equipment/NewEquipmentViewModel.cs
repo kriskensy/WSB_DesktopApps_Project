@@ -141,10 +141,23 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             switch (propertyName)
             {
+                //uwaga! walidacja pól wybieranych przez FK powinna zaznaczać pola, w których nie zostało jeszcze coś wybrane
+                //case nameof(IdUser):
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
+                //    "User cannot be empty" : string.Empty;
+                //case nameof(IdCategory):
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdCategory) ?
+                //    "Category cannot be empty" : string.Empty;
+                //case nameof(IdManufacturer):
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdManufacturer) ?
+                //    "Manufacturer cannot be empty" : string.Empty;
                 case nameof(Name):
-                    return string.IsNullOrEmpty(Name) ? "Name cannot be empty" : string.Empty;
+                    return string.IsNullOrEmpty(Name) ? "Equipment name cannot be empty" : string.Empty;
                 case nameof(SerialNumber):
                     return string.IsNullOrEmpty(SerialNumber) ? "Serial number cannot be empty" : string.Empty;
+                case nameof(PurchaseDate):
+                    return Helper.Validators.DateTimeValidator.IsNotFutureDate(PurchaseDate) ?
+                    "Purchase date cannot be empty or in the future" : string.Empty;
                 default:
                     return string.Empty;
             }

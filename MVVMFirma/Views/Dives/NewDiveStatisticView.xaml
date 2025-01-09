@@ -27,17 +27,17 @@
                     SelectedValue="{Binding Path=IdDiveLog, Mode=TwoWay}"/>-->
 
         <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Dive Date"/>
-        <DatePicker Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" IsEnabled="False" SelectedDate="{Binding Path=DiveDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" IsEnabled="False" SelectedDate="{Binding Path=DiveDate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="..." Grid.Column="2" Grid.Row="0" Margin="8,8,0,8" Command="{Binding ShowAllDiveLogs}"/>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Air consumed"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=AirConsumed, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=AirConsumed, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Ascent rate"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=AscentRate, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=AscentRate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Bottom time"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=BottomTime, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=BottomTime, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </local:NewViewBase>

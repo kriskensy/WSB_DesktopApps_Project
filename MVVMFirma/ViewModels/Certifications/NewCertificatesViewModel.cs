@@ -126,14 +126,19 @@ namespace MVVMFirma.ViewModels.Certifications
         {
             switch (propertyName)
             {
+                //uwaga! walidacja pól wybieranych przez FK powinna zaznaczać pola, w których nie zostało jeszcze coś wybrane
                 //case nameof(IdUser):
-                //    return ValidateForeignKey(IdUser, nameof(IdUser));
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
+                //    "User cannot be empty" : string.Empty;
                 //case nameof(IdOrganization):
-                //    return ValidateForeignKey(IdUser, nameof(IdOrganization));
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdOrganization) ?
+                //    "Organization cannot be empty" : string.Empty;
                 //case nameof(IdTypeOfTraining):
-                //    return ValidateForeignKey(IdUser, nameof(IdTypeOfTraining));
-                //case nameof(IssueDate):
-                //    return ValidateDateTime(IssueDate, nameof(IssueDate));
+                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdTypeOfTraining) ?
+                //    "Type of training cannot be empty" : string.Empty;
+                case nameof(IssueDate):
+                    return Helper.Validators.DateTimeValidator.IsNotFutureDate(IssueDate) ?
+                        "Issue date cannot be empty or in the future" : string.Empty;
                 case nameof(CertificateNumber):
                     return string.IsNullOrEmpty(CertificateNumber) ? "Certificate number cannot be empty" : string.Empty;
                 default:
@@ -141,11 +146,28 @@ namespace MVVMFirma.ViewModels.Certifications
             }
         }
 
+        //TODO: skasować te metody bo to było inne podejście
+        //protected override string ValidateForeignKey(int? value, string propertyName)
+        //{
+        //    switch (propertyName)
+        //    {
+        //        case nameof(IdUser):
+        //            return (!value.HasValue || value <= 0) ? "User cannot be empty" : string.Empty;
+        //        case nameof(IdOrganization):
+        //            return (!value.HasValue || value <= 0) ? "Organization cannot be empty" : string.Empty;
+        //        case nameof(IdTypeOfTraining):
+        //            return (!value.HasValue || value <= 0) ? "Type Of Training cannot be empty" : string.Empty;
+        //        default:
+        //            return string.Empty;
+        //    }
+        //}
+
         //protected override string ValidateDateTime(DateTime? value, string propertyName)
         //{
-        //    if (value > DateTime.Now)
+        //    if (propertyName == nameof(IssueDate))
         //    {
-        //        MessageBox.Show("The date cannot be later than today.", "Error");
+        //        if (!value.HasValue || value.Value > DateTime.Now)
+        //            MessageBox.Show($"{propertyName} is incorrect.", "Error");
         //    }
         //    return string.Empty;
         //}

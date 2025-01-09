@@ -26,14 +26,14 @@
                  ItemsSource="{Binding UsersItems}"
                  DisplayMemberPath="Value"
                  SelectedValuePath="Key"
-                 SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
+                 SelectedValue="{Binding Path=IdUser, ValidatesOnDataErrors=True, Mode=TwoWay}"/>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Dive type"/>
         <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8"
                   ItemsSource="{Binding DiveTypesItems}"
                   DisplayMemberPath="Value"
                   SelectedValuePath="Key"
-                  SelectedValue="{Binding Path=IdDiveType, Mode=TwoWay}"/>
+                  SelectedValue="{Binding Path=IdDiveType, ValidatesOnDataErrors=True, Mode=TwoWay}"/>
 
         <!--<Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Site name and location"/>
         <ComboBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8"
@@ -43,23 +43,23 @@
                   SelectedValue="{Binding Path=IdDiveSite, Mode=TwoWay}"/>-->
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Site name and location"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" IsEnabled="False" Text="{Binding Path=DiveSite, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" IsEnabled="False" Text="{Binding Path=DiveSite, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="..." Grid.Column="2" Grid.Row="2" Margin="8,8,0,8" Command="{Binding ShowAllDiveSites}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Dive date"/>
-        <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=DiveDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=DiveDate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Buddy"/>
         <ComboBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8"
                   ItemsSource="{Binding BuddysItems}"
                   DisplayMemberPath="Value"
                   SelectedValuePath="Key"
-                  SelectedValue="{Binding Path=IdBuddy, Mode=TwoWay}"/>
+                  SelectedValue="{Binding Path=IdBuddy, ValidatesOnDataErrors=True, Mode=TwoWay}"/>
 
         <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Dive duration"/>
-        <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=DiveDuration, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=DiveDuration, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="6" Margin="0,8,0,8" Content="Max depth"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Margin="0,8,0,8" Text="{Binding Path=MaxDepth, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Margin="0,8,0,8" Text="{Binding Path=MaxDepth, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </local:NewViewBase>

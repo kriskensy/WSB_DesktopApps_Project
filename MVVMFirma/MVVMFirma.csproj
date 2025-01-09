@@ -90,7 +90,8 @@
     <Compile Include="Helper\Messages\AddMessage.cs" />
     <Compile Include="Helper\Messages\EditMessage.cs" />
     <Compile Include="Helper\Messages\ShowAllMessage.cs" />
-    <Compile Include="Helper\Validators\IntValidator.cs" />
+    <Compile Include="Helper\Validators\DateTimeValidator.cs" />
+    <Compile Include="Helper\Validators\ForeignKeyValidator.cs" />
     <Compile Include="Helper\Validators\StringValidator.cs" />
     <Compile Include="Models\BusinessLogic\BuddysB.cs" />
     <Compile Include="Models\BusinessLogic\DataBaseClass.cs" />

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.Helper.Validators
 {
-    static public class IntValidator
+    public static class ForeignKeyValidator
     {
-        public static bool IsTextInteger(string text)
+        public static bool IsForeignKeySelected(int? value)
         {
-            return int.TryParse(text, out var result);
+            return !value.HasValue;
         }
     }
 }
