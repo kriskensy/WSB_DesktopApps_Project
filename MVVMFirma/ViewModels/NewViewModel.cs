@@ -33,7 +33,6 @@ namespace MVVMFirma.ViewModels
             get
             {
                 if (_SaveCommand == null)
-                    //_SaveCommand = new BaseCommand(() => SaveAndClose());
                     _SaveCommand = new BaseCommand(() => ValidateAndSave());
                 return _SaveCommand;
             }
@@ -73,41 +72,6 @@ namespace MVVMFirma.ViewModels
             return true;
         }
 
-        //TODO: tutaj moja metoda sprawdzająca. Pomysł aby sprawdzać każdą właściwość osobno
-        //protected bool IsValid()
-        //{
-        //    foreach (System.Reflection.PropertyInfo item in this.GetType().GetProperties())
-        //    {
-        //        var value = item.GetValue(this);
-
-        //        //sprawdzenie ogólne
-        //        if (!string.IsNullOrEmpty(ValidateProperty(item.Name)))
-        //            return false;
-
-        //        //sprawdzenie czy props jest DateTime - jeśli tak to walidacja
-        //        if (item.PropertyType == typeof(DateTime?) || item.PropertyType == typeof(DateTime))
-        //        {
-        //            if (!string.IsNullOrEmpty(ValidateDateTime(value as DateTime?, item.Name)))
-        //                return false;
-        //        }
-
-        //        //sprawdzenie czy props jest "zwykłym" int - jeśli tak to walidacja
-        //        if (item.PropertyType == typeof(int?) && !item.Name.StartsWith("Id"))
-        //        {
-        //            if (!string.IsNullOrEmpty(ValidateInt(value as int?, item.Name)))
-        //                return false;
-        //        }
-
-        //        //sprawdzenie czy props jest FK (int) - jeśli tak to walidacja
-        //        if (item.PropertyType == typeof(int?) && item.Name.StartsWith("Id"))
-        //        {
-        //            if (!string.IsNullOrEmpty(ValidateForeignKey(value as int?, item.Name)))
-        //                return false;
-        //        }
-        //    }
-        //    return true;
-        //}
-
         public string Error => string.Empty;
 
         //tą metodę (Property) implementuję w każdej klasie. gdzie będą walidowane dane
@@ -123,27 +87,6 @@ namespace MVVMFirma.ViewModels
 
         protected virtual string ValidateProperty(string propertyName)
         {
-            return string.Empty;
-        }
-
-        protected virtual string ValidateDateTime(DateTime? value, string propertyName)
-        {
-            //if (!value.HasValue || value.Value > DateTime.Now)
-            //    MessageBox.Show($"{propertyName} is incorrect.", "Error");
-            return string.Empty;
-        }
-
-        protected virtual string ValidateInt(int? value, string propertyName)
-        {
-            //if (!value.HasValue || value <= 0)
-            //    MessageBox.Show($"{propertyName} is incorrect.", "Error");
-            return string.Empty;
-        }
-
-        protected virtual string ValidateForeignKey(int? value, string propertyName)
-        {
-            //if (!value.HasValue || value <= 0)
-            //    MessageBox.Show($"Foreign key {propertyName} is incorrect.", "Error");
             return string.Empty;
         }
 

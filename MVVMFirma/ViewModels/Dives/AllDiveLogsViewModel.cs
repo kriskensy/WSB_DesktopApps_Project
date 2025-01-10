@@ -29,22 +29,35 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Sort()
         {
-            if (SortField == "User Lastname")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.UserLastName));
-            if (SortField == "Dive Type")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.DiveTypeName));
-            if (SortField == "Site name")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.SiteName));
-            if (SortField == "Site location")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.SiteLocation));
-            if (SortField == "Dive Date")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.DiveDate));
-            if (SortField == "Buddy Lastname")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.BuddyLastName));
-            if (SortField == "Dive duration")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.DiveDuration));
-            if (SortField == "Max depth")
-                List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.MaxDepth));
+            switch (SortField)
+            {
+                case "User Lastname":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.UserLastName));
+                    break;
+                case "Dive Type":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.DiveTypeName));
+                    break;
+                case "Site name":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.SiteName));
+                    break;
+                case "Site location":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.SiteLocation));
+                    break;
+                case "Dive Date":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.DiveDate));
+                    break;
+                case "Buddy Lastname":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.BuddyLastName));
+                    break;
+                case "Dive duration":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.DiveDuration));
+                    break;
+                case "Max depth":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.OrderBy(item => item.MaxDepth));
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override List<string> GetComboboxFindList()
@@ -55,48 +68,52 @@ namespace MVVMFirma.ViewModels.Dives
         public override void Find()
         {
             Load();
-            if (FindField == "User Lastname")
-                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Dive Type")
-                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.DiveTypeName != null && item.DiveTypeName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Site name")
-                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.SiteName != null && item.SiteName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Site location")
-                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.SiteLocation != null && item.SiteLocation.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Buddy Lastname")
-                List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.BuddyLastName != null && item.BuddyLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+            switch (FindField)
+            {
+                case "User Lastname":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.UserLastName != null
+                        && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Dive Type":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.DiveTypeName != null
+                        && item.DiveTypeName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Site name":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.SiteName != null
+                        && item.SiteName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Site location":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.SiteLocation != null
+                        && item.SiteLocation.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Buddy Lastname":
+                    List = new ObservableCollection<DiveLogsForAllView>(List.Where(item => item.BuddyLastName != null
+                        && item.BuddyLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                default:
+                    break;
+            }
         }
         #endregion
 
         #region Properties
-        private DiveConditionsForAllView _SelectedDiveCondition;
+        private DiveLogsForAllView _SelectedDiveLog;
 
-        public DiveConditionsForAllView SelectedDiveCondition
+        public DiveLogsForAllView SelectedDiveLog
         {
             get
             {
-                return _SelectedDiveCondition;
+                return _SelectedDiveLog;
             }
             set
             {
-                _SelectedDiveCondition = value;
-                Messenger.Default.Send(_SelectedDiveCondition);
-                OnRequestClose();
-            }
-        }
+                _SelectedDiveLog = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedDiveLog);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
 
-        private DiveStatisticForAllView _SelectedDiveStatistic;
-
-        public DiveStatisticForAllView SelectedDiveStatistic
-        {
-            get
-            {
-                return _SelectedDiveStatistic;
-            }
-            set
-            {
-                _SelectedDiveStatistic = value;
-                Messenger.Default.Send(_SelectedDiveStatistic);
                 OnRequestClose();
             }
         }

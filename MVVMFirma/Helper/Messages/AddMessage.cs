@@ -9,5 +9,6 @@ namespace MVVMFirma.Helper.Messages
     public class AddMessage
     {
         public string MessageName { get; set; }
+        public object ObjectSender { get; set; }
     }
 }

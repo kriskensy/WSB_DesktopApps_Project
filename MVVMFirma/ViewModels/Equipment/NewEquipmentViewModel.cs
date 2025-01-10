@@ -101,8 +101,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #endregion
 
-        #region XXXXXXXXX Combobox
-        //ewentualnie zamienić na okno modalne co lepiej pasuje
+        #region Combobox
         public IEnumerable<KeyAndValue> UsersItems
         {
             get

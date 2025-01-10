@@ -28,7 +28,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public DateTime DiveDate { get; set; }
+        public DateTime DiveDate { get; set; } //props do wyświetlania daty nurkowania przez okno modalne
 
         public decimal AirConsumed
         {
@@ -76,20 +76,9 @@ namespace MVVMFirma.ViewModels.Dives
         {
             item = new DiveStatistic();
             DiveDate = DateTime.Now;
-            Messenger.Default.Register<DiveStatisticForAllView>(this, getSelectedDiveStatistic);
+            Messenger.Default.Register<DiveLogsForAllView>(this, getSelectedDiveLog);
         }
         #endregion
-
-        //#region Combobox
-        ////ewentualnie zamienić na okno modalne co lepiej pasuje
-        //public IEnumerable<KeyAndValueForDate> DiveStatisticsItems
-        //{
-        //    get
-        //    {
-        //        return new DiveLogsB(diving4LifeEntities).GetDiveLogsKeyAndValueItems();
-        //    }
-        //}
-        //#endregion
 
         #region Command
         private BaseCommand _ShowAllDiveLogs;
@@ -106,15 +95,15 @@ namespace MVVMFirma.ViewModels.Dives
 
         private void showAllDiveLogs()
         {
-            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveLogsAll" });
+            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveLogsAll", ObjectSender = this });
         }
         #endregion
 
         #region Helpers
-        private void getSelectedDiveStatistic(DiveStatisticForAllView diveStatistic)
+        private void getSelectedDiveLog(DiveLogsForAllView diveLog)
         {
-            IdDiveLog = diveStatistic.IdStatistic;
-            DiveDate = diveStatistic.DiveDate;
+            IdDiveLog = diveLog.IdDiveLog;
+            DiveDate = diveLog.DiveDate;
         }
 
         public override void Save()

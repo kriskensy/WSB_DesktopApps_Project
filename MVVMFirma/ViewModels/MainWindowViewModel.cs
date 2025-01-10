@@ -23,11 +23,6 @@ namespace MVVMFirma.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-
-        //#region DB
-        //private readonly Diving4LifeEntities1 diving4LifeEntities;
-        //#endregion
-
         #region Fields
         private ReadOnlyCollection<CommandViewModel> _Commands;
         private ObservableCollection<WorkspaceViewModel> _Workspaces;
@@ -561,31 +556,6 @@ namespace MVVMFirma.ViewModels
                     throw new ArgumentException($"Add button for: {name} doesn't work.");
             }
         }
-
-        //private void openForEdit(string name, object record = null)
-        //{
-        //    switch (name)
-        //    {
-        //        case "Dive LogEdit":
-        //            if (record is DiveLogsForAllView diveLogView)
-        //            {
-        //                // Zakładając, że masz dostęp do danych o rekordach w `diving4LifeEntities`
-        //                var diveLog = diving4LifeEntities.DiveLogs.SingleOrDefault(d => d.IdDiveLog == diveLogView.IdDiveLog);
-
-        //                if (diveLog != null)
-        //                {
-        //                    CreateView(new NewDiveLogsViewModel(diveLog)); // Tworzenie widoku edycji
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show("Record not found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-        //                }
-        //            }
-        //            break;
-        //        default:
-        //            throw new ArgumentException($"Edit action for: {name} not handled.");
-        //    }
-        //}
         #endregion
     }
 }

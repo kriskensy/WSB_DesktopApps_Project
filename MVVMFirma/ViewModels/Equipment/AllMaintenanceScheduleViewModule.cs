@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -46,6 +47,29 @@ namespace MVVMFirma.ViewModels.Equipment
                 List = new ObservableCollection<MaintenanceScheduleForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Status")
                 List = new ObservableCollection<MaintenanceScheduleForAllView>(List.Where(item => item.Status != null && item.Status.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private MaintenanceScheduleForAllView _SelectedMaintenanceSchedule;
+
+        public MaintenanceScheduleForAllView SelectedMaintenanceSchedule
+        {
+            get
+            {
+                return _SelectedMaintenanceSchedule;
+            }
+            set
+            {
+                _SelectedMaintenanceSchedule = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedMaintenanceSchedule);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

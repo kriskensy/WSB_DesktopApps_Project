@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.General
@@ -24,14 +25,23 @@ namespace MVVMFirma.ViewModels.General
 
         public override void Sort()
         {
-            if (SortField == "User Lastname")
-                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.UserLastName));
-            if (SortField == "Contact Lastname")
-                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.ContactLastName));
-            if (SortField == "Relationship")
-                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.Relationship));
-            if (SortField == "Email")
-                List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.Email));
+            switch (SortField)
+            {
+                case "User Lastname":
+                    List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.UserLastName));
+                    break;
+                case "Contact Lastname":
+                    List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.ContactLastName));
+                    break;
+                case "Relationship":
+                    List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.Relationship));
+                    break;
+                case "Email":
+                    List = new ObservableCollection<EmergencyContactsForAllView>(List.OrderBy(item => item.Email));
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override List<string> GetComboboxFindList()
@@ -46,6 +56,29 @@ namespace MVVMFirma.ViewModels.General
                 List = new ObservableCollection<EmergencyContactsForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Contact Lastname")
                 List = new ObservableCollection<EmergencyContactsForAllView>(List.Where(item => item.ContactLastName != null && item.ContactLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private EmergencyContactsForAllView _SelectedEmergencyContact;
+
+        public EmergencyContactsForAllView SelectedEmergencyContact
+        {
+            get
+            {
+                return _SelectedEmergencyContact;
+            }
+            set
+            {
+                _SelectedEmergencyContact = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedEmergencyContact);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -43,6 +44,29 @@ namespace MVVMFirma.ViewModels.Certifications
                 List = new ObservableCollection<CertificationOrganizationForAllView>(List.Where(item => item.OrganizationName != null && item.OrganizationName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Country")
                 List = new ObservableCollection<CertificationOrganizationForAllView>(List.Where(item => item.Country != null && item.Country.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private CertificationOrganizationForAllView _SelectedCertificationOrganization;
+
+        public CertificationOrganizationForAllView SelectedCertificationOrganization
+        {
+            get
+            {
+                return _SelectedCertificationOrganization;
+            }
+            set
+            {
+                _SelectedCertificationOrganization = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedCertificationOrganization);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

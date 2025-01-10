@@ -25,18 +25,30 @@ namespace MVVMFirma.ViewModels.Equipment
 
         public override void Sort()
         {
-            if (SortField == "User Lastname")
-                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.UserLastName));
-            if (SortField == "Category")
-                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.CategoryName));
-            if (SortField == "Manufacturer")
-                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.ManufacturerName));
-            if (SortField == "Equipment Name")
-                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.EquipmentName));
-            if (SortField == "Serial Number")
-                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.SerialNumber));
-            if (SortField == "Purchase Date")
-                List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.PurchaseDate));
+            switch (SortField)
+            {
+                case "User Lastname":
+                    List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.UserLastName));
+                    break;
+                case "Category":
+                    List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.CategoryName));
+                    break;
+                case "Manufacturer":
+                    List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.ManufacturerName));
+                    break;
+                case "Equipment Name":
+                    List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.EquipmentName));
+                    break;
+                case "Serial Number":
+                    List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.SerialNumber));
+                    break;
+                case "Purchase Date":
+                    List = new ObservableCollection<EquipmentForAllView>(List.OrderBy(item => item.PurchaseDate));
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         public override List<string> GetComboboxFindList()
@@ -47,16 +59,27 @@ namespace MVVMFirma.ViewModels.Equipment
         public override void Find()
         {
             Load();
-            if (FindField == "User Lastname")
-                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Category")
-                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Manufacturer")
-                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Equipment Name")
-                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.EquipmentName != null && item.EquipmentName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Serial Number")
-                List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.SerialNumber != null && item.SerialNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+
+            switch (FindField)
+            {
+                case "User Lastname":
+                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Category":
+                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Manufacturer":
+                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Equipment Name":
+                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.EquipmentName != null && item.EquipmentName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Serial Number":
+                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.SerialNumber != null && item.SerialNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                default:
+                    break;
+            }
         }
         #endregion
 
@@ -72,7 +95,12 @@ namespace MVVMFirma.ViewModels.Equipment
             set
             {
                 _SelectedEquipment = value;
-                Messenger.Default.Send(_SelectedEquipment);
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedEquipment);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
                 OnRequestClose();
             }
         }

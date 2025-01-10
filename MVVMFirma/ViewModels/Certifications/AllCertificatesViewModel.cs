@@ -4,6 +4,7 @@ using System.Windows;
 using MVVMFirma.Models.EntitiesForView;
 using System.Collections.Generic;
 using System;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace MVVMFirma.ViewModels.Certifications
 {
@@ -24,16 +25,26 @@ namespace MVVMFirma.ViewModels.Certifications
 
         public override void Sort()
         {
-            if (SortField == "User Lastname")
-                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.UserLastName));
-            if (SortField == "Organization Name")
-                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.OrganizationName));
-            if (SortField == "Type of training")
-                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.TypeOfTraining));
-            if (SortField == "Issue Date")
-                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.IssueDate));
-            if (SortField == "Certification Number")
-                List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.CertificateNumber));
+            switch (SortField)
+            {
+                case "User Lastname":
+                    List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.UserLastName));
+                    break;
+                case "Organization Name":
+                    List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.OrganizationName));
+                    break;
+                case "Type of training":
+                    List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.TypeOfTraining));
+                    break;
+                case "Issue Date":
+                    List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.IssueDate));
+                    break;
+                case "Certification Number":
+                    List = new ObservableCollection<CertificatesForAllView>(List.OrderBy(item => item.CertificateNumber));
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override List<string> GetComboboxFindList()
@@ -44,14 +55,51 @@ namespace MVVMFirma.ViewModels.Certifications
         public override void Find()
         {
             Load();
-            if (FindField == "User Lastname")
-                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Organization Name")
-                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.OrganizationName != null && item.OrganizationName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Type of training")
-                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.TypeOfTraining != null && item.TypeOfTraining.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
-            if (FindField == "Certification Number")
-                List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.CertificateNumber != null && item.CertificateNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+
+            switch (FindField)
+            {
+                case "User Lastname":
+                    List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.UserLastName != null
+                        && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Organization Name":
+                    List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.OrganizationName != null
+                        && item.OrganizationName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Type of training":
+                    List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.TypeOfTraining != null
+                        && item.TypeOfTraining.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                case "Certification Number":
+                    List = new ObservableCollection<CertificatesForAllView>(List.Where(item => item.CertificateNumber != null
+                        && item.CertificateNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    break;
+                default:
+                    break;
+            }
+        }
+        #endregion
+
+        #region Properties
+        private CertificatesForAllView _SelectedCertificate;
+
+        public CertificatesForAllView SelectedCertificate
+        {
+            get
+            {
+                return _SelectedCertificate;
+            }
+            set
+            {
+                _SelectedCertificate = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedCertificate);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

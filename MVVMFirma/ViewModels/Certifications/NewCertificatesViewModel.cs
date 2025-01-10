@@ -86,8 +86,7 @@ namespace MVVMFirma.ViewModels.Certifications
         }
         #endregion
 
-        #region XXXXXXXXX Combobox
-        //ewentualnie zamienić na okno modalne co lepiej pasuje
+        #region Combobox
         public IEnumerable<KeyAndValue> UsersItems
         {
             get
@@ -145,32 +144,6 @@ namespace MVVMFirma.ViewModels.Certifications
                     return string.Empty;
             }
         }
-
-        //TODO: skasować te metody bo to było inne podejście
-        //protected override string ValidateForeignKey(int? value, string propertyName)
-        //{
-        //    switch (propertyName)
-        //    {
-        //        case nameof(IdUser):
-        //            return (!value.HasValue || value <= 0) ? "User cannot be empty" : string.Empty;
-        //        case nameof(IdOrganization):
-        //            return (!value.HasValue || value <= 0) ? "Organization cannot be empty" : string.Empty;
-        //        case nameof(IdTypeOfTraining):
-        //            return (!value.HasValue || value <= 0) ? "Type Of Training cannot be empty" : string.Empty;
-        //        default:
-        //            return string.Empty;
-        //    }
-        //}
-
-        //protected override string ValidateDateTime(DateTime? value, string propertyName)
-        //{
-        //    if (propertyName == nameof(IssueDate))
-        //    {
-        //        if (!value.HasValue || value.Value > DateTime.Now)
-        //            MessageBox.Show($"{propertyName} is incorrect.", "Error");
-        //    }
-        //    return string.Empty;
-        //}
         #endregion
     }
 }

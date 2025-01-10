@@ -61,7 +61,11 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveSite = value;
-                Messenger.Default.Send(_SelectedDiveSite);
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedDiveSite);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
                 OnRequestClose();
             }
         }

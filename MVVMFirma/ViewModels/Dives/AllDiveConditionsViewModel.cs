@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -24,14 +25,23 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Sort()
         {
-            if (SortField == "Dive Date")
-                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.DiveDate));
-            if (SortField == "Temperature")
-                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.Temperature));
-            if (SortField == "Water Current")
-                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.WaterCurrent));
-            if (SortField == "Visibility")
-                List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.Visibility));
+            switch (SortField)
+            {
+                case "Dive Date":
+                    List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.DiveDate));
+                    break;
+                case "Temperature":
+                    List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.Temperature));
+                    break;
+                case "Water Current":
+                    List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.WaterCurrent));
+                    break;
+                case "Visibility":
+                    List = new ObservableCollection<DiveConditionsForAllView>(List.OrderBy(item => item.Visibility));
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override List<string> GetComboboxFindList()
@@ -48,6 +58,29 @@ namespace MVVMFirma.ViewModels.Dives
                 List = new ObservableCollection<DiveConditionsForAllView>(List.Where(item => item.Visibility != null && item.Visibility.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Notes")
                 List = new ObservableCollection<DiveConditionsForAllView>(List.Where(item => item.Notes != null && item.Notes.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private DiveConditionsForAllView _SelectedDiveCondition;
+
+        public DiveConditionsForAllView SelectedDiveCondition
+        {
+            get
+            {
+                return _SelectedDiveCondition;
+            }
+            set
+            {
+                _SelectedDiveCondition = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedDiveCondition);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

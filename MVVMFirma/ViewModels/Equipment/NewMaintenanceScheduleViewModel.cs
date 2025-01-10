@@ -28,7 +28,7 @@ namespace MVVMFirma.ViewModels.Equipment
             }
         }
 
-        public string EquipmentName { get; set; } //props do wyświetlania nazwy ekwipunku
+        public string EquipmentName { get; set; } //props do wyświetlania ekwipunku przez okno modalne
 
         public DateTime ScheduledDate
         {
@@ -80,17 +80,6 @@ namespace MVVMFirma.ViewModels.Equipment
         }
         #endregion
 
-        //#region Combobox
-        ////ewentualnie zamienić na okno modalne co lepiej pasuje
-        //public IEnumerable<KeyAndValue> MaintenanceSchedulesItems
-        //{
-        //    get
-        //    {
-        //        return new EquipmentB(diving4LifeEntities).GetEquipmentKeyAndValueItems();
-        //    }
-        //}
-        //#endregion
-
         #region Command
         private BaseCommand _ShowAllEquipment;
 
@@ -106,7 +95,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         private void showAllEquipment()
         {
-            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "EquipmentAll" });
+            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "EquipmentAll", ObjectSender = this });
         }
         #endregion
 

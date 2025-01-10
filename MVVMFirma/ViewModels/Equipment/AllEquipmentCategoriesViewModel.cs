@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -38,6 +39,29 @@ namespace MVVMFirma.ViewModels.Equipment
             Load();
             if (FindField == "Category Name")
                 List = new ObservableCollection<EquipmentCategoriesForAllView>(List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private EquipmentCategoriesForAllView _SelectedEquipmentCategory;
+
+        public EquipmentCategoriesForAllView SelectedEquipmentCategory
+        {
+            get
+            {
+                return _SelectedEquipmentCategory;
+            }
+            set
+            {
+                _SelectedEquipmentCategory = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedEquipmentCategory);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

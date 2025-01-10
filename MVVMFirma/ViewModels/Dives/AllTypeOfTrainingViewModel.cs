@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -38,6 +39,29 @@ namespace MVVMFirma.ViewModels.Dives
             Load();
             if (FindField == "Description")
                 List = new ObservableCollection<TypeOfTrainingForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private TypeOfTrainingForAllView _SelectedTypeOfTraining;
+
+        public TypeOfTrainingForAllView SelectedTypeOfTraining
+        {
+            get
+            {
+                return _SelectedTypeOfTraining;
+            }
+            set
+            {
+                _SelectedTypeOfTraining = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedTypeOfTraining);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

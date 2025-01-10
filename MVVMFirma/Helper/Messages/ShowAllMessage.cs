@@ -9,5 +9,8 @@ namespace MVVMFirma.Helper.Messages
     public class ShowAllMessage
     {
         public string MessageName { get; set; }
+
+        //props dodany: trafia do sendera w komendach showAllxxx
+        public object ObjectSender { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public DateTime DiveDate { get; set; } //props do wyświetlania daty nurkowania
+        public DateTime DiveDate { get; set; } //props do wyświetlania daty nurkowania przez okno modalne
 
         public decimal Temperature
         {
@@ -92,17 +92,6 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        //#region Combobox
-        ////ewentualnie zamienić na okno modalne co lepiej pasuje
-        //public IEnumerable<KeyAndValueForDate> DiveConditionsItems
-        //{
-        //    get
-        //    {
-        //        return new DiveLogsB(diving4LifeEntities).GetDiveLogsKeyAndValueItems();
-        //    }
-        //}
-        //#endregion
-
         #region Command
         private BaseCommand _ShowAllDiveLogs;
 
@@ -116,9 +105,9 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        private void showAllDiveLogs()
+        private void showAllDiveLogs()//dodany objectsender
         {
-            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveLogsAll" });
+            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveLogsAll", ObjectSender = this });
         }
         #endregion
 

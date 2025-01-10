@@ -90,7 +90,6 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Sorting and Filtering
-        //sorting
         public string SortField { get; set; }
 
         public List<string> SortComboboxItems
@@ -117,7 +116,6 @@ namespace MVVMFirma.ViewModels
 
         public abstract void Sort();
 
-        //filtering
         public string FindField { get; set; }
 
         public List<string> FindComboboxItems
@@ -154,6 +152,11 @@ namespace MVVMFirma.ViewModels
             diving4LifeEntities = new Diving4LifeEntities1();
             base.DisplayName = displayName;
         }
+        #endregion
+
+        #region Properties
+        //ten props przetrzymuje informację kto zażądał otwarcia zakładki
+        public object WhoRequestedToSelectElement { get; set; }
         #endregion
 
         #region Helpers
@@ -207,7 +210,7 @@ namespace MVVMFirma.ViewModels
             {
                 _SelectedRecord = value;
                 OnPropertyChanged(() => SelectedRecord);
-                OnPropertyChanged(() => IsRecordSelected); //aktualizacja przecisków
+                OnPropertyChanged(() => IsRecordSelected); //aktualizacja przycisków
                 CommandManager.InvalidateRequerySuggested(); //odświeżanie komend edit, delete
                 //Console.WriteLine($"SelectedRecord set to: {_SelectedRecord}"); //pomoc przy debugowaniu
             }

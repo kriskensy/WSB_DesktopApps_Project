@@ -97,8 +97,7 @@ namespace MVVMFirma.ViewModels.General
         }
         #endregion
 
-        #region XXXXXXXXX Combobox
-        //ewentualnie zamienić na okno modalne co lepiej pasuje
+        #region Combobox
         public IEnumerable<KeyAndValue> UsersItems
         {
             get
@@ -133,10 +132,10 @@ namespace MVVMFirma.ViewModels.General
                     return string.IsNullOrEmpty(Relationship) ? "Relationship cannot be empty" : string.Empty;
                 case nameof(PhoneNumber):
                     return Helper.Validators.StringValidator.ContainsPhoneNumber(PhoneNumber ?? string.Empty) ?
-                        "Phonenumber can contains only numbers and  and be exactly 9 characters long" : string.Empty;
+                        "Phonenumber can contains only numbers and be exactly 9 characters long" : string.Empty;
                 case nameof(Email):
                     return Helper.Validators.StringValidator.ContainsEmailAddress(Email ?? string.Empty) ? 
-                        "Email must cointain @ and domain" : string.Empty;
+                        "Email must contain @ and domain" : string.Empty;
                 default:
                     return string.Empty;
             }

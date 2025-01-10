@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -24,14 +25,23 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Sort()
         {
-            if (SortField == "Dive Date")
-                List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.DiveDate));
-            if (SortField == "Air Consumed")
-                List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.AirConsumed));
-            if (SortField == "Ascent Rate")
-                List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.AscentRate));
-            if (SortField == "Bottom Time")
-                List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.BottomTime));
+            switch (SortField)
+            {
+                case "Dive Date":
+                    List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.DiveDate));
+                    break;
+                case "Air Consumed":
+                    List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.AirConsumed));
+                    break;
+                case "Ascent Rate":
+                    List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.AscentRate));
+                    break;
+                case "Bottom Time":
+                    List = new ObservableCollection<DiveStatisticForAllView>(List.OrderBy(item => item.BottomTime));
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override List<string> GetComboboxFindList()
@@ -48,6 +58,29 @@ namespace MVVMFirma.ViewModels.Dives
                 List = new ObservableCollection<DiveStatisticForAllView>(List.Where(item => item.AscentRate != null && item.AscentRate.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Bottom Time")
                 List = new ObservableCollection<DiveStatisticForAllView>(List.Where(item => item.BottomTime != null && item.BottomTime.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private DiveStatisticForAllView _SelectedDiveStatistic;
+
+        public DiveStatisticForAllView SelectedDiveStatistic
+        {
+            get
+            {
+                return _SelectedDiveStatistic;
+            }
+            set
+            {
+                _SelectedDiveStatistic = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedDiveStatistic);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

@@ -41,7 +41,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public string DiveSite { get; set; } //props do wyświetlania nazwy miejsca nurkowego
+        public string DiveSite { get; set; } //props do wyświetlania nazwy miejsca nurkowego przez okno modalne
 
         public int IdDiveSite
         {
@@ -118,7 +118,7 @@ namespace MVVMFirma.ViewModels.Dives
             Messenger.Default.Register<DiveSitesForAllView>(this, getSelectedDiveSite);
         }
 
-        //konstruktor do edycji rekordów
+        //konstruktor do edycji rekordów. czy tak trzeba?
         public NewDiveLogsViewModel(DiveLogsForAllView diveLog)
             : base("Dive Log", true)
         {
@@ -137,7 +137,6 @@ namespace MVVMFirma.ViewModels.Dives
         #endregion
 
         #region Combobox
-        //ewentualnie zamienić na okno modalne co lepiej pasuje
         public IEnumerable<KeyAndValue> UsersItems
         {
             get
@@ -153,14 +152,6 @@ namespace MVVMFirma.ViewModels.Dives
                 return new DiveTypeB(diving4LifeEntities).GetDiveTypesKeyAndValueItems();
             }
         }
-
-        //public IEnumerable<KeyAndValue> SiteItems
-        //{
-        //    get
-        //    {
-        //        return new DiveSitesB(diving4LifeEntities).GetDiveSitesKeyAndValueItems();
-        //    }
-        //}
 
         public IEnumerable<KeyAndValue> BuddysItems
         {
@@ -188,7 +179,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         private void showAllDiveSites()
         {
-            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveSitesAll" });
+            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveSitesAll", ObjectSender = this });
         }
         #endregion
 

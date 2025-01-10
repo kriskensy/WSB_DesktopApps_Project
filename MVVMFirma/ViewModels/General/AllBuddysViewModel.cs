@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.General
@@ -44,6 +45,29 @@ namespace MVVMFirma.ViewModels.General
                 List = new ObservableCollection<BuddySystemForAllView>(List.Where(item => item.CertificationLevel != null && item.CertificationLevel.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Contact Details")
                 List = new ObservableCollection<BuddySystemForAllView>(List.Where(item => item.ContactDetails != null && item.ContactDetails.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private BuddySystemForAllView _SelectedBuddy;
+
+        public BuddySystemForAllView SelectedBuddy
+        {
+            get
+            {
+                return _SelectedBuddy;
+            }
+            set
+            {
+                _SelectedBuddy = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedBuddy);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -40,6 +41,29 @@ namespace MVVMFirma.ViewModels.Dives
                 List = new ObservableCollection<DiveTypesForAllView>(List.Where(item => item.TypeName != null && item.TypeName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Description")
                 List = new ObservableCollection<DiveTypesForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private DiveTypesForAllView _SelectedDiveType;
+
+        public DiveTypesForAllView SelectedDiveType
+        {
+            get
+            {
+                return _SelectedDiveType;
+            }
+            set
+            {
+                _SelectedDiveType = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedDiveType);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 

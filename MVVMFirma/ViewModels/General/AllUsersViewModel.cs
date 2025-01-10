@@ -6,6 +6,7 @@ using System;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace MVVMFirma.ViewModels.General
 {
@@ -44,6 +45,29 @@ namespace MVVMFirma.ViewModels.General
                 List = new ObservableCollection<UserForAllView>(List.Where(item => item.Email != null && item.Email.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Phone number")
                 List = new ObservableCollection<UserForAllView>(List.Where(item => item.PhoneNumber != null && item.PhoneNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+        }
+        #endregion
+
+        #region Properties
+        private UserForAllView _SelectedUser;
+
+        public UserForAllView SelectedUser
+        {
+            get
+            {
+                return _SelectedUser;
+            }
+            set
+            {
+                _SelectedUser = value;
+                if (WhoRequestedToSelectElement != null)
+                {
+                    Messenger.Default.Send(_SelectedUser);
+                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                }
+
+                OnRequestClose();
+            }
         }
         #endregion
 
