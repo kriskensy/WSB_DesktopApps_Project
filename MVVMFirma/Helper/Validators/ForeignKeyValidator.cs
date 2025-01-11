@@ -10,7 +10,7 @@ namespace MVVMFirma.Helper.Validators
     {
         public static bool IsForeignKeySelected(int? value)
         {
-            return !value.HasValue;
+            return value > 0;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace MVVMFirma.Helper.Validators
     {
         public static bool IsNotFutureDate(DateTime date)
         {
-            return !(date <= DateTime.Now);
+            return date <= DateTime.Now;
         }
     }
 }

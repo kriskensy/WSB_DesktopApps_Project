@@ -63,10 +63,10 @@ namespace MVVMFirma.ViewModels.Dives
                 _SelectedDiveSite = value;
                 if (WhoRequestedToSelectElement != null)
                 {
-                    Messenger.Default.Send(_SelectedDiveSite);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                    Messenger.Default.Send(_SelectedDiveSite, WhoRequestedToSelectElement);
+                    OnRequestClose();
                 }
-                OnRequestClose();
+                //OnRequestClose(); //to aktywne tylko jeśli otworzę zakładkę z NewDiveLogsViewModel
             }
         }
 

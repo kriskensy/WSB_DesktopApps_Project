@@ -85,10 +85,10 @@ namespace MVVMFirma.ViewModels.General
                 case nameof(LastName):
                     return string.IsNullOrEmpty(LastName) ? "Lastname cannot be empty" : string.Empty;
                 case nameof(Email):
-                    return Helper.Validators.StringValidator.ContainsEmailAddress(Email ?? string.Empty) ?
+                    return !Helper.Validators.StringValidator.ContainsEmailAddress(Email ?? string.Empty) ?
                         "Email must cointain @ and domain" : string.Empty;
                 case nameof(PhoneNumber):
-                    return Helper.Validators.StringValidator.ContainsPhoneNumber(PhoneNumber ?? string.Empty) ?
+                    return !Helper.Validators.StringValidator.ContainsPhoneNumber(PhoneNumber ?? string.Empty) ?
                         "Phonenumber can contains only numbers and  and be exactly 9 characters long" : string.Empty;
                 default:
                     return string.Empty;

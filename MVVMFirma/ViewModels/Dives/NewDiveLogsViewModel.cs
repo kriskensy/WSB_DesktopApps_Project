@@ -115,7 +115,7 @@ namespace MVVMFirma.ViewModels.Dives
         {
             item = new DiveLogs();
             DiveDate = DateTime.Now;
-            Messenger.Default.Register<DiveSitesForAllView>(this, getSelectedDiveSite);
+            Messenger.Default.Register<DiveSitesForAllView>(this, this, getSelectedDiveSite);
         }
 
         //konstruktor do edycji rekordów. czy tak trzeba?
@@ -164,8 +164,8 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Command
         private BaseCommand _ShowAllDiveSites;
-        private DiveLogsForAllView diveLog;
-        private DiveLogs diveLog1;
+        //private DiveLogsForAllView diveLog;
+        //private DiveLogs diveLog1;
 
         public ICommand ShowAllDiveSites
         {
@@ -177,6 +177,8 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
+        //wysyła żądanie pokazania zakładki z wszystkimi DiveSite
+        //ObjectSender wskazuje, że nadawcą wiadomości jest bieżący obiekt
         private void showAllDiveSites()
         {
             Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveSitesAll", ObjectSender = this });
@@ -202,27 +204,26 @@ namespace MVVMFirma.ViewModels.Dives
         {
             switch (propertyName)
             {
-                //uwaga! walidacja pól wybieranych przez FK powinna zaznaczać pola, w których nie zostało jeszcze coś wybrane
-                //case nameof(IdUser):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
-                //    "User cannot be empty" : string.Empty;
-                //case nameof(IdDiveType):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdDiveType) ?
-                //    "Dive type cannot be empty" : string.Empty;
-                //case nameof(DiveSite):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(DiveSite) ?
-                //    "Dive site cannot be empty" : string.Empty;
+                case nameof(IdUser):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
+                    "User cannot be empty" : string.Empty;
+                case nameof(IdDiveType):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdDiveType) ?
+                    "Dive type cannot be empty" : string.Empty;
+                case nameof(DiveSite):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdDiveSite) ?
+                    "Dive site cannot be empty" : string.Empty;
                 case nameof(DiveDate):
-                    return Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
+                    return !Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
                     "Dive date cannot be empty or in the future" : string.Empty;
-                //case nameof(IdBuddy):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdBuddy) ?
-                //    "Buddy cannot be empty" : string.Empty;
+                case nameof(IdBuddy):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdBuddy) ?
+                    "Buddy cannot be empty" : string.Empty;
                 case nameof(DiveDuration):
-                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(DiveDuration.ToString()) ?
+                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(DiveDuration.ToString()) ?
                         "Dive Duration must be a number greater then 0" : string.Empty;
                 case nameof(MaxDepth):
-                    return Helper.Validators.StringValidator.IsIntGreaterThenZero(MaxDepth.ToString()) ?
+                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(MaxDepth.ToString()) ?
                         "Max depth must be a number greater then 0" : string.Empty;
                 default:
                     return string.Empty;

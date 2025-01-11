@@ -19,14 +19,23 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2">
-            <MenuItem Header="_Plik"/>
-            <MenuItem Header="_Magazyn">
-                <MenuItem Header="Wszystkie towary"/>
-                <MenuItem Header="Nowy towar"/>
-                <MenuItem Header="Wydanie Zewnętrzne (WZ)"/>
-                <MenuItem Header="Przyjęcie Zewnętrzne (PZ)"/>
+            <MenuItem Header="File">
+                <MenuItem Header="New"/>
+                <MenuItem Header="Open"/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Exit"/>
             </MenuItem>
-            <MenuItem Header="Program"/>
+            <MenuItem Header="Tools">
+                <MenuItem Header="XXX"/>
+                <MenuItem Header="XXX"/>
+                <MenuItem Header="XXX"/>
+                <MenuItem Header="Options"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="View Help"/>
+                <MenuItem Header="Check for Updates"/>
+                <MenuItem Header="About"/>
+            </MenuItem>
         </Menu>
         <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
             <ToggleButton Width="32" Height="32" Background="Blue" Margin="2"/>
@@ -34,7 +43,7 @@
         </ToolBar>
         <Border Grid.Row="2" Grid.Column="0">
             <HeaderedContentControl 
-                Header="Operacje" 
+                Header="Menu" 
                 Background="Aqua" 
                 Content="{Binding Path=Commands}" 
                 ContentTemplate="{StaticResource CommandsTemplate}"
@@ -43,7 +52,7 @@
         </Border>
         <Border Grid.Row="2" Grid.Column="1">
             <HeaderedContentControl 
-                Header="Przestrzeń robocza"
+                Header="Workspace"
                 Content="{Binding Path=Workspaces}"
                 ContentTemplate="{StaticResource WorkspacesTemplate}"
                 Style="{StaticResource MainHCCStyle}"
@@ -52,14 +61,6 @@
         <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
             <StatusBarItem>
                 <TextBlock>Project: Krzysztof Kensy</TextBlock>
-            </StatusBarItem>
-            <Separator/>
-            <StatusBarItem>
-                <TextBlock>Template: Artur Kornatka</TextBlock>
-            </StatusBarItem>
-            <Separator/>
-            <StatusBarItem>
-                <TextBlock>WSB-NLU</TextBlock>
             </StatusBarItem>
         </StatusBar>
     </Grid>

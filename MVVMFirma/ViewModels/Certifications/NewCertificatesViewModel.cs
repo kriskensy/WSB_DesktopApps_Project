@@ -83,6 +83,7 @@ namespace MVVMFirma.ViewModels.Certifications
         {
             item = new Certificates();
             IssueDate = DateTime.Now;
+            IdUser = 0;
         }
         #endregion
 
@@ -125,18 +126,17 @@ namespace MVVMFirma.ViewModels.Certifications
         {
             switch (propertyName)
             {
-                //uwaga! walidacja pól wybieranych przez FK powinna zaznaczać pola, w których nie zostało jeszcze coś wybrane
-                //case nameof(IdUser):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
-                //    "User cannot be empty" : string.Empty;
-                //case nameof(IdOrganization):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdOrganization) ?
-                //    "Organization cannot be empty" : string.Empty;
-                //case nameof(IdTypeOfTraining):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdTypeOfTraining) ?
-                //    "Type of training cannot be empty" : string.Empty;
+                case nameof(IdUser):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
+                    "User cannot be empty" : string.Empty;
+                case nameof(IdOrganization):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdOrganization) ?
+                    "Organization cannot be empty" : string.Empty;
+                case nameof(IdTypeOfTraining):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdTypeOfTraining) ?
+                    "Type of training cannot be empty" : string.Empty;
                 case nameof(IssueDate):
-                    return Helper.Validators.DateTimeValidator.IsNotFutureDate(IssueDate) ?
+                    return !Helper.Validators.DateTimeValidator.IsNotFutureDate(IssueDate) ?
                         "Issue date cannot be empty or in the future" : string.Empty;
                 case nameof(CertificateNumber):
                     return string.IsNullOrEmpty(CertificateNumber) ? "Certificate number cannot be empty" : string.Empty;

@@ -11,19 +11,18 @@ namespace MVVMFirma.Helper.Validators
     {
         public static bool ContainsPhoneNumber(string text)
         {
-            //return string.IsNullOrEmpty(text) || Regex.IsMatch(text, @"^[\d\s]+$");
-            return !(Regex.IsMatch(text, @"^[\d\s]+$") && text.Length == 9);
+            return (Regex.IsMatch(text, @"^[\d\s]+$") && text.Length == 9);
         }
 
         public static bool ContainsEmailAddress(string text)
         {
-            return !Regex.IsMatch(text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return Regex.IsMatch(text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         }
 
         public static bool IsIntGreaterThenZero(string text)
         {
             int number;
-            return !(int.TryParse(text, out number) && number > 0);
+            return (int.TryParse(text, out number) && number > 0);
         }
     }
 }

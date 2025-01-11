@@ -120,10 +120,9 @@ namespace MVVMFirma.ViewModels.General
         {
             switch (propertyName)
             {
-                //uwaga! walidacja pól wybieranych przez FK powinna zaznaczać pola, w których nie zostało jeszcze coś wybrane
-                //case nameof(IdUser):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
-                //        "User cannot be empty" : string.Empty;
+                case nameof(IdUser):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdUser) ?
+                        "User cannot be empty" : string.Empty;
                 case nameof(ContactFirstName):
                     return string.IsNullOrEmpty(ContactFirstName) ? "Contact Firstname cannot be empty" : string.Empty;
                 case nameof(ContactLastName):
@@ -131,10 +130,10 @@ namespace MVVMFirma.ViewModels.General
                 case nameof(Relationship):
                     return string.IsNullOrEmpty(Relationship) ? "Relationship cannot be empty" : string.Empty;
                 case nameof(PhoneNumber):
-                    return Helper.Validators.StringValidator.ContainsPhoneNumber(PhoneNumber ?? string.Empty) ?
+                    return !Helper.Validators.StringValidator.ContainsPhoneNumber(PhoneNumber ?? string.Empty) ?
                         "Phonenumber can contains only numbers and be exactly 9 characters long" : string.Empty;
                 case nameof(Email):
-                    return Helper.Validators.StringValidator.ContainsEmailAddress(Email ?? string.Empty) ? 
+                    return !Helper.Validators.StringValidator.ContainsEmailAddress(Email ?? string.Empty) ? 
                         "Email must contain @ and domain" : string.Empty;
                 default:
                     return string.Empty;

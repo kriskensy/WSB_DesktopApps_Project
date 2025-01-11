@@ -118,10 +118,9 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             switch (propertyName)
             {
-                //uwaga! walidacja pól wybieranych przez FK powinna zaznaczać pola, w których nie zostało jeszcze coś wybrane
-                //case nameof(EquipmentName):
-                //    return Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(EquipmentName) ?
-                //    "Equipment name cannot be empty" : string.Empty;
+                case nameof(IdEquipment):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdEquipment) ?
+                    "Equipment name cannot be empty" : string.Empty;
                 case nameof(Status):
                     return string.IsNullOrEmpty(Status) ? "Status cannot be empty" : string.Empty;
                 default:

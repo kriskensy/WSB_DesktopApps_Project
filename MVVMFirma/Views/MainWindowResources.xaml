@@ -131,27 +131,19 @@
     </DataTemplate>-->
 
     <!--to są style do walidacji pól, ToolTipy-->
-    <Style TargetType="TextBox">
+    <Style x:Key="ValidationStyle" TargetType="FrameworkElement">
         <Style.Triggers>
             <Trigger Property="Validation.HasError" Value="true">
-                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+                <Setter Property="ToolTip" 
+                    Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style TargetType="ComboBox">
-        <Style.Triggers>
-            <Trigger Property="Validation.HasError" Value="true">
-                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style TargetType="DatePicker">
-        <Style.Triggers>
-            <Trigger Property="Validation.HasError" Value="true">
-                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+
+    <Style TargetType="TextBox" BasedOn="{StaticResource ValidationStyle}" />
+    <Style TargetType="ComboBox" BasedOn="{StaticResource ValidationStyle}" />
+    <Style TargetType="DatePicker" BasedOn="{StaticResource ValidationStyle}" />
+
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
