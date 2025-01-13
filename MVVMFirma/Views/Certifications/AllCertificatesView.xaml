@@ -14,7 +14,7 @@
                 <DataGridTextColumn Header="User Last Name" Binding="{Binding UserLastName}"/>
                 <DataGridTextColumn Header="Organization Name" Binding="{Binding OrganizationName}"/>
                 <DataGridTextColumn Header="Type of training" Binding="{Binding TypeOfTraining}"/>
-                <DataGridTextColumn Header="Issue Date" Binding="{Binding IssueDate}"/>
+                <DataGridTextColumn Header="Issue Date" Binding="{Binding IssueDate, StringFormat=yyyy-MM-dd}"/>
                 <DataGridTextColumn Header="Certification Number" Binding="{Binding CertificateNumber}"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMFirma.Views.Reports
 {
     /// <summary>
-    /// Interaction logic for DiveDepthReportView.xaml
+    /// Interaction logic for SACreportView.xaml
     /// </summary>
-    public partial class DiveDepthReportView : UserControl
+    public partial class SACreportView : UserControl
     {
-        public DiveDepthReportView()
+        public SACreportView()
         {
             InitializeComponent();
         }

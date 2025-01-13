@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MVVMFirma.Views.Reports.EquipmentCategoryReportView"
+﻿<UserControl x:Class="MVVMFirma.Views.Reports.SACreportView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -36,10 +36,10 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Select user" Margin="3"/>
             <ComboBox Grid.Column="1" Margin="3" 
-          ItemsSource="{Binding UsersItems}" 
-          DisplayMemberPath="Value" 
-          SelectedValuePath="Key"
-          SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
+      ItemsSource="{Binding UsersItems}" 
+      DisplayMemberPath="Value" 
+      SelectedValuePath="Key"
+      SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
         </Grid>
 
         <Button Grid.Row="3" Content="Calculate" Margin="3" Command="{Binding CreateReport}"/>

@@ -10,7 +10,7 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedRecord, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding IdStatistic}"/>
-                <DataGridTextColumn Header="Dive Date" Binding="{Binding DiveDate}"/>
+                <DataGridTextColumn Header="Dive Date" Binding="{Binding DiveDate, StringFormat=yyyy-MM-dd}"/>
                 <DataGridTextColumn Header="Air Consumed" Binding="{Binding AirConsumed}"/>
                 <DataGridTextColumn Header="Ascent Rate" Binding="{Binding AscentRate}"/>
                 <DataGridTextColumn Header="Bottom Time" Binding="{Binding BottomTime}"/>

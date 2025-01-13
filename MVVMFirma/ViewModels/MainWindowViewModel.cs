@@ -18,6 +18,7 @@ using MVVMFirma.Models.EntitiesForView;
 using System.Windows;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Helper.Messages;
+using MVVMFirma.ViewModels.Reports;
 
 namespace MVVMFirma.ViewModels
 {
@@ -54,63 +55,75 @@ namespace MVVMFirma.ViewModels
             {
                 new CommandViewModel(
                     "Users",
-                    new BaseCommand(() => this.ShowAllUsers())),
+                    new BaseCommand(() => this.ShowAllUsers()), FontAwesome.Sharp.IconChar.User),
 
                 new CommandViewModel(
                     "Buddys",
-                    new BaseCommand(() => this.ShowAllBuddys())),
+                    new BaseCommand(() => this.ShowAllBuddys()), FontAwesome.Sharp.IconChar.Users),
 
                 new CommandViewModel(
                     "Certificates",
-                    new BaseCommand(() => this.ShowAllCertificates())),
+                    new BaseCommand(() => this.ShowAllCertificates()), FontAwesome.Sharp.IconChar.Stamp),
 
                 new CommandViewModel(
                     "Certification Organizations",
-                    new BaseCommand(() => this.ShowAllCertificationOrganizations())),
+                    new BaseCommand(() => this.ShowAllCertificationOrganizations()), FontAwesome.Sharp.IconChar.Building),
 
                 new CommandViewModel(
                     "Dive Conditions",
-                    new BaseCommand(() => this.ShowAllDiveConditions())),
+                    new BaseCommand(() => this.ShowAllDiveConditions()), FontAwesome.Sharp.IconChar.TemperatureQuarter),
 
                 new CommandViewModel(
                     "Dive Logs",
-                    new BaseCommand(() => this.ShowAllDiveLogs())),
+                    new BaseCommand(() => this.ShowAllDiveLogs()), FontAwesome.Sharp.IconChar.Book),
 
                 new CommandViewModel(
                     "Dive Sites",
-                    new BaseCommand(() => this.ShowAllDiveSites())),
+                    new BaseCommand(() => this.ShowAllDiveSites()), FontAwesome.Sharp.IconChar.MapMarker),
 
                 new CommandViewModel(
                     "Statistics",
-                    new BaseCommand(() => this.ShowAllStatistics())),
+                    new BaseCommand(() => this.ShowAllStatistics()), FontAwesome.Sharp.IconChar.ChartBar),
 
                 new CommandViewModel(
                     "Dive Types",
-                    new BaseCommand(() => this.ShowAllDiveTypes())),
+                    new BaseCommand(() => this.ShowAllDiveTypes()), FontAwesome.Sharp.IconChar.None),
 
                 new CommandViewModel(
                     "Emergency Contacts",
-                    new BaseCommand(() => this.ShowAllEmergencyContacts())),
+                    new BaseCommand(() => this.ShowAllEmergencyContacts()), FontAwesome.Sharp.IconChar.AddressBook),
 
                 new CommandViewModel(
                     "Equipment Categories",
-                    new BaseCommand(() => this.ShowAllEquipmentCategories())),
+                    new BaseCommand(() => this.ShowAllEquipmentCategories()), FontAwesome.Sharp.IconChar.List),
 
                 new CommandViewModel(
                     "Equipment Manufacturer",
-                    new BaseCommand(() => this.ShowAllEquipmentManufacturer())),
+                    new BaseCommand(() => this.ShowAllEquipmentManufacturer()), FontAwesome.Sharp.IconChar.Industry),
 
                 new CommandViewModel(
                     "Equipment",
-                    new BaseCommand(() => this.ShowAllEquipment())),
+                    new BaseCommand(() => this.ShowAllEquipment()), FontAwesome.Sharp.IconChar.Toolbox),
 
                 new CommandViewModel(
                     "Maintenance Schedules",
-                    new BaseCommand(() => this.ShowAllMaintenanceSchedules())),
+                    new BaseCommand(() => this.ShowAllMaintenanceSchedules()), FontAwesome.Sharp.IconChar.CalendarDays),
 
                 new CommandViewModel(
                     "Trainig Types",
-                    new BaseCommand(() => this.ShowAllTrainigTypes())),
+                    new BaseCommand(() => this.ShowAllTrainigTypes()), FontAwesome.Sharp.IconChar.None),
+
+                new CommandViewModel(
+                    "SAC report",
+                    new BaseCommand(()=> this.CreateView(new SACreportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
+
+                new CommandViewModel(
+                    "Dive duration report",
+                    new BaseCommand(()=> this.CreateView(new DiveDurationReportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
+
+                new CommandViewModel(
+                    "Equipment category report",
+                    new BaseCommand(()=> this.CreateView(new EquipmentCategoryReportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
             };
         }
         #endregion

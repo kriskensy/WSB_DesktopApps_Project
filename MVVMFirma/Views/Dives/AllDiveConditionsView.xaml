@@ -10,7 +10,7 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}" SelectedItem="{Binding SelectedRecord, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding IdCondition}"/>
-                <DataGridTextColumn Header="Dive Date" Binding="{Binding DiveDate}"/>
+                <DataGridTextColumn Header="Dive Date" Binding="{Binding DiveDate, StringFormat=yyyy-MM-dd}"/>
                 <DataGridTextColumn Header="Temperature" Binding="{Binding Temperature}"/>
                 <DataGridTextColumn Header="Water Current" Binding="{Binding WaterCurrent}"/>
                 <DataGridTextColumn Header="Visibility" Binding="{Binding Visibility}"/>

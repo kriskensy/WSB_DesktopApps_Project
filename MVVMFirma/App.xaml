@@ -5,15 +5,17 @@
              d1p1:Ignorable="d" 
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
     <Application.Resources>
-    <ResourceDictionary>
-            <Style TargetType="DataGrid">
-                <Setter Property="CanUserAddRows" Value="False" />
-                <Setter Property="IsReadOnly" Value="True" />
-                <Setter Property="CanUserDeleteRows" Value="False" />
-            </Style>
+        <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" 
                                  d:IsDataSource="True" 
                                  xmlns:vm="clr-namespace:MVVMFirma.ViewModel" />
-    </ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Styles/Colors.xaml"/>
+                <ResourceDictionary Source="Themes/Styles/DarkColors.xaml"/>
+                <ResourceDictionary Source="Themes/Styles/DataGrids.xaml"/>
+                <ResourceDictionary Source="Themes/Styles/Buttons.xaml"/>
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
   </Application.Resources>
 </Application>

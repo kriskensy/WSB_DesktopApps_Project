@@ -6,10 +6,13 @@
                     xmlns:certifications="clr-namespace:MVVMFirma.Views.Certifications"
                     xmlns:dives="clr-namespace:MVVMFirma.Views.Dives"
                     xmlns:general="clr-namespace:MVVMFirma.Views.General"
+                    xmlns:reports="clr-namespace:MVVMFirma.Views.Reports"
                     xmlns:vm1="clr-namespace:MVVMFirma.ViewModels.Certifications"
                     xmlns:dives1="clr-namespace:MVVMFirma.ViewModels.Dives"
                     xmlns:equipment1="clr-namespace:MVVMFirma.ViewModels.Equipment"
-                    xmlns:general1="clr-namespace:MVVMFirma.ViewModels.General">
+                    xmlns:general1="clr-namespace:MVVMFirma.ViewModels.General"
+                    xmlns:reports1="clr-namespace:MVVMFirma.ViewModels.Reports" 
+                    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp">
 
     <DataTemplate DataType="{x:Type general1:AllUsersViewModel}">
         <general:AllUsersView/>
@@ -117,9 +120,8 @@
         <dives:NewTypeOfTrainingView/>
     </DataTemplate>
 
-    <!--TODO: Raporty biznesowe -> odkomentuj poniższy kod i popraw błędy-->
-    <!--<DataTemplate DataType="{x:Type reports1:DiveDepthReportViewModel}">
-        <reports:DiveDepthReportView/>
+    <DataTemplate DataType="{x:Type reports1:SACreportViewModel}">
+        <reports:SACreportView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type reports1:DiveDurationReportViewModel}">
@@ -128,7 +130,7 @@
 
     <DataTemplate DataType="{x:Type reports1:EquipmentCategoryReportViewModel}">
         <reports:EquipmentCategoryReportView/>
-    </DataTemplate>-->
+    </DataTemplate>
 
     <!--to są style do walidacji pól, ToolTipy-->
     <Style x:Key="ValidationStyle" TargetType="FrameworkElement">
@@ -209,19 +211,20 @@
   side in the main window (the 'Control Panel' area).
   -->
     <DataTemplate x:Key="CommandsTemplate">
-        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Margin="2,6">
-            <Hyperlink Command="{Binding Path=Command}">
-              <TextBlock Text="{Binding Path=DisplayName}" />
-            </Hyperlink>
-          </TextBlock>
+                    <Button Command="{Binding Path=Command}" Margin="3" Padding="8" HorizontalContentAlignment="Left" Style="{StaticResource SideMenuButtonStyle}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconBlock Icon="{Binding Path=Icon}" Foreground="White" Width="20" Height="20" Margin="0,0,6,0" />
+                            <TextBlock Text="{Binding Path=DisplayName}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </DataTemplate>
-
+    
     <!-- 
   This template explains how to render 
   a tab item with a close button.

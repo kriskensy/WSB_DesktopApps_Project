@@ -11,7 +11,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding IdMaintenanceSchedule}"/>
                 <DataGridTextColumn Header="Equipment Name" Binding="{Binding EquipmentName}"/>
-                <DataGridTextColumn Header="Scheduled Date" Binding="{Binding ScheduledDate}"/>
+                <DataGridTextColumn Header="Scheduled Date" Binding="{Binding ScheduledDate, StringFormat=yyyy-MM-dd}"/>
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
             </DataGrid.Columns>

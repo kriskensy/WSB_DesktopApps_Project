@@ -45,6 +45,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net48\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -62,6 +65,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -95,6 +99,7 @@
     <Compile Include="Helper\Validators\StringValidator.cs" />
     <Compile Include="Models\BusinessLogic\BuddysB.cs" />
     <Compile Include="Models\BusinessLogic\DataBaseClass.cs" />
+    <Compile Include="Models\BusinessLogic\DiveDurationB.cs" />
     <Compile Include="Models\BusinessLogic\DiveLogsB.cs" />
     <Compile Include="Models\BusinessLogic\DiveSitesB.cs" />
     <Compile Include="Models\BusinessLogic\DiveTypeB.cs" />
@@ -102,6 +107,7 @@
     <Compile Include="Models\BusinessLogic\EquipmentCategoriesB.cs" />
     <Compile Include="Models\BusinessLogic\EquipmentManufacturersB.cs" />
     <Compile Include="Models\BusinessLogic\OrganizationsB.cs" />
+    <Compile Include="Models\BusinessLogic\SACconsumptionB.cs" />
     <Compile Include="Models\BusinessLogic\TypesOfTrainingB.cs" />
     <Compile Include="Models\BusinessLogic\UsersB.cs" />
     <Compile Include="Models\EntitiesForView\BuddySystemForAllView.cs" />
@@ -219,9 +225,9 @@
     <Compile Include="ViewModels\General\NewUsersViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewViewModel.cs" />
-    <Compile Include="ViewModels\Reports\DiveDepthReportViewModel.cs" />
     <Compile Include="ViewModels\Reports\DiveDurationReportViewModel.cs" />
     <Compile Include="ViewModels\Reports\EquipmentCategoryReportViewModel.cs" />
+    <Compile Include="ViewModels\Reports\SACreportViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -320,14 +326,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewViewBase.cs" />
-    <Compile Include="Views\Reports\DiveDepthReportView.xaml.cs">
-      <DependentUpon>DiveDepthReportView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Reports\DiveDurationReportView.xaml.cs">
       <DependentUpon>DiveDurationReportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Reports\EquipmentCategoryReportView.xaml.cs">
       <DependentUpon>EquipmentCategoryReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\SACreportView.xaml.cs">
+      <DependentUpon>SACreportView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -367,6 +373,22 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DarkColors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DataGrids.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Certifications\AllCertificatesView.xaml">
       <SubType>Designer</SubType>
@@ -496,10 +518,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Reports\DiveDepthReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Reports\DiveDurationReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -508,11 +526,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Reports\SACreportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Themes\Images\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Entities\ModelDiving4Life.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -524,6 +548,7 @@
       <DependentUpon>ModelDiving4Life.edmx</DependentUpon>
       <LastGenOutput>ModelDiving4Life.cs</LastGenOutput>
     </Content>
+    <Content Include="Themes\Icons\Users.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
