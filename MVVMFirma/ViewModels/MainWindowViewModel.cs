@@ -19,6 +19,7 @@ using System.Windows;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.ViewModels.Reports;
+using MVVMFirma.Themes;
 
 namespace MVVMFirma.ViewModels
 {
@@ -79,7 +80,7 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Dive Sites",
-                    new BaseCommand(() => this.ShowAllDiveSites()), FontAwesome.Sharp.IconChar.MapMarker),
+                    new BaseCommand(() => this.ShowAllDiveSites()), FontAwesome.Sharp.IconChar.MapLocationDot),
 
                 new CommandViewModel(
                     "Statistics",
@@ -87,7 +88,7 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Dive Types",
-                    new BaseCommand(() => this.ShowAllDiveTypes()), FontAwesome.Sharp.IconChar.None),
+                    new BaseCommand(() => this.ShowAllDiveTypes()), FontAwesome.Sharp.IconChar.FishFins),
 
                 new CommandViewModel(
                     "Emergency Contacts",
@@ -111,7 +112,7 @@ namespace MVVMFirma.ViewModels
 
                 new CommandViewModel(
                     "Trainig Types",
-                    new BaseCommand(() => this.ShowAllTrainigTypes()), FontAwesome.Sharp.IconChar.None),
+                    new BaseCommand(() => this.ShowAllTrainigTypes()), FontAwesome.Sharp.IconChar.FishFins),
 
                 new CommandViewModel(
                     "SAC report",
@@ -175,6 +176,7 @@ namespace MVVMFirma.ViewModels
             if (collectionView != null)
                 collectionView.MoveCurrentTo(workspace);
         }
+
         #endregion
 
         #region Helpers ShowAll methodes

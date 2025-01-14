@@ -67,13 +67,23 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2"> 
-            <!--TODO: dorobić pseudo logowanie, home, dark/light button-->
-            <!--<fa:IconButton Icon="Home" Width="60" Height="24" Content="Home" Margin="2" />
-            <fa:IconButton Icon="User" Width="60" Height="24" Content="Profile" Margin="2" />-->
-            <ToggleButton Width="60" Height="24" Background="Blue" Margin="2"/>
+        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
+            <!--TODO: togglebutton do zmiany trybu ciemny/jasny
+            <ToggleButton Width="100" Height="40" Margin="2" Click="TU WPISZ NAZWE WYWOŁYWANEJ METODY KTÓRA ODWOŁA SIĘ DO THEME_MANAGER">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="ThemeIcon" 
+                       FontFamily="FontAwesome" 
+                       FontSize="20" 
+                       Text="&#xf204;" 
+                       Margin="0,0,8,0" />
+                    <TextBlock x:Name="ThemeText" 
+                       FontSize="16" 
+                       Text="Light" />
+                </StackPanel>
+            </ToggleButton>-->
         </ToolBar>
-        
+
+
         <Border Grid.Row="2" Grid.Column="0">
             <HeaderedContentControl 
                 Header="Menu" 

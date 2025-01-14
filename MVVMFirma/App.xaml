@@ -11,7 +11,6 @@
                                  xmlns:vm="clr-namespace:MVVMFirma.ViewModel" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Themes/Styles/Colors.xaml"/>
-                <ResourceDictionary Source="Themes/Styles/DarkColors.xaml"/>
                 <ResourceDictionary Source="Themes/Styles/DataGrids.xaml"/>
                 <ResourceDictionary Source="Themes/Styles/Buttons.xaml"/>
                 

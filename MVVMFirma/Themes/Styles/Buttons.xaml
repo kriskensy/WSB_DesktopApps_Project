@@ -3,58 +3,69 @@
 
     <!--Global style for buttons-->
     <Style TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource SecondaryBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{StaticResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Margin" Value="4" />
-        <Setter Property="Padding" Value="2" />
-        <Setter Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <!--<Setter Property="CornerRadius" Value="5" />-->
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                        CornerRadius="5" 
+                        Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource HighlightBrush}" />
-                <Setter Property="Foreground" Value="{StaticResource PrimaryBackgroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource HighlightBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBackgroundBrush}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{StaticResource AccentBrush}" />
-                <Setter Property="Foreground" Value="{StaticResource PrimaryBackgroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBackgroundBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <!--Sidemenu buttons-->
     <Style x:Key="SideMenuButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="#1E90FF" />
-        <!-- Niebieski gradient -->
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundBrush}" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="BorderThickness" Value="0" />
-        <!--<Setter Property="CornerRadius" Value="8" />-->
-        <Setter Property="Padding" Value="6,3" />
+        <Setter Property="Padding" Value="6" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <!--<Setter Property="Template">
+        <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" 
-                        CornerRadius="{TemplateBinding CornerRadius}" 
+                        CornerRadius="5" 
                         Padding="{TemplateBinding Padding}">
                         <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>-->
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#4682B4" />
+                <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBackgroundBrush}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="#5F9EA0" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryForegroundBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
+    
 </ResourceDictionary>

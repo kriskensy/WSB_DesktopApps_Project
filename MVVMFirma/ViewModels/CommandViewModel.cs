@@ -11,7 +11,7 @@ namespace MVVMFirma.ViewModels
     {
         #region Properties
         public ICommand Command { get; private set; }
-        public IconChar Icon { get; private set; } //do pliku z ikoną
+        public IconChar Icon { get; private set; } //do ikony
         #endregion
 
         #region Constructor

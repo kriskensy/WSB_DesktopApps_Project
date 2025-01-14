@@ -190,6 +190,7 @@
     <Compile Include="Models\Entities\User.cs">
       <DependentUpon>ModelDiving4Life.tt</DependentUpon>
     </Compile>
+    <Compile Include="Themes\ThemeManager.cs" />
     <Compile Include="ViewModels\AllViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Certifications\AllCertificatesViewModel.cs" />
@@ -548,7 +549,6 @@
       <DependentUpon>ModelDiving4Life.edmx</DependentUpon>
       <LastGenOutput>ModelDiving4Life.cs</LastGenOutput>
     </Content>
-    <Content Include="Themes\Icons\Users.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
