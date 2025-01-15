@@ -132,28 +132,13 @@
         <reports:EquipmentCategoryReportView/>
     </DataTemplate>
 
-    <!--to są style do walidacji pól, ToolTipy-->
-    <Style x:Key="ValidationStyle" TargetType="FrameworkElement">
-        <Style.Triggers>
-            <Trigger Property="Validation.HasError" Value="true">
-                <Setter Property="ToolTip" 
-                    Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style TargetType="TextBox" BasedOn="{StaticResource ValidationStyle}" />
-    <Style TargetType="ComboBox" BasedOn="{StaticResource ValidationStyle}" />
-    <Style TargetType="DatePicker" BasedOn="{StaticResource ValidationStyle}" />
-
-
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
                     <Border 
-            Background="Blue" 
-            BorderBrush="LightGray" 
+            Background="{DynamicResource SecondaryBackgroundBrush}" 
+            BorderBrush="{DynamicResource BorderBrush}" 
             BorderThickness="1" 
             CornerRadius="5" 
             Margin="4" 
@@ -161,9 +146,8 @@
             SnapsToDevicePixels="True" 
             >
                         <TextBlock 
-              FontSize="14"
-              FontWeight="Bold"
-              Foreground="White" 
+              FontSize="20"
+              Foreground="{DynamicResource WarningBrush}" 
               HorizontalAlignment="Center"  
               Text="{TemplateBinding Content}" 
               />
@@ -199,8 +183,8 @@
   This style ensures that the borders in the main window are consistent.
   -->
     <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="WhiteSmoke" />
-        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="5" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -214,9 +198,9 @@
         <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding Path=Command}" Margin="3" Padding="8" HorizontalContentAlignment="Left" Style="{StaticResource SideMenuButtonStyle}">
+                    <Button Command="{Binding Path=Command}" Margin="3" Padding="8" HorizontalContentAlignment="Left" Style="{DynamicResource SideMenuButtonStyle}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="{Binding Path=Icon}" Foreground="White" Width="20" Height="20" Margin="0,0,6,0" />
+                            <fa:IconBlock Icon="{Binding Path=Icon}" Foreground="{DynamicResource ButtonForegroundBrush}" Width="20" Height="20" Margin="0,0,6,0" />
                             <TextBlock Text="{Binding Path=DisplayName}" VerticalAlignment="Center" />
                         </StackPanel>
                     </Button>
@@ -224,7 +208,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </DataTemplate>
-    
+
     <!-- 
   This template explains how to render 
   a tab item with a close button.
@@ -260,6 +244,7 @@
       IsSynchronizedWithCurrentItem="True" 
       ItemsSource="{Binding}" 
       ItemTemplate="{StaticResource ClosableTabItemTemplate}"
+            Background="{DynamicResource PrimaryForegroundBrush}"
       Margin="4"
       />
     </DataTemplate>

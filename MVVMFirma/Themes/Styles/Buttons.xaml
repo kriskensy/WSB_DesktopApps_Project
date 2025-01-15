@@ -3,13 +3,13 @@
 
     <!--Global style for buttons-->
     <Style TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundBrush}" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Margin" Value="4" />
         <Setter Property="Padding" Value="6" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -26,19 +26,17 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource HighlightBrush}" />
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryBackgroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBrush}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryBackgroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ActiveBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <!--Sidemenu buttons-->
     <Style x:Key="SideMenuButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource ButtonForegroundBrush}" />
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="14" />
@@ -59,11 +57,10 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource SecondaryBackgroundBrush}" />
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryBackgroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource HoverBrush}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{DynamicResource PrimaryForegroundBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ActiveBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

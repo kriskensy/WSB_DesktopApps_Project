@@ -391,6 +391,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\ValidationStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Certifications\AllCertificatesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -535,9 +539,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Themes\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\Entities\ModelDiving4Life.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -549,6 +551,7 @@
       <DependentUpon>ModelDiving4Life.edmx</DependentUpon>
       <LastGenOutput>ModelDiving4Life.cs</LastGenOutput>
     </Content>
+    <Resource Include="Themes\Images\image_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

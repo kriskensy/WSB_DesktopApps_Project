@@ -18,56 +18,56 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        
-        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2">
+
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2" Background="{DynamicResource PrimaryForegroundBrush}">
             <MenuItem Header="File">
                 <MenuItem Header="New">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="File" Foreground="Black" />
+                        <fa:IconBlock Icon="File" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Open">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="FolderOpen" Foreground="Black" />
+                        <fa:IconBlock Icon="FolderOpen" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Save">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="Save" Foreground="Black" />
+                        <fa:IconBlock Icon="Save" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Exit">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="SignOutAlt" Foreground="Black" />
+                        <fa:IconBlock Icon="SignOutAlt" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Tools">
                 <MenuItem Header="Settings">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="Cog" Foreground="Black" />
+                        <fa:IconBlock Icon="Cog" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Help">
                 <MenuItem Header="View Help">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="QuestionCircle" Foreground="Black" />
+                        <fa:IconBlock Icon="QuestionCircle" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="Check for Updates">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="SyncAlt" Foreground="Black" />
+                        <fa:IconBlock Icon="SyncAlt" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Header="About">
                     <MenuItem.Icon>
-                        <fa:IconBlock Icon="InfoCircle" Foreground="Black" />
+                        <fa:IconBlock Icon="InfoCircle" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
+        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="{DynamicResource HighlightBrush}">
             <!--TODO: togglebutton do zmiany trybu ciemny/jasny
             <ToggleButton Width="100" Height="40" Margin="2" Click="TU WPISZ NAZWE WYWOŁYWANEJ METODY KTÓRA ODWOŁA SIĘ DO THEME_MANAGER">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -84,25 +84,28 @@
         </ToolBar>
 
 
-        <Border Grid.Row="2" Grid.Column="0">
+        <Border Grid.Row="2" Grid.Column="0" Background="{DynamicResource PrimaryForegroundBrush}">
             <HeaderedContentControl 
                 Header="Menu" 
-                Background="Aqua" 
+                Background="{DynamicResource ButtonForegroundBrush}" 
+                Foreground="{DynamicResource InfoBrush}"
                 Content="{Binding Path=Commands}"
                 ContentTemplate="{StaticResource CommandsTemplate}"
                 Style="{StaticResource MainHCCStyle}"
                 />
         </Border>
-        
-        <Border Grid.Row="2" Grid.Column="1">
+
+        <Border Grid.Row="2" Grid.Column="1" Background="{DynamicResource PrimaryForegroundBrush}">
             <HeaderedContentControl 
                 Header="Workspace"
+                Background="{DynamicResource ButtonForegroundBrush}" 
+                Foreground="{DynamicResource InfoBrush}"
                 Content="{Binding Path=Workspaces}"
                 ContentTemplate="{StaticResource WorkspacesTemplate}"
                 Style="{StaticResource MainHCCStyle}"
             />
         </Border>
-        
+
         <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
             <StatusBarItem>
                 <TextBlock>Project: Krzysztof Kensy</TextBlock>
