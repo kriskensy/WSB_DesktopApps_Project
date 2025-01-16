@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="PrimaryBackgroundColor">#171e33</Color>
-    <Color x:Key="PrimaryForegroundColor">#37474F</Color>
     <Color x:Key="SecondaryBackgroundColor">#37474F</Color>
+    <Color x:Key="PrimaryForegroundColor">#37474F</Color>
     <Color x:Key="SecondaryForegroundColor">#ECEFF1</Color>
     <Color x:Key="AccentColor">#1E90FF</Color>
     <Color x:Key="HighlightColor">#4DD0E1</Color>
@@ -20,8 +20,8 @@
     <Color x:Key="InfoColor">#42A5F5</Color>
 
     <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="{DynamicResource PrimaryBackgroundColor}" />
-    <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="{DynamicResource PrimaryForegroundColor}" />
     <SolidColorBrush x:Key="SecondaryBackgroundBrush" Color="{DynamicResource SecondaryBackgroundColor}" />
+    <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="{DynamicResource PrimaryForegroundColor}" />
     <SolidColorBrush x:Key="SecondaryForegroundBrush" Color="{DynamicResource SecondaryForegroundColor}" />
     <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />
     <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource HighlightColor}" />

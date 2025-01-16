@@ -2,15 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="PrimaryBackgroundColor">#1E90FF</Color>
+    <Color x:Key="SecondaryBackgroundColor">#546E7A</Color>
     <Color x:Key="PrimaryForegroundColor">#ECEFF1</Color>
-    <Color x:Key="SecondaryBackgroundColor">#215b7a</Color>
     <Color x:Key="SecondaryForegroundColor">#000000</Color>
     <Color x:Key="AccentColor">#00BCD4</Color>
     <Color x:Key="HighlightColor">#4DD0E1</Color>
     <Color x:Key="ButtonForegroundColor">#ECEFF1</Color>
     <Color x:Key="ButtonBackgroundColor">#1E90FF</Color>
 
-    <Color x:Key="BorderColor">#78909C</Color>
+    <Color x:Key="BorderColor">#215b7a</Color>
     <Color x:Key="HoverColor">#42A5F5</Color>
     <Color x:Key="ActiveColor">#1565C0</Color>
     <Color x:Key="DisabledColor">#546E7A</Color>
@@ -20,8 +20,8 @@
     <Color x:Key="InfoColor">#42A5F5</Color>
 
     <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="{DynamicResource PrimaryBackgroundColor}" />
-    <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="{DynamicResource PrimaryForegroundColor}" />
     <SolidColorBrush x:Key="SecondaryBackgroundBrush" Color="{DynamicResource SecondaryBackgroundColor}" />
+    <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="{DynamicResource PrimaryForegroundColor}" />
     <SolidColorBrush x:Key="SecondaryForegroundBrush" Color="{DynamicResource SecondaryForegroundColor}" />
     <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}" />
     <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource HighlightColor}" />

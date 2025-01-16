@@ -20,7 +20,8 @@
                             <ToggleButton Content="Delete" Margin=" 0,2,0,2" Command="{Binding DeleteCommand}" IsEnabled="{Binding IsRecordSelected}"/>
                             <ToggleButton Content="Refresh" Margin=" 0,2,0,2" Command="{Binding LoadCommand}"/>
                         </ToolBar>
-                        <Grid Grid.Row="1" Grid.Column="0" Background="{DynamicResource BorderBrush}">
+                        <Grid Grid.Row="1" Grid.Column="0" 
+                              Background="{DynamicResource SecondaryBackgroundBrush}">
                             <Grid.RowDefinitions>
                                 <RowDefinition  Height="*"/>
                             </Grid.RowDefinitions>
@@ -40,12 +41,14 @@
                                         <ColumnDefinition  Width="40"/>
                                         <ColumnDefinition  Width="250"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label  Grid.Row="0"  Grid.Column="0"  FontSize="16" Content="Sorting:"/>
+                                    <Label  Grid.Row="0"  Grid.Column="0" 
+                                            Foreground="{DynamicResource SecondaryForegroundBrush}" FontSize="16" Content="Sorting:"/>
                                     <ComboBox  Grid.Row="1"  Grid.Column="0" ItemsSource="{Binding  SortComboboxItems}"  SelectedValue="{Binding Path=SortField,Mode=TwoWay}"  Margin="10,0,60,0"/>
                                     <Button  Content="Sort"  Grid.Row="1"  Grid.Column="0" Command="{Binding  SortCommand}" Margin="195,0,0,0"/>
-                                    <Label  Grid.Row="0"  Grid.Column="2" FontSize="16" Content="Searching:"/>
+                                    <Label  Grid.Row="0"  Grid.Column="2" 
+                                            Foreground="{DynamicResource SecondaryForegroundBrush}" FontSize="16" Content="Searching:"/>
                                     <ComboBox  Grid.Row="1"  Grid.Column="2" ItemsSource="{Binding  FindComboboxItems}"  SelectedValue="{Binding Path=FindField,Mode=TwoWay}"  />
-                                    <TextBox  Grid.Row="2"  Grid.Column="2" Margin="2.5,5,60,2.5"  Text="{Binding  FindTextBox}"/>
+                                    <TextBox  Grid.Row="2"  Grid.Column="2" Margin="0,5,60,2.5"  Text="{Binding  FindTextBox}"/>
                                     <Button  Content="Search"  Grid.Row="3"  Grid.Column="2" Command="{Binding  FindCommand}" Margin="195,5,0,0"/>
                                 </Grid>
                             </StackPanel>

@@ -7,7 +7,7 @@
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml"  />
     </Window.Resources>
-    <Grid>
+    <Grid Background="{DynamicResource SecondaryBackgroundBrush}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
@@ -19,54 +19,56 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2" Background="{DynamicResource PrimaryForegroundBrush}">
+        <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2" Foreground="{DynamicResource SecondaryForegroundBrush}"
+              Background="{DynamicResource PrimaryForegroundBrush}">
             <MenuItem Header="File">
-                <MenuItem Header="New">
+                <MenuItem Header="New" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="File" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Open">
+                <MenuItem Header="Open" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="FolderOpen" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Save">
+                <MenuItem Header="Save" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="Save" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Exit">
+                <MenuItem Header="Exit" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="SignOutAlt" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Tools">
-                <MenuItem Header="Settings">
+                <MenuItem Header="Settings" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="Cog" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="View Help">
+                <MenuItem Header="View Help" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="QuestionCircle" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Check for Updates">
+                <MenuItem Header="Check for Updates" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="SyncAlt" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="About">
+                <MenuItem Header="About" Background="{DynamicResource SecondaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="InfoCircle" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
+        
         <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="{DynamicResource HighlightBrush}">
             <!--TODO: togglebutton do zmiany trybu ciemny/jasny
             <ToggleButton Width="100" Height="40" Margin="2" Click="TU WPISZ NAZWE WYWOŁYWANEJ METODY KTÓRA ODWOŁA SIĘ DO THEME_MANAGER">
@@ -107,8 +109,10 @@
         </Border>
 
         <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
-            <StatusBarItem>
-                <TextBlock>Project: Krzysztof Kensy</TextBlock>
+            <StatusBarItem Background="{DynamicResource PrimaryForegroundBrush}">
+                <TextBlock 
+                    Foreground="{DynamicResource SecondaryForegroundBrush}"
+                    FontSize="16">Project: Krzysztof Kensy</TextBlock>
             </StatusBarItem>
         </StatusBar>
     </Grid>
