@@ -3,11 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         Title="MVVMFirma" Height="1200" Width="1600" 
         xmlns:vm="clr-namespace:MVVMFirma.Views" 
-        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp">
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
+        xmlns:viewmodels="clr-namespace:MVVMFirma.ViewModels" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        >
+    
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml"  />
     </Window.Resources>
-    <Grid Background="{DynamicResource SecondaryBackgroundBrush}" >
+    <Grid Background="{DynamicResource PrimaryBackgroundBrush}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
@@ -22,67 +26,59 @@
         <Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="2" Foreground="{DynamicResource SecondaryForegroundBrush}"
               Background="{DynamicResource PrimaryForegroundBrush}">
             <MenuItem Header="File">
-                <MenuItem Header="New" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="New" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="File" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Open" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="Open" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="FolderOpen" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Save" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="Save" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="Save" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Exit" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="Exit" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="SignOutAlt" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Tools">
-                <MenuItem Header="Settings" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="Settings" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="Cog" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="View Help" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="View Help" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="QuestionCircle" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Check for Updates" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="Check for Updates" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="SyncAlt" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="About" Background="{DynamicResource SecondaryBackgroundBrush}">
+                <MenuItem Header="About" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="InfoCircle" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
-        
-        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="{DynamicResource HighlightBrush}">
-            <!--TODO: togglebutton do zmiany trybu ciemny/jasny
-            <ToggleButton Width="100" Height="40" Margin="2" Click="TU WPISZ NAZWE WYWOŁYWANEJ METODY KTÓRA ODWOŁA SIĘ DO THEME_MANAGER">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="ThemeIcon" 
-                       FontFamily="FontAwesome" 
-                       FontSize="20" 
-                       Text="&#xf204;" 
-                       Margin="0,0,8,0" />
-                    <TextBlock x:Name="ThemeText" 
-                       FontSize="16" 
-                       Text="Light" />
-                </StackPanel>
-            </ToggleButton>-->
+
+        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="{DynamicResource PrimaryForegroundBrush}">
+            <ToggleButton Width="100" Height="30" Background="{DynamicResource HoverBrush}"
+              IsChecked="{Binding IsDarkMode}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center" />
+            <ToggleButton Content="TestDarkModeChange" Margin=" 0,2,0,2" Command="{Binding SwitchThemeCommand}"/>
         </ToolBar>
 
 

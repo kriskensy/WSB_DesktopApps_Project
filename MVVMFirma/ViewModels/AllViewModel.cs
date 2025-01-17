@@ -2,6 +2,7 @@
 using MVVMFirma.Helper;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
+using MVVMFirma.Themes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -151,12 +152,46 @@ namespace MVVMFirma.ViewModels
         {
             diving4LifeEntities = new Diving4LifeEntities1();
             base.DisplayName = displayName;
+            //IsDarkMode = false; //tryb jasny TODO: jak ustawiam tą flagę to mi wywala aplikację przy przełączaniu zakładek
         }
         #endregion
 
         #region Properties
         //ten props przetrzymuje informację kto zażądał otwarcia zakładki
         public object WhoRequestedToSelectElement { get; set; }
+
+        private BaseCommand _SwitchThemeCommand;
+
+        public ICommand SwitchThemeCommand
+        {
+            get
+            {
+                if (_SwitchThemeCommand == null)
+                    _SwitchThemeCommand = new BaseCommand(() => switchTheme());
+                return _SwitchThemeCommand;
+            }
+
+        }
+
+        private void switchTheme()
+        {
+            MessageBox.Show("SwitchThemeCommand triggered!");
+            Messenger.Default.Send("ChangeTheme");
+        }
+
+
+        //private bool _isDarkMode; //TODO: skasować
+
+        //public bool IsDarkMode
+        //{
+        //    get => _isDarkMode;
+        //    set
+        //    {
+        //        _isDarkMode = value;
+        //        OnPropertyChanged(() => IsDarkMode); //info dla widoku o zmianie
+        //        ThemeManager.ChangeTheme(_isDarkMode ? "Dark" : "Light"); //zmiana
+        //    }
+        //}
         #endregion
 
         #region Helpers
@@ -223,6 +258,11 @@ namespace MVVMFirma.ViewModels
                 return SelectedRecord != null;
             }
         }
+
+        //private void switchTheme()
+        //{
+        //    Messenger.Default.Send("ChangeTheme");
+        //}
         #endregion
     }
 }

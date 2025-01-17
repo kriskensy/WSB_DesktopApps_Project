@@ -137,8 +137,8 @@
             <Setter.Value>
                 <DataTemplate>
                     <Border 
-                        Background="{DynamicResource SecondaryBackgroundBrush}" 
-                        BorderBrush="{DynamicResource BorderBrush}" 
+                        Background="{DynamicResource HighlightBrush}" 
+                        BorderBrush="{DynamicResource HighlightBrush}" 
                         BorderThickness="2" 
                         CornerRadius="5" 
                         Margin="4" 
@@ -240,7 +240,7 @@
             IsSynchronizedWithCurrentItem="True" 
             ItemsSource="{Binding}" 
             ItemTemplate="{StaticResource ClosableTabItemTemplate}"
-            Background="{DynamicResource SecondaryBackgroundBrush}"
+            Background="{DynamicResource PrimaryBackgroundBrush}"
             Margin="4"/>
     </DataTemplate>
 </ResourceDictionary>
