@@ -13,7 +13,7 @@
     </Window.Resources>
     <Grid Background="{DynamicResource PrimaryBackgroundBrush}" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -73,13 +73,34 @@
             </MenuItem>
         </Menu>
 
-        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="{DynamicResource PrimaryForegroundBrush}">
-            <ToggleButton Width="100" Height="30" Background="{DynamicResource HoverBrush}"
-              IsChecked="{Binding IsDarkMode}"
-              HorizontalAlignment="Center"
-              VerticalAlignment="Center" />
-            <ToggleButton Content="TestDarkModeChange" Margin=" 0,2,0,2" Command="{Binding SwitchThemeCommand}"/>
+        <!--to jest Highlight Toolbar z przyciskami darkmode itd-->
+        <ToolBar Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="2" Background="{DynamicResource PrimaryForegroundBrush}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ToggleButton Grid.Row="0" Grid.Column="0" Width="100" Height="30" Background="{DynamicResource HoverBrush}"
+                      IsChecked="{Binding IsDarkMode}"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center" />
+
+                <ToggleButton Grid.Row="0" Grid.Column="1" Width="100" Height="30"  Content="TestDarkModeChange" Margin="0,2,0,2" 
+                      Command="{Binding SwitchThemeCommand}" />
+
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <fa:IconBlock Icon="Youtube" Style="{StaticResource SocialMediaIconStyle}"  />
+                    <fa:IconBlock Icon="Discord" Style="{StaticResource SocialMediaIconStyle}"  />
+                    <fa:IconBlock Icon="Github" Style="{StaticResource SocialMediaIconStyle}"  />
+                </StackPanel>
+            </Grid>
         </ToolBar>
+
 
 
         <Border Grid.Row="2" Grid.Column="0" Background="{DynamicResource PrimaryForegroundBrush}">

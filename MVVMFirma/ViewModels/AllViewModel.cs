@@ -263,6 +263,8 @@ namespace MVVMFirma.ViewModels
         //{
         //    Messenger.Default.Send("ChangeTheme");
         //}
+
+
         #endregion
     }
 }
