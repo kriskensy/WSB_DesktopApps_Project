@@ -7,7 +7,7 @@
         <Setter Property="Height" Value="32"/>
         <Setter Property="FontSize" Value="32"/>
         <Setter Property="Margin" Value="10,0,10,0"/>
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Cursor" Value="Hand"/>
 
         <Style.Triggers>

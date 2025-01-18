@@ -85,23 +85,29 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <ToggleButton Grid.Row="0" Grid.Column="0" Width="100" Height="30" Background="{DynamicResource HoverBrush}"
-                      IsChecked="{Binding IsDarkMode}"
-                      HorizontalAlignment="Center"
-                      VerticalAlignment="Center" />
+                <ToggleButton Grid.Row="0" Grid.Column="0" 
+                        Style="{StaticResource SwitchThemeToggleButtonStyle}" 
+                        Content="Dark Mode"
+                        IsChecked="{Binding IsDarkMode, Mode=TwoWay}"
+                        Command="{Binding SwitchThemeCommand}" />
 
-                <ToggleButton Grid.Row="0" Grid.Column="1" Width="100" Height="30"  Content="TestDarkModeChange" Margin="0,2,0,2" 
-                      Command="{Binding SwitchThemeCommand}" />
+                <ToggleButton Grid.Row="0" Grid.Column="1" 
+                    Style="{StaticResource SwitchThemeToggleButtonStyle}"
+                    Content="Close all tabs" />
 
+                <!--<StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <fa:IconBlock Icon="Youtube" Style="{StaticResource SocialMediaIconStyle}"  Command="{Binding OpenYouTubeCommand}" />
+                    <fa:IconBlock Icon="Discord" Style="{StaticResource SocialMediaIconStyle}"  Command="{Binding OpenDiscordCommand}"/>
+                    <fa:IconBlock Icon="Github" Style="{StaticResource SocialMediaIconStyle}"  Command="{Binding OpenGitHubCommand}"/>
+                </StackPanel>-->
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <fa:IconBlock Icon="Youtube" Style="{StaticResource SocialMediaIconStyle}"  />
-                    <fa:IconBlock Icon="Discord" Style="{StaticResource SocialMediaIconStyle}"  />
-                    <fa:IconBlock Icon="Github" Style="{StaticResource SocialMediaIconStyle}"  />
+                    <fa:IconBlock Icon="Youtube" Style="{StaticResource SocialMediaIconStyle}" />
+                    <fa:IconBlock Icon="Discord" Style="{StaticResource SocialMediaIconStyle}" />
+                    <fa:IconBlock Icon="Github" Style="{StaticResource SocialMediaIconStyle}" />
                 </StackPanel>
+
             </Grid>
         </ToolBar>
-
-
 
         <Border Grid.Row="2" Grid.Column="0" Background="{DynamicResource PrimaryForegroundBrush}">
             <HeaderedContentControl 

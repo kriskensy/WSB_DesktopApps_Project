@@ -6,6 +6,8 @@ using MVVMFirma.Themes;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,7 @@ using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public abstract class AllViewModel<T> : WorkspaceViewModel
+    public abstract class AllViewModel<T> : WorkspaceViewModel, INotifyPropertyChanged
     {
         #region DB
         protected readonly Diving4LifeEntities1 diving4LifeEntities;
@@ -43,7 +45,6 @@ namespace MVVMFirma.ViewModels
                     _AddCommand = new BaseCommand(() => add());
                 return _AddCommand;
             }
-
         }
 
         private BaseCommand _EditCommand;
@@ -67,6 +68,54 @@ namespace MVVMFirma.ViewModels
                 if (_DeleteCommand == null)
                     _DeleteCommand = new BaseCommand(() => deleteRecord(), () => IsRecordSelected);
                 return _DeleteCommand;
+            }
+        }
+
+        private BaseCommand _SwitchThemeCommand;
+
+        public ICommand SwitchThemeCommand
+        {
+            get
+            {
+                if (_SwitchThemeCommand == null)
+                    _SwitchThemeCommand = new BaseCommand(() => switchTheme());
+                return _SwitchThemeCommand;
+            }
+        }
+
+        private BaseCommand _OpenYouTubeCommand;
+
+        public ICommand OpenYouTubeCommand
+        {
+            get
+            {
+                if (_OpenYouTubeCommand == null)
+                    _OpenYouTubeCommand = new BaseCommand(() => openYoutube());
+                return _OpenYouTubeCommand;
+            }
+        }
+
+        private BaseCommand _OpenDiscordCommand;
+
+        public ICommand OpenDiscordCommand
+        {
+            get
+            {
+                if (_OpenDiscordCommand == null)
+                    _OpenDiscordCommand = new BaseCommand(() => openDiscord());
+                return _OpenDiscordCommand;
+            }
+        }
+
+        private BaseCommand _OpenGitHubCommand;
+
+        public ICommand OpenGitHubCommand
+        {
+            get
+            {
+                if (_OpenGitHubCommand == null)
+                    _OpenGitHubCommand = new BaseCommand(() => openGtiHub());
+                return _OpenGitHubCommand;
             }
         }
         #endregion
@@ -160,38 +209,6 @@ namespace MVVMFirma.ViewModels
         //ten props przetrzymuje informację kto zażądał otwarcia zakładki
         public object WhoRequestedToSelectElement { get; set; }
 
-        private BaseCommand _SwitchThemeCommand;
-
-        public ICommand SwitchThemeCommand
-        {
-            get
-            {
-                if (_SwitchThemeCommand == null)
-                    _SwitchThemeCommand = new BaseCommand(() => switchTheme());
-                return _SwitchThemeCommand;
-            }
-
-        }
-
-        private void switchTheme()
-        {
-            MessageBox.Show("SwitchThemeCommand triggered!");
-            Messenger.Default.Send("ChangeTheme");
-        }
-
-
-        //private bool _isDarkMode; //TODO: skasować
-
-        //public bool IsDarkMode
-        //{
-        //    get => _isDarkMode;
-        //    set
-        //    {
-        //        _isDarkMode = value;
-        //        OnPropertyChanged(() => IsDarkMode); //info dla widoku o zmianie
-        //        ThemeManager.ChangeTheme(_isDarkMode ? "Dark" : "Light"); //zmiana
-        //    }
-        //}
         #endregion
 
         #region Helpers
@@ -259,12 +276,52 @@ namespace MVVMFirma.ViewModels
             }
         }
 
-        //private void switchTheme()
-        //{
-        //    Messenger.Default.Send("ChangeTheme");
-        //}
+        private bool _isDarkMode;
+        public bool IsDarkMode
+        {
+            get { return _isDarkMode; }
+            set
+            {
+                if (_isDarkMode != value)
+                {
+                    _isDarkMode = value;
+                    OnPropertyChanged(nameof(IsDarkMode));
+                }
+            }
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
+        private void switchTheme()
+        {
+            if (IsDarkMode)
+            {
+                ThemeManager.SwitchTheme("Dark");
+            }
+            else
+            {
+                ThemeManager.SwitchTheme("Light");
+            }
+        }
+
+        private void openYoutube()
+        {
+            Process.Start(new ProcessStartInfo("https://www.youtube.com") { UseShellExecute = true });
+        }
+
+        private void openDiscord()
+        {
+            Process.Start(new ProcessStartInfo("https://discord.com") { UseShellExecute = true });
+        }
+
+        private void openGtiHub()
+        {
+            Process.Start(new ProcessStartInfo("https://github.com") { UseShellExecute = true });
+        }
         #endregion
     }
 }
