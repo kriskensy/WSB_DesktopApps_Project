@@ -20,6 +20,7 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
@@ -41,7 +42,7 @@
                         <fa:IconBlock Icon="Save" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="Exit" Background="{DynamicResource PrimaryBackgroundBrush}">
+                <MenuItem Header="Exit" Command="{Binding Close}" Background="{DynamicResource PrimaryBackgroundBrush}">
                     <MenuItem.Icon>
                         <fa:IconBlock Icon="SignOutAlt" Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     </MenuItem.Icon>
@@ -116,8 +117,7 @@
                 Foreground="{DynamicResource InfoBrush}"
                 Content="{Binding Path=Commands}"
                 ContentTemplate="{StaticResource CommandsTemplate}"
-                Style="{StaticResource MainHCCStyle}"
-                />
+                Style="{StaticResource MainHCCStyle}"/>
         </Border>
 
         <Border Grid.Row="2" Grid.Column="1" Background="{DynamicResource PrimaryForegroundBrush}">
@@ -127,11 +127,20 @@
                 Foreground="{DynamicResource InfoBrush}"
                 Content="{Binding Path=Workspaces}"
                 ContentTemplate="{StaticResource WorkspacesTemplate}"
-                Style="{StaticResource MainHCCStyle}"
-            />
+                Style="{StaticResource MainHCCStyle}"/>
         </Border>
 
-        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+        <Border Grid.Row="3" Grid.Column="1" Background="{DynamicResource PrimaryForegroundBrush}">
+            <HeaderedContentControl 
+                Header="Reports"
+                Background="{DynamicResource ButtonForegroundBrush}" 
+                Foreground="{DynamicResource InfoBrush}"
+                Content="{Binding Path=ReportCommands}"
+                ContentTemplate="{StaticResource ReportCommandsTemplate}"
+                Style="{StaticResource MainHCCStyle}"/>
+        </Border>
+
+        <StatusBar Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
             <StatusBarItem Background="{DynamicResource PrimaryForegroundBrush}">
                 <TextBlock 
                     Foreground="{DynamicResource SecondaryForegroundBrush}"

@@ -27,6 +27,7 @@ namespace MVVMFirma.ViewModels
     {
         #region Fields
         private ReadOnlyCollection<CommandViewModel> _Commands;
+        private ReadOnlyCollection<CommandViewModel> _ReportCommands;
         private ObservableCollection<WorkspaceViewModel> _Workspaces;
         #endregion
 
@@ -113,7 +114,30 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Trainig Types",
                     new BaseCommand(() => this.ShowAllTrainigTypes()), FontAwesome.Sharp.IconChar.FishFins),
+            };
+        }
 
+        public ReadOnlyCollection<CommandViewModel> ReportCommands
+        {
+            get
+            {
+                if (_ReportCommands == null)
+                {
+                    List<CommandViewModel> cmds = this.CreateReportCommands();
+                    _ReportCommands = new ReadOnlyCollection<CommandViewModel>(cmds);
+                }
+                return _ReportCommands;
+            }
+        }
+
+        private List<CommandViewModel> CreateReportCommands()
+        {
+            //mess czeka na stringa i woła metodę openForAdd z helpersów
+            Messenger.Default.Register<AddMessage>(this, message => openForAdd(message.MessageName));
+            Messenger.Default.Register<ShowAllMessage>(this, message => openForShowAll(message.MessageName));
+
+            return new List<CommandViewModel>
+            {
                 new CommandViewModel(
                     "SAC report",
                     new BaseCommand(()=> this.CreateView(new SACreportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),

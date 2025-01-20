@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MVVMFirma.Views.Reports"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="white"  Width="600" HorizontalAlignment="left">
+    <Grid Background="white"  HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="33"/>
             <RowDefinition Height="33"/>

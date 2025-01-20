@@ -41,7 +41,8 @@ namespace MVVMFirma.ViewModels.Dives
             }
         }
 
-        public string DiveSite { get; set; } //props do wyświetlania nazwy miejsca nurkowego przez okno modalne
+        public string DiveSiteName { get; set; } //props do wyświetlania nazwy miejsca nurkowego przez okno modalne
+        public string DiveSiteLocation { get; set; } //props do wyświetlania lokalizacji miejsca nurkowego przez okno modalne
 
         public int IdDiveSite
         {
@@ -189,7 +190,8 @@ namespace MVVMFirma.ViewModels.Dives
         private void getSelectedDiveSite(DiveSitesForAllView diveSite)
         {
             IdDiveSite = diveSite.IdDiveSite;
-            DiveSite = diveSite.SiteName;
+            DiveSiteName = diveSite.SiteName;
+            DiveSiteLocation = diveSite.Location;
         }
 
         public override void Save()
@@ -210,9 +212,12 @@ namespace MVVMFirma.ViewModels.Dives
                 case nameof(IdDiveType):
                     return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdDiveType) ?
                     "Dive type cannot be empty" : string.Empty;
-                case nameof(DiveSite):
+                case nameof(DiveSiteName):
                     return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdDiveSite) ?
-                    "Dive site cannot be empty" : string.Empty;
+                    "Dive site name cannot be empty" : string.Empty;
+                case nameof(DiveSiteLocation):
+                    return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdDiveSite) ?
+                    "Dive site location cannot be empty" : string.Empty;
                 case nameof(DiveDate):
                     return !Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
                     "Dive date cannot be empty or in the future" : string.Empty;

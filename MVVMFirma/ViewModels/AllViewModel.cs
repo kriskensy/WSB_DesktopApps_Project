@@ -70,54 +70,6 @@ namespace MVVMFirma.ViewModels
                 return _DeleteCommand;
             }
         }
-
-        private BaseCommand _SwitchThemeCommand;
-
-        public ICommand SwitchThemeCommand
-        {
-            get
-            {
-                if (_SwitchThemeCommand == null)
-                    _SwitchThemeCommand = new BaseCommand(() => switchTheme());
-                return _SwitchThemeCommand;
-            }
-        }
-
-        private BaseCommand _OpenYouTubeCommand;
-
-        public ICommand OpenYouTubeCommand
-        {
-            get
-            {
-                if (_OpenYouTubeCommand == null)
-                    _OpenYouTubeCommand = new BaseCommand(() => openYoutube());
-                return _OpenYouTubeCommand;
-            }
-        }
-
-        private BaseCommand _OpenDiscordCommand;
-
-        public ICommand OpenDiscordCommand
-        {
-            get
-            {
-                if (_OpenDiscordCommand == null)
-                    _OpenDiscordCommand = new BaseCommand(() => openDiscord());
-                return _OpenDiscordCommand;
-            }
-        }
-
-        private BaseCommand _OpenGitHubCommand;
-
-        public ICommand OpenGitHubCommand
-        {
-            get
-            {
-                if (_OpenGitHubCommand == null)
-                    _OpenGitHubCommand = new BaseCommand(() => openGtiHub());
-                return _OpenGitHubCommand;
-            }
-        }
         #endregion
 
         #region List
@@ -222,7 +174,7 @@ namespace MVVMFirma.ViewModels
             Messenger.Default.Send(new AddMessage { MessageName = DisplayName + "Add" });
         }
 
-        private void editRecord() //TODO: napisać implementację
+        private void editRecord() //TODO: napisać implementację we wszystkich klasach All...
         {
             if (SelectedRecord != null)
                 Messenger.Default.Send(DisplayName + "Edit", SelectedRecord);
@@ -275,36 +227,88 @@ namespace MVVMFirma.ViewModels
                 return SelectedRecord != null;
             }
         }
+        #endregion
 
-        private bool _isDarkMode;
-        public bool IsDarkMode
+        #region DarkMode
+        //private BaseCommand _SwitchThemeCommand;
+
+        //public ICommand SwitchThemeCommand
+        //{
+        //    get
+        //    {
+        //        if (_SwitchThemeCommand == null)
+        //            _SwitchThemeCommand = new BaseCommand(() => switchTheme());
+        //        return _SwitchThemeCommand;
+        //    }
+        //}
+
+        //private bool _isDarkMode;
+        //public bool IsDarkMode
+        //{
+        //    get { return _isDarkMode; }
+        //    set
+        //    {
+        //        if (_isDarkMode != value)
+        //        {
+        //            _isDarkMode = value;
+        //            OnPropertyChanged(nameof(IsDarkMode));
+        //        }
+        //    }
+        //}
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //protected virtual void OnPropertyChanged(string propertyName)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
+
+        //private void switchTheme()
+        //{
+        //    if (IsDarkMode)
+        //    {
+        //        ThemeManager.SwitchTheme("Dark");
+        //    }
+        //    else
+        //    {
+        //        ThemeManager.SwitchTheme("Light");
+        //    }
+        //}
+        #endregion
+
+        #region OpenLinks
+        private BaseCommand _OpenYouTubeCommand;
+
+        public ICommand OpenYouTubeCommand
         {
-            get { return _isDarkMode; }
-            set
+            get
             {
-                if (_isDarkMode != value)
-                {
-                    _isDarkMode = value;
-                    OnPropertyChanged(nameof(IsDarkMode));
-                }
+                if (_OpenYouTubeCommand == null)
+                    _OpenYouTubeCommand = new BaseCommand(() => openYoutube());
+                return _OpenYouTubeCommand;
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
+        private BaseCommand _OpenDiscordCommand;
+
+        public ICommand OpenDiscordCommand
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get
+            {
+                if (_OpenDiscordCommand == null)
+                    _OpenDiscordCommand = new BaseCommand(() => openDiscord());
+                return _OpenDiscordCommand;
+            }
         }
 
-        private void switchTheme()
+        private BaseCommand _OpenGitHubCommand;
+
+        public ICommand OpenGitHubCommand
         {
-            if (IsDarkMode)
+            get
             {
-                ThemeManager.SwitchTheme("Dark");
-            }
-            else
-            {
-                ThemeManager.SwitchTheme("Light");
+                if (_OpenGitHubCommand == null)
+                    _OpenGitHubCommand = new BaseCommand(() => openGtiHub());
+                return _OpenGitHubCommand;
             }
         }
 
