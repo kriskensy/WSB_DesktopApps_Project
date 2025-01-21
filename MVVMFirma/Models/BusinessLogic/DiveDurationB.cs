@@ -1,4 +1,5 @@
 ﻿using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
+        //sumowanie wszystkich minut
         public int DiveDurationFromTo(int idUser, DateTime dateFrom, DateTime dateTo)
         {
             return
@@ -26,6 +28,22 @@ namespace MVVMFirma.Models.BusinessLogic
                 item.DiveDate <= dateTo
                 select item.DiveDuration
                 ).Sum();
+        }
+
+        //pobranie nurkowań do listy dla wykresu słupkowego
+        public List<DiveLogsForAllView> GetDivesForUser(int idUser, DateTime dateFrom, DateTime dateTo)
+        {
+            
+            return
+                (
+                from item in db.DiveLogs
+                where
+                item.User.IdUser == idUser &&
+                item.DiveDate >= dateFrom &&
+                item.DiveDate <= dateTo
+                orderby item.DiveDate
+                select new DiveLogsForAllView { DiveDate = item.DiveDate, DiveDuration = item.DiveDuration }
+                ).ToList();
         }
         #endregion
     }

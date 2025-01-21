@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MVVMFirma.Views.Reports"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="white"  HorizontalAlignment="Stretch">
@@ -13,6 +14,7 @@
             <RowDefinition Height="33"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="33"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Total time of all dives in the selected period for the selected user" Margin="3" HorizontalContentAlignment="Center"/>
 
@@ -36,13 +38,13 @@
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Select user" Margin="3"/>
             <ComboBox Grid.Column="1" Margin="3" 
-              ItemsSource="{Binding UsersItems}" 
-              DisplayMemberPath="Value" 
-              SelectedValuePath="Key"
-              SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
+                  ItemsSource="{Binding UsersItems}" 
+                  DisplayMemberPath="Value" 
+                  SelectedValuePath="Key"
+                  SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
         </Grid>
 
-        <Button Grid.Row="3" Content="Calculate" Margin="3" Command="{Binding CreateReport}"/>
+        <Button Grid.Row="3" Content="Calculate and create chart" Margin="3" Command="{Binding CreateReport}"/>
 
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
@@ -52,5 +54,14 @@
             <Label Grid.Column="0" Content="Total dive time:" Margin="3"/>
             <Label Grid.Column="1" Content="{Binding DiveDurationTime}" Margin="3"/>
         </Grid>
+
+        <lvc:CartesianChart Grid.Row="5" Series="{Binding SeriesCollection}" LegendLocation="Right">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Dive Dates" Labels="{Binding Labels}" />
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Duration (minutes)" LabelFormatter="{Binding Formatter}" />
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>
