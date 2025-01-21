@@ -7,6 +7,7 @@ using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
 
 namespace MVVMFirma.ViewModels.General
 {
@@ -60,13 +61,18 @@ namespace MVVMFirma.ViewModels.General
             set
             {
                 _SelectedUser = value;
-                if (WhoRequestedToSelectElement != null)
-                {
-                    Messenger.Default.Send(_SelectedUser);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                }
+                //if (WhoRequestedToSelectElement != null)
+                //{
+                //    Messenger.Default.Send(_SelectedUser);
+                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                //}
 
-                OnRequestClose();
+                //OnRequestClose();
+
+                Messenger.Default.Send<ObjectSenderMessage<UserForAllView>>
+                    (new ObjectSenderMessage<UserForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedUser });
+                //OnRequestClose();
             }
         }
         #endregion

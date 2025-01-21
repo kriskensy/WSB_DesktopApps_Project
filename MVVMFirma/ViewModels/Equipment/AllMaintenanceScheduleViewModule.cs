@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -62,13 +63,18 @@ namespace MVVMFirma.ViewModels.Equipment
             set
             {
                 _SelectedMaintenanceSchedule = value;
-                if (WhoRequestedToSelectElement != null)
-                {
-                    Messenger.Default.Send(_SelectedMaintenanceSchedule);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                }
+                //if (WhoRequestedToSelectElement != null)
+                //{
+                //    Messenger.Default.Send(_SelectedMaintenanceSchedule);
+                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                //}
 
-                OnRequestClose();
+                //OnRequestClose();
+
+                Messenger.Default.Send<ObjectSenderMessage<MaintenanceScheduleForAllView>>
+                    (new ObjectSenderMessage<MaintenanceScheduleForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedMaintenanceSchedule });
+                //OnRequestClose();
             }
         }
         #endregion

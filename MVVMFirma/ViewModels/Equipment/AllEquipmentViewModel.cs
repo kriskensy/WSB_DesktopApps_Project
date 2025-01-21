@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -85,7 +86,6 @@ namespace MVVMFirma.ViewModels.Equipment
 
         #region Properties
         private EquipmentForAllView _SelectedEquipment;
-
         public EquipmentForAllView SelectedEquipment
         {
             get
@@ -95,13 +95,10 @@ namespace MVVMFirma.ViewModels.Equipment
             set
             {
                 _SelectedEquipment = value;
-                if (WhoRequestedToSelectElement != null)
-                {
-                    Messenger.Default.Send(_SelectedEquipment);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                }
-
-                OnRequestClose();
+                Messenger.Default.Send<ObjectSenderMessage<EquipmentForAllView>>
+                    (new ObjectSenderMessage<EquipmentForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedEquipment });
+                //OnRequestClose();
             }
         }
         #endregion

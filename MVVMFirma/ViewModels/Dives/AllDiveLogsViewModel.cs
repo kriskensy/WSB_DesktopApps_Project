@@ -9,6 +9,7 @@ using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.BusinessLogic;
 using System.Collections.Generic;
 using System;
+using MVVMFirma.Helper.Messages;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -108,13 +109,18 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveLog = value;
-                if (WhoRequestedToSelectElement != null)
-                {
-                    Messenger.Default.Send(_SelectedDiveLog);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                }
+                //if (WhoRequestedToSelectElement != null)
+                //{
+                //    Messenger.Default.Send(_SelectedDiveLog);
+                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                //}
 
-                OnRequestClose();
+                //OnRequestClose();
+
+                Messenger.Default.Send<ObjectSenderMessage<DiveLogsForAllView>>
+                    (new ObjectSenderMessage<DiveLogsForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveLog });
+                //OnRequestClose();
             }
         }
         #endregion

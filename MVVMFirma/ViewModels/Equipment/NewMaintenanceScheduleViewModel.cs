@@ -76,7 +76,7 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             item = new MaintenanceSchedule();
             ScheduledDate = DateTime.Now;
-            Messenger.Default.Register<EquipmentForAllView>(this, getSelectedEquipment);
+            Messenger.Default.Register<ObjectSenderMessage<EquipmentForAllView>>(this, getSelectedEquipment);
         }
         #endregion
 
@@ -95,13 +95,20 @@ namespace MVVMFirma.ViewModels.Equipment
 
         private void showAllEquipment()
         {
-            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "EquipmentAll", ObjectSender = this });
+            Messenger.Default.Send<OpenViewMessage>(new OpenViewMessage()
+            { WhoRequestedToOpen = this, ViewToOpen = new AllEquipmentViewModel() 
+            { WhoRequestedToOpen = this } });
         }
         #endregion
 
         #region Helpers
-        private void getSelectedEquipment(EquipmentForAllView equipment)
+        private void getSelectedEquipment(ObjectSenderMessage<EquipmentForAllView> message)
         {
+            if (message.WhoRequestedToOpen != this)
+            {
+                return;
+            }
+            EquipmentForAllView equipment = message.Object;
             IdEquipment = equipment.IdEquipment;
             EquipmentName = equipment.EquipmentName;
         }

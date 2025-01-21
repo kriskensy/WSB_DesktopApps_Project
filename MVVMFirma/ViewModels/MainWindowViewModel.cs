@@ -51,6 +51,8 @@ namespace MVVMFirma.ViewModels
 
             Messenger.Default.Register<ShowAllMessage>(this, message => openForShowAll(message.MessageName));
 
+            Messenger.Default.Register<OpenViewMessage>(this, OpenView);
+
             //ten mess odbiera akcję oraz opcjonalny obiekt
             //Messenger.Default.Register<(EditMessage, object)>(this, message => openForEdit(message.Item1, message.Item2));
             return new List<CommandViewModel>
@@ -522,6 +524,11 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Helpers open methodes
+        private void OpenView(OpenViewMessage message)
+        {
+            CreateView(message.ViewToOpen);
+        }
+
         private void openForShowAll(string name)
         {
             switch (name)

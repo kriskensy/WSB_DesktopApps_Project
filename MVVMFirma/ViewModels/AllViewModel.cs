@@ -158,8 +158,10 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Properties
-        //ten props przetrzymuje informację kto zażądał otwarcia zakładki
-        public object WhoRequestedToSelectElement { get; set; }
+        ////ten props przetrzymuje informację kto zażądał otwarcia zakładki
+        //public object WhoRequestedToSelectElement { get; set; } //SKASOWAC
+
+        public object WhoRequestedToOpen { get; set; } //przetrzymuje info kto żąda otwarcia zakładki
 
         #endregion
 
@@ -216,7 +218,7 @@ namespace MVVMFirma.ViewModels
                 OnPropertyChanged(() => SelectedRecord);
                 OnPropertyChanged(() => IsRecordSelected); //aktualizacja przycisków
                 CommandManager.InvalidateRequerySuggested(); //odświeżanie komend edit, delete
-                //Console.WriteLine($"SelectedRecord set to: {_SelectedRecord}"); //pomoc przy debugowaniu
+                Console.WriteLine($"SelectedRecord set to: {_SelectedRecord}"); //pomoc przy debugowaniu
             }
         }
 

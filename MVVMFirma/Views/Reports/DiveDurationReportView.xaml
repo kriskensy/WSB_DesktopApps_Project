@@ -55,7 +55,6 @@
             <Label Grid.Column="1" Content="{Binding DiveDurationTime}" Margin="3"/>
         </Grid>
 
-
         <lvc:CartesianChart Grid.Row="5" Series="{Binding SeriesCollection}">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Dive Dates" Labels="{Binding Labels}" />

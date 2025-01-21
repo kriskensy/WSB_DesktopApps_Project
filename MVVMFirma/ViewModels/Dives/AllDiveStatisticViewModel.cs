@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -73,13 +74,18 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveStatistic = value;
-                if (WhoRequestedToSelectElement != null)
-                {
-                    Messenger.Default.Send(_SelectedDiveStatistic);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                }
+                //if (WhoRequestedToSelectElement != null)
+                //{
+                //    Messenger.Default.Send(_SelectedDiveStatistic);
+                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                //}
 
-                OnRequestClose();
+                //OnRequestClose();
+
+                Messenger.Default.Send<ObjectSenderMessage<DiveStatisticForAllView>>
+                    (new ObjectSenderMessage<DiveStatisticForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveStatistic });
+                //OnRequestClose();
             }
         }
         #endregion

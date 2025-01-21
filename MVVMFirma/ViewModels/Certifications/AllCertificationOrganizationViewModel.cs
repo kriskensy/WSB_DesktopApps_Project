@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
@@ -59,13 +60,18 @@ namespace MVVMFirma.ViewModels.Certifications
             set
             {
                 _SelectedCertificationOrganization = value;
-                if (WhoRequestedToSelectElement != null)
-                {
-                    Messenger.Default.Send(_SelectedCertificationOrganization);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                }
+                //if (WhoRequestedToSelectElement != null)
+                //{
+                //    Messenger.Default.Send(_SelectedCertificationOrganization);
+                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                //}
 
-                OnRequestClose();
+                //OnRequestClose();
+
+                Messenger.Default.Send<ObjectSenderMessage<CertificationOrganizationForAllView>>
+                    (new ObjectSenderMessage<CertificationOrganizationForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedCertificationOrganization });
+                //OnRequestClose();
             }
         }
         #endregion

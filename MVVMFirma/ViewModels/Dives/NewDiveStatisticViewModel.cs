@@ -4,6 +4,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Equipment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,7 +77,7 @@ namespace MVVMFirma.ViewModels.Dives
         {
             item = new DiveStatistic();
             DiveDate = DateTime.Now;
-            Messenger.Default.Register<DiveLogsForAllView>(this, getSelectedDiveLog);
+            Messenger.Default.Register<ObjectSenderMessage<DiveLogsForAllView>>(this, getSelectedDiveLog);
         }
         #endregion
 
@@ -95,13 +96,23 @@ namespace MVVMFirma.ViewModels.Dives
 
         private void showAllDiveLogs()
         {
-            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveLogsAll", ObjectSender = this });
+            Messenger.Default.Send<OpenViewMessage>(new OpenViewMessage()
+            {
+                WhoRequestedToOpen = this,
+                ViewToOpen = new AllDiveLogsViewModel()
+                { WhoRequestedToOpen = this }
+            });
         }
         #endregion
 
         #region Helpers
-        private void getSelectedDiveLog(DiveLogsForAllView diveLog)
+        private void getSelectedDiveLog(ObjectSenderMessage<DiveLogsForAllView> message)
         {
+            if (message.WhoRequestedToOpen != this)
+            {
+                return;
+            }
+            DiveLogsForAllView diveLog = message.Object;
             IdDiveLog = diveLog.IdDiveLog;
             DiveDate = diveLog.DiveDate;
         }

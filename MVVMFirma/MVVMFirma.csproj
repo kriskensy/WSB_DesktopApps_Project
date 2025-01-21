@@ -99,6 +99,8 @@
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Helper\Messages\AddMessage.cs" />
     <Compile Include="Helper\Messages\EditMessage.cs" />
+    <Compile Include="Helper\Messages\ObjectSenderMessage.cs" />
+    <Compile Include="Helper\Messages\OpenViewMessage.cs" />
     <Compile Include="Helper\Messages\ShowAllMessage.cs" />
     <Compile Include="Helper\Validators\DateTimeValidator.cs" />
     <Compile Include="Helper\Validators\ForeignKeyValidator.cs" />

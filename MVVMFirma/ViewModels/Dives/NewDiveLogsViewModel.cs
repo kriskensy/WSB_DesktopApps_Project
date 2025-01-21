@@ -4,6 +4,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Equipment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,7 +117,7 @@ namespace MVVMFirma.ViewModels.Dives
         {
             item = new DiveLogs();
             DiveDate = DateTime.Now;
-            Messenger.Default.Register<DiveSitesForAllView>(this, this, getSelectedDiveSite);
+            Messenger.Default.Register<ObjectSenderMessage<DiveSitesForAllView>>(this, getSelectedDiveSite);
         }
 
         //konstruktor do edycji rekordów. czy tak trzeba?
@@ -165,8 +166,6 @@ namespace MVVMFirma.ViewModels.Dives
 
         #region Command
         private BaseCommand _ShowAllDiveSites;
-        //private DiveLogsForAllView diveLog;
-        //private DiveLogs diveLog1;
 
         public ICommand ShowAllDiveSites
         {
@@ -182,16 +181,26 @@ namespace MVVMFirma.ViewModels.Dives
         //ObjectSender wskazuje, że nadawcą wiadomości jest bieżący obiekt
         private void showAllDiveSites()
         {
-            Messenger.Default.Send<ShowAllMessage>(new ShowAllMessage { MessageName = "DiveSitesAll", ObjectSender = this });
+            Messenger.Default.Send<OpenViewMessage>(new OpenViewMessage()
+            {
+                WhoRequestedToOpen = this,
+                ViewToOpen = new AllDiveSitesViewModel()
+                { WhoRequestedToOpen = this }
+            });
         }
         #endregion
 
         #region Helpers
-        private void getSelectedDiveSite(DiveSitesForAllView diveSite)
+        private void getSelectedDiveSite(ObjectSenderMessage<DiveSitesForAllView> message)
         {
-            IdDiveSite = diveSite.IdDiveSite;
-            DiveSiteName = diveSite.SiteName;
-            DiveSiteLocation = diveSite.Location;
+            if (message.WhoRequestedToOpen != this)
+            {
+                return;
+            }
+            DiveSitesForAllView equipment = message.Object;
+            IdDiveSite = equipment.IdDiveSite;
+            DiveSiteName = equipment.SiteName;
+            DiveSiteLocation = equipment.Location;
         }
 
         public override void Save()

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.General
@@ -60,13 +61,18 @@ namespace MVVMFirma.ViewModels.General
             set
             {
                 _SelectedBuddy = value;
-                if (WhoRequestedToSelectElement != null)
-                {
-                    Messenger.Default.Send(_SelectedBuddy);
-                    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                }
+                //    if (WhoRequestedToSelectElement != null)
+                //    {
+                //        Messenger.Default.Send(_SelectedBuddy);
+                //        //tu jeszcze dopisać od kogo i do kogo jest wiadomość
+                //    }
 
-                OnRequestClose();
+                //    OnRequestClose();
+
+                Messenger.Default.Send<ObjectSenderMessage<BuddySystemForAllView>>
+                    (new ObjectSenderMessage<BuddySystemForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedBuddy });
+                //OnRequestClose();
             }
         }
         #endregion
