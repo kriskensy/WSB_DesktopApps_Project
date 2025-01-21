@@ -393,6 +393,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>
+    <Page Include="Themes\Styles\ChartStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\DataGrids.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

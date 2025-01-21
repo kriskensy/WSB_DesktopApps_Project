@@ -19,6 +19,9 @@
     <Color x:Key="ErrorColor">#EF5350</Color>
     <Color x:Key="InfoColor">#42A5F5</Color>
 
+    <Color x:Key="ChartColumnsColor">#77bf52</Color>
+    <Color x:Key="ChartForegroundColor">#000000</Color>
+
     <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="{DynamicResource PrimaryBackgroundColor}" />
     <SolidColorBrush x:Key="SecondaryBackgroundBrush" Color="{DynamicResource SecondaryBackgroundColor}" />
     <SolidColorBrush x:Key="PrimaryForegroundBrush" Color="{DynamicResource PrimaryForegroundColor}" />
@@ -35,5 +38,7 @@
     <SolidColorBrush x:Key="WarningBrush" Color="{DynamicResource WarningColor}" />
     <SolidColorBrush x:Key="ErrorBrush" Color="{DynamicResource ErrorColor}" />
     <SolidColorBrush x:Key="InfoBrush" Color="{DynamicResource InfoColor}" />
+    <SolidColorBrush x:Key="ChartColumnsBrush" Color="{DynamicResource ChartColumnsColor}" />
+    <SolidColorBrush x:Key="ChartForegroundBrush" Color="{DynamicResource ChartForegroundColor}" />
 
 </ResourceDictionary>

@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Themes/Styles/Buttons.xaml"/>
                 <ResourceDictionary Source="Themes/Styles/ValidationStyle.xaml"/>
                 <ResourceDictionary Source="Themes/Styles/IconsStyle.xaml"/>
+                <ResourceDictionary Source="Themes/Styles/ChartStyle.xaml"/>
                 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
