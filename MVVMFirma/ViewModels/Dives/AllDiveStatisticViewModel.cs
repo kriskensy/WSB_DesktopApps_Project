@@ -74,18 +74,14 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveStatistic = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedDiveStatistic);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<DiveStatisticForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<DiveStatisticForAllView>>
                     (new ObjectSenderMessage<DiveStatisticForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveStatistic });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                }
             }
         }
         #endregion

@@ -62,18 +62,15 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveSite = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedDiveSite, WhoRequestedToSelectElement);
-                //    OnRequestClose();
-                //}
-                ////OnRequestClose(); //to aktywne tylko jeśli otworzę zakładkę z NewDiveLogsViewModel
-                
-                Messenger.Default.Send<ObjectSenderMessage<DiveSitesForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<DiveSitesForAllView>>
                     (new ObjectSenderMessage<DiveSitesForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveSite });
-                //OnRequestClose();
-            }
+
+                    OnRequestClose();
+                }
+            }    
         }
 
         #endregion

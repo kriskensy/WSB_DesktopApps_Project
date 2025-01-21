@@ -61,18 +61,14 @@ namespace MVVMFirma.ViewModels.General
             set
             {
                 _SelectedBuddy = value;
-                //    if (WhoRequestedToSelectElement != null)
-                //    {
-                //        Messenger.Default.Send(_SelectedBuddy);
-                //        //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //    }
-
-                //    OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<BuddySystemForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<BuddySystemForAllView>>
                     (new ObjectSenderMessage<BuddySystemForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedBuddy });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                }
             }
         }
         #endregion

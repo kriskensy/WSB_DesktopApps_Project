@@ -72,18 +72,13 @@ namespace MVVMFirma.ViewModels.General
             set
             {
                 _SelectedEmergencyContact = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedEmergencyContact);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<EmergencyContactsForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<EmergencyContactsForAllView>>
                     (new ObjectSenderMessage<EmergencyContactsForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedEmergencyContact });
-                //OnRequestClose();
+                    OnRequestClose();
+                }
             }
         }
         #endregion

@@ -95,10 +95,14 @@ namespace MVVMFirma.ViewModels.Equipment
             set
             {
                 _SelectedEquipment = value;
-                Messenger.Default.Send<ObjectSenderMessage<EquipmentForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<EquipmentForAllView>>
                     (new ObjectSenderMessage<EquipmentForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedEquipment });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                }
             }
         }
         #endregion

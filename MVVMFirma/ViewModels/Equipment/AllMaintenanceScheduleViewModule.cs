@@ -63,18 +63,14 @@ namespace MVVMFirma.ViewModels.Equipment
             set
             {
                 _SelectedMaintenanceSchedule = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedMaintenanceSchedule);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<MaintenanceScheduleForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<MaintenanceScheduleForAllView>>
                     (new ObjectSenderMessage<MaintenanceScheduleForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedMaintenanceSchedule });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                } 
             }
         }
         #endregion

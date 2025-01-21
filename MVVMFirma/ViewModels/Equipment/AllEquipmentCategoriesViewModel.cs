@@ -55,18 +55,14 @@ namespace MVVMFirma.ViewModels.Equipment
             set
             {
                 _SelectedEquipmentCategory = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedEquipmentCategory);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<EquipmentCategoriesForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<EquipmentCategoriesForAllView>>
                     (new ObjectSenderMessage<EquipmentCategoriesForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedEquipmentCategory });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                }  
             }
         }
         #endregion

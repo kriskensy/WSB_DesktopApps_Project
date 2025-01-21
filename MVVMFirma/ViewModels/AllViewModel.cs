@@ -158,9 +158,6 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Properties
-        ////ten props przetrzymuje informację kto zażądał otwarcia zakładki
-        //public object WhoRequestedToSelectElement { get; set; } //SKASOWAC
-
         public object WhoRequestedToOpen { get; set; } //przetrzymuje info kto żąda otwarcia zakładki
 
         #endregion
@@ -170,8 +167,6 @@ namespace MVVMFirma.ViewModels
 
         private void add()
         {
-            //mess jest z biblio MVVMLight
-            //pozwala na wysłanie komunikatu do innego obiektu. DisplayName to nazwa widoku
             //komunikat odbiera MainWindowModel, który otwiera okna
             Messenger.Default.Send(new AddMessage { MessageName = DisplayName + "Add" });
         }

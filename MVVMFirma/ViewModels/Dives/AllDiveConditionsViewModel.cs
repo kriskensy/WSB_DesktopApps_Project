@@ -74,18 +74,13 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveCondition = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedDiveCondition);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<DiveConditionsForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<DiveConditionsForAllView>>
                     (new ObjectSenderMessage<DiveConditionsForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveCondition });
-                //OnRequestClose();
+                    OnRequestClose();
+                }
             }
         }
         #endregion

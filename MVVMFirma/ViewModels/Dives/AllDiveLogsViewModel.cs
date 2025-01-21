@@ -109,18 +109,13 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveLog = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedDiveLog);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<DiveLogsForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<DiveLogsForAllView>>
                     (new ObjectSenderMessage<DiveLogsForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveLog });
-                //OnRequestClose();
+                    OnRequestClose();
+                } 
             }
         }
         #endregion

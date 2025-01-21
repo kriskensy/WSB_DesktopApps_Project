@@ -61,18 +61,14 @@ namespace MVVMFirma.ViewModels.General
             set
             {
                 _SelectedUser = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedUser);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<UserForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<UserForAllView>>
                     (new ObjectSenderMessage<UserForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedUser });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                } 
             }
         }
         #endregion

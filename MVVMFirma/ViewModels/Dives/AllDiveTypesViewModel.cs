@@ -57,18 +57,14 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveType = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedDiveType);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<DiveTypesForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<DiveTypesForAllView>>
                     (new ObjectSenderMessage<DiveTypesForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveType });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                }
             }
         }
         #endregion

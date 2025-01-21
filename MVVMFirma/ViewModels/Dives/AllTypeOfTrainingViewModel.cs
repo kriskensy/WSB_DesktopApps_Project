@@ -55,18 +55,14 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedTypeOfTraining = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedTypeOfTraining);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-                Messenger.Default.Send<ObjectSenderMessage<TypeOfTrainingForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<TypeOfTrainingForAllView>>
                     (new ObjectSenderMessage<TypeOfTrainingForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedTypeOfTraining });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                }
             }
         }
         #endregion

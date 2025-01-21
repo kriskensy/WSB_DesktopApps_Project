@@ -93,19 +93,14 @@ namespace MVVMFirma.ViewModels.Certifications
             set
             {
                 _SelectedCertificate = value;
-                //if (WhoRequestedToSelectElement != null)
-                //{
-                //    Messenger.Default.Send(_SelectedCertificate);
-                //    //tu jeszcze dopisać od kogo i do kogo jest wiadomość
-                //}
-
-                //OnRequestClose();
-
-
-                Messenger.Default.Send<ObjectSenderMessage<CertificatesForAllView>>
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<CertificatesForAllView>>
                     (new ObjectSenderMessage<CertificatesForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedCertificate });
-                //OnRequestClose();
+
+                    OnRequestClose();
+                } 
             }
         }
         #endregion
