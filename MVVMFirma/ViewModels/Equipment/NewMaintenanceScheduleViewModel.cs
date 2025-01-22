@@ -128,6 +128,8 @@ namespace MVVMFirma.ViewModels.Equipment
                 case nameof(IdEquipment):
                     return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdEquipment) ?
                     "Equipment name cannot be empty" : string.Empty;
+                case nameof(Description):
+                    return string.IsNullOrEmpty(Description) ? "Description cannot be empty" : string.Empty;
                 case nameof(Status):
                     return string.IsNullOrEmpty(Status) ? "Status cannot be empty" : string.Empty;
                 default:

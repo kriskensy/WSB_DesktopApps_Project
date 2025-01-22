@@ -20,6 +20,7 @@ using MVVMFirma.Models.Entities;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.ViewModels.Reports;
 using MVVMFirma.Themes;
+using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
@@ -598,6 +599,29 @@ namespace MVVMFirma.ViewModels
                     break;
                 default: //info na konsolę
                     throw new ArgumentException($"Add button for: {name} doesn't work.");
+            }
+        }
+        #endregion
+
+        #region Helpers CloseAllTabs
+        private BaseCommand _CloseAllTabsCommand;
+
+        public ICommand CloseAllTabsCommand
+        {
+            get
+            {
+                if (_CloseAllTabsCommand == null)
+                    _CloseAllTabsCommand = new BaseCommand(() => CloseAllTabs());
+                return _CloseAllTabsCommand;
+            }
+        }
+
+        public void CloseAllTabs()
+        {
+            foreach (WorkspaceViewModel workspace in _Workspaces.ToList())
+            {
+                workspace.OnRequestClose();
+                _Workspaces.Remove(workspace);
             }
         }
         #endregion
