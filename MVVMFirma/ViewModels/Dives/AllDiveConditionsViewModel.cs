@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Dives
@@ -105,7 +106,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Delete(DiveConditionsForAllView record)
         {
-            var diveConditionToDelete = (from item in diving4LifeEntities.DiveConditions
+            DiveConditions diveConditionToDelete = (from item in diving4LifeEntities.DiveConditions
                                          where item.IdCondition == record.IdCondition
                                          select item
                                    ).SingleOrDefault();
@@ -118,7 +119,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

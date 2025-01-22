@@ -70,6 +70,16 @@ namespace MVVMFirma.ViewModels
                 return _DeleteCommand;
             }
         }
+
+        //public ICommand DeleteCommand
+        //{
+        //    get
+        //    {
+        //        if (_DeleteCommand == null)
+        //            _DeleteCommand = new BaseCommand(() => Delete());
+        //        return _DeleteCommand;
+        //    }
+        //}
         #endregion
 
         #region List
@@ -198,7 +208,7 @@ namespace MVVMFirma.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error while deleting record: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Error while deleting record from database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -211,8 +221,9 @@ namespace MVVMFirma.ViewModels
             {
                 _SelectedRecord = value;
                 OnPropertyChanged(() => SelectedRecord);
-                OnPropertyChanged(() => IsRecordSelected); //aktualizacja przycisków
+                //OnPropertyChanged(() => IsRecordSelected); //aktualizacja przycisków
                 CommandManager.InvalidateRequerySuggested(); //odświeżanie komend edit, delete
+                OnPropertyChanged(() => IsRecordSelected); //aktualizacja przycisków
                 Console.WriteLine($"SelectedRecord set to: {_SelectedRecord}"); //pomoc przy debugowaniu
             }
         }

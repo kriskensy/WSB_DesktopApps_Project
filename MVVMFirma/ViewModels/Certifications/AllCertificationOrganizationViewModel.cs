@@ -88,7 +88,7 @@ namespace MVVMFirma.ViewModels.Certifications
 
         public override void Delete(CertificationOrganizationForAllView record)
         {
-            var certificationOrganizationToDelete = (from item in diving4LifeEntities.CertificationOrganization
+            CertificationOrganization certificationOrganizationToDelete = (from item in diving4LifeEntities.CertificationOrganization
                                                      where item.IdOrganization == record.IdOrganization
                                                      select item
                                    ).SingleOrDefault();
@@ -101,7 +101,7 @@ namespace MVVMFirma.ViewModels.Certifications
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

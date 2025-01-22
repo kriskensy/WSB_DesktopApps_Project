@@ -83,7 +83,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         public override void Delete(EquipmentCategoriesForAllView record)
         {
-            var categoryToDelete = (from item in diving4LifeEntities.EquipmentCategories
+            EquipmentCategories categoryToDelete = (from item in diving4LifeEntities.EquipmentCategories
                                     where item.IdCategory == record.IdCategory
                                     select item
                                    ).SingleOrDefault();
@@ -96,7 +96,7 @@ namespace MVVMFirma.ViewModels.Equipment
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

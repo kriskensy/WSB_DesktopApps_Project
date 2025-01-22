@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System;
 using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
 
 namespace MVVMFirma.ViewModels.Certifications
 {
@@ -126,7 +127,7 @@ namespace MVVMFirma.ViewModels.Certifications
 
         public override void Delete(CertificatesForAllView record)
         {
-            var certificateToDelete = (from item in diving4LifeEntities.Certificates
+            Certificates certificateToDelete = (from item in diving4LifeEntities.Certificates
                                        where item.IdCertificate == record.IdCertificate
                                        select item
                                    ).SingleOrDefault();
@@ -139,7 +140,7 @@ namespace MVVMFirma.ViewModels.Certifications
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

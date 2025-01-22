@@ -84,7 +84,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Delete(TypeOfTrainingForAllView record)
         {
-            var trainingTypeToDelete = (from item in diving4LifeEntities.TypeOfTraining
+            TypeOfTraining trainingTypeToDelete = (from item in diving4LifeEntities.TypeOfTraining
                                         where item.IdTypeOfTraining == record.IdTypeOfTraining
                                         select item
                                    ).SingleOrDefault();
@@ -97,7 +97,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

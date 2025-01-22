@@ -88,7 +88,7 @@ namespace MVVMFirma.ViewModels.Equipment
 
         public override void Delete(EquipmentManufacturerForAllView record)
         {
-            var manufacturerToDelete = (from item in diving4LifeEntities.EquipmentManufacturer
+            EquipmentManufacturer manufacturerToDelete = (from item in diving4LifeEntities.EquipmentManufacturer
                                         where item.IdManufacturer == record.IdManufacturer
                                         select item
                                    ).SingleOrDefault();
@@ -101,7 +101,7 @@ namespace MVVMFirma.ViewModels.Equipment
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

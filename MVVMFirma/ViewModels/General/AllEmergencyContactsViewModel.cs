@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.General
@@ -105,7 +106,7 @@ namespace MVVMFirma.ViewModels.General
 
         public override void Delete(EmergencyContactsForAllView record)
         {
-            var emergencyContactToDelete = (from item in diving4LifeEntities.EmergencyContacts
+            EmergencyContacts emergencyContactToDelete = (from item in diving4LifeEntities.EmergencyContacts
                                             where item.IdEmergencyContact == record.IdEmergencyContact
                                             select item
                                    ).SingleOrDefault();
@@ -118,7 +119,7 @@ namespace MVVMFirma.ViewModels.General
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

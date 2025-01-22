@@ -92,7 +92,7 @@ namespace MVVMFirma.ViewModels.General
 
         public override void Delete(UserForAllView record)
         {
-            var userToDelete = (from item in diving4LifeEntities.User
+            User userToDelete = (from item in diving4LifeEntities.User
                                 where item.IdUser == record.IdUser
                                 select item
                                    ).SingleOrDefault();
@@ -105,7 +105,7 @@ namespace MVVMFirma.ViewModels.General
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

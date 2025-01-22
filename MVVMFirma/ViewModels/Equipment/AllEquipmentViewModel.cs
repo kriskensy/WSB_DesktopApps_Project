@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -142,7 +143,7 @@ namespace MVVMFirma.ViewModels.Equipment
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion

@@ -86,7 +86,7 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Delete(DiveTypesForAllView record)
         {
-            var diveTypeToDelete = (from item in diving4LifeEntities.DiveTypes
+            DiveTypes diveTypeToDelete = (from item in diving4LifeEntities.DiveTypes
                                     where item.IdDiveType == record.IdDiveType
                                     select item
                                    ).SingleOrDefault();
@@ -99,7 +99,7 @@ namespace MVVMFirma.ViewModels.Dives
             }
             else
             {
-                MessageBox.Show("Record not found in the database.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                throw new InvalidOperationException("Record not found in the database.");
             }
         }
         #endregion
