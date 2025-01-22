@@ -47,15 +47,11 @@ namespace MVVMFirma.ViewModels
         }
         private List<CommandViewModel> CreateCommands()
         {
-            //mess czeka na stringa i woła metodę openForAdd z helpersów
             Messenger.Default.Register<AddMessage>(this, message => openForAdd(message.MessageName));
-
             Messenger.Default.Register<ShowAllMessage>(this, message => openForShowAll(message.MessageName));
-
+            Messenger.Default.Register<EditMessage>(this, message => openForEdit(message.MessageName));
             Messenger.Default.Register<OpenViewMessage>(this, OpenView);
 
-            //ten mess odbiera akcję oraz opcjonalny obiekt
-            //Messenger.Default.Register<(EditMessage, object)>(this, message => openForEdit(message.Item1, message.Item2));
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
@@ -548,6 +544,59 @@ namespace MVVMFirma.ViewModels
             }
         }
 
+        private void openForEdit(string name)
+        {
+            switch (name)
+            {
+                case "CertificatesEdit":
+                    CreateView(new NewCertificatesViewModel());
+                    break;
+                case "Certification OrganizationEdit":
+                    CreateView(new NewCertificationOrganizationViewModel());
+                    break;
+                case "Dive ConditionsEdit":
+                    CreateView(new NewDiveConditionsViewModel());
+                    break;
+                case "Dive LogEdit":
+                    CreateView(new NewDiveLogsViewModel());
+                    break;
+                case "Dive SitesEdit":
+                    CreateView(new NewDiveSitesViewModel());
+                    break;
+                case "StatisticEdit":
+                    CreateView(new NewDiveStatisticViewModel());
+                    break;
+                case "Dive TypesEdit":
+                    CreateView(new NewDiveTypesViewModel());
+                    break;
+                case "Training TypesEdit":
+                    CreateView(new NewTypeOfTrainingViewModel());
+                    break;
+                case "EQ CategoriesEdit":
+                    CreateView(new NewEquipmentCategoriesViewModel());
+                    break;
+                case "EQ ManufacturerEdit":
+                    CreateView(new NewEquipmentManufacturerViewModel());
+                    break;
+                case "EquipmentEdit":
+                    CreateView(new NewEquipmentViewModel());
+                    break;
+                case "Maintenance ScheduleEdit":
+                    CreateView(new NewMaintenanceScheduleViewModel());
+                    break;
+                case "BuddysEdit":
+                    CreateView(new NewBuddysViewModel());
+                    break;
+                case "Emergency ContactEdit":
+                    CreateView(new NewEmergencyContactsViewModel());
+                    break;
+                case "UsersEdit":
+                    CreateView(new NewUsersViewModel());
+                    break;
+                default: //info na konsolę
+                    throw new ArgumentException($"Edit button for: {name} doesn't work.");
+            }
+        }
         private void openForAdd(string name)
         {
             switch (name)

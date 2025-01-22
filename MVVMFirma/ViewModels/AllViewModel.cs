@@ -70,16 +70,6 @@ namespace MVVMFirma.ViewModels
                 return _DeleteCommand;
             }
         }
-
-        //public ICommand DeleteCommand
-        //{
-        //    get
-        //    {
-        //        if (_DeleteCommand == null)
-        //            _DeleteCommand = new BaseCommand(() => Delete());
-        //        return _DeleteCommand;
-        //    }
-        //}
         #endregion
 
         #region List
@@ -181,10 +171,30 @@ namespace MVVMFirma.ViewModels
             Messenger.Default.Send(new AddMessage { MessageName = DisplayName + "Add" });
         }
 
+        public abstract void Edit(T record);
         private void editRecord() //TODO: napisać implementację we wszystkich klasach All...
         {
-            if (SelectedRecord != null)
-                Messenger.Default.Send(DisplayName + "Edit", SelectedRecord);
+            if (SelectedRecord == null)
+                return;
+
+            var result = MessageBox.Show(
+                "Are you sure you want to edit this record?",
+                "Edit Confirmation",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Edit(SelectedRecord);
+                    Load();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error while editing record.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         public abstract void Delete(T record);

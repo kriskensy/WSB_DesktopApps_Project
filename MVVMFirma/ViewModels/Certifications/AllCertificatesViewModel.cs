@@ -143,6 +143,23 @@ namespace MVVMFirma.ViewModels.Certifications
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+
+        public override void Edit(CertificatesForAllView record)
+        {
+            Certificates certificateToEdit = (from item in diving4LifeEntities.Certificates
+                                              where item.IdCertificate == record.IdCertificate
+                                              select item
+                                                ).SingleOrDefault();
+
+            if (certificateToEdit != null)
+            {
+                Messenger.Default.Send(DisplayName + "Edit");
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }

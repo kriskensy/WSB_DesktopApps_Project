@@ -108,6 +108,24 @@ namespace MVVMFirma.ViewModels.General
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+
+        public override void Edit(UserForAllView record)
+        {
+            User userToDelete = (from item in diving4LifeEntities.User
+                                 where item.IdUser == record.IdUser
+                                 select item
+                                   ).SingleOrDefault();
+
+
+            if (userToDelete != null)
+            {
+               
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }

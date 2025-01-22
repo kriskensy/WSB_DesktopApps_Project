@@ -1,51 +1,75 @@
 ﻿using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MVVMFirma.Models.BusinessLogic
 {
-    public class SACconsumptionB:DataBaseClass
+    public class SACconsumptionB : DataBaseClass
     {
         #region Constructor
         public SACconsumptionB(Diving4LifeEntities1 db)
             : base(db) { }
         #endregion
 
-        //#region Business Functions
-        //public decimal SingleDiveSACconsumption(int idUser, decimal airConsumed, int diveDuration, decimal maxDepth)
-        //{
-        //    return
-        //        (
-        //            from item in db.DiveLogs
-        //            where
-        //            item.IdUser == idUser
-        //            select new
-        //            {
-        //            item.DiveStatistic.AirConsumed,
-        //            item.DiveDuration,
-        //            item.MaxDepth
-        //            }
-        //        ).ToList();
-        //}
+        #region Business Functions
+        public decimal AverageDiveSACconsumption(int idUser, DateTime dateFrom, DateTime dateTo)
+        {
+            return
+                (
+                from item in db.DiveStatistic
+                where
+                item.DiveLogs.IdUser == idUser &&
+                item.DiveLogs.DiveDate >= dateFrom &&
+                item.DiveLogs.DiveDate <= dateTo
 
-        //public decimal TotalDiveSACconsumption(int idUser, decimal airConsumed, int diveDuration, decimal maxDepth)
-        //{
-        //    return
-        //        (
-        //            from item in db.DiveLogs
-        //            where
-        //            item.IdUser == idUser
-        //            select new
-        //            {
-        //                item.DiveStatistic.AirConsumed,
-        //                item.DiveDuration,
-        //                item.MaxDepth
-        //            }
-        //        ).ToList();
-        //}
-        //#endregion
+                select item.AirConsumed * 1000 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
+                //pod spodem prawdziwy wzór, ze względu na wymyślone dane w db zwiększony mnożnik
+                //select item.AirConsumed * 10 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
+                ).Average();
+        }
+
+        public decimal SingleDiveSACconsumption(int idUser, DateTime dateFrom, DateTime dateTo)
+        {
+            return
+                (
+                from item in db.DiveStatistic
+                where
+                item.DiveLogs.IdUser == idUser &&
+                item.DiveLogs.DiveDate >= dateFrom &&
+                item.DiveLogs.DiveDate <= dateTo
+
+                select item.AirConsumed * 1000 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
+                ).SingleOrDefault();
+        }
+
+        //pobranie nurkowań do listy dla wykresu słupkowego
+        public List<DiveLogsForAllView> GetDivesForUser(int idUser, DateTime dateFrom, DateTime dateTo)
+        {
+
+            return
+                (
+                from item in db.DiveLogs
+                join statistic in db.DiveStatistic
+                on item.IdDiveLog equals statistic.IdDiveLog
+                where
+                item.User.IdUser == idUser &&
+                item.DiveDate >= dateFrom &&
+                item.DiveDate <= dateTo
+                orderby item.DiveDate
+                select new DiveLogsForAllView 
+                {
+                    DiveDate = item.DiveDate, 
+                    DiveDuration = item.DiveDuration,
+                    MaxDepth = item.MaxDepth,
+                    AirConsumed = statistic.AirConsumed //pole dodane do DiveLogsForAllView
+                }
+                ).ToList();
+        }
+        #endregion
     }
 }

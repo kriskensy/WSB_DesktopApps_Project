@@ -19,5 +19,6 @@ namespace MVVMFirma.Models.EntitiesForView
         public string BuddyLastName { get; set; }
         public int DiveDuration { get; set; }
         public decimal MaxDepth { get; set; }
+        public decimal AirConsumed { get; set; } //pole dodane bo potrzebne do obliczeń raportu SAC
     }
 }

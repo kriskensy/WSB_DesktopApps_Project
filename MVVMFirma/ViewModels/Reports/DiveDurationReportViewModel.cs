@@ -16,10 +16,9 @@ using System.Windows.Media;
 
 namespace MVVMFirma.ViewModels.Reports
 {
-    public class DiveDurationReportViewModel : WorkspaceViewModel
+    public class DiveDurationReportViewModel : ReportsDataBaseClass
     {
         #region DB
-        Diving4LifeEntities1 db;
         DiveDurationB diveDurationLogic;
         #endregion
 
@@ -27,143 +26,10 @@ namespace MVVMFirma.ViewModels.Reports
         public DiveDurationReportViewModel()
         {
             base.DisplayName = "Dive duration report";
-            db = new Diving4LifeEntities1();
             diveDurationLogic = new DiveDurationB(db);
-
-            DateFrom = DateTime.Now;
-            DateTo = DateTime.Now;
-            DiveDurationTime = 0;
-
-            SeriesCollection = new SeriesCollection();
-            Labels = new List<string>();
             Formatter = value => value + " min";
-        }
-        #endregion
 
-        #region Properties
-
-        private int _IdUser;
-
-        public int IdUser
-        {
-            get
-            {
-                return _IdUser;
-            }
-            set
-            {
-                if (_IdUser != value)
-                {
-                    _IdUser = value;
-                    OnPropertyChanged(() => IdUser);
-                }
-            }
-        }
-
-        private DateTime _DateFrom;
-
-        public DateTime DateFrom
-        {
-            get
-            {
-                return _DateFrom;
-            }
-            set
-            {
-                if (_DateFrom != value)
-                {
-                    _DateFrom = value;
-                    OnPropertyChanged(() => DateFrom);
-                }
-            }
-        }
-
-        private DateTime _DateTo;
-
-        public DateTime DateTo
-        {
-            get
-            {
-                return _DateTo;
-            }
-            set
-            {
-                if (_DateTo != value)
-                {
-                    _DateTo = value;
-                    OnPropertyChanged(() => _DateTo);
-                }
-            }
-        }
-
-        private int _DiveDurationTime;
-
-        public int DiveDurationTime
-        {
-            get
-            {
-                return _DiveDurationTime;
-            }
-            set
-            {
-                if (_DiveDurationTime != value)
-                {
-                    _DiveDurationTime = value;
-                    OnPropertyChanged(() => _DiveDurationTime);
-                }
-            }
-        }
-
-        public IEnumerable<KeyAndValue> UsersItems
-        {
-            get
-            {
-                return new UsersB(db).GetUsersKeyAndValueItems();
-            }
-        }
-        #endregion
-
-        #region Chart
-        private SeriesCollection _SeriesCollection;
-        public SeriesCollection SeriesCollection
-        {
-            get { return _SeriesCollection; }
-            set
-            {
-                if (_SeriesCollection != value)
-                {
-                    _SeriesCollection = value;
-                    OnPropertyChanged(() => SeriesCollection);
-                }
-            }
-        }
-
-        private List<string> _Labels;
-        public List<string> Labels
-        {
-            get { return _Labels; }
-            set
-            {
-                if (_Labels != value)
-                {
-                    _Labels = value;
-                    OnPropertyChanged(() => Labels);
-                }
-            }
-        }
-
-        private Func<double, string> _Formatter;
-        public Func<double, string> Formatter
-        {
-            get { return _Formatter; }
-            set
-            {
-                if (_Formatter != value)
-                {
-                    _Formatter = value;
-                    OnPropertyChanged(() => Formatter);
-                }
-            }
+            DiveDurationTime = 0;
         }
         #endregion
 

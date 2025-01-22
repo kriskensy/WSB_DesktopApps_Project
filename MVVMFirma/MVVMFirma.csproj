@@ -115,6 +115,7 @@
     <Compile Include="Models\BusinessLogic\EquipmentCategoriesB.cs" />
     <Compile Include="Models\BusinessLogic\EquipmentManufacturersB.cs" />
     <Compile Include="Models\BusinessLogic\OrganizationsB.cs" />
+    <Compile Include="Models\BusinessLogic\ReportsDataBaseClass.cs" />
     <Compile Include="Models\BusinessLogic\SACconsumptionB.cs" />
     <Compile Include="Models\BusinessLogic\TypesOfTrainingB.cs" />
     <Compile Include="Models\BusinessLogic\UsersB.cs" />

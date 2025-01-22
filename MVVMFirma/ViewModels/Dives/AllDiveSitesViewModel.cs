@@ -109,6 +109,23 @@ namespace MVVMFirma.ViewModels.Dives
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+
+        public override void Edit(DiveSitesForAllView record)
+        {
+            DiveSites diveSiteToDelete = (from item in diving4LifeEntities.DiveSites
+                                          where item.IdDiveSite == record.IdDiveSite
+                                          select item
+                                   ).SingleOrDefault();
+
+            if (diveSiteToDelete != null)
+            {
+                
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }

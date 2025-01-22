@@ -100,6 +100,23 @@ namespace MVVMFirma.ViewModels.Dives
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+
+        public override void Edit(TypeOfTrainingForAllView record)
+        {
+            TypeOfTraining trainingTypeToDelete = (from item in diving4LifeEntities.TypeOfTraining
+                                                   where item.IdTypeOfTraining == record.IdTypeOfTraining
+                                                   select item
+                                   ).SingleOrDefault();
+
+            if (trainingTypeToDelete != null)
+            {
+                
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }

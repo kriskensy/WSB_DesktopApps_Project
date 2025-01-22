@@ -146,6 +146,24 @@ namespace MVVMFirma.ViewModels.Equipment
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+
+        public override void Edit(EquipmentForAllView record)
+        {
+            var equipmentToDelete = (from item in diving4LifeEntities.Equipment
+                                     where item.IdEquipment == record.IdEquipment
+                                     select item
+                                   ).SingleOrDefault();
+
+
+            if (equipmentToDelete != null)
+            {
+                
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }

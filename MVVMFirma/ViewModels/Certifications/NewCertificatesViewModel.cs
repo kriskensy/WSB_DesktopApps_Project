@@ -85,6 +85,12 @@ namespace MVVMFirma.ViewModels.Certifications
             IssueDate = DateTime.Now;
             IdUser = 0;
         }
+
+        public NewCertificatesViewModel(int idCertificate)
+            : base("Certificate", true)
+        {
+            item = diving4LifeEntities.Certificates.Find(idCertificate);
+        }
         #endregion
 
         #region Combobox

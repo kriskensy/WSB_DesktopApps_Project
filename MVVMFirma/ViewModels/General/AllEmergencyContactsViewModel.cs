@@ -122,6 +122,24 @@ namespace MVVMFirma.ViewModels.General
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+
+        public override void Edit(EmergencyContactsForAllView record)
+        {
+            EmergencyContacts emergencyContactToDelete = (from item in diving4LifeEntities.EmergencyContacts
+                                                          where item.IdEmergencyContact == record.IdEmergencyContact
+                                                          select item
+                                   ).SingleOrDefault();
+
+
+            if (emergencyContactToDelete != null)
+            {
+                
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }

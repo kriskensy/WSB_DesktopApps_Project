@@ -109,6 +109,23 @@ namespace MVVMFirma.ViewModels.General
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+        public override void Edit(BuddySystemForAllView record)
+        {
+            BuddySystem buddyToDelete = (from item in diving4LifeEntities.BuddySystem
+                                         where item.IdBuddy == record.IdBuddy
+                                         select item
+                                   ).SingleOrDefault();
+
+
+            if (buddyToDelete != null)
+            {
+                
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }

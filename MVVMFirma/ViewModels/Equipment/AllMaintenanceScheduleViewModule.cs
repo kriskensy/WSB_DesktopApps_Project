@@ -111,6 +111,24 @@ namespace MVVMFirma.ViewModels.Equipment
                 throw new InvalidOperationException("Record not found in the database.");
             }
         }
+
+        public override void Edit(MaintenanceScheduleForAllView record)
+        {
+            MaintenanceSchedule scheduleToDelete = (from item in diving4LifeEntities.MaintenanceSchedule
+                                                    where item.IdMaintenanceSchedule == record.IdMaintenanceSchedule
+                                                    select item
+                                   ).SingleOrDefault();
+
+
+            if (scheduleToDelete != null)
+            {
+                
+            }
+            else
+            {
+                throw new InvalidOperationException("Record not found in the database.");
+            }
+        }
         #endregion
     }
 }
