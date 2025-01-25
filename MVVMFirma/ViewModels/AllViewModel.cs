@@ -154,10 +154,9 @@ namespace MVVMFirma.ViewModels
         {
             diving4LifeEntities = new Diving4LifeEntities1();
             base.DisplayName = displayName;
-            //Messenger odbiera wiadomość do przeładowania widoku
             Messenger.Default.Register<ReloadViewMessage>(this, ViewModelTypeToReload);
 
-            IsDarkMode = false; //tryb jasny TODO: jak ustawiam tą flagę to mi wywala aplikację przy przełączaniu zakładek
+            IsDarkMode = false;
         }
         #endregion
 
@@ -256,110 +255,6 @@ namespace MVVMFirma.ViewModels
             {
                 return SelectedRecord != null;
             }
-        }
-        #endregion
-
-        #region DarkMode
-        //private BaseCommand _SwitchThemeCommand;
-
-        //public ICommand SwitchThemeCommand
-        //{
-        //    get
-        //    {
-        //        if (_SwitchThemeCommand == null)
-        //            _SwitchThemeCommand = new BaseCommand(() => switchTheme());
-        //        return _SwitchThemeCommand;
-        //    }
-        //}
-
-        //private bool _isDarkMode;
-        //public bool IsDarkMode
-        //{
-        //    get { return _isDarkMode; }
-        //    set
-        //    {
-        //        if (_isDarkMode != value)
-        //        {
-        //            _isDarkMode = value;
-        //            OnPropertyChanged(nameof(IsDarkMode));
-        //        }
-        //    }
-        //}
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //protected virtual void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-
-        //private void switchTheme()
-        //{
-        //    if (IsDarkMode)
-        //    {
-        //        Console.WriteLine("Switching to Light Theme");
-        //        ThemeManager.SwitchTheme("Light");
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Switching to Dark Theme");
-
-        //        ThemeManager.SwitchTheme("Dark");
-        //    }
-
-        //    IsDarkMode = !IsDarkMode;
-        //}
-        #endregion
-
-        #region OpenLinks
-        private BaseCommand _OpenYouTubeCommand;
-
-        public ICommand OpenYouTubeCommand
-        {
-            get
-            {
-                if (_OpenYouTubeCommand == null)
-                    _OpenYouTubeCommand = new BaseCommand(() => openYoutube());
-                return _OpenYouTubeCommand;
-            }
-        }
-
-        private BaseCommand _OpenDiscordCommand;
-
-        public ICommand OpenDiscordCommand
-        {
-            get
-            {
-                if (_OpenDiscordCommand == null)
-                    _OpenDiscordCommand = new BaseCommand(() => openDiscord());
-                return _OpenDiscordCommand;
-            }
-        }
-
-        private BaseCommand _OpenGitHubCommand;
-
-        public ICommand OpenGitHubCommand
-        {
-            get
-            {
-                if (_OpenGitHubCommand == null)
-                    _OpenGitHubCommand = new BaseCommand(() => openGtiHub());
-                return _OpenGitHubCommand;
-            }
-        }
-
-        private void openYoutube()
-        {
-            Process.Start(new ProcessStartInfo("https://www.youtube.com") { UseShellExecute = true });
-        }
-
-        private void openDiscord()
-        {
-            Process.Start(new ProcessStartInfo("https://discord.com") { UseShellExecute = true });
-        }
-
-        private void openGtiHub()
-        {
-            Process.Start(new ProcessStartInfo("https://github.com") { UseShellExecute = true });
         }
         #endregion
     }

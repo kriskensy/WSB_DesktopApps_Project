@@ -97,17 +97,6 @@
                     Content="Close all tabs"
                     Command="{Binding CloseAllTabsCommand}" />
 
-                <!--<StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <fa:IconBlock Icon="Youtube" Style="{StaticResource SocialMediaIconStyle}"  Command="{Binding OpenYouTubeCommand}" />
-                    <fa:IconBlock Icon="Discord" Style="{StaticResource SocialMediaIconStyle}"  Command="{Binding OpenDiscordCommand}"/>
-                    <fa:IconBlock Icon="Github" Style="{StaticResource SocialMediaIconStyle}"  Command="{Binding OpenGitHubCommand}"/>
-                </StackPanel>-->
-                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <fa:IconBlock Icon="Youtube" Style="{StaticResource SocialMediaIconStyle}" />
-                    <fa:IconBlock Icon="Discord" Style="{StaticResource SocialMediaIconStyle}" />
-                    <fa:IconBlock Icon="Github" Style="{StaticResource SocialMediaIconStyle}" />
-                </StackPanel>
-
             </Grid>
         </ToolBar>
 
