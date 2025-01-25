@@ -4,6 +4,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,6 +78,13 @@ namespace MVVMFirma.ViewModels.Equipment
             item = new MaintenanceSchedule();
             ScheduledDate = DateTime.Now;
             Messenger.Default.Register<ObjectSenderMessage<EquipmentForAllView>>(this, getSelectedEquipment);
+            diving4LifeEntities.MaintenanceSchedule.Add(item);
+        }
+
+        public NewMaintenanceScheduleViewModel(int idMaintenanceSchedule)
+            : base("Maintenance Schedule", true)
+        {
+            item = diving4LifeEntities.MaintenanceSchedule.Find(idMaintenanceSchedule);
         }
         #endregion
 
@@ -115,8 +123,9 @@ namespace MVVMFirma.ViewModels.Equipment
 
         public override void Save()
         {
-            diving4LifeEntities.MaintenanceSchedule.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllMaintenanceScheduleViewModule) });
         }
         #endregion
 

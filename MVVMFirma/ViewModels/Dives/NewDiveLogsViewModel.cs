@@ -4,6 +4,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 using MVVMFirma.ViewModels.Equipment;
 using System;
 using System.Collections.Generic;
@@ -118,24 +119,14 @@ namespace MVVMFirma.ViewModels.Dives
             item = new DiveLogs();
             DiveDate = DateTime.Now;
             Messenger.Default.Register<ObjectSenderMessage<DiveSitesForAllView>>(this, getSelectedDiveSite);
+            diving4LifeEntities.DiveLogs.Add(item);
         }
 
-        //konstruktor do edycji rekordów. czy tak trzeba?
-        public NewDiveLogsViewModel(DiveLogsForAllView diveLog)
+        public NewDiveLogsViewModel(int idDiveLog)
             : base("Dive Log", true)
         {
-            item = new DiveLogs();
-
-            //IdDiveLog = diveLog.IdDiveLog;
-            //IdUser = User.FirstOrDefault(item => item.UserId == diveLog.UserId);
-            //IdDiveType = diveLog.DiveTypes.TypeName;
-            //IdDiveSite = diveLog.DiveSites.SiteName;
-            //DiveDate = diveLog.DiveDate;
-            //IdBuddy = diveLog.BuddySystem.BuddyFirstName;
-            //DiveDuration = diveLog.DiveDuration;
-            //MaxDepth = diveLog.MaxDepth;
+            item = diving4LifeEntities.DiveLogs.Find(idDiveLog);
         }
-
         #endregion
 
         #region Combobox
@@ -205,8 +196,9 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Save()
         {
-            diving4LifeEntities.DiveLogs.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllDiveLogsViewModel) });
         }
         #endregion
 

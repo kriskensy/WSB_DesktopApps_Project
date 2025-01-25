@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -108,7 +109,8 @@ namespace MVVMFirma.ViewModels.Dives
 
             if (statisticToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewDiveStatisticViewModel(SelectedRecord.IdStatistic), WhoRequestedToOpen = this });
             }
             else
             {

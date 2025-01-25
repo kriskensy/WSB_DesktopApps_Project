@@ -1,6 +1,10 @@
-﻿using MVVMFirma.Models.BusinessLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
+using MVVMFirma.Views.Equipment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,9 +100,14 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             item = new Models.Entities.Equipment();
             PurchaseDate = DateTime.Now;
+            diving4LifeEntities.Equipment.Add(item);
         }
 
-
+        public NewEquipmentViewModel(int idEquipment)
+            : base("Equipment", true)
+        {
+            item = diving4LifeEntities.Equipment.Find(idEquipment);
+        }
         #endregion
 
         #region Combobox
@@ -130,8 +139,9 @@ namespace MVVMFirma.ViewModels.Equipment
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.Equipment.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllEquipmentViewModel) });
         }
         #endregion
 

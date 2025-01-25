@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.General
 {
@@ -110,7 +111,8 @@ namespace MVVMFirma.ViewModels.General
 
             if (emergencyContactToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewEmergencyContactsViewModel(SelectedRecord.IdEmergencyContact), WhoRequestedToOpen = this });
             }
             else
             {

@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -37,14 +40,22 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Training Type", false)
         {
             item = new TypeOfTraining();
+            diving4LifeEntities.TypeOfTraining.Add(item);
+        }
+
+        public NewTypeOfTrainingViewModel(int idTrainigType)
+            : base("Training Type", true)
+        {
+            item = diving4LifeEntities.TypeOfTraining.Find(idTrainigType);
         }
         #endregion
 
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.TypeOfTraining.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllTypeOfTrainingViewModel) });
         }
         #endregion
 

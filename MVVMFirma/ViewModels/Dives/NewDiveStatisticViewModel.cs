@@ -4,6 +4,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 using MVVMFirma.ViewModels.Equipment;
 using System;
 using System.Collections.Generic;
@@ -78,6 +79,13 @@ namespace MVVMFirma.ViewModels.Dives
             item = new DiveStatistic();
             DiveDate = DateTime.Now;
             Messenger.Default.Register<ObjectSenderMessage<DiveLogsForAllView>>(this, getSelectedDiveLog);
+            diving4LifeEntities.DiveStatistic.Add(item);
+        }
+
+        public NewDiveStatisticViewModel(int idDiveStatistic)
+            : base("Dive Statistic", true)
+        {
+            item = diving4LifeEntities.DiveStatistic.Find(idDiveStatistic);
         }
         #endregion
 
@@ -119,8 +127,9 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Save()
         {
-            diving4LifeEntities.DiveStatistic.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllDiveStatisticViewModel) });
         }
         #endregion
 

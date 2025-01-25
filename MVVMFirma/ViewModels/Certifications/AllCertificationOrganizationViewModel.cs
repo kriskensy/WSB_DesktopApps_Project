@@ -91,7 +91,8 @@ namespace MVVMFirma.ViewModels.Certifications
 
             if (certificationOrganizationToDelete != null)
             {
-
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewCertificationOrganizationViewModel(SelectedRecord.IdOrganization), WhoRequestedToOpen = this });
             }
             else
             {

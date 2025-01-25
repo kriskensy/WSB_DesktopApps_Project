@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Equipment
 {
@@ -25,14 +28,22 @@ namespace MVVMFirma.ViewModels.Equipment
             : base("EQ Category", false)
         {
             item = new EquipmentCategories();
+            diving4LifeEntities.EquipmentCategories.Add(item);
+        }
+
+        public NewEquipmentCategoriesViewModel(int idEquipmentCategory)
+            : base("EQ Category", true)
+        {
+            item = diving4LifeEntities.EquipmentCategories.Find(idEquipmentCategory);
         }
         #endregion
 
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.EquipmentCategories.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllEquipmentCategoriesViewModel) });
         }
         #endregion
 

@@ -10,6 +10,7 @@ using MVVMFirma.Models.BusinessLogic;
 using System.Collections.Generic;
 using System;
 using MVVMFirma.Helper.Messages;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -173,7 +174,8 @@ namespace MVVMFirma.ViewModels.Dives
 
             if (diveLogToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewDiveLogsViewModel(SelectedRecord.IdDiveLog), WhoRequestedToOpen = this });
             }
             else
             {

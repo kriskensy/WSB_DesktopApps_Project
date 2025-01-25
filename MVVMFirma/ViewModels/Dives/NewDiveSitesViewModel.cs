@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -51,14 +54,22 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Dive Sites", false)
         {
             item = new DiveSites();
+            diving4LifeEntities.DiveSites.Add(item);
+        }
+
+        public NewDiveSitesViewModel(int idDiveSite)
+            : base("Dive Sites", true)
+        {
+            item = diving4LifeEntities.DiveSites.Find(idDiveSite);
         }
         #endregion
 
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.DiveSites.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllDiveSitesViewModel) });
         }
         #endregion
 

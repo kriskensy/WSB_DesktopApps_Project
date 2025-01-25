@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Equipment
 {
@@ -98,7 +99,8 @@ namespace MVVMFirma.ViewModels.Equipment
 
             if (scheduleToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewMaintenanceScheduleViewModel(SelectedRecord.IdMaintenanceSchedule), WhoRequestedToOpen = this });
             }
             else
             {

@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.General
 {
@@ -95,7 +96,8 @@ namespace MVVMFirma.ViewModels.General
 
             if (buddyToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewBuddysViewModel(SelectedRecord.IdBuddy), WhoRequestedToOpen = this });
             }
             else
             {

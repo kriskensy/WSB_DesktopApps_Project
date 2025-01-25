@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -109,7 +110,8 @@ namespace MVVMFirma.ViewModels.Dives
 
             if (diveConditionToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewDiveConditionsViewModel(SelectedRecord.IdCondition), WhoRequestedToOpen = this });
             }
             else
             {

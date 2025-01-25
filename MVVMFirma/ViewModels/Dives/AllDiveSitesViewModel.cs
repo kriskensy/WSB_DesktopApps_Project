@@ -8,6 +8,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -120,7 +121,8 @@ namespace MVVMFirma.ViewModels.Dives
 
             if (diveSiteToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewDiveSitesViewModel(SelectedRecord.IdDiveSite), WhoRequestedToOpen = this });
             }
             else
             {

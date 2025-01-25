@@ -8,6 +8,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -88,7 +89,8 @@ namespace MVVMFirma.ViewModels.Dives
 
             if (diveTypeToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewDiveTypesViewModel(SelectedRecord.IdDiveType), WhoRequestedToOpen = this });
             }
             else
             {

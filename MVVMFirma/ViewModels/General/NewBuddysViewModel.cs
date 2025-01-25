@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.ViewModels.Certifications;
 using System.Xml.Linq;
 
 namespace MVVMFirma.ViewModels.General
@@ -65,14 +68,22 @@ namespace MVVMFirma.ViewModels.General
             : base("Buddy", false)
         {
             item = new BuddySystem();
+            diving4LifeEntities.BuddySystem.Add(item);
+        }
+
+        public NewBuddysViewModel(int idBuddy)
+            : base("Buddy", true)
+        {
+            item = diving4LifeEntities.BuddySystem.Find(idBuddy);
         }
         #endregion
 
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.BuddySystem.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllBuddysViewModel) });
         }
         #endregion
 

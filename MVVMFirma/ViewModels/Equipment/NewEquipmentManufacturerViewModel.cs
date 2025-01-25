@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.ViewModels.Certifications;
 using System.Windows;
 
 namespace MVVMFirma.ViewModels.Equipment
@@ -38,14 +41,22 @@ namespace MVVMFirma.ViewModels.Equipment
             : base("Manufacturer", false)
         {
             item = new EquipmentManufacturer();
+            diving4LifeEntities.EquipmentManufacturer.Add(item);
+        }
+
+        public NewEquipmentManufacturerViewModel(int idManufacturer)
+            : base("Manufacturer", true)
+        {
+            item = diving4LifeEntities.EquipmentManufacturer.Find(idManufacturer);
         }
         #endregion
 
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.EquipmentManufacturer.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllEquipmentManufacturerViewModel) });
         }
         #endregion
 

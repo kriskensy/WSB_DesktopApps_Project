@@ -1,6 +1,9 @@
-﻿using MVVMFirma.Models.BusinessLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -94,6 +97,13 @@ namespace MVVMFirma.ViewModels.General
             : base("Emergency Contact", false)
         {
             item = new EmergencyContacts();
+            diving4LifeEntities.EmergencyContacts.Add(item);
+        }
+
+        public NewEmergencyContactsViewModel(int idEmergencyContact)
+            : base("Emergency Contact", true)
+        {
+            item = diving4LifeEntities.EmergencyContacts.Find(idEmergencyContact);
         }
         #endregion
 
@@ -110,8 +120,9 @@ namespace MVVMFirma.ViewModels.General
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.EmergencyContacts.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllEmergencyContactsViewModel) });
         }
         #endregion
 

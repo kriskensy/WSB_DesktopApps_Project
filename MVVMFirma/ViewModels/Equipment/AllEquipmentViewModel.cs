@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Equipment
 {
@@ -158,7 +159,8 @@ namespace MVVMFirma.ViewModels.Equipment
 
             if (equipmentToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewEquipmentViewModel(SelectedRecord.IdEquipment), WhoRequestedToOpen = this });
             }
             else
             {

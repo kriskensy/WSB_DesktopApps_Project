@@ -8,6 +8,7 @@ using MVVMFirma.Helper.Messages;
 using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Equipment
 {
@@ -85,7 +86,8 @@ namespace MVVMFirma.ViewModels.Equipment
 
             if (categoryToDelete != null)
             {
-                
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewEquipmentCategoriesViewModel(SelectedRecord.IdCategory), WhoRequestedToOpen = this });
             }
             else
             {

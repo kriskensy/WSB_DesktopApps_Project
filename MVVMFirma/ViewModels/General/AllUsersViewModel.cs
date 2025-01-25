@@ -8,6 +8,7 @@ using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper.Messages;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.General
 {
@@ -95,7 +96,8 @@ namespace MVVMFirma.ViewModels.General
 
             if (userToDelete != null)
             {
-               
+                Messenger.Default.Send(new OpenViewMessage()
+                { ViewToOpen = new NewUsersViewModel(SelectedRecord.IdUser), WhoRequestedToOpen = this });
             }
             else
             {

@@ -1,4 +1,6 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
 
 namespace MVVMFirma.ViewModels.Certifications
 {
@@ -37,14 +39,22 @@ namespace MVVMFirma.ViewModels.Certifications
             : base("Organization", false)
         {
             item = new CertificationOrganization();
+            diving4LifeEntities.CertificationOrganization.Add(item);
+        }
+
+        public NewCertificationOrganizationViewModel(int idCertificationorganization)
+            : base("Organization", true)
+        {
+            item = diving4LifeEntities.CertificationOrganization.Find(idCertificationorganization);
         }
         #endregion
 
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.CertificationOrganization.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllCertificationOrganizationViewModel) });
         }
         #endregion
 

@@ -1,4 +1,7 @@
-﻿using MVVMFirma.Models.Entities;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.Entities;
+using MVVMFirma.ViewModels.Certifications;
 
 namespace MVVMFirma.ViewModels.Dives
 {
@@ -38,14 +41,22 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Dive Type", false)
         {
             item = new DiveTypes();
+            diving4LifeEntities.DiveTypes.Add(item);
+        }
+
+        public NewDiveTypesViewModel(int idDiveType)
+            : base("Dive Type", true)
+        {
+            item = diving4LifeEntities.DiveTypes.Find(idDiveType);
         }
         #endregion
 
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.DiveTypes.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage()
+            { ViewModelTypeToReload = typeof(AllDiveTypesViewModel) });
         }
         #endregion
 
