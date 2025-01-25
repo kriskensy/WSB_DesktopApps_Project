@@ -98,6 +98,8 @@ namespace MVVMFirma.ViewModels.Equipment
             set
             {
                 _SelectedEquipment = value;
+                SelectedRecord = value; //synchronizacja z SelectedRecord
+
                 if (WhoRequestedToOpen != null)
                 {
                     Messenger.Default.Send<ObjectSenderMessage<EquipmentForAllView>>

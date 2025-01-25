@@ -64,6 +64,8 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveSite = value;
+                SelectedRecord = value; //synchronizacja z SelectedRecord
+
                 if (WhoRequestedToOpen != null)
                 {
                     Messenger.Default.Send<ObjectSenderMessage<DiveSitesForAllView>>

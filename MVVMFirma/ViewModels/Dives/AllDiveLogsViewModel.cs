@@ -112,6 +112,8 @@ namespace MVVMFirma.ViewModels.Dives
             set
             {
                 _SelectedDiveLog = value;
+                SelectedRecord = value; //synchronizacja z SelectedRecord
+
                 if (WhoRequestedToOpen != null)
                 {
                     Messenger.Default.Send<ObjectSenderMessage<DiveLogsForAllView>>
