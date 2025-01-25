@@ -157,7 +157,7 @@ namespace MVVMFirma.ViewModels
             //Messenger odbiera wiadomość do przeładowania widoku
             Messenger.Default.Register<ReloadViewMessage>(this, ViewModelTypeToReload);
 
-            //IsDarkMode = false; //tryb jasny TODO: jak ustawiam tą flagę to mi wywala aplikację przy przełączaniu zakładek
+            IsDarkMode = false; //tryb jasny TODO: jak ustawiam tą flagę to mi wywala aplikację przy przełączaniu zakładek
         }
         #endregion
 
@@ -296,12 +296,17 @@ namespace MVVMFirma.ViewModels
         //{
         //    if (IsDarkMode)
         //    {
-        //        ThemeManager.SwitchTheme("Dark");
+        //        Console.WriteLine("Switching to Light Theme");
+        //        ThemeManager.SwitchTheme("Light");
         //    }
         //    else
         //    {
-        //        ThemeManager.SwitchTheme("Light");
+        //        Console.WriteLine("Switching to Dark Theme");
+
+        //        ThemeManager.SwitchTheme("Dark");
         //    }
+
+        //    IsDarkMode = !IsDarkMode;
         //}
         #endregion
 

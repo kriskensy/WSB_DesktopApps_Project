@@ -14,17 +14,28 @@ namespace MVVMFirma.Themes
         {
             var application = Application.Current;
 
-            application.Resources.MergedDictionaries.Clear(); //czyści aktualny styl
+            //usuwanie aktualnych słowników
+            var themeDictionaries = application.Resources.MergedDictionaries
+                .Where(d => d.Source != null &&
+                            (d.Source.OriginalString.Contains("Colors.xaml") ||
+                             d.Source.OriginalString.Contains("DarkColors.xaml")))
+                .ToList();
 
-            //TODO: przy przełączeniu usunąć poprzedni resource z kolorami
+            foreach (var dictionary in themeDictionaries)
+            {
+                application.Resources.MergedDictionaries.Remove(dictionary);
+            }
+
+            //dodanie nowego słownika
             if (theme == "Light")
             {
-                //application.Resources.MergedDictionaries.Remove("Themes/Styles/DarkColors.xaml");
+                Console.WriteLine("Loading Light Theme...");
                 application.Resources.MergedDictionaries.Add(
                     new ResourceDictionary { Source = new Uri("Themes/Styles/Colors.xaml", UriKind.Relative) });
             }
-            if (theme == "Dark")
+            else if (theme == "Dark")
             {
+                Console.WriteLine("Loading Dark Theme...");
                 application.Resources.MergedDictionaries.Add(
                     new ResourceDictionary { Source = new Uri("Themes/Styles/DarkColors.xaml", UriKind.Relative) });
             }

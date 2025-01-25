@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using System.Windows;
 using System.Windows.Input;
 using MVVMFirma.Helper;
+using MVVMFirma.Themes;
 
 namespace MVVMFirma.ViewModels
 {
@@ -110,6 +111,50 @@ namespace MVVMFirma.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #endregion
+
+        #region DarkMode
+        private BaseCommand _SwitchThemeCommand;
+
+        public ICommand SwitchThemeCommand
+        {
+            get
+            {
+                if (_SwitchThemeCommand == null)
+                    _SwitchThemeCommand = new BaseCommand(() => switchTheme());
+                return _SwitchThemeCommand;
+            }
+        }
+
+        private bool _isDarkMode;
+        public bool IsDarkMode
+        {
+            get { return _isDarkMode; }
+            set
+            {
+                if (_isDarkMode != value)
+                {
+                    _isDarkMode = value;
+                    OnPropertyChanged(nameof(IsDarkMode));
+                    switchTheme();
+                }
+            }
+        }
+
+        private void switchTheme()
+        {
+            if (IsDarkMode)
+            {
+                Console.WriteLine("Switching to Dark Theme");
+                ThemeManager.SwitchTheme("Dark");
+            }
+            else
+            {
+                Console.WriteLine("Switching to Light Theme");
+
+                ThemeManager.SwitchTheme("Light");
+            }
+        }
         #endregion
     }
 }
