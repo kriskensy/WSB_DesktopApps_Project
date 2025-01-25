@@ -18,11 +18,5 @@ namespace MVVMFirma.Helper.Validators
         {
             return Regex.IsMatch(text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         }
-
-        public static bool IsIntGreaterThenZero(string text)
-        {
-            int number;
-            return (int.TryParse(text, out number) && number > 0);
-        }
     }
 }

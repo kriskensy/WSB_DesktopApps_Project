@@ -105,6 +105,7 @@
     <Compile Include="Helper\Messages\ShowAllMessage.cs" />
     <Compile Include="Helper\Validators\DateTimeValidator.cs" />
     <Compile Include="Helper\Validators\ForeignKeyValidator.cs" />
+    <Compile Include="Helper\Validators\NumberValidator.cs" />
     <Compile Include="Helper\Validators\StringValidator.cs" />
     <Compile Include="Models\BusinessLogic\BuddysB.cs" />
     <Compile Include="Models\BusinessLogic\DataBaseClass.cs" />

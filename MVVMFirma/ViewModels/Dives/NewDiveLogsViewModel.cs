@@ -229,10 +229,10 @@ namespace MVVMFirma.ViewModels.Dives
                     return !Helper.Validators.ForeignKeyValidator.IsForeignKeySelected(IdBuddy) ?
                     "Buddy cannot be empty" : string.Empty;
                 case nameof(DiveDuration):
-                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(DiveDuration.ToString()) ?
+                    return !Helper.Validators.NumberValidator.IsDoubleGreaterThenZero(DiveDuration.ToString()) ?
                         "Dive Duration must be a number greater then 0" : string.Empty;
                 case nameof(MaxDepth):
-                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(MaxDepth.ToString()) ?
+                    return !Helper.Validators.NumberValidator.IsDoubleGreaterThenZero(MaxDepth.ToString()) ?
                         "Max depth must be a number greater then 0" : string.Empty;
                 default:
                     return string.Empty;

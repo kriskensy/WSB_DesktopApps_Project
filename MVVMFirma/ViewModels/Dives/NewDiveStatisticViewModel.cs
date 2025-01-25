@@ -140,18 +140,17 @@ namespace MVVMFirma.ViewModels.Dives
         {
             switch (propertyName)
             {
-                //TODO: ta data ma zostać pobrana z DiveLog
                 case nameof(DiveDate):
                     return !Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
                     "Dive date cannot be empty or in the future" : string.Empty;
                 case nameof(AirConsumed):
-                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(AirConsumed.ToString()) ?
+                    return !Helper.Validators.NumberValidator.IsDoubleGreaterThenZero(AirConsumed.ToString()) ?
                         "Air consumption must be a number greater then 0" : string.Empty;
                 case nameof(AscentRate):
-                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(AscentRate.ToString()) ?
+                    return !Helper.Validators.NumberValidator.IsDoubleGreaterThenZero(AscentRate.ToString()) ?
                         "Ascent rate must be a number greater then 0" : string.Empty;
                 case nameof(BottomTime):
-                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(BottomTime.ToString()) ?
+                    return !Helper.Validators.NumberValidator.IsDoubleGreaterThenZero(BottomTime.ToString()) ?
                         "Bottom time must be a number greater then 0" : string.Empty;
                 default:
                     return string.Empty;

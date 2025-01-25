@@ -152,12 +152,11 @@ namespace MVVMFirma.ViewModels.Dives
         {
             switch (propertyName)
             {
-                //TODO: ta data ma zostać pobrana przez okno modalne z DiveLog
                 case nameof(DiveDate):
                     return !Helper.Validators.DateTimeValidator.IsNotFutureDate(DiveDate) ?
                     "Dive date cannot be empty or in the future" : string.Empty;
                 case nameof(Temperature):
-                    return !Helper.Validators.StringValidator.IsIntGreaterThenZero(Temperature.ToString()) ?
+                    return !Helper.Validators.NumberValidator.IsDoubleGreaterThenZero(Temperature.ToString()) ?
                         "Temperature must be a number greater then 0" : string.Empty;
                 case nameof(WaterCurrent):
                     return string.IsNullOrEmpty(WaterCurrent) ? "Water current cannot be empty" : string.Empty;
