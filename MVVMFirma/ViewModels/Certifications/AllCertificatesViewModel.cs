@@ -131,7 +131,6 @@ namespace MVVMFirma.ViewModels.Certifications
             {
                 Messenger.Default.Send(new OpenViewMessage() 
                 { ViewToOpen = new NewCertificatesViewModel(SelectedRecord.IdCertificate), WhoRequestedToOpen = this });
-
             }
             else
             {

@@ -188,10 +188,10 @@ namespace MVVMFirma.ViewModels.Dives
             {
                 return;
             }
-            DiveSitesForAllView equipment = message.Object;
-            IdDiveSite = equipment.IdDiveSite;
-            DiveSiteName = equipment.SiteName;
-            DiveSiteLocation = equipment.Location;
+            DiveSitesForAllView diveSite = message.Object;
+            IdDiveSite = diveSite.IdDiveSite;
+            DiveSiteName = diveSite.SiteName;
+            DiveSiteLocation = diveSite.Location;
         }
 
         public override void Save()

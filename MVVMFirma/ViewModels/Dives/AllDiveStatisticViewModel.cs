@@ -64,6 +64,32 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
+        #region Properties
+        //dla okien modalnych
+        private DiveStatisticForAllView _SelectedDiveStatistic;
+
+        public DiveStatisticForAllView SelectedDiveStatistic
+        {
+            get
+            {
+                return _SelectedDiveStatistic;
+            }
+            set
+            {
+                _SelectedDiveStatistic = value;
+                if (WhoRequestedToOpen != null)
+                {
+                    Messenger.Default.Send<ObjectSenderMessage<DiveStatisticForAllView>>
+                    (new ObjectSenderMessage<DiveStatisticForAllView>()
+                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveStatistic });
+
+                    OnRequestClose();
+                }
+            }
+        }
+
+        #endregion
+
         #region Helpers
         public override void Load()
         {
@@ -102,12 +128,12 @@ namespace MVVMFirma.ViewModels.Dives
 
         public override void Edit(DiveStatisticForAllView record)
         {
-            DiveStatistic statisticToDelete = (from item in diving4LifeEntities.DiveStatistic
+            DiveStatistic statisticToEdit = (from item in diving4LifeEntities.DiveStatistic
                                                where item.IdStatistic == record.IdStatistic
                                                select item
                                    ).SingleOrDefault();
 
-            if (statisticToDelete != null)
+            if (statisticToEdit != null)
             {
                 Messenger.Default.Send(new OpenViewMessage()
                 { ViewToOpen = new NewDiveStatisticViewModel(SelectedRecord.IdStatistic), WhoRequestedToOpen = this });
