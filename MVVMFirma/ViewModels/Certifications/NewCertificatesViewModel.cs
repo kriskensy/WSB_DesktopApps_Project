@@ -1,4 +1,6 @@
-﻿using MVVMFirma.Models.BusinessLogic;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper.Messages;
+using MVVMFirma.Models.BusinessLogic;
 using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.EntitiesForView;
 using System;
@@ -84,6 +86,7 @@ namespace MVVMFirma.ViewModels.Certifications
             item = new Certificates();
             IssueDate = DateTime.Now;
             IdUser = 0;
+            diving4LifeEntities.Certificates.Add(item);
         }
 
         public NewCertificatesViewModel(int idCertificate)
@@ -122,8 +125,9 @@ namespace MVVMFirma.ViewModels.Certifications
         #region Helpers
         public override void Save()
         {
-            diving4LifeEntities.Certificates.Add(item);
             diving4LifeEntities.SaveChanges();
+            Messenger.Default.Send<ReloadViewMessage>(new ReloadViewMessage() 
+            { ViewModelTypeToReload = typeof(AllCertificatesViewModel) });
         }
         #endregion
 

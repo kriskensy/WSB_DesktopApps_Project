@@ -49,30 +49,6 @@ namespace MVVMFirma.ViewModels.General
         }
         #endregion
 
-        #region Properties
-        private UserForAllView _SelectedUser;
-
-        public UserForAllView SelectedUser
-        {
-            get
-            {
-                return _SelectedUser;
-            }
-            set
-            {
-                _SelectedUser = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<UserForAllView>>
-                    (new ObjectSenderMessage<UserForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedUser });
-
-                    OnRequestClose();
-                } 
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

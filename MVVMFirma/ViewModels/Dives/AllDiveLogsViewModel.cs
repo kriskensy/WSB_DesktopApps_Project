@@ -98,6 +98,8 @@ namespace MVVMFirma.ViewModels.Dives
         #endregion
 
         #region Properties
+
+        //dla okien modalnych
         private DiveLogsForAllView _SelectedDiveLog;
 
         public DiveLogsForAllView SelectedDiveLog
@@ -115,7 +117,7 @@ namespace MVVMFirma.ViewModels.Dives
                     (new ObjectSenderMessage<DiveLogsForAllView>()
                     { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveLog });
                     OnRequestClose();
-                } 
+                }
             }
         }
         #endregion

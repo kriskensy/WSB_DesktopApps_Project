@@ -17,7 +17,7 @@ namespace MVVMFirma.Models.BusinessLogic
         #endregion
 
         #region Business Functions
-        public decimal AverageDiveSACconsumption(int idUser, DateTime dateFrom, DateTime dateTo)
+        public decimal AverageDiveSAC(int idUser, DateTime dateFrom, DateTime dateTo)
         {
             return
                 (
@@ -27,24 +27,8 @@ namespace MVVMFirma.Models.BusinessLogic
                 item.DiveLogs.DiveDate >= dateFrom &&
                 item.DiveLogs.DiveDate <= dateTo
 
-                select item.AirConsumed * 1000 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
-                //pod spodem prawdziwy wzór, ze względu na wymyślone dane w db zwiększony mnożnik
-                //select item.AirConsumed * 10 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
+                select item.AirConsumed * 10 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
                 ).Average();
-        }
-
-        public decimal SingleDiveSACconsumption(int idUser, DateTime dateFrom, DateTime dateTo)
-        {
-            return
-                (
-                from item in db.DiveStatistic
-                where
-                item.DiveLogs.IdUser == idUser &&
-                item.DiveLogs.DiveDate >= dateFrom &&
-                item.DiveLogs.DiveDate <= dateTo
-
-                select item.AirConsumed * 1000 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
-                ).SingleOrDefault();
         }
 
         //pobranie nurkowań do listy dla wykresu słupkowego

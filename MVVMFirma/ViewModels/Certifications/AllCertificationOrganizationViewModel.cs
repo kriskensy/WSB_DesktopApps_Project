@@ -48,29 +48,6 @@ namespace MVVMFirma.ViewModels.Certifications
         }
         #endregion
 
-        #region Properties
-        private CertificationOrganizationForAllView _SelectedCertificationOrganization;
-
-        public CertificationOrganizationForAllView SelectedCertificationOrganization
-        {
-            get
-            {
-                return _SelectedCertificationOrganization;
-            }
-            set
-            {
-                _SelectedCertificationOrganization = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<CertificationOrganizationForAllView>>
-                    (new ObjectSenderMessage<CertificationOrganizationForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedCertificationOrganization });
-                    OnRequestClose();
-                }
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

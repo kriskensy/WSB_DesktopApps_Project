@@ -50,30 +50,6 @@ namespace MVVMFirma.ViewModels.General
         }
         #endregion
 
-        #region Properties
-        private BuddySystemForAllView _SelectedBuddy;
-
-        public BuddySystemForAllView SelectedBuddy
-        {
-            get
-            {
-                return _SelectedBuddy;
-            }
-            set
-            {
-                _SelectedBuddy = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<BuddySystemForAllView>>
-                    (new ObjectSenderMessage<BuddySystemForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedBuddy });
-
-                    OnRequestClose();
-                }
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

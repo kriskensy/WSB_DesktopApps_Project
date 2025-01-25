@@ -63,30 +63,6 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        #region Properties
-        private DiveStatisticForAllView _SelectedDiveStatistic;
-
-        public DiveStatisticForAllView SelectedDiveStatistic
-        {
-            get
-            {
-                return _SelectedDiveStatistic;
-            }
-            set
-            {
-                _SelectedDiveStatistic = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<DiveStatisticForAllView>>
-                    (new ObjectSenderMessage<DiveStatisticForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveStatistic });
-
-                    OnRequestClose();
-                }
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

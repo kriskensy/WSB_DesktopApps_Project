@@ -101,6 +101,7 @@
     <Compile Include="Helper\Messages\EditMessage.cs" />
     <Compile Include="Helper\Messages\ObjectSenderMessage.cs" />
     <Compile Include="Helper\Messages\OpenViewMessage.cs" />
+    <Compile Include="Helper\Messages\ReloadViewMessage.cs" />
     <Compile Include="Helper\Messages\ShowAllMessage.cs" />
     <Compile Include="Helper\Validators\DateTimeValidator.cs" />
     <Compile Include="Helper\Validators\ForeignKeyValidator.cs" />
@@ -405,6 +406,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\IconsStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\LabelStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

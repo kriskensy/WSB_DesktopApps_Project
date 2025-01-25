@@ -13,7 +13,7 @@
             <RowDefinition Height="33"/>
             <RowDefinition Height="33"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="33"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="SAC report for the selected user" Margin="3" HorizontalContentAlignment="Center"/>
@@ -48,11 +48,13 @@
 
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Average SAC:" Margin="3"/>
-            <Label Grid.Column="1" Content="{Binding SACconsumption}" Margin="3"/>
+            <Label Grid.Column="0" Content="Average SAC:" Margin="3" Style="{DynamicResource ReportsInfoLabelStyle}"/>
+            <Label Grid.Column="1" Content="{Binding SACconsumption}" Margin="3" Style="{DynamicResource ReportsResultLabelStyle}"/>
+            <Label Grid.Column="2" Content=" bar/min" Margin="3" Style="{DynamicResource ReportsResultLabelStyle}"/>
         </Grid>
 
         <lvc:CartesianChart Grid.Row="5" Series="{Binding SeriesCollection}">

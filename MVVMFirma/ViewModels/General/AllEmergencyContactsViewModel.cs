@@ -61,29 +61,6 @@ namespace MVVMFirma.ViewModels.General
         }
         #endregion
 
-        #region Properties
-        private EmergencyContactsForAllView _SelectedEmergencyContact;
-
-        public EmergencyContactsForAllView SelectedEmergencyContact
-        {
-            get
-            {
-                return _SelectedEmergencyContact;
-            }
-            set
-            {
-                _SelectedEmergencyContact = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<EmergencyContactsForAllView>>
-                    (new ObjectSenderMessage<EmergencyContactsForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedEmergencyContact });
-                    OnRequestClose();
-                }
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

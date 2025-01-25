@@ -52,30 +52,6 @@ namespace MVVMFirma.ViewModels.Equipment
         }
         #endregion
 
-        #region Properties
-        private MaintenanceScheduleForAllView _SelectedMaintenanceSchedule;
-
-        public MaintenanceScheduleForAllView SelectedMaintenanceSchedule
-        {
-            get
-            {
-                return _SelectedMaintenanceSchedule;
-            }
-            set
-            {
-                _SelectedMaintenanceSchedule = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<MaintenanceScheduleForAllView>>
-                    (new ObjectSenderMessage<MaintenanceScheduleForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedMaintenanceSchedule });
-
-                    OnRequestClose();
-                } 
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

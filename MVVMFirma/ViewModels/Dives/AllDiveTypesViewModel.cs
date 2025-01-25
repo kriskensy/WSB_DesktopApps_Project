@@ -45,30 +45,6 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        #region Properties
-        private DiveTypesForAllView _SelectedDiveType;
-
-        public DiveTypesForAllView SelectedDiveType
-        {
-            get
-            {
-                return _SelectedDiveType;
-            }
-            set
-            {
-                _SelectedDiveType = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<DiveTypesForAllView>>
-                    (new ObjectSenderMessage<DiveTypesForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveType });
-
-                    OnRequestClose();
-                }
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

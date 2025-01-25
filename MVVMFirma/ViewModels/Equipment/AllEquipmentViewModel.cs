@@ -86,6 +86,7 @@ namespace MVVMFirma.ViewModels.Equipment
         #endregion
 
         #region Properties
+        //dla okien modalnych
         private EquipmentForAllView _SelectedEquipment;
         public EquipmentForAllView SelectedEquipment
         {

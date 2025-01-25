@@ -63,29 +63,6 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        #region Properties
-        private DiveConditionsForAllView _SelectedDiveCondition;
-
-        public DiveConditionsForAllView SelectedDiveCondition
-        {
-            get
-            {
-                return _SelectedDiveCondition;
-            }
-            set
-            {
-                _SelectedDiveCondition = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<DiveConditionsForAllView>>
-                    (new ObjectSenderMessage<DiveConditionsForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedDiveCondition });
-                    OnRequestClose();
-                }
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

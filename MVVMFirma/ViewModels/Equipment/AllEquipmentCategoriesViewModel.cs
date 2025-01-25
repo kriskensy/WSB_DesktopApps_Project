@@ -43,30 +43,6 @@ namespace MVVMFirma.ViewModels.Equipment
         }
         #endregion
 
-        #region Properties
-        private EquipmentCategoriesForAllView _SelectedEquipmentCategory;
-
-        public EquipmentCategoriesForAllView SelectedEquipmentCategory
-        {
-            get
-            {
-                return _SelectedEquipmentCategory;
-            }
-            set
-            {
-                _SelectedEquipmentCategory = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<EquipmentCategoriesForAllView>>
-                    (new ObjectSenderMessage<EquipmentCategoriesForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedEquipmentCategory });
-
-                    OnRequestClose();
-                }  
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

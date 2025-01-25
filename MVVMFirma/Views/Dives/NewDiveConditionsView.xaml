@@ -20,15 +20,6 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <!--<Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Dive Date"/>
-        <DatePicker Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" SelectedDate="{Binding Path=DiveDate, UpdateSourceTrigger=PropertyChanged}"/>-->
-
-        <!--<Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Dive Date"/>
-        <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8"
-                   ItemsSource="{Binding DiveConditionsItems}"
-                    DisplayMemberPath="Value"
-                    SelectedValuePath="Key"
-                    SelectedValue="{Binding Path=IdDiveLog, Mode=TwoWay}"/>-->
 
         <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Dive Date"/>
         <DatePicker Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" IsEnabled="False" SelectedDate="{Binding Path=DiveDate, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>

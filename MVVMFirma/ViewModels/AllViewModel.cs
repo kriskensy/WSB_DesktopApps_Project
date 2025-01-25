@@ -81,6 +81,7 @@ namespace MVVMFirma.ViewModels
             {
                 if (_List == null)
                     Load();
+                OnPropertyChanged(() => SelectedRecord);
                 return _List;
             }
             set
@@ -153,6 +154,9 @@ namespace MVVMFirma.ViewModels
         {
             diving4LifeEntities = new Diving4LifeEntities1();
             base.DisplayName = displayName;
+            //Messenger odbiera wiadomość do przeładowania widoku
+            Messenger.Default.Register<ReloadViewMessage>(this, ViewModelTypeToReload);
+
             //IsDarkMode = false; //tryb jasny TODO: jak ustawiam tą flagę to mi wywala aplikację przy przełączaniu zakładek
         }
         #endregion
@@ -165,6 +169,16 @@ namespace MVVMFirma.ViewModels
         #region Helpers
         public abstract void Load();
 
+        //ta metoda pomaga przeładować widok po edycji rekordu
+        private void ViewModelTypeToReload(ReloadViewMessage message)
+        {
+
+            if (GetType() == message.ViewModelTypeToReload)
+            {
+                Load();
+            }
+        }
+
         private void add()
         {
             //komunikat odbiera MainWindowModel, który otwiera okna
@@ -172,7 +186,7 @@ namespace MVVMFirma.ViewModels
         }
 
         public abstract void Edit(T record);
-        private void editRecord() //TODO: napisać implementację we wszystkich klasach All...
+        private void editRecord()
         {
             if (SelectedRecord == null)
                 return;
@@ -231,10 +245,8 @@ namespace MVVMFirma.ViewModels
             {
                 _SelectedRecord = value;
                 OnPropertyChanged(() => SelectedRecord);
-                //OnPropertyChanged(() => IsRecordSelected); //aktualizacja przycisków
                 CommandManager.InvalidateRequerySuggested(); //odświeżanie komend edit, delete
                 OnPropertyChanged(() => IsRecordSelected); //aktualizacja przycisków
-                Console.WriteLine($"SelectedRecord set to: {_SelectedRecord}"); //pomoc przy debugowaniu
             }
         }
 

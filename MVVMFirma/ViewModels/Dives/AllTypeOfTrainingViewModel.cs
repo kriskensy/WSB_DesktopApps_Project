@@ -43,30 +43,6 @@ namespace MVVMFirma.ViewModels.Dives
         }
         #endregion
 
-        #region Properties
-        private TypeOfTrainingForAllView _SelectedTypeOfTraining;
-
-        public TypeOfTrainingForAllView SelectedTypeOfTraining
-        {
-            get
-            {
-                return _SelectedTypeOfTraining;
-            }
-            set
-            {
-                _SelectedTypeOfTraining = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<TypeOfTrainingForAllView>>
-                    (new ObjectSenderMessage<TypeOfTrainingForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedTypeOfTraining });
-
-                    OnRequestClose();
-                }
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

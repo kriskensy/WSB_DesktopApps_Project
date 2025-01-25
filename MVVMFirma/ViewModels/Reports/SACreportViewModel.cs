@@ -11,6 +11,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels.Reports
@@ -69,9 +70,9 @@ namespace MVVMFirma.ViewModels.Reports
             }
         }
 
-        private int _SACconsumption;
+        private double _SACconsumption;
 
-        public int SACconsumption
+        public double SACconsumption
         {
             get
             {
@@ -96,14 +97,14 @@ namespace MVVMFirma.ViewModels.Reports
             get
             {
                 if (_CreateReport == null)
-                    _CreateReport = new BaseCommand(() => calculateAverageDiveSACconsumption());
+                    _CreateReport = new BaseCommand(() => calculateAverageDiveSAC());
                 return _CreateReport;
             }
         }
 
-        private void calculateAverageDiveSACconsumption()
+        private void calculateAverageDiveSAC()
         {
-            SACconsumption = (int)SACconsumptionLogic.AverageDiveSACconsumption(IdUser, DateFrom, DateTo); //pobranie SAC całkowitego
+            SACconsumption = Math.Round((double)SACconsumptionLogic.AverageDiveSAC(IdUser, DateFrom, DateTo), 2); //pobranie SAC całkowitego
 
             var dives = SACconsumptionLogic.GetDivesForUser(IdUser, DateFrom, DateTo); //pobranie nurkowań w okresie
 
@@ -111,16 +112,18 @@ namespace MVVMFirma.ViewModels.Reports
             Labels.Clear();
 
             var sacConsumption = dives.Select(d =>
-                (int)(d.AirConsumed * 1000 / (d.DiveDuration * (d.MaxDepth / 10 + 1)))).ToArray();
-            Labels = dives.Select(d => d.DiveDate.ToShortDateString()).ToList(); //konieczna zamiana na stringa
+                Math.Round((double)(d.AirConsumed * 10 / (d.DiveDuration * (d.MaxDepth / 10 + 1))), 2)).ToArray();
+
+            SACconsumption = Math.Round(sacConsumption.Average(),2);
+
+            Labels = dives.Select(d => d.DiveDate.ToShortDateString()).ToList();
 
             SeriesCollection.Add(new ColumnSeries
             {
-                Title = "SAC Consumption",
-                Values = new ChartValues<int>(sacConsumption)
+                Title = "Dive SAC",
+                Values = new ChartValues<double>(sacConsumption)
             });
 
-            //aktualizacja
             OnPropertyChanged(() => SACconsumption);
             OnPropertyChanged(() => SeriesCollection);
             OnPropertyChanged(() => Labels);

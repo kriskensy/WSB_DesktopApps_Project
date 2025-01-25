@@ -16,8 +16,10 @@ namespace MVVMFirma.Themes
 
             application.Resources.MergedDictionaries.Clear(); //czyści aktualny styl
 
+            //TODO: przy przełączeniu usunąć poprzedni resource z kolorami
             if (theme == "Light")
             {
+                //application.Resources.MergedDictionaries.Remove("Themes/Styles/DarkColors.xaml");
                 application.Resources.MergedDictionaries.Add(
                     new ResourceDictionary { Source = new Uri("Themes/Styles/Colors.xaml", UriKind.Relative) });
             }

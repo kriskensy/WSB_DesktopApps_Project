@@ -47,30 +47,6 @@ namespace MVVMFirma.ViewModels.Equipment
         }
         #endregion
 
-        #region Properties
-        private EquipmentManufacturerForAllView _SelectedManufacturer;
-
-        public EquipmentManufacturerForAllView SelectedManufacturer
-        {
-            get
-            {
-                return _SelectedManufacturer;
-            }
-            set
-            {
-                _SelectedManufacturer = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<EquipmentManufacturerForAllView>>
-                    (new ObjectSenderMessage<EquipmentManufacturerForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedManufacturer });
-
-                    OnRequestClose();
-                } 
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {

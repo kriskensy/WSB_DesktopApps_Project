@@ -82,30 +82,6 @@ namespace MVVMFirma.ViewModels.Certifications
         }
         #endregion
 
-        #region Properties
-        private CertificatesForAllView _SelectedCertificate;
-
-        public CertificatesForAllView SelectedCertificate
-        {
-            get
-            {
-                return _SelectedCertificate;
-            }
-            set
-            {
-                _SelectedCertificate = value;
-                if (WhoRequestedToOpen != null)
-                {
-                    Messenger.Default.Send<ObjectSenderMessage<CertificatesForAllView>>
-                    (new ObjectSenderMessage<CertificatesForAllView>()
-                    { WhoRequestedToOpen = WhoRequestedToOpen, Object = _SelectedCertificate });
-
-                    OnRequestClose();
-                } 
-            }
-        }
-        #endregion
-
         #region Helpers
         public override void Load()
         {
@@ -128,8 +104,8 @@ namespace MVVMFirma.ViewModels.Certifications
         public override void Delete(CertificatesForAllView record)
         {
             Certificates certificateToDelete = (from item in diving4LifeEntities.Certificates
-                                       where item.IdCertificate == record.IdCertificate
-                                       select item
+                                                where item.IdCertificate == record.IdCertificate
+                                                select item
                                    ).SingleOrDefault();
 
 
@@ -153,7 +129,9 @@ namespace MVVMFirma.ViewModels.Certifications
 
             if (certificateToEdit != null)
             {
-                Messenger.Default.Send(DisplayName + "Edit");
+                Messenger.Default.Send(new OpenViewMessage() 
+                { ViewToOpen = new NewCertificatesViewModel(SelectedRecord.IdCertificate), WhoRequestedToOpen = this });
+
             }
             else
             {

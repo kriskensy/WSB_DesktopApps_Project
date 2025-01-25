@@ -12,7 +12,7 @@
             <RowDefinition Height="33"/>
             <RowDefinition Height="33"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="33"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Total time of all dives in the selected period for the selected user" Margin="3" HorizontalContentAlignment="Center"/>
 
@@ -46,11 +46,13 @@
 
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Total dive time:" Margin="3"/>
-            <Label Grid.Column="1" Content="{Binding DiveDurationTime}" Margin="3"/>
+            <Label Grid.Column="0" Content="Total dive time:" Margin="3"  Style="{DynamicResource ReportsInfoLabelStyle}"/>
+            <Label Grid.Column="1" Content="{Binding DiveDurationTime}" Margin="3" Style="{DynamicResource ReportsResultLabelStyle}"/>
+            <Label Grid.Column="2" Content=" XXX" Margin="3" Style="{DynamicResource ReportsResultLabelStyle}"/>
         </Grid>
     </Grid>
 </UserControl>

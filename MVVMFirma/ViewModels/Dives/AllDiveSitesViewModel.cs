@@ -51,6 +51,7 @@ namespace MVVMFirma.ViewModels.Dives
         #endregion
 
         #region Properties
+        //dla okien modalnych
         private DiveSitesForAllView _SelectedDiveSite;
 
         public DiveSitesForAllView SelectedDiveSite
