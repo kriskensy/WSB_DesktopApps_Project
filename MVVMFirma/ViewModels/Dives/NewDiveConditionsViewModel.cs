@@ -98,6 +98,8 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Dive Condition", true)
         {
             item = diving4LifeEntities.DiveConditions.Find(idDiveCondition);
+            DiveDate = diving4LifeEntities.DiveLogs.Find(item.IdDiveLog).DiveDate;
+            Messenger.Default.Register<ObjectSenderMessage<DiveLogsForAllView>>(this, getSelectedDiveLog);
         }
         #endregion
 

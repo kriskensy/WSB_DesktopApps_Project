@@ -126,6 +126,9 @@ namespace MVVMFirma.ViewModels.Dives
             : base("Dive Log", true)
         {
             item = diving4LifeEntities.DiveLogs.Find(idDiveLog);
+            DiveSiteName = diving4LifeEntities.DiveSites.Find(item.IdDiveSite).SiteName;
+            DiveSiteLocation = diving4LifeEntities.DiveSites.Find(item.IdDiveSite).Location;
+            Messenger.Default.Register<ObjectSenderMessage<DiveSitesForAllView>>(this, getSelectedDiveSite);
         }
         #endregion
 

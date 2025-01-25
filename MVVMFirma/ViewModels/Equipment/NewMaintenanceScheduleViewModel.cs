@@ -85,6 +85,8 @@ namespace MVVMFirma.ViewModels.Equipment
             : base("Maintenance Schedule", true)
         {
             item = diving4LifeEntities.MaintenanceSchedule.Find(idMaintenanceSchedule);
+            EquipmentName = diving4LifeEntities.Equipment.Find(item.IdEquipment).Name;
+            Messenger.Default.Register<ObjectSenderMessage<EquipmentForAllView>>(this, getSelectedEquipment);
         }
         #endregion
 
