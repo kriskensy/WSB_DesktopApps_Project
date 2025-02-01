@@ -12,7 +12,7 @@ namespace MVVMFirma.Themes
     {
         public static void SwitchTheme(string theme)
         {
-            var application = Application.Current;
+            Application application = Application.Current;
 
             //usuwanie aktualnych słowników
             var themeDictionaries = application.Resources.MergedDictionaries

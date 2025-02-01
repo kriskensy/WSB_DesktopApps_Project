@@ -45,11 +45,14 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             Load();
             if (FindField == "Equipment name")
-                List = new ObservableCollection<MaintenanceScheduleForAllView>(List.Where(item => item.EquipmentName != null && item.EquipmentName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<MaintenanceScheduleForAllView>
+                    (List.Where(item => item.EquipmentName != null && item.EquipmentName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Description")
-                List = new ObservableCollection<MaintenanceScheduleForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<MaintenanceScheduleForAllView>
+                    (List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Status")
-                List = new ObservableCollection<MaintenanceScheduleForAllView>(List.Where(item => item.Status != null && item.Status.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<MaintenanceScheduleForAllView>
+                    (List.Where(item => item.Status != null && item.Status.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

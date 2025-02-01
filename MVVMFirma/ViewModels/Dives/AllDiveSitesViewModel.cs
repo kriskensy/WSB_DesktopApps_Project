@@ -43,11 +43,14 @@ namespace MVVMFirma.ViewModels.Dives
         {
             Load();
             if (FindField == "Site name")
-                List = new ObservableCollection<DiveSitesForAllView>(List.Where(item => item.SiteName != null && item.SiteName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveSitesForAllView>
+                    (List.Where(item => item.SiteName != null && item.SiteName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Site location")
-                List = new ObservableCollection<DiveSitesForAllView>(List.Where(item => item.Location != null && item.Location.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveSitesForAllView>
+                    (List.Where(item => item.Location != null && item.Location.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Description")
-                List = new ObservableCollection<DiveSitesForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveSitesForAllView>
+                    (List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

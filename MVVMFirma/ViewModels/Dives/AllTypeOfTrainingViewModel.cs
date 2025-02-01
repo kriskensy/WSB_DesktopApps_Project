@@ -40,7 +40,8 @@ namespace MVVMFirma.ViewModels.Dives
         {
             Load();
             if (FindField == "Description")
-                List = new ObservableCollection<TypeOfTrainingForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<TypeOfTrainingForAllView>
+                    (List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

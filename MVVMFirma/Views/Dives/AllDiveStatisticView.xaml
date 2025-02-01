@@ -16,6 +16,5 @@
                 <DataGridTextColumn Header="Bottom Time" Binding="{Binding BottomTime}"/>
             </DataGrid.Columns>
         </DataGrid>
-            
     </Grid>
 </local:AllViewBase>

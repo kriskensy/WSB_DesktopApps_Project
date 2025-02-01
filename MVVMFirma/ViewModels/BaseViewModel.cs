@@ -110,7 +110,6 @@ namespace MVVMFirma.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         #endregion
 
         #region DarkMode
@@ -151,7 +150,6 @@ namespace MVVMFirma.ViewModels
             else
             {
                 Console.WriteLine("Switching to Light Theme");
-
                 ThemeManager.SwitchTheme("Light");
             }
         }

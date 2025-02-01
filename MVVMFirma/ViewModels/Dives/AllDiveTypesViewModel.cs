@@ -40,9 +40,11 @@ namespace MVVMFirma.ViewModels.Dives
         {
             Load();
             if (FindField == "Dive type")
-                List = new ObservableCollection<DiveTypesForAllView>(List.Where(item => item.TypeName != null && item.TypeName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveTypesForAllView>
+                    (List.Where(item => item.TypeName != null && item.TypeName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Description")
-                List = new ObservableCollection<DiveTypesForAllView>(List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveTypesForAllView>
+                    (List.Where(item => item.Description != null && item.Description.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

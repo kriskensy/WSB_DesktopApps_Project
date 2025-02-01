@@ -56,11 +56,14 @@ namespace MVVMFirma.ViewModels.Dives
         {
             Load();
             if (FindField == "Air Consumed")
-                List = new ObservableCollection<DiveStatisticForAllView>(List.Where(item => item.AirConsumed != null && item.AirConsumed.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveStatisticForAllView>
+                    (List.Where(item => item.AirConsumed != null && item.AirConsumed.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Ascent Rate")
-                List = new ObservableCollection<DiveStatisticForAllView>(List.Where(item => item.AscentRate != null && item.AscentRate.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveStatisticForAllView>
+                    (List.Where(item => item.AscentRate != null && item.AscentRate.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Bottom Time")
-                List = new ObservableCollection<DiveStatisticForAllView>(List.Where(item => item.BottomTime != null && item.BottomTime.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<DiveStatisticForAllView>
+                    (List.Where(item => item.BottomTime != null && item.BottomTime.ToString().StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

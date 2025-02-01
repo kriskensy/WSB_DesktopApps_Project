@@ -56,10 +56,6 @@
                                     CornerRadius="20" 
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center">
-                                <!--<Image Source="Themes/Images/image_logo.png"
-                                Stretch="UniformToFill"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"/>-->
                                 <Viewbox>
                                     <Grid>
                                         <Ellipse Width="150" Height="100">

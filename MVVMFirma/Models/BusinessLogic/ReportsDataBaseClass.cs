@@ -9,6 +9,8 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+//klasa bazowa do raportów, ...ReportViewModel
+
 namespace MVVMFirma.Models.BusinessLogic
 {
     public class ReportsDataBaseClass : WorkspaceViewModel

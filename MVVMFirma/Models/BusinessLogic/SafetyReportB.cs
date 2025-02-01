@@ -28,7 +28,7 @@ namespace MVVMFirma.Models.BusinessLogic
             ).DefaultIfEmpty(0).Average(); //dodany default na 0 jeśli nie ma wartości
         }
 
-        public int CountOverSpeedDives(int idUser, DateTime dateFrom, DateTime dateTo, double ascentRateThreshold = 9.0)
+        public int CountOverSpeedDives(int idUser, DateTime dateFrom, DateTime dateTo, double ascentRateThreshold = 9.0) //prawdziwa wratość
         {
             return (
                 from item in db.DiveStatistic

@@ -66,19 +66,24 @@ namespace MVVMFirma.ViewModels.Equipment
             switch (FindField)
             {
                 case "User Lastname":
-                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    List = new ObservableCollection<EquipmentForAllView>
+                        (List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
                     break;
                 case "Category":
-                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    List = new ObservableCollection<EquipmentForAllView>
+                        (List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
                     break;
                 case "Manufacturer":
-                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    List = new ObservableCollection<EquipmentForAllView>
+                        (List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
                     break;
                 case "Equipment Name":
-                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.EquipmentName != null && item.EquipmentName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    List = new ObservableCollection<EquipmentForAllView>
+                        (List.Where(item => item.EquipmentName != null && item.EquipmentName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
                     break;
                 case "Serial Number":
-                    List = new ObservableCollection<EquipmentForAllView>(List.Where(item => item.SerialNumber != null && item.SerialNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                    List = new ObservableCollection<EquipmentForAllView>
+                        (List.Where(item => item.SerialNumber != null && item.SerialNumber.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
                     break;
                 default:
                     break;

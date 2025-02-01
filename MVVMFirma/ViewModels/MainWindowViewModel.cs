@@ -176,7 +176,6 @@ namespace MVVMFirma.ViewModels
         private void OnWorkspaceRequestClose(object sender, EventArgs e)
         {
             WorkspaceViewModel workspace = sender as WorkspaceViewModel;
-            //workspace.Dispos();
             this.Workspaces.Remove(workspace);
         }
 
@@ -411,113 +410,6 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(workspace);
         }
 
-        #endregion
-
-        #region Helpers create methodes
-        private void CreateNewBuddy()
-        {
-            NewBuddysViewModel workspace = new NewBuddysViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewCertificate()
-        {
-            NewCertificatesViewModel workspace = new NewCertificatesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewOrganization()
-        {
-            NewCertificationOrganizationViewModel workspace = new NewCertificationOrganizationViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewDiveCondition()
-        {
-            NewDiveConditionsViewModel workspace = new NewDiveConditionsViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewDiveLog()
-        {
-            NewDiveLogsViewModel workspace = new NewDiveLogsViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewDiveSite()
-        {
-            NewDiveSitesViewModel workspace = new NewDiveSitesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewStatistic()
-        {
-            NewDiveStatisticViewModel workspace = new NewDiveStatisticViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewDiveType()
-        {
-            NewDiveTypesViewModel workspace = new NewDiveTypesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewEmergencyContact()
-        {
-            NewEmergencyContactsViewModel workspace = new NewEmergencyContactsViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewEquipmentCategory()
-        {
-            NewEquipmentCategoriesViewModel workspace = new NewEquipmentCategoriesViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewEquipmentManufacturer()
-        {
-            NewEquipmentManufacturerViewModel workspace = new NewEquipmentManufacturerViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewEquipment()
-        {
-            NewEquipmentViewModel workspace = new NewEquipmentViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewMaintenanceSchedule()
-        {
-            NewMaintenanceScheduleViewModel workspace = new NewMaintenanceScheduleViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewTrainingType()
-        {
-            NewTypeOfTrainingViewModel workspace = new NewTypeOfTrainingViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-
-        private void CreateNewUser()
-        {
-            NewUsersViewModel workspace = new NewUsersViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
         #endregion
 
         #region Helpers open methodes

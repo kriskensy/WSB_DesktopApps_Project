@@ -65,7 +65,8 @@
         </Style.Triggers>
     </Style>
 
-    <!--ToggleButtons-->
+    <!--ToggleButtons--> 
+    <!--został tylko switch theme-->
     <Style TargetType="ToggleButton" x:Key="SwitchThemeToggleButtonStyle">
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="30"/>
@@ -99,6 +100,7 @@
     </Style>
 
     <!--RibbonButtons-->
+    <!--został tylko close all tabs-->
     <Style TargetType="Button" x:Key="RibbonButtonStyle">
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="30"/>

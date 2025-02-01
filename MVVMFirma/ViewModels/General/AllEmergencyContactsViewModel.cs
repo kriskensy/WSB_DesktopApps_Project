@@ -56,9 +56,11 @@ namespace MVVMFirma.ViewModels.General
         {
             Load();
             if (FindField == "User Lastname")
-                List = new ObservableCollection<EmergencyContactsForAllView>(List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<EmergencyContactsForAllView>
+                    (List.Where(item => item.UserLastName != null && item.UserLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Contact Lastname")
-                List = new ObservableCollection<EmergencyContactsForAllView>(List.Where(item => item.ContactLastName != null && item.ContactLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<EmergencyContactsForAllView>
+                    (List.Where(item => item.ContactLastName != null && item.ContactLastName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

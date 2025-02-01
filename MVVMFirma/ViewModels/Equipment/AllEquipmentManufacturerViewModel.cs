@@ -42,9 +42,11 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             Load();
             if (FindField == "Manufacturer")
-                List = new ObservableCollection<EquipmentManufacturerForAllView>(List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<EquipmentManufacturerForAllView>
+                    (List.Where(item => item.ManufacturerName != null && item.ManufacturerName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
             if (FindField == "Country")
-                List = new ObservableCollection<EquipmentManufacturerForAllView>(List.Where(item => item.Country != null && item.Country.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<EquipmentManufacturerForAllView>
+                    (List.Where(item => item.Country != null && item.Country.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 

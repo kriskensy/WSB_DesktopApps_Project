@@ -96,7 +96,6 @@
                     Style="{DynamicResource RibbonButtonStyle}"
                     Content="Close all tabs"
                     Command="{Binding CloseAllTabsCommand}" />
-
             </Grid>
         </ToolBar>
 

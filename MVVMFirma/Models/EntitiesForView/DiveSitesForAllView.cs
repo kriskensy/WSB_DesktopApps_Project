@@ -12,6 +12,5 @@ namespace MVVMFirma.Models.EntitiesForView
         public string SiteName { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }
-
     }
 }

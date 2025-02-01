@@ -40,7 +40,8 @@ namespace MVVMFirma.ViewModels.Equipment
         {
             Load();
             if (FindField == "Category Name")
-                List = new ObservableCollection<EquipmentCategoriesForAllView>(List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
+                List = new ObservableCollection<EquipmentCategoriesForAllView>
+                    (List.Where(item => item.CategoryName != null && item.CategoryName.StartsWith(FindTextBox, StringComparison.OrdinalIgnoreCase)));
         }
         #endregion
 
