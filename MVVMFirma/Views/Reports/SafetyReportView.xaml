@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="MVVMFirma.Views.Reports.SafetyReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVMFirma.Views.Reports"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="white" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="33"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Safety report for the selected user" Margin="3" HorizontalContentAlignment="Center"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Date from:" Margin="3"/>
+            <DatePicker Grid.Column="1" Margin="3" SelectedDate="{Binding DateFrom}"/>
+            <Label Grid.Column="2" Content="Date to:" Margin="3"/>
+            <DatePicker Grid.Column="3" Margin="3" SelectedDate="{Binding DateTo}"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Select user" Margin="3"/>
+            <ComboBox Grid.Column="1" Margin="3" 
+                      ItemsSource="{Binding UsersItems}" 
+                      DisplayMemberPath="Value" 
+                      SelectedValuePath="Key"
+                      SelectedValue="{Binding Path=IdUser, Mode=TwoWay}"/>
+        </Grid>
+
+        <Button Grid.Row="3" Content="Calculate and create chart" Margin="3" Command="{Binding CreateReport}"/>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Average Ascent Rate:" Margin="3" Style="{DynamicResource ReportsInfoLabelStyle}"/>
+            <Label Grid.Column="1" Content="{Binding AverageAscentRate}" Margin="3" Style="{DynamicResource ReportsResultLabelStyle}"/>
+            <Label Grid.Column="2" Content=" m/min" Margin="3" Style="{DynamicResource ReportsResultLabelStyle}"/>
+        </Grid>
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="260"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Dives with high ascent rate:" Margin="3" Style="{DynamicResource ReportsInfoLabelStyle}"/>
+            <Label Grid.Column="1" Content="{Binding OverSpeedDives}" Margin="3" Style="{DynamicResource ReportsWarningLabelStyle}"/>
+        </Grid>
+
+        <lvc:CartesianChart Grid.Row="6" Series="{Binding SeriesCollection}">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Dive Dates" Labels="{Binding Labels}" />
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Ascent Rate (m/min)" LabelFormatter="{Binding Formatter}" />
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+
+    </Grid>
+</UserControl>
+

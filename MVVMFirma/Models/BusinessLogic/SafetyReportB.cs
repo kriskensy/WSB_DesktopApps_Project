@@ -2,41 +2,48 @@
 using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MVVMFirma.Models.BusinessLogic
 {
-    public class SACconsumptionB : DataBaseClass
+    public class SafetyReportB : DataBaseClass
     {
         #region Constructor
-        public SACconsumptionB(Diving4LifeEntities1 db)
+        public SafetyReportB(Diving4LifeEntities1 db)
             : base(db) { }
         #endregion
 
         #region Business Functions
-        public decimal AverageDiveSAC(int idUser, DateTime dateFrom, DateTime dateTo)
+        public decimal AverageAscentRate(int idUser, DateTime dateFrom, DateTime dateTo)
         {
-            return
-                (
+            return (
                 from item in db.DiveStatistic
                 where
                 item.DiveLogs.IdUser == idUser &&
                 item.DiveLogs.DiveDate >= dateFrom &&
                 item.DiveLogs.DiveDate <= dateTo
-
-                select item.AirConsumed * 10 / (item.DiveLogs.DiveDuration * (item.DiveLogs.MaxDepth + 1))
-                ).DefaultIfEmpty(0).Average(); //dodany default na 0 jeśli nie ma wartości
+                select item.AscentRate
+            ).DefaultIfEmpty(0).Average(); //dodany default na 0 jeśli nie ma wartości
         }
 
-        //pobranie nurkowań do listy dla wykresu słupkowego
+        public int CountOverSpeedDives(int idUser, DateTime dateFrom, DateTime dateTo, double ascentRateThreshold = 9.0)
+        {
+            return (
+                from item in db.DiveStatistic
+                where
+                item.DiveLogs.IdUser == idUser &&
+                item.DiveLogs.DiveDate >= dateFrom &&
+                item.DiveLogs.DiveDate <= dateTo &&
+                (double)item.AscentRate > ascentRateThreshold //konieczne rzutowanie do double
+                select item
+            ).Count();
+        }
+
         public List<DiveLogsForAllView> GetDivesForUser(int idUser, DateTime dateFrom, DateTime dateTo)
         {
-
-            return
-                (
+            return (
                 from item in db.DiveLogs
                 join statistic in db.DiveStatistic
                 on item.IdDiveLog equals statistic.IdDiveLog
@@ -45,14 +52,12 @@ namespace MVVMFirma.Models.BusinessLogic
                 item.DiveDate >= dateFrom &&
                 item.DiveDate <= dateTo
                 orderby item.DiveDate
-                select new DiveLogsForAllView 
+                select new DiveLogsForAllView
                 {
-                    DiveDate = item.DiveDate, 
-                    DiveDuration = item.DiveDuration,
-                    MaxDepth = item.MaxDepth,
-                    AirConsumed = statistic.AirConsumed //pole dodane do DiveLogsForAllView
+                    DiveDate = item.DiveDate,
+                    AscentRate = statistic.AscentRate
                 }
-                ).ToList();
+            ).ToList();
         }
         #endregion
     }

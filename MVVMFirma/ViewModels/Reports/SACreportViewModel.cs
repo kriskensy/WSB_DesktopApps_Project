@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 
+//jaki wskaźnik zużycia gazu w okresie od.. do.. miał dany user?
+
 namespace MVVMFirma.ViewModels.Reports
 {
     public class SACreportViewModel : ReportsDataBaseClass
@@ -114,7 +116,7 @@ namespace MVVMFirma.ViewModels.Reports
             var sacConsumption = dives.Select(d =>
                 Math.Round((double)(d.AirConsumed * 10 / (d.DiveDuration * (d.MaxDepth / 10 + 1))), 2)).ToArray();
 
-            SACconsumption = Math.Round(sacConsumption.Average(),2);
+            SACconsumption = Math.Round(sacConsumption.DefaultIfEmpty(0).Average(),2); //dodany default na 0 jeśli nie ma wartości
 
             Labels = dives.Select(d => d.DiveDate.ToShortDateString()).ToList();
 

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMFirma.Views.Reports
 {
     /// <summary>
-    /// Interaction logic for EquipmentCategoryReportView.xaml
+    /// Interaction logic for SafetyReportView.xaml
     /// </summary>
-    public partial class EquipmentCategoryReportView : UserControl
+    public partial class SafetyReportView : UserControl
     {
-        public EquipmentCategoryReportView()
+        public SafetyReportView()
         {
             InitializeComponent();
         }

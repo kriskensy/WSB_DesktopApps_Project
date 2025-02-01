@@ -136,16 +136,16 @@ namespace MVVMFirma.ViewModels
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
-                    "SAC report",
-                    new BaseCommand(()=> this.CreateView(new SACreportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
-
-                new CommandViewModel(
                     "Dive duration report",
                     new BaseCommand(()=> this.CreateView(new DiveDurationReportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
 
                 new CommandViewModel(
-                    "Equipment category report",
-                    new BaseCommand(()=> this.CreateView(new EquipmentCategoryReportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
+                    "SAC report",
+                    new BaseCommand(()=> this.CreateView(new SACreportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
+
+                new CommandViewModel(
+                    "Safety report",
+                    new BaseCommand(()=> this.CreateView(new SafetyReportViewModel())), FontAwesome.Sharp.IconChar.ChartLine),
             };
         }
         #endregion

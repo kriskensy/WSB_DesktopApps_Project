@@ -119,6 +119,7 @@
     <Compile Include="Models\BusinessLogic\OrganizationsB.cs" />
     <Compile Include="Models\BusinessLogic\ReportsDataBaseClass.cs" />
     <Compile Include="Models\BusinessLogic\SACconsumptionB.cs" />
+    <Compile Include="Models\BusinessLogic\SafetyReportB.cs" />
     <Compile Include="Models\BusinessLogic\TypesOfTrainingB.cs" />
     <Compile Include="Models\BusinessLogic\UsersB.cs" />
     <Compile Include="Models\EntitiesForView\BuddySystemForAllView.cs" />
@@ -238,8 +239,8 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NewViewModel.cs" />
     <Compile Include="ViewModels\Reports\DiveDurationReportViewModel.cs" />
-    <Compile Include="ViewModels\Reports\EquipmentCategoryReportViewModel.cs" />
     <Compile Include="ViewModels\Reports\SACreportViewModel.cs" />
+    <Compile Include="ViewModels\Reports\SafetyReportViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -341,11 +342,11 @@
     <Compile Include="Views\Reports\DiveDurationReportView.xaml.cs">
       <DependentUpon>DiveDurationReportView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reports\EquipmentCategoryReportView.xaml.cs">
-      <DependentUpon>EquipmentCategoryReportView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Reports\SACreportView.xaml.cs">
       <DependentUpon>SACreportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\SafetyReportView.xaml.cs">
+      <DependentUpon>SafetyReportView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -387,6 +388,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\SafetyReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -543,10 +548,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Reports\DiveDurationReportView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Reports\EquipmentCategoryReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

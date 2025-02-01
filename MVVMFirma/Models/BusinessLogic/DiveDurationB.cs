@@ -27,7 +27,7 @@ namespace MVVMFirma.Models.BusinessLogic
                 item.DiveDate >= dateFrom &&
                 item.DiveDate <= dateTo
                 select item.DiveDuration
-                ).Sum();
+                ).DefaultIfEmpty(0).Sum(); //dodany default na 0 jeśli nie ma wartości
         }
 
         //pobranie nurkowań do listy dla wykresu słupkowego

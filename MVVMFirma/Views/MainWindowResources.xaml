@@ -128,8 +128,8 @@
         <reports:DiveDurationReportView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type reports1:EquipmentCategoryReportViewModel}">
-        <reports:EquipmentCategoryReportView/>
+    <DataTemplate DataType="{x:Type reports1:SafetyReportViewModel}">
+        <reports:SafetyReportView/>
     </DataTemplate>
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
