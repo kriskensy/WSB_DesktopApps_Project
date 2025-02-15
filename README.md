@@ -22,7 +22,7 @@ Diving 4 Life is a WPF-based desktop application designed to help divers analyze
 ## Installation & Setup  
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/kriskensy/diving-log-analyzer.git
+   git clone https://github.com/kriskensy/WSB_DesktopApps_Project.git
    ```
 2. Open the solution in Visual Studio.  
 3. Build the project and run the application.  
